@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+
+<!--main-->
+<div class="midder">
+
+<div class="mc">
+<include file="edit_xbar" />
+
+<div class="cleft">
+
+	<div class="face_form">
+    
+        <form method="POST" action="{:U('group/update',array('d'=>'icon'))}" enctype="multipart/form-data" >
+          <img align="left" alt="{$strGroup[groupname]}" title="{$strGroup[groupname]}" valign="middle" src="{$strGroup[icon_48]}" class="pil">
+          <div class="file_info">
+    		<p>从你的电脑上选择图像文件：(仅支持jpg，gif，png格式的图片)</p>
+    		<p><input type="file" style="height:25px; " name="picfile">&nbsp;&nbsp;<input type="submit" value="上传照片" class="submit">
+               <input type="hidden" name="groupid" value="{$strGroup[groupid]}" /></p>
+    	  </div>
+        </form>
+        
+	</div>
+
+</div>
+
+<div class="cright">
+
+<p class="pl2">&gt; <a href="{:U('group/show',array('id'=>$strGroup[groupid]))}">返回{$strGroup[groupname]}</a></p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<include file="public:footer" />
+</body>
+</html>

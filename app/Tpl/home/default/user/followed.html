@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+<css file="__STATIC__/theme/{:C('ik_site_theme')}/user/images/validate.css"/>
+</head>
+
+<body>
+<include file="public:header" />
+<!--main-->
+<div class="midder">
+
+<div class="mc">
+	<h1>{$seo.title}({$strUser[count_followed]})</h1>
+	<div class="cleft">
+
+<ul class="user-list">
+<foreach name="arrFollowedUser" item="item">
+    <li class="clearfix" id="u$item[userid]">
+        <a title="{$item[username]}" href="{:U('people/index',array('id'=>$item[doname]))}">
+        <img alt="{$item[username]}" src="{$item[face]}" class="face">
+        </a>
+        <div class="info">
+          <h3>
+              <a title="{$item[username]}" href="{:U('people/index',array('id'=>$item[doname]))}">{$item[username]}</a>
+              <if condition="$item[isfollow] eq 1"><span class="user-cs">已关注</span></if>
+          </h3>
+          <!-- 签名档 -->
+          <p>{$item['area']['areaname']}<br>
+             被<b>{$item['count_followed']}</b>人关注&nbsp;&nbsp;关注<b>{$item['count_follow']}</b>人          
+          </p>
+        </div>
+        <!--<span class="ban">加入黑名单</span>-->
+    </li>
+</foreach>          
+</ul>
+
+    </div>
+
+    <div class="cright">
+
+<if condition="$strUser[userid] eq $visitor[userid]">
+        <p class="pl2">
+            &gt;&nbsp;<a href="{:U('user/follow',array('userid'=>$strUser[userid]))}">我关注的人({$strUser[count_follow]})</a>
+        </p> 
+<else />
+        <p class="pl2">
+            &gt;&nbsp;<a href="{:U('user/follow',array('userid'=>$strUser[userid]))}">{$strUser[username]}关注的人({$strUser[count_follow]})</a>
+        </p> 
+</if>              
+<!---
+        <p class="pl2">
+            &gt;&nbsp;<a href="/contacts/find">寻找&nbsp;MSN/Gtalk&nbsp;朋友</a>
+        </p>
+-->        
+        <p class="pl2">
+            &gt;&nbsp;<a href="{:U('user/contacts',array('d'=>'invite'))}">邀请我的朋友加入爱客网</a>
+        </p>
+
+
+    </div>
+
+</div>
+</div>
+
+<include file="public:footer" />
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<php>var_dump($visitor);</php>
+  <if condition="$visitor">
+<div class="create-group">
+<a href="{U('group/create')}"><i>+</i>申请创建小组</a>
+</div>
+</if>              
+<include file="public:footer" />
+</body>
+</html>

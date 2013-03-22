@@ -1,0 +1,58 @@
+<div class="mod" id="g-user-profile">
+
+    <div class="usercard">
+      <div class="pic">
+            <a href="{:U('people/index',array('id'=>$strUser[doname]))}"><img alt="{$strUser[username]}" src="{$strUser[face]}"></a>
+      </div>
+      <div class="info">
+           <div class="name">
+               <a href="{:U('people/index',array('id'=>$strUser[doname]))}">{$strUser[username]}</a>
+           </div>
+                <if condition="$strUser[area] neq ''">{$strUser[area][areaname]}<else />火星</if>                        
+                 <br>
+       </div>
+    </div>
+               
+    <div class="group-nav">
+     <ul>
+		<if condition = "$action_name eq 'my_group_topics'">
+		<li class="on"><a href="{:U('group/my_group_topics')}">我的小组话题</a></li>
+		<else/>
+		<li class=""><a href="{:U('group/my_group_topics')}">我的小组话题</a></li>
+		</if>
+        
+		<if condition = "$action_name eq 'my_topics'">
+		<li class="on"><a href="{:U('group/my_topics')}">我发起的话题</a></li>
+		<else/>
+		<li class=""><a href="{:U('group/my_topics')}">我发起的话题</a></li>
+		</if>
+        		
+		<if condition = "$action_name eq 'my_replied_topics'">
+		<li class="on"><a href="{:U('group/my_replied_topics')}">我回应的话题</a></li>
+		<else/>
+		<li class=""><a href="{:U('group/my_replied_topics')}">我回应的话题</a></li>
+		</if>
+		
+		<if condition = "$action_name eq 'my_collect_topics'">
+		<li class="on"><a href="{:U('group/my_collect_topics')}">我喜欢的话题</a></li>
+		<else/>
+		<li class=""><a href="{:U('group/my_collect_topics')}">我喜欢的话题</a></li>
+		</if>
+		
+		<if condition = "$action_name eq 'mine'">
+		<li class="on"><a href="{:U('group/mine')}">我管理/加入的小组</a></li>
+		<else/>
+		<li class=""><a href="{:U('group/mine')}">我管理/加入的小组</a></li>
+		</if>
+     </ul>
+    </div>
+             
+</div> 
+         
+<div class="mod">
+<if condition="$visitor">
+<div class="create-group">
+<a href="{:U('group/create')}"><i>+</i>申请创建小组</a>
+</div>
+</if>
+</div>

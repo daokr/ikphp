@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+
+<div class="midder">
+<div class="mc">
+<h1 class="group_tit">
+{$seo.title}
+</h1>
+
+<form method="POST" action="{$action}" onsubmit="return newTopicFrom(this)"  enctype="multipart/form-data" id="form_tipic">
+<table width="100%" cellpadding="0" cellspacing="0" class="table_1">
+
+	<tr>
+    	<th>标题：</th>
+		<td><input style="width:400px;" type="text" value="{$strTopic[title]}" maxlength="100" size="50" name="title" gtbfieldid="2" class="txt"   placeholder="请填写标题"></td>
+    </tr>	
+    <tr><th>&nbsp;</th>
+        <td align="left" style="padding:0px 10px">
+        <a href="javascript:;" id="addImg">添加图片</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:;" id="addVideo">添加视频</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:;" id="addLink">添加链接</a>
+        </td>
+    </tr>
+    <tr>
+        <th>内容：</th><td><textarea style="width:99.5%;height:300px;" id="editor_full" cols="55" rows="20" name="content" class="txt"   placeholder="请填写内容">{$strTopic[content]}</textarea></td>
+    </tr>
+    <tr>
+        <th>评论：</th>
+        <td><input type="radio" checked="select" name="iscomment" value="0" />允许 <input type="radio" name="iscomment" value="1" />不允许</td>
+    </tr>	
+    <tr>
+    	<th>&nbsp;</th><td>
+        <input type="hidden" name="groupid" value="{$strGroup[groupid]}" />
+        <input type="hidden" name="topic_id" value="{$topic_id}" id="topic_id" />
+        <input class="submit" type="submit" value="好啦，发布"> <a href="{:U('group/show',array('id'=>$strGroup[groupid]))}">返回</a>
+        </td>
+    </tr>
+</table>
+<include file="public:IKEditor" />
+<script language="javascript">
+$(function(){
+	$('#addImg').bind('click',function(){
+		var ajaxurl = "{:U('images/add')}";
+		var typeid = '{$topic_id}';
+		var data = "{'type':'topic','typeid':'"+typeid+"'}";		
+		addPhoto(ajaxurl, data);
+	});
+	$('#addLink').bind('click',function(){	
+		addLink();
+	})
+	$('#addVideo').bind('click',function(){
+		addVideo();	
+	})
+});
+</script>
+</form>
+
+
+
+</div>
+</div>
+
+
+
+<include file="public:footer" />
+</body>
+</html>

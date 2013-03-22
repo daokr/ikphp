@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+
+<div class="midder">
+<div class="mc">
+    <div class="cleft">
+        <div class="art-body">
+            <h1 class="title">{$strArticle[title]}</h1>
+            <div class="art-info">
+            作者：<a href="{:U('people/index',array('id'=>$strArticle[user][doname]))}">{$strArticle[newsauthor]}</a>&nbsp;&nbsp;<php>echo date('Y-m-d H:i',$strArticle[addtime])</php>&nbsp;&nbsp;<a href="#comments">{$strArticle[count_comment]}条回复</a>&nbsp;&nbsp;浏览{$strArticle[count_view]}次&nbsp;&nbsp;<a href="#formMini">我要回复</a> 
+            </div>
+        
+            <div class="art-text">
+                 {$strArticle[content]}
+            </div>
+            <div class="control-btns">
+            <if condition="$visitor[userid] eq $strArticle[userid]"><a href="{:U('article/edit',array('id'=>$strArticle['aid']))}">编辑</a>&nbsp; &gt;&nbsp; <a href="{:U('article/delete',array('id'=>$strArticle['aid']))}">删除</a></if>
+            <br/>
+            本文由<a href="{:U('people/index',array('id'=>$strArticle[user][doname]))}">{$strArticle[user][username]}</a>授权（爱客网）发表，文章著作权为原作者所有
+            </div>
+            
+      	  <div class="clear"></div>
+          <div class="art-titles"> 
+             <span class="fl"><if condition="!empty($upArticle)">上一篇：<a href="{:U('article/show',array('id'=>$upArticle['aid']))}">{$upArticle['title']}</a></if></span>
+             <span class="fr"><if condition="!empty($downArticle)">下一篇：<a href="{:U('article/show',array('id'=>$downArticle['aid']))}">{$downArticle['title']}</a></if></span>
+          </div>
+      </div>
+    
+    
+    
+    </div>
+
+
+    <div class="cright">
+    
+        <include file="right_menu" />
+        
+    </div>
+
+</div>
+</div>
+
+<include file="public:footer" />
+</body>
+</html>

@@ -1,0 +1,20 @@
+<div style="margin-bottom: 10px;overflow: hidden;">
+<present name="arrCollectUser">
+<foreach name="arrCollectUser" item="item">
+<dl class="obu">
+        <dt>
+        	<a href="{:U('people/index',array('id'=>$item[doname]))}" title="{$item[username]}">
+        		<img  alt="{$item[username]}"  src="{:avatar($item['userid'], 48)}"class="m_sub_img"  >
+            </a>
+        </dt>
+        <dd>
+        	 {$item[username]}<br>
+            <span class="pl">(<a href="{:U('location/area',array('areaid'=>$item[area][areaid]))}">{$item[area][areaname]}</a>)</span>
+        </dd>
+</dl>
+</foreach>
+<else/>
+<div style="color: #999999;padding: 20px 0">还没有人收藏，赶快来做第一个收藏者吧^_^</div>
+</present>
+<br clear="all">
+</div>

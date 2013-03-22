@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<div class="midder">
+<h2>{$title}</h2>
+    <div>
+    <form method="POST" action="{:U('setting/edit')}">
+    <table>
+        <tr>
+            <td width="100">形式1：</td>
+            <td>
+            <label><input type="radio" <if condition="C('ik_site_urltype') eq 1"> checked="select" </if>
+            name="setting[site_urltype]" value="1" /> index.php?m=article&a=show&id=1
+            </label>
+            </td>
+        </tr>
+        <tr>
+            <td>形式2：</td>
+            <td>
+            <label><input type="radio" <if condition="C('ik_site_urltype') eq 2"> checked="select" </if> 
+            name="setting[site_urltype]" value="2" />
+            /article/show/id/1 (暂只支持apache环境的rewrite，非apache环境勿动)
+            </label>
+            </td>
+        </tr>           
+    </table>
+    <div class="page_btn"><input type="submit" value="提 交" class="submit" /></div>
+    </form>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<div class="mod" id="g-user-profile">
+
+    <div class="usercard">
+      <div class="pic">
+            <a href="{:U('people/index',array('id'=>$strUser[doname]))}"><img alt="{$strUser[username]}" src="{$strUser[face]}"></a>
+      </div>
+      <div class="info">
+           <div class="name">
+               <a href="{:U('people/index',array('id'=>$strUser[doname]))}">{$strUser[username]}</a>
+           </div>
+                <if condition="$strUser[area] neq ''">{$strUser[area][areaname]}<else />火星</if>                        
+                <br>
+       </div>
+    </div>
+               
+  
+             
+</div> 
+         
+<div class="mod">
+    <if condition="$visitor">
+    <div class="create-group">
+    <a href="{:U('article/add')}"><i>+</i>去投稿</a>
+    </div>
+    </if>
+</div>

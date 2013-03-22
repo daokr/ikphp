@@ -1,0 +1,12 @@
+<h1>更改{$strGroup[groupname]}设置</h1>
+<div class="tabnav">
+<ul>
+<volist name="menu" id="item">
+<if condition="$type eq $key">
+<li class="select"><a href="{$item.url}" >{$item.text}</a></li>
+<else/>
+<li><a href="{$item.url}" >{$item.text}</a></li>
+</if>
+</volist>
+</ul>
+</div>

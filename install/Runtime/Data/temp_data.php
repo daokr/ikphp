@@ -1,0 +1,1 @@
+<?php	return array ( 'dbname' => 'ikphp', 'dbuser' => 'root', 'dbpwd' => '', 'dbhost' => 'localhost', 'dbport' => '3306', 'dbprefix' => 'ik_', 'site_title' => '爱客网', 'site_subtitle' => '又一个爱客开源社区', 'site_url' => 'http://127.0.0.1/ikphp/', 'admin_email' => 'admin@admin.com', 'admin_password' => '000000', 'admin_username' => 'admin', 'sql' => 'mysql', 'submit' => '确认安装', );?>

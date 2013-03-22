@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<!--main-->
+<div class="midder">
+<div class="mc">
+<include file="user:set_menu" />
+
+    <div class="utable">
+    <form method="POST" action="{:U('user/setdoname')}">
+    <table cellpadding="5" cellspacing="5">
+    <tr>
+    <th>个性域名：</th>
+    <td>
+    <input type="text" disabled="true" value="{:C('ik_site_url')}/people/" class="txt" style="width:165px; font-family:Arial; font-size:12px"/> <input class="txt" name="doname" value="{$strUser[doname]}" type="text" />
+    </td>
+    </tr>
+    <tr><th></th><td><input class="submit" type="submit" value="好了，保存"  /></td></tr>
+    
+    </table>
+    </form>
+    </div>
+
+</div>
+</div>
+
+<include file="public:footer" />
+</body>
+</html>

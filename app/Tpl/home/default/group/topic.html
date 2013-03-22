@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<!--main-->
+<div class="midder">
+  <div class="mc">
+    <h1>{$strTopic[title]}</h1>
+    <div class="cleft"> 
+      
+<php>if($page==1){</php>
+      
+      <div class="topic-content clearfix">
+        <div class="user-face"> <a href="{:U('people/index',array('id'=>$strTopic[user][doname]))}"><img title="{$strTopic[user][username]}" alt="{$strTopic[user][username]}" src="{:avatar($strTopic['userid'], 48)}" width="48"></a></div>
+        <div class="topic-doc">
+          <h3> <span class="color-green"><php> echo date('Y-m-d H:i:s',$strTopic[addtime])</php></span> <span class="pl20">来自：<a href="{:U('people/index',array('id'=>$strTopic[user][doname]))}">{$strTopic[user][username]}</a></span> </h3>
+          <div class="topic-view">{$strTopic['content']}</div>
+          
+          <!--签名--> 
+          <if condition="$strTopic[user][signed] neq ''">
+          <div class="signed">{$strTopic[user][signed]}</div>
+          </if>
+          
+         
+          <if condition="($user[userid] eq $strTopic[userid]) OR ($user[userid] eq $strGroup[userid]) OR ($strGroupUser[isadmin] eq 1) OR ($user[isadmin] eq 1) ">
+            <div style="text-align:right;"> 
+                <if condition="($user[userid] eq $strGroup[userid]) OR ($strGroupUser[isadmin] eq 1) OR ($user[isadmin] eq 1)">
+                    &gt;&nbsp; 
+                    <a href="{:U('group/topic',array('d'=>'topic_istop','topicid'=>$strTopic[topicid]))}">{$action[istop]}</a> &gt;&nbsp; 
+                    <a href="{:U('group/topic',array('d'=>'isdigest','topicid'=>$strTopic[topicid]))}">{$action[isdigest]}</a> &gt;&nbsp; 
+                    <a href="{:U('group/topic',array('d'=>'isshow','topicid'=>$strTopic[topicid]))}">{$action[isshow]}</a>  
+                    <!--&gt;&nbsp;<a href="{:U('group/topic',array('d'=>'topic_move','groupid'=>$strTopic[groupid],'topicid'=>$strTopic[topicid]))}">{$action[move]}</a>-->
+				</if>
+            	&gt;&nbsp; 
+            	<a href="{:U('group/topic',array('d'=>'topic_edit','topicid'=>$strTopic[topicid]))}">编辑</a> &gt;&nbsp; 
+            	<a href="{:U('group/topic',array('d'=>'deltopic','topicid'=>$strTopic[topicid]))}" onclick="return confirm('确定删除?')">删除</a> 
+
+            </div>
+          </if>
+          
+        </div>
+      </div>
+      <if condition="$visitor['userid']">
+      	<div class="sns-bar">
+        	<div class="sns-bar-rec">
+                <span class="rec">
+                    <a class="bn-sharing  i a_share_btn" data-pic="{$strTopic[content_photo][0]}" data-title="{$strTopic[title]}" data-desc="<php> echo getsubstrutf8(t($strTopic[content]),0,150)</php>" data-url="{:U('group/topic',array('id'=>$strTopic[topicid]))}" href="#">分享到</a> &nbsp;&nbsp;
+                </span>            
+            	<div class="rec-sec"><a href="{:U('group/topic',array('d'=>'topic_recommend'))}" title="推荐" class="lnk-sharing i a_recommend_btn"  data-title="<php>echo getsubstrutf8(t($strTopic[title]),0,40);</php>"  data-desc="<php> echo getsubstrutf8(t($strTopic[content]),0,100)</php>"  data-tkind="{$strTopic[groupid]}" data-tid="{$strTopic[topicid]}" data-tuid="{$IK_USER['user']['userid']}" data-url="{:U('group/topic',array('id'=>$strTopic[topicid]))}">推荐</a> <span class="rec-num" id="rec-num">{$strTopic[count_recommend]}人</span></div>
+            </div>
+            <div class="sns-bar-fav">
+            	<span  class="fav-num"><a href="javascript:;" id="like-num">{$strTopic[count_collect]}人</a> 喜欢 </span>
+            	<if condition="$strTopic[islike]">
+                <a href="{:U('group/topic',array('d'=>'topic_collect'))}" title="取消喜欢" data-tkind="{$strTopic[groupid]}" data-tid="{$strTopic[topicid]}" data-tuid="{$user['userid']}" class="btn-fav fav-cancel i a_like_btn">喜欢</a> 
+				<else />
+                <a href="{:U('group/topic',array('d'=>'topic_collect'))}" title="标为喜欢" data-tkind="{$strTopic[groupid]}" data-tid="{$strTopic[topicid]}" data-tuid="{$user['userid']}" class="btn-fav fav-add i a_like_btn">喜欢</a> 
+            	</if>
+            </div>        
+        </div>
+      </if>
+      
+      <div class="clear"></div>
+
+      <div class="tags"> 
+        <volist name="strTopic[tags]" id="item"> 
+        <a rel="tag" title="{$item[tagname]}" class="post-tag" href="{:U('group/topic_tag',array(tagname=>$item[tagname]))}">{$item[tagname]}</a> 
+        </volist> 
+        <if condition="$isGroupUser"> 
+        <a rel="tag" href="javascript:void(0);" onclick="showTagFrom()">+标签</a>
+        <p id="tagFrom" style="display:none">
+          <input class="tagtxt" type="text" name="tags" id="tags" />
+          <button type="submit" class="subab" onclick="savaTag({$strTopic[topicid]})">添加</button>
+          <a href="javascript:void(0);" onclick="showTagFrom()">取消</a> </p>
+        </if> 
+      </div>
+      
+<php>}</php>
+      
+      <div class="clear"></div>
+      <div> 
+     	 <if condition="!empty($upTopic)">上一篇：<a href="{:U('group/topic',array('id'=>$upTopic['topicid']))}">{$upTopic['title']}</a></if>
+         <if condition="!empty($downTopic)">下一篇：<a href="{:U('group/topic',array('id'=>$downTopic['topicid']))}">{$downTopic['title']}</a></if>
+      </div>
+      
+      
+      <div class="orderbar"> 
+        <if condition="($page eq 1) && ($strTopic[count_comment] gt 3)">
+        <if condition="$sc eq 'asc'">
+        <a href="{:U('group/topic',array('id'=>$strTopic[topicid],'sc'=>'desc'))}">倒序阅读</a> 
+        <else />
+        <a href="{:U('group/topic',array('id'=>$strTopic[topicid],'sc'=>'asc'))}">正序阅读</a> 
+        </if>
+        </if>
+      </div>
+      
+      <!--comment评论-->
+      <ul class="comment" id="comment">
+       <if condition="!empty($arrTopicComment)">
+        <foreach name="arrTopicComment" item="item">
+        <li class="clearfix">
+          <div class="user-face"> <a href="{:U('people/index',array('id'=>$item[user][doname]))}"><img title="{$item[user][username]}" alt="{$item[user][username]}" src="{$item[user][face]}"></a> </div>
+          <div class="reply-doc">
+            <h4><span class="fr"></span><a href="{:U('people/index',array('id'=>$item[user][doname]))}">{$item[user][username]}</a> <php> echo date('Y-m-d H:i:s',$item[addtime])</php></h4>
+            
+            <if condition="$item[referid] neq 0">
+            <div class="recomment"><a href="{:U('people/index',array('id'=>$item[recomment][user][doname]))}"><img src="{$item[recomment][user][face]}" width="24" align="absmiddle"></a> <strong><a href="{:U('people/index',array('id'=>$item[recomment][user][doname]))}">{$item[recomment][user][username]}</a></strong>：{$item[recomment][content]}</div>
+            </if>
+            
+            <p> {$item[content]} </p>
+            
+            <!--签名--> 
+            <if condition="!empty($item[user][signed])">
+            <div class="signed">{$item[user][signed]}</div>
+            </if>
+            
+            <div class="group_banned"> 
+              <if condition="$isGroupUser neq 0">
+              <span><a href="javascript:void(0)"  onclick="commentOpen({$item[commentid]},{$item[topicid]})">回复</a></span> 
+              </if>
+              <if condition="($strTopic[userid] eq $visitor[userid]) OR ($strGroup[userid] eq $visitor[userid]) OR ($visitor[userid] eq $item[userid]) OR ($strGroupUser[isadmin] eq 1) OR ($visitor[userid] eq 1)">
+              <span><a class="j a_confirm_link" href="{:U('group/topic',array('d'=>'delcomment','commentid'=>$item[commentid]))}" rel="nofollow" onclick="return confirm('确定删除?')">删除</a> </span> 
+              </if>
+            </div>
+            <div id="rcomment_{$item[commentid]}" style="display:none; clear:both; padding:0px 10px">
+              <textarea style="width:550px;height:50px;font-size:12px; margin:0px auto;" id="recontent_{$item[commentid]}" type="text" onkeydown="keyRecomment({$item[commentid]},{$item[topicid]},event)" class="txt"></textarea>
+              <p style=" padding:5px 0px">
+                <button onclick="recomment({$item[commentid]},{$item[topicid]})" id="recomm_btn_{$item[commentid]}" class="subab">提交</button>
+                &nbsp;&nbsp;<a href="javascript:;" onclick="$('#rcomment_{$item[commentid]}').slideToggle('fast');">取消</a> </p>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </li>
+        </foreach> 
+        </if>
+      </ul>
+      <div class="page">{$pageUrl}</div>
+      <h2>你的回应&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
+      <div> 
+        <if condition="!$visitor['userid']">
+        <div style="border:solid 1px #DDDDDD; text-align:center;padding:20px 0"><a href="{:U('user/login')}">登录</a> | <a href="{:U('user/register')}">注册</a></div>
+        <elseif condition="!$isGroupUser" /> 
+        不是本组成员不能回应此贴哦 
+        <elseif condition="$strTopic[iscomment] eq 1 && $strTopic[userid] neq $visitor['userid']" />
+        本帖除作者外不允许任何人评论 
+        <else />
+        <form method="POST" action="{:U('group/topic',array('d'=>'addcomment'))}" onSubmit="return checkComment('#formMini');" id="formMini" enctype="multipart/form-data">
+          <textarea  style="width:100%;height:100px;" id="editor_mini" name="content" class="txt" onkeydown="keyComment('#formMini',event)"></textarea>
+          <input type="hidden" name="topicid" value="{$strTopic[topicid]}" />
+          <input type="hidden" name="p" value="{$page}" />
+          <input class="submit" type="submit" value="加上去(Crtl+Enter)" style="margin:10px 0px">
+        </form>
+        </if>
+      </div>
+    </div>
+    <div class="cright">
+       <if condition="$isGroupUser">
+        <div class="side-reg" id="g-side-info-member">
+          <div class="bd">
+              <div class="group-item">
+                  <div class="pic">
+                       <a href="{:U('group/show',array('id'=>$strGroup[groupid]))}" title="{$strGroup[groupname]}"><img src="{:attach($strGroup[groupicon], 'group/icon')}" alt="{$strGroup[groupname]}"></a>
+                  </div>
+                  <div class="info">
+                      <div class="title">
+                          <a href="{:U('group/show',array('id'=>$strGroup[groupid]))}" title="{$strGroup[groupname]}"><php>echo getsubstrutf8(t($strGroup[groupname]),0,14)</php></a>
+                      </div>
+                  <div class="member-info1">我是小组的成员</div>
+              </div>
+            </div>
+          </div>
+        </div>    
+     <else />
+      <div class="side-reg" id="g-side-info">
+        <div class="bd">
+          <div class="group-item">
+            <div class="pic"> <a href="{:U('group/show',array('id'=>$strGroup[groupid]))}"> <img src="{:attach($strGroup[groupicon], 'group/icon')}"> </a> </div>
+            <div class="info">
+              <div class="title"> <a href="{:U('group/show',array('id'=>$strGroup[groupid]))}"><php>echo getsubstrutf8(t($strGroup[groupname]),0,14)</php></a> </div>
+              	<div class="member-info"> <i>{$strGroup[count_user]}</i> 人聚集在这个小组 </div>
+              	<p><php> echo getsubstrutf8(t($strGroup[groupdesc]),0,46)</php></p>
+            </div>
+          </div>
+        </div>
+        <div class="ft">
+          <div class="member-status"><a class="bn-join" href="{:U('group/join', array('id'=>$strGroup['groupid']))}">加入小组</a></div>
+        </div>
+      </div>
+      </if>
+      
+      <h2>喜欢该帖子的人</h2>
+      
+      <div id="collects">
+         <include file="topic_collect_user" />
+      </div>
+      <h2 class="usf">最新话题</h2>
+      <div class="indent newtopic">
+        <ul>
+          <volist name="newTopic" id="item">
+          <li><a title="{$item[title]}" href="{:U('group/topic', array('id'=>$item[topicid]))}">{$item[title]}</a> &nbsp; <span class="pl">(<a href="{:U('people/index',array('id'=>$item[user][doname]))}">{$item[user][username]}</a>) </span> </li>
+          </volist>
+        </ul>
+      </div>
+      <div class="clear"></div>
+      
+    </div>
+  </div>
+</div>
+<include file="public:footer" />
+</body>
+</html>

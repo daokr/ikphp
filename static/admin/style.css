@@ -1,0 +1,228 @@
+/*
+ * 12ik 爱客社区门户 系统设置
+ * @copyright (c) 2012-3000 12IK All Rights Reserved
+ * @author wanglijun
+ * @Email:160780470@qq.com
+ */
+/**框架CSS**/
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+	font-size: 12px;
+	color: #333;
+}
+
+ul,li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	border: 0;
+}
+
+h2 {
+	font-size: 14px;
+	padding: 10px 0px;
+	margin: 0;
+}
+
+h2 span {
+	float: right;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+h2 span a {
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+a {
+	color: #336699;
+	text-decoration: none;
+}
+.message{
+	background:#FFFFE9;
+    border: 1px solid #f9f9aa;
+    color: #FF0000;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+/*登陆*/
+.ulogin {
+	width: 500px;
+	background-color: #FFFFFF;
+	font-size: 12px;
+	margin: 100px auto 0;
+	list-style: none;
+	padding: 20px;
+}
+
+.ulogin .uinput {width: 150px;}
+.uinput,input,select,textarea {
+	line-height: 1.62;
+	margin-top: 5px;
+	padding: 3px;
+}
+.submit ,input[type=submit]{
+	font-size: 13px;
+	cursor: pointer;
+ 	background: url("images/btn_b.gif") no-repeat scroll 0 0 #567AB4;
+    border: 0 none;
+    color: #FFFFFF;
+    height: 26px;
+    width: 65px;	
+}
+.page_btn{ text-align:center; padding-top:20px}
+/*导航*/
+.tabnav {
+	height:auto;
+	margin-bottom:10px;
+}
+
+.tabnav ul {
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	background:none repeat scroll 0 0 #D2DBEA; padding-top:5px; padding-left:10px; padding-right:10px;
+}
+
+.tabnav ul li {
+	float: left;
+	margin-right: 10px;
+	padding: 4px 10px; padding-bottom:6px;
+}
+.tabnav ul li a{ font-size:14px;}
+.tabnav .select {
+	background: none repeat scroll 0 0 #fff; 
+}
+.tabnav .select a {color: #333;}
+/*登录*/
+#loginbody{ background-color:#1873aa;}
+.login {
+	width: 512px;
+	height:355px;
+	margin: 0 auto;
+	overflow: hidden;
+	margin-top: 200px;
+	background:url(images/admin.jpg) no-repeat 0px 0px;
+}
+
+.login .info {
+	margin: 100px 0;color: #FFFFFF; padding-left:50px
+}
+.login .linput{ border-top:#76676e solid 1px; border-left:#a0a29f solid 1px; border-right:#fff solid 1px; border-bottom:#fff solid 1px; 
+height:19px; color:#04518a; padding:0px; border-radius:0px}
+.login .info a {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 12px;display:block; float:left; line-height:30px; margin-left:10px
+}
+.login .info a:hover{ color:#04518a}
+.login th{ text-align:right;  padding-right:10px; font-weight:normal; }
+.login .lsubmit{ background:url(images/loginbtn.gif) no-repeat 0 0; width:64px; height:26px; text-indent:-9999px; overflow:hidden;  border:none;
+cursor:pointer; display:block; float:left}
+/*中部*/
+.midder {
+	margin: 0 auto;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.midder table {
+	
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.midder table tr th {
+	border-bottom: 1px solid #eee;
+	height: 32px;
+	line-height: 32px;
+	padding: 0 0px;
+	vertical-align: top;
+	margin: 0;
+	outline: 0 none;
+	text-align:right;
+	width:100px;
+	font-weight:normal;
+}
+.midder table tr td {
+	border-bottom: 1px solid #eee;
+	height: 32px;
+	line-height: 32px;
+	padding: 0 10px;
+	vertical-align: top;
+	margin: 0;
+	outline: 0 none;
+}
+
+.midder table tr.old td {
+	font-weight: bold;
+	background: url("images/th_bg.gif") repeat-y scroll 0 0 #F2F4F6;
+	border-bottom:1px solid #C1C8D2;
+	height:22px; line-height:22px;
+}
+
+.midder table tr.odd td {
+	background: none repeat scroll 0 0 #FBFBFB;
+}
+
+/*分页*/
+.page {
+	margin: 0;
+	text-align: left;
+	padding: 10px;
+}
+
+.page a {
+	border: #eee 1px solid;
+	padding: 3px 9px;
+	margin: 5px;
+	color: #336699;
+	text-decoration: none;
+}
+
+.page a:hover {
+	border: #999 1px solid;
+}
+
+.page a:active {
+	border: #999 1px solid;
+}
+
+.page .current {
+	border: #336699 1px solid;
+	padding: 2px 5px;
+	font-weight: bold;
+	margin: 2px;
+	background-color: #336699;
+	color: #FFFFFF;
+}
+
+.page .disabled {
+	border: #eee 1px solid;
+	padding: 2px 5px;
+	margin: 2px;
+	color: #ddd;
+}
+
+/*theme*/
+.theme {
+	overflow: hidden;
+}
+
+.theme ul {
+	overflow: hidden;
+}
+
+.theme ul li {
+	float: left;
+	padding: 5px;
+	overflow: hidden;
+}

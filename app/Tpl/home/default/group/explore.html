@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+
+<div class="midder">
+<div class="mc">
+    <h1>{$seo.title}</h1>
+    <div class="cleft w700">
+		
+        <div class="group-list">
+        	<foreach name="list" item="item">
+            <div class="result">
+                <div class="pic">
+                <a title="{$item[groupname]}" href="{:U('group/show',array('id'=>$item[groupid]))}" class="nbg">
+                	<img src="{$item[icon_48]}" alt="{$item[groupname]}" width="48" height="48">
+                </a>
+                </div>
+                <div class="content">
+                    <div class="title">
+                        <h3><a href="{:U('group/show',array('id'=>$item[groupid]))}">{$item[groupname]}</a></h3>
+                    </div>
+                    <div class="info">{$item[count_user]} 个成员 在此聚集 </div>
+                    <div><p>{$item[groupdesc]}</p></div>
+                </div>
+            </div>
+            </foreach>
+                        
+        </div>
+        
+        <div class="clear"></div>
+        <div class="page">{$pageUrl}</div>
+
+    </div>
+
+
+
+    <div class="cright w250">
+		 <include file="group_cate" />  	
+    </div>
+    
+</div>
+</div>
+             
+<include file="public:footer" />
+</body>
+</html>

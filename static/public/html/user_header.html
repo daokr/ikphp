@@ -1,0 +1,23 @@
+<div id="db-usr-profile">
+<div class="pic">
+<a href="{SITE_URL}{ikUrl('hi','',array('id'=>$strUser[doname]))}">
+<img alt="{$strUser[username]}" src="{$strUser[face]}">
+</a>
+</div>
+<div class="info">
+<h1>
+{$strUser[username]}
+</h1>
+
+<ul>
+	<li><a href="{SITE_URL}{ikUrl('note','list',array('userid'=>$strUser[userid]))}">日志</a></li>
+    <li><a href="{SITE_URL}{ikUrl('photo','album',array('userid'=>$strUser[userid]))}">相册</a></li>
+    <!--{if $strUser[userid] == $IK_USER[user][userid]}-->
+    <li><a href="{SITE_URL}index.php?app=feed">广播</a></li>
+    <li><a href="{SITE_URL}{ikUrl('message','ikmail',array(ik=>inbox))}">站内信</a></li>
+    <li><a href="{SITE_URL}{ikUrl('user','set',array(ik=>base))}">设置</a></li>
+    <!--{/if}-->
+</ul>
+
+</div>
+</div>

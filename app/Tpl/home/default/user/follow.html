@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+<css file="__STATIC__/theme/{:C('ik_site_theme')}/user/images/validate.css"/>
+</head>
+
+<body>
+<include file="public:header" />
+<!--main-->
+
+<div class="midder">
+
+<div class="mc">
+	<h1>{$seo.title}(<span id="cout_follow">{$strUser[count_follow]}</span>)</h1>
+	<div class="cleft">
+
+<ul class="user-list">
+<foreach name="arrFollowUser" item="item">
+    <li class="clearfix" id="u{$item[userid]}">
+        <a title="{$item[username]}" href="{:U('people/index',array('id'=>$item[doname]))}">
+        <img alt="{$item[username]}" src="{$item[face]}" class="face">
+        </a>
+        <div class="info">
+          <h3> <a title="{$item[username]}" href="{:U('people/index',array('id'=>$item[doname]))}">{$item[username]}</a></h3>
+          <!-- 签名档 -->
+          <p>{$item['area']['areaname']}</p>
+        </div>
+        <if condition="$strUser[userid] eq $visitor[userid]"><span class="ban">取消关注</span></if>
+    </li>
+</foreach>          
+</ul>
+<script language="javascript">
+$(function(){
+	    $('.user-list li').hover(function () {
+            $('.ban', this).show();
+        }, function () {
+            $('.ban', this).hide();
+        });	
+})
+
+$('.user-list .ban').click(function () {
+	var self = this,
+		name = $(this).parent().children().children('h3').children('a').text(),
+		msg = '确实不再关注 ' + name + ' 吗?',
+		peopleId = $(this).parents('li').attr('id').replace('u', ''),
+		hasBlackList = confirm(msg);
+
+	if (hasBlackList) {
+		$(this).parents('li').fadeOut(function () {
+			var posturl = "{:U('user/unfollow',array('d'=>'user_nofollow_ajax'))}";
+			$.post_withck(
+				posturl,
+				{ 'userid': peopleId },
+				function (res) {
+					var obj = $.parseJSON(res);
+					$('#cout_follow').text(obj.num);
+					$(self).remove();					
+				}
+			);
+		});
+	}
+});
+</script>
+
+    </div>
+
+    <div class="cright">
+
+<if condition="$strUser[userid] eq $visitor[userid]">
+        <p class="pl2">
+            &gt;&nbsp;<a href="{:U('user/followed',array('userid'=>$strUser[userid]))}">关注我的人({$strUser[count_followed]})</a>
+        </p> 
+<else />
+        <p class="pl2">
+            &gt;&nbsp;<a href="{:U('user/followed',array('userid'=>$strUser[userid]))}">关注{$strUser[username]}的人({$strUser[count_followed]})</a>
+        </p> 
+</if>               
+<!---
+        <p class="pl2">
+            &gt;&nbsp;<a href="/contacts/find">寻找&nbsp;MSN/Gtalk&nbsp;朋友</a>
+        </p>
+-->        
+        <p class="pl2">
+            &gt;&nbsp;<a href="{:U('user/contacts',array('d'=>'invite'))}">邀请我的朋友加入爱客网</a>
+        </p>
+
+
+    </div>
+
+</div>
+</div>
+
+<include file="public:footer" />
+</body>
+</html>

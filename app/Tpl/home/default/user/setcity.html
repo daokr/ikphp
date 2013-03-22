@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<script>
+$(document).ready(function() {
+//选择一级区域
+$('#oneid').change(function(){
+	$("#stwoid").html('<img src="'+siteUrl+'static/public/images/loading.gif" />');
+	var oneid = $(this).children('option:selected').val();  //弹出select的值
+	
+	if(oneid==0){
+		$("#stwoid").html('');
+		$("#sthreeid").html('');
+	}else{
+		$("#sthreeid").html('');
+		$.ajax({
+			type: "GET",
+			url:  "{:U('user/area',array('ik'=>'two'))}",
+			data: "oneid="+oneid,
+			success: function(msg){
+				$("#stwoid").html(msg);
+				
+				//选择二级区域
+				$('#twoid').change(function(){
+					$("#sthreeid").html('<img src="'+siteUrl+'static/public/images/loading.gif" />');
+					var twoid = $(this).children('option:selected').val();  //弹出select的值
+					
+					if(twoid == 0){
+						$("#sthreeid").html('');
+					}else{
+					
+						//ajax
+						$.ajax({
+							type: "GET",
+							url:  "{:U('user/area',array('ik'=>'three'))}",
+							data: "twoid="+twoid,
+							success: function(msg){
+								$('#sthreeid').html(msg);
+							}
+						});
+					
+					}
+
+				});
+				
+			}
+		});
+	
+	}
+	
+});
+
+});
+</script>
+
+<!--main-->
+<div class="midder">
+<div class="mc">
+<include file="user:set_menu" />
+
+<div class="utable">
+<form method="POST" action="{:U('user/setcity')}">
+<table cellpadding="0" cellspacing="0" width="100%" class="table_1">
+<tr>
+<th>常居地：</th>
+<td>
+<notempty name="strarea">
+{$strarea[one][areaname]} 
+{$strarea[two][areaname]} 
+{$strarea[three][areaname]} 
+</notempty>
+</td>
+</tr>
+
+<tr>
+<th>修改常居地：</th>
+<td>
+<select id="oneid" name="oneid" class="txt">
+<option value="0">请选择</option>
+<volist name="arrOne" id="vo">
+<option value="{$vo[areaid]}">{$vo[areaname]}</option>
+</volist>
+</select>
+<span id="stwoid"></span>
+<span id="sthreeid"></span>
+</td>
+</tr>
+<tr>
+	<th></th>
+    <td><input class="submit" type="submit" value="修改"  /></td>
+</tr>
+</table>
+</form>
+
+
+</div>
+</div>
+</div>
+<include file="public:footer" />
+</body>
+</html>

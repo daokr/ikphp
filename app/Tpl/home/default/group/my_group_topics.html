@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<div class="midder">
+
+
+    <div class="mc">
+    
+   	    <h1>{$seo.title}</h1>
+       
+        <div class="cleft w700">
+
+
+            <div class="group_topics">
+                <table class="olt">
+                    <tbody>
+            <if condition="!empty($arrTopic)">
+            <foreach name="arrTopic" item="item">
+               <tr class="pl">
+               <td class="td-subject"><a title="{$item[title]}" href="{:U('group/topic',array('id'=>$item[topicid]))}"><php>echo getsubstrutf8(t($item['title']),0,25);</php></a>
+                <if condition="$item[isvideo] eq 1">
+                <img src="__STATIC__/public/images/lc_cinema.png" align="absmiddle" title="[视频]" alt="[视频]" />
+                </if>                
+                <if condition="$item[istop] eq 1">
+                <img src="__STATIC__/public/images/headtopic_1.gif" title="[置顶]" alt="[置顶]" />
+                </if>
+                <if condition="$item[addtime] gt (strtotime(date('Y-m-d 00:00:00')))">
+                <img src="__STATIC__/public/images/topic_new.gif" align="absmiddle"  title="[新帖]" alt="[新帖]" />
+                </if> 
+                <if condition="$item[isphoto] eq 1">
+                <img src="__STATIC__/public/images/image_s.gif" title="[图片]" alt="[图片]" align="absmiddle" />
+                </if> 
+                <if condition="$item[isattach] eq 1">
+                <img src="__STATIC__/public/images/attach.gif" title="[附件]" alt="[附件]" />
+                </if> 
+                <if condition="$item[isdigest] eq 1">
+                <img src="__STATIC__/public/images/posts.gif" title="[精华]" alt="[精华]" />
+                </if>
+                </td>
+                <td class="td-reply" nowrap="nowrap"><if condition="$item[count_comment] gt 0">{$item[count_comment]} 回应</if></td>
+                <td class="td-time" nowrap="nowrap"><php> echo getTime($item[uptime],time());</php></td>
+                <td align="right"><a href="{:U('group/show',array('id'=>$item[groupid]))}"><php>echo getsubstrutf8(t($item[group][groupname]),0,10);</php></a></td>
+                </tr>
+             </foreach>
+            </if>         
+                </tbody>
+              </table>
+            </div>
+            
+             
+            
+            <div class="clear"></div>
+    
+    
+    	</div>
+    
+        <div class="cright w250" id="cright">   
+              
+			<include file="my_menu" />                 
+        
+        </div>
+    
+    </div><!--//mc-->
+
+
+</div>                
+<include file="public:footer" />
+</body>
+</html>

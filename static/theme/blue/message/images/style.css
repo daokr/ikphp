@@ -1,0 +1,151 @@
+/**框架CSS**/
+.tabnav{ margin-bottom:21px}
+.tabnav ul{ float:right}
+#db-timeline-hd {
+	border-bottom:1px solid #ddd;
+	margin-bottom:5px;
+	height:28px;
+}
+#db-timeline-hd .menu-list {
+	float:left;
+	width:515px;
+	padding-top:3px
+}
+#db-timeline-hd .menu-list li {
+	float:left;
+	display:inline;
+	_position:relative;
+	_z-index:88;
+	margin:0 10px 0 0
+}
+#db-timeline-hd .menu-list li a {
+	_float:left;
+	zoom:1;
+	display:block;
+	padding:1px 5px;
+	white-space:nowrap;
+	_overflow:hidden;
+	height:16px;
+	line-height:16px
+}
+#db-timeline-hd .menu-list .on a {
+	color:#fff;
+	background:#83bf73;
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px
+}
+#db-timeline-hd .opt-area {
+	float:right
+}
+#db-timeline-hd .last {
+	margin:0
+}
+.olt {
+	width:760px;
+	padding:0;
+	margin-bottom:3px;
+}
+.olt td {
+	border-bottom:1px dashed #ddd;
+	padding:3px 3px 3px 0;
+	word-wrap:break-word;
+	word-break:break-word
+}
+.olt td.date {
+	width:75px;
+	text-align:center;
+	color:#999;
+	padding-right:0
+}
+.olt .tb-author {
+	min-width:6em
+}
+.m {
+    color: #006600;
+    font-size: 14px;
+    line-height: 120%;
+}
+table { table-layout:fixed; }
+td { word-break:break-all;word-wrap:break-word; }
+td.mail_options { display:none;border-bottom:none; } 
+.mail_options a:hover,
+.mail_options a { background-color:#fff;color:#aaa;border:none; }
+
+.sys_doumail {
+	background:url(system_9px.gif) no-repeat 0 center;
+	padding-left:12px
+}
+.sys_doumail_big {
+	background:url(system_16px.gif) no-repeat 0 center;
+	padding:20px
+}
+.doumail_from {
+	padding-left:12px
+}
+.notification-items ul.old {
+	color:#808080
+}
+.notification-items li {
+	padding:6px 10px 4px
+}
+.notification-items li.date {
+	font-size:14px;
+	color:#060;
+	padding-left:0
+}
+.notification-items ul.new li {
+	background:#ffe
+}
+.notification-items ul.new li.date {
+	background:0
+}
+.notification-items a.discard {
+	float:right;
+	color:#ccc;
+	padding:0 6px
+}
+.notification-items a:hover, .notification-items a:active {
+	color:#fff;
+	background:#ccc
+}
+.notification-items q {
+	display:block;
+	text-indent:3.3em
+}
+.notification-items .old q em {
+	color:#aaa
+}
+.notification-items q em {
+	color:#808080
+}
+.indent {
+	word-break:break-all
+}
+.obu {
+	margin:0 0 10px 0;
+	width:76px;
+	float:left;
+	display:inline
+}
+.obu dt {
+	margin:0;
+	height:50px;
+	overflow:hidden;
+	text-align:center;
+	line-height:16px
+}
+.obu dd {
+	margin:0;
+	height:55px;
+	text-align:center;
+	overflow:hidden
+}
+.showtable{}
+.showtable .pl2{ line-height:24px;}
+.showtable .ul{
+    clear: both;
+    line-height: 100%;
+	margin-top:10px;
+}
+.showtable .messagebox{ padding:10px; border-bottom: 1px dashed #DDDDDD; border-top: 1px dashed #DDDDDD; margin-bottom:10px}

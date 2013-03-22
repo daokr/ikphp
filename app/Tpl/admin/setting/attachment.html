@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<include file="menu" />
+<form method="POST" action="{:U('setting/edit')}">
+<table cellpadding="0" cellspacing="0">
+
+	<tr>
+		<th>附件保存位置 ：</th>
+		<td><input style="width: 300px;" name="setting[attach_path]"  size="50" value="{:C('ik_attach_path')}" /></td>
+	</tr>
+	<tr>
+		<th>附件类型限制 ：</th>
+		<td><input style="width: 300px;" name="setting[attr_allow_exts]" size="50" value="{:C('ik_attr_allow_exts')}" /></td>
+	</tr>
+	<tr>
+		<th>附件大小限制 ：</th>
+		<td><input style="width: 300px;" name="setting[attr_allow_size]"  value="{:C('ik_attr_allow_size')}" /></td>
+	</tr>        
+
+</table>
+
+<div class="page_btn"><input type="submit" value="提 交" class="submit" /></div>
+
+</form>
+</div>
+</body>
+</html>

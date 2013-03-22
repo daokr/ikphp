@@ -1,0 +1,97 @@
+/* Signup form */
+
+.user_tit{ border-bottom:#CCCCCC solid 1px; height:35px; line-height:35px; font-size:16px; margin-bottom:20px; text-indent:15px; padding-bottom:0px}
+
+#signupform table {
+  border-spacing: 0px;
+  border-collapse: collapse;
+  empty-cells: show;
+  line-height:45px
+}
+
+#signupform .label {
+  padding-right: 8px;
+  text-align: right;
+  width: 125px;
+  white-space: nowrap;
+  font-size:14px;
+}
+
+#signupform .field {
+  white-space: nowrap;
+  width:160px;
+}
+
+#signupform .status {
+  padding-left: 8px;
+  white-space: nowrap;
+}
+
+#signupform .textfield {
+  width: 150px;
+}
+
+.uinput{ margin-top:0px; padding:2px; height:24px; line-height:24px; color:#49880d; font-size:14px;}
+
+#signupform label.error {
+  background:url("unchecked.gif") no-repeat 0px 0px;
+  padding-left: 20px;
+  padding-bottom: 2px;
+  color: #EA5200;
+}
+
+#signupform label.checked {
+  background:url("checked.gif") no-repeat 0px 0px;
+}
+
+#signupform .success_msg {
+  font-weight: bold;
+  color: #0060BF;
+  margin-left: 19px;
+}
+
+#signupform #dateformatStatus, #signupform #termsStatus {
+  margin-left: 6px;
+}
+
+#signupform #dateformat_eu {
+ vertical-align: middle;
+}
+
+#signupform #ldateformat_eu {
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+#signupform #dateformat_am {
+  vertical-align: middle;
+}
+
+#signupform #ldateformat_am {
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+#signupform #termswrap {
+  float: left;
+}
+
+#signupform #terms {
+  vertical-align: middle;
+  float: left;
+  display: block;
+  margin-right: 5px;
+}
+
+#signupform #lterms {
+  font-weight: normal;
+  vertical-align: middle;
+  float: left;
+  display: block;
+  width: 350px;
+  white-space: normal;
+}
+
+#signupform #lsignupsubmit {
+  visibility: hidden;
+}

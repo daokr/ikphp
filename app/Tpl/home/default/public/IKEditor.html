@@ -1,0 +1,65 @@
+<div id="thumblst" class="item item-thumb-list">
+    <foreach name="arrPhotos" item="item">
+    <div class="thumblst">
+      <div class="details">
+        <p>图片描述（30字以内）</p>
+        <textarea name="photodesc[]" maxlength="30">{$item[title]}</textarea>
+        <input type="hidden" name="seqid[]" value="{$item[seqid]}" >
+        <br>
+        <br>
+        图片位置<br>
+        <a onclick="javascript:removePhoto(this, '{$item[seqid]}');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_{$item[seqid]}" ajaxurl="{:U('images/delete')}" imgid="{$item[id]}">删除</a>
+        <label>
+         <if condition="$item[align] eq 'L'">
+         <input type="radio" name="layout_{$item[seqid]}"  checked  value="L" >
+         <else />
+         <input type="radio" name="layout_{$item[seqid]}"   value="L" >
+         </if>
+          <span class="alignleft">居左</span></label>
+        <label>
+          <if condition="$item[align] eq 'C'">
+          <input type="radio" name="layout_{$item[seqid]}" checked value="C" >
+          <else/>
+          <input type="radio" name="layout_{$item[seqid]}" value="C" >
+          </if>
+          <span class="aligncenter">居中</span></label>
+        <label>
+          <if condition="$item[align] eq 'R'">
+          <input type="radio" name="layout_{$item[seqid]}" checked value="R" >
+          <else/>
+          <input type="radio" name="layout_{$item[seqid]}" value="R" >
+          </if>
+          <span class="alignright">居右</span></label>
+      </div>
+      <div class="thumb">
+        <div class="pl">[图片{$item[seqid]}]</div>
+        <img src="{$item[simg]}">
+      </div>
+      	<div class="clear"></div>
+    </div>
+    </foreach>
+
+</div>
+<div id="videosbar"  class="item item-thumb-list">
+   <foreach name="arrVideos" item="item">
+    <div class="thumblst">
+    <div class="details">
+    <p>视频标题（30字以内）</p>
+    <textarea name="video_{$item[seqid]}_title" maxlength="30">人在囧途</textarea>
+    <input type="hidden" value="{$item[seqid]}" name="video_{$item[seqid]}">
+    <br>
+    <br>
+    视频网址：<br>
+    <a onclick="javascript:removeVideo(this, '{$item[seqid]}');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="{:U('images/delete')}">删除</a>
+    <p>{$item[url]}</p>
+    </div>
+    <div class="thumb">
+    <div class="pl">[视频{$item[seqid]}]</div>
+    <img src="{$item[imgurl]}"> </div>
+    <div class="clear"></div>
+    </div>
+    </foreach>
+</div>
+<!--加载编辑器-->
+<script type="text/javascript" src="__STATIC__/public/js/lib/ajaxfileupload.js"></script>
+<script type="text/javascript" src="__STATIC__/public/js/lib/IKEditor.js"></script>

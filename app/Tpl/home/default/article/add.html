@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<div class="midder">
+    <div class="mc">
+        <h1>
+        {$seo.title}
+        </h1>    
+<form method="POST" action="{:U('article/publish')}"  onsubmit="return checkForm(this);"  enctype="multipart/form-data" id="form_tipic">
+<table width="100%" cellpadding="0" cellspacing="0" class="table_1">
+
+	<tr>
+    	<th>标题：</th>
+		<td><input style="width:400px;" type="text" value="{$strArticle[title]}" maxlength="100" size="50" name="title" tabindex="1" class="txt" placeholder="请填写标题"></td>
+    </tr>	
+    <tr>
+        <th>发表到：</th>
+        <td>
+            <select name="cateid" class="txt" id="cate_select" style="float:left;" tabindex="2" >
+                <option  value="0">默认分类</option>
+                {$arrCate}
+            </select>            
+        </td>
+    </tr>
+    <tr><th>&nbsp;</th>
+        <td align="left" style="padding:0px 10px">
+        <a href="javascript:;" id="addImg">添加图片</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:;" id="addVideo">添加视频</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:;" id="addLink">添加链接</a>
+        </td>
+    </tr>
+    <tr>
+        <th>内容：</th>
+        <td style="padding-bottom:0px">
+        <input type="hidden" name="id" value="{$strArticle[aid]}"/>
+        <textarea tabindex="3"  style="width:99.5%;height:300px;" maxlength="10000" id="editor_full" cols="55" rows="20" name="content" class="txt"   placeholder="请填写内容">{$strArticle[content]}</textarea>
+        <div class="ik_toolbar" id="ik_toolbar"><span class="textnum" id="textnum"><em>0</em> / <em>10000</em> 受欢迎的字数 </span></div>
+        </td>
+    </tr> 
+    <tr>
+    	<th>&nbsp;</th>
+        <td style="padding-top:0px">
+        <input class="submit" type="submit" value="好啦，发表" tabindex="4" > <a href="{:U('article/index')}">返回</a>
+        </td>
+    </tr>
+</table>
+
+<include file="public:IKEditor" />
+<script language="javascript">
+$(function(){
+	$('#addImg').bind('click',function(){
+		var ajaxurl = "{:U('images/add')}";
+		var typeid = '{$strArticle[aid]}';
+		var data = "{'type':'article','typeid':'"+typeid+"'}";		
+		addPhoto(ajaxurl, data);
+	});
+	$('#addLink').bind('click',function(){	
+		addLink();
+	})
+	$('#addVideo').bind('click',function(){
+		addVideo();	
+	})
+});
+</script>
+
+</form>
+
+    
+    </div>
+</div>
+<include file="public:footer" />
+</body>
+</html>

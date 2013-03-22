@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<include file="menu" />
+<form method="POST" action="{:U('setting/edit')}">
+<table cellpadding="0" cellspacing="0">
+
+	<tr>
+		<th>会员头像规格：</th>
+		<td><input style="width: 300px;" name="setting[avatar_size]"  size="40" value="{:C('ik_avatar_size')}" /> 用户头像规格，用","隔开</td>
+	</tr> 
+	<tr>
+		<th>全站小图规格：</th>
+		<td>
+         <input type="text" name="setting[simg][width]"  size="5" value="{:C('ik_simg.width')}"> X 
+         <input type="text" name="setting[simg][height]"  size="5" value="{:C('ik_simg.height')}"> 如：100x100
+        </td>
+	</tr> 
+	<tr>
+		<th>全站中图规格：</th>
+		<td>
+         <input type="text" name="setting[mimg][width]"  size="5" value="{:C('ik_mimg.width')}"> X 
+         <input type="text" name="setting[mimg][height]"  size="5" value="{:C('ik_mimg.height')}"> 如：600x600
+        </td>
+	</tr>    
+	<tr>
+		<th>全站大图规格：</th>
+		<td>
+         <input type="text" name="setting[bimg][width]"  size="5" value="{:C('ik_bimg.width')}"> X 
+         <input type="text" name="setting[bimg][height]"  size="5" value="{:C('ik_bimg.height')}"> 如：1024x800
+        </td>
+	</tr>                 
+
+</table>
+
+<div class="page_btn"><input type="submit" value="提 交" class="submit" /></div>
+
+</form>
+</div>
+</body>
+</html>

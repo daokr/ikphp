@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<include file="menu" />
+<form method="POST" action="{:U('setting/edit')}">
+<table cellpadding="0" cellspacing="0">
+
+	<tr>
+		<th>网站标题：</th>
+		<td><input style="width: 300px;" name="setting[site_title]"
+			value="{:C('ik_site_title')}" /></td>
+	</tr>
+	<tr>
+		<th>副标题：</th>
+		<td><input style="width: 300px;" name="setting[site_subtitle]"
+			value="{:C('ik_site_subtitle')}" /> (例如：又一个爱客(IKPHP)社区小组)</td>
+	</tr>
+
+	<tr>
+		<th>关键词：</th>
+		<td><input style="width: 300px;" name="setting[site_keywords]"
+			value="{:C('ik_site_keywords')}" /> (关键词有助于SEO)</td>
+	</tr>
+
+	<tr>
+		<th>网站说明：</th>
+		<td><textarea
+			style="width: 300px; height: 50px; font-size: 12px;" name="setting[site_desc]">{:C('ik_site_desc')}</textarea>
+		(用简洁的文字描述本站点。)</td>
+	</tr>
+
+	<tr>
+		<th>站点地址（URL）：</th>
+		<td><input style="width: 300px;" name="setting[site_url]"
+			value="{:C('ik_site_url')}" />(必须以http://开头，以/结尾)</td>
+	</tr>
+	<tr>
+		<th>网站编码：</th>
+		<td><input style="width: 300px;" name="setting[charset]"
+			value="{:C('ik_charset')}" disabled/> （默认UTF-8）请勿更改</td>
+	</tr>    
+	<tr>
+		<th>电子邮件：</th>
+		<td><input style="width: 300px;" name="setting[site_email]"
+			value="{:C('ik_site_email')}" /></td>
+	</tr>
+
+	<tr>
+		<th>ICP备案号：</th>
+		<td><input style="width: 300px;" name="setting[site_icp]"
+			value="{:C('ik_site_icp')}" /> （京ICP备09050100号）</td>
+	</tr>
+
+	<tr>
+		<th>是否邀请注册：</th>
+		<td>
+		<input type="radio"  <if condition="C('ik_isinvite') eq 0"> checked="select" </if> name="setting[isinvite]" value="0" />开放注册 
+		<input type="radio"  <if condition="C('ik_isinvite') eq 1"> checked="select" </if> name="setting[isinvite]" value="1" />邀请注册 
+		<input type="radio"  <if condition="C('ik_isinvite') eq 2"> checked="select" </if> name="setting[isinvite]" value="2" />关闭注册
+		</td>
+	</tr>
+	<tr>
+		<th>Gzip压缩：</th>
+		<td>
+		<input type="radio" <if condition="C('ik_isgzip') eq 0"> checked="select" </if> name="setting[isgzip]" value="0" />关闭 
+		<input type="radio" <if condition="C('ik_isgzip') eq 1"> checked="select" </if> name="setting[isgzip]" value="1" />开启</td>
+	</tr>
+
+	<tr>
+		<th>时区：</th>
+		<td><select name="setting[timezone]">
+			<foreach  name="arrTime" item="vo" key="k">
+			<option <if condition="$k eq C('ik_timezone')">selected="selected"</if> value="{$k}" >{$vo}</option>
+			</foreach>
+		</select></td>
+	</tr>
+</table>
+<div class="page_btn"><input type="submit" value="提 交" class="submit" /></div>
+
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<!--main-->
+<div class="midder">
+<div class="mc">
+
+<include file="user:set_menu" />
+
+    <div class="utable">
+        <form method="POST" action="{:U('user/setbase')}">
+        <table cellpadding="0" cellspacing="0" width="100%" class="table_1">
+        <tr>
+        <th>登陆Email：</th><td><input class="txt" value="{$info.email}" disabled="true" /></td>
+        </tr>
+        <tr><th>名 号：</th><td><input class="txt" name="username" value="{$info.username}"  /></td></tr>
+        
+        <tr><th>性 别：</th><td>
+        
+        <if condition="$info.sex eq '0'">
+        <input checked="select" name="sex" type="radio" value="0" />保密 
+        <else />
+        <input  name="sex" type="radio" value="0" />保密 
+        </if>
+        <if condition="$info.sex eq '1'">
+        <input checked="select" name="sex" type="radio" value="1" />男  
+        <else />
+        <input  name="sex" type="radio" value="1" />男  
+        </if>
+        <if condition="$info.sex eq '2'">
+        <input checked="select" name="sex" type="radio" value="2" />女 
+        <else />
+        <input name="sex" type="radio" value="2" />女
+        </if>
+        
+        
+        </td></tr>
+        
+        <tr><th>常居地：</th>
+        <td>
+        <notempty name="strarea">
+        {$strarea[one][areaname]} 
+        {$strarea[two][areaname]} 
+        {$strarea[three][areaname]} 
+        </notempty>
+        </td>
+        </tr>
+        
+        <tr><th>当前所在地：</th><td><input class="txt" name="address" value="{$info.address}" /></td></tr>
+        
+        <tr><th>登陆IP：</th><td><input class="txt" name="ip" value="{$info.ip}" disabled="true" /></td></tr>
+        
+        <tr><th>手 机：</th><td><input class="txt" name="phone" value="{$info.phone}"  /></td></tr>
+        
+        <tr><th>Blog地址：</th><td><input class="txt" name="blog" value="{$info.blog}"  /></td></tr>
+        
+        <tr><th>自我介绍：</th><td><textarea class="utext" name="about" style="height:70px; width:480px">{$info.about}</textarea></td></tr>
+        
+        <tr><th>签 名：</th><td>
+        <textarea class="utext" name="signed" style="height:70px; width:480px"><php>echo t($info['signed']);</php></textarea>
+        (支持url链接，只需要输入http://www.******.com即可)
+        </td></tr>
+        
+        <tr><th></th><td><input class="submit" type="submit" value="更新个人资料"  /></td></tr>
+        
+        </table>
+        </form>
+    </div>
+</div>
+</div>
+<include file="public:footer" />
+</body>
+</html>

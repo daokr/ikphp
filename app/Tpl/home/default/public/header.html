@@ -1,0 +1,74 @@
+<!--头部开始-->
+<header>
+<div class="top_nav">
+  <div class="top_bd">
+    
+    <div class="top_info">
+        <empty name="visitor">
+		<a href="{:U('user/login')}">登录</a> | <a href="{:U('user/register')}">注册</a>       
+        <else/>
+        <a id="newmsg" href="{:U('message/inbox')}">123</a> | 
+        <a href="{:U('people/index', array('id'=>$visitor['doname']))}">
+        	{$visitor.username}
+        </a> | 
+        <a href="{:U('user/setbase')}">设置</a> | 
+        <a href="{:U('user/logout')}">退出</a>
+        </empty>
+    </div>
+
+
+    <div class="top_items">
+        <ul>
+             <li>
+             <a href="__SITE_URL__">爱客</a>
+             </li>             
+
+             <li>
+             <a href="{:U('group/index')}">小组</a>
+             </li>
+             
+             <li>
+             <a href="{:U('article/index')}">文章</a>
+             </li>                                          
+
+        </ul>
+    </div>
+  	<div class="cl"></div>
+    
+  </div>
+  
+</div>
+<!--header-->
+
+
+<div id="header">
+    
+	<div class="site_nav">
+        <div class="{$logo[style]}">
+            <a href="{$logo[url]}">{$logo[name]}</a>
+        </div>
+		<div class="appnav">
+			    <ul id="nav_bar">
+                    <foreach name="arrNav" item="item">
+                    <li><a href="{$item[url]}">{$item[name]}</a></li>
+                    </foreach>
+			    </ul>
+		   <form onsubmit="return searchForm(this);" method="get" action="http://www.ik.com/index.php">
+		   <input type="hidden" value="search" name="app"><input type="hidden" value="q" name="ac">
+		    <div id="search_bar">
+		        <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="小组、话题、日志、成员、小站" class="key" name="kw"></div>
+		        <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
+		    </div>
+		    </form>
+		</div>
+        
+        
+		
+        <div class="cl"></div>
+
+	</div>
+        
+</div>
+<!--APP NAV-->
+
+</header>

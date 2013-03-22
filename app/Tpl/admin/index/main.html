@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+<style>.fbox{float:left;width:45%;margin-right:10px;}</style>
+</head>
+<body>
+
+<div class="midder">
+	<notempty name="message">
+	<ul id="message_list">
+    	<volist name="message" id="val">
+    	<li class="message">{$val.content}</li>
+        </volist>
+    </ul>
+    </notempty>
+<div class="fbox">
+<h2>目录权限</h2>
+<table>
+<tr><td width="100">data目录</td><td>
+<if condition="!is_writable('data')"><font color="red">不可写</font>(请设置为可写777权限)<else />可写</if></td></tr>
+<tr><td>data/static目录</td><td><if condition="!is_writable('./data/static')"><font color="red">不可写</font>(请设置为可写777权限)<else />可写</if></td></tr>
+<tr><td>data/upload目录</td><td><if condition="!is_writable('./data/upload')"><font color="red">不可写</font>(请设置为可写777权限)<else />可写</if></td></tr>
+<tr><td>data/config目录</td><td><if condition="!is_writable('./data/config')"><font color="red">不可写</font>(请设置为可写777权限)<else />可写</if></td></tr>
+</table>
+</div>
+
+<div class="fbox">
+<h2>软件信息</h2>
+<table>
+<tr><td width="100">系统支持：</td><td>{$ikphp.ikphp_site_name}</td></tr>
+<tr><td>程序版本：</td><td>{$ikphp.ikphp_version}</td></tr>
+<tr><td>联系方式：</td><td>{$ikphp.ikphp_email}</td></tr>
+<tr><td>官方网址：</td><td><a href="{$ikphp.ikphp_site_url}" target='_blank'>{$ikphp.ikphp_site_url}</a></td></tr>
+</table>
+</div>
+
+<div class="fbox"> 
+<h2>服务器信息</h2>
+<table>
+    <tr><td width="100">服务器软件：</td><td>{$system.web_server}</td></tr>
+    <tr><td>操作系统：</td><td>{$system.server_os}</td></tr>
+    <tr><td>PHP版本：</td><td>{$system.php_version}</td></tr>
+    <tr><td>MySQL版本：</td><td>{$system.mysql_ver}</td></tr>
+    <tr><td>物理路径：</td><td>{$system.document_root}</td></tr>
+	 <tr><td>附件上传限制：</td><td>{$system.upload_max_filesize}</td></tr>
+    <tr><td>图像处理：</td><td>{$system.gd_info} </td></tr>
+    <tr><td>语言：</td><td>{$system.server_language}</td></tr>
+    <tr><td>gzip压缩：</td><td>{$system.zlib}</td></tr>
+    <tr><td>CURL支持：</td><td>{$system.curl}</td></tr>
+    <tr><td>执行时间限制：</td><td>{$system.max_execution_time}</td></tr>
+    <tr><td>时区设置：</td><td>{$system.timezone}</td></tr>
+</table>
+</div>
+
+<div class="fbox" id="admindex_msg">
+<h2>爱客({$ikphp.ikphp_site_name})官方消息</h2>
+<table>
+
+</table>
+</div>
+
+</div>
+
+</body>
+</html>
