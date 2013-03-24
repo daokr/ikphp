@@ -158,9 +158,10 @@ class Image {
      * @param string $maxHeight  高度
      * @param string $position 缩略图保存目录
      * @param boolean $interlace 启用隔行扫描
+     * @param boolean $is_fixed  是否生成固定比例的缩略图 
      * @return void
      */
-    static function thumb($image, $thumbname, $type='', $maxWidth=200, $maxHeight=50, $interlace=true) {
+    static function thumb($image, $thumbname, $type='', $maxWidth=200, $maxHeight=50, $interlace=true,$fixed = false) {
         // 获取原图信息
         $info = Image::getImageInfo($image);
         if ($info !== false) {
@@ -193,8 +194,53 @@ class Image {
                 $thumbImg = imagecreatetruecolor($width, $height);
             else
                 $thumbImg = imagecreate($width, $height);
+            
+            /* 开始判断是否生成固定高宽的缩略图
+             * 作者：小麦
+            * 日期：2013-03-23
+            */
+            if($fixed){
+            	//创建个   固定的缩略图盒子
+            	$thumbImg = imagecreatetruecolor($maxWidth,$maxHeight);
+            	//盒子 背景色
+            	$padColor = imagecolorallocate($thumbImg,255,255,255);
+            	//盒子填充   box
+            	imagefilledrectangle($thumbImg,0,0,$maxWidth,$maxHeight,$padColor);
+            
+            	//$imgWidth == $srcWidth   $srcHeight
+            	//$width = $maxWidth    $height = $maxHeight
+            	if($srcWidth >= $srcHeight)
+            	{
+            		$thumbWidth  = $maxWidth;
+            		$thumbHeight = ($maxWidth / $srcWidth) * $srcHeight;
+            	}
+            	else
+            	{
+            		$thumbWidth  = ($maxHeight / $srcHeight) * $srcWidth;
+            		$thumbHeight = $maxHeight;
+            	}
+            	 
+            	if(function_exists('ImageCopyResampled')){
+            
+            		//生成固定比例的缩略图
+            		imagecopyresampled($thumbImg, $srcImg, ($maxWidth-$thumbWidth)/2, ($maxHeight-$thumbHeight)/2, 0, 0, $thumbWidth, $thumbHeight, $srcWidth, $srcHeight);
+
+            	}else{
+            		imagecopyresized($thumbImg, $srcImg, ($maxWidth-$thumbWidth)/2, ($maxHeight-$thumbHeight)/2, 0, 0, $thumbWidth, $thumbHeight, $srcWidth, $srcHeight);
+            	}
+            }else{
+            
+            	// 如果不要固定生成 就还是按照他们以前的搞
+            	// 复制图片   如果有 imagecopyresampled 函数的话 就用
+            	if (function_exists("ImageCopyResampled"))
+            	{
+            		imagecopyresampled($thumbImg, $srcImg, 0, 0, 0, 0, $width, $height, $srcWidth, $srcHeight);
+            	}else{
+            		imagecopyresized($thumbImg, $srcImg, 0, 0, 0, 0, $width, $height, $srcWidth, $srcHeight);
+            	}
+            }
               //png和gif的透明处理 by luofei614
-            if('png'==$type){
+/*             if('png'==$type){
                 imagealphablending($thumbImg, false);//取消默认的混色模式（为解决阴影为绿色的问题）
                 imagesavealpha($thumbImg,true);//设定保存完整的 alpha 通道信息（为解决阴影为绿色的问题）    
             }elseif('gif'==$type){
@@ -206,12 +252,12 @@ class Image {
                        imagefill($thumbImg, 0, 0, $trnprt_indx);
                        imagecolortransparent($thumbImg, $trnprt_indx);
               }
+            } */
+            
+            if ('gif' == $type || 'png' == $type) {
+            	$background_color = imagecolorallocate($thumbImg, 0, 255, 0);  //  指派一个绿色
+            	imagecolortransparent($thumbImg, $background_color);  //  设置为透明色，若注释掉该行则输出绿色的图
             }
-            // 复制图片
-            if (function_exists("ImageCopyResampled"))
-                imagecopyresampled($thumbImg, $srcImg, 0, 0, 0, 0, $width, $height, $srcWidth, $srcHeight);
-            else
-                imagecopyresized($thumbImg, $srcImg, 0, 0, 0, 0, $width, $height, $srcWidth, $srcHeight);
 
             // 对jpeg图形设置隔行扫描
             if ('jpg' == $type || 'jpeg' == $type)

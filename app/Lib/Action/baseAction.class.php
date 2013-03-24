@@ -17,7 +17,7 @@ class baseAction extends Action
         //当前app名称
         $this->assign('module_name',strtolower(MODULE_NAME));
         //当前action名称
-        $this->assign('action_name',strtolower(ACTION_NAME));     
+        $this->assign('action_name',strtolower(ACTION_NAME));   
         //发送邮件
        // $this->assign('async_sendmail', session('async_sendmail'));
     }
@@ -49,6 +49,7 @@ class baseAction extends Action
     		$upload->thumbSuffix = isset($thumb['suffix']) ? $thumb['suffix'] : '_thumb';
     		$upload->thumbExt = isset($thumb['ext']) ? $thumb['ext'] : '';
     		$upload->thumbRemoveOrigin = isset($thumb['remove_origin']) ? true : false;
+    		$upload->is_fixed = false; // 固定高宽  
     	}
     	//自定义上传规则
     	$upload = $this->_upload_init($upload);

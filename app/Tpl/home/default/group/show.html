@@ -15,7 +15,7 @@
 <div class="infobox">
 
 <div class="bd">
-<img align="left" alt="{$strGroup[groupname]}" src="{:attach($strGroup[groupicon], 'group/icon')}" class="pil mr5 groupicon" valign="top" />
+<img align="left" alt="{$strGroup[groupname]}" src="{$strGroup[icon_48]}" class="pil mr5 groupicon" valign="top" />
 <div>创建于<php>echo date('Y-m-d',$strGroup[addtime])</php>&nbsp; &nbsp; {$strGroup[role_leader]}：<a href="{:U('people/index',array('id'=>$strLeader[doname]))}">{$strLeader[username]}</a><br></div>
 <php>echo nl2br($strGroup[groupdesc]);</php>
 <div class="clearfix" style="margin-top: 10px;">
@@ -133,7 +133,7 @@
         
     </div>
     
-	<p class="pl">本页永久链接: <a href="{:U('group/show',array(id=>$strGroup[groupid]))}">{:U('group/show',array(id=>$strGroup[groupid]))}</a></p>
+	<p class="pl">本页永久链接: <a href="{:U('group/show',array(id=>$strGroup[groupid]))}">http://www.ikphp.com{:U('group/show',array(id=>$strGroup[groupid]))}</a></p>
     
     <p class="pl"><span class="feed"><a href="{:U('group/rss',array(groupid=>$strGroup[groupid]))}">feed: rss 2.0</a></span></p>
     

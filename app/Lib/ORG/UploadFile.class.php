@@ -43,6 +43,7 @@ class UploadFile {//类定义开始
         'uploadReplace'     =>  false,// 存在同名是否覆盖
         'saveRule'          =>  'uniqid',// 上传文件命名规则
         'hashType'          =>  'md5_file',// 上传文件Hash规则函数名
+        'is_fixed'			=> false, //是否使用固定缩略图
         );
 
     // 错误信息
@@ -122,7 +123,7 @@ class UploadFile {//类定义开始
                         $suffix =   isset($thumbSuffix[$i])?$thumbSuffix[$i]:$thumbSuffix[0];
                         $thumbname  =   $prefix.basename($filename,'.'.$file['extension']).$suffix;
                     }
-                    Image::thumb($filename,$thumbPath.$thumbname.'.'.$thumbExt,'',$thumbWidth[$i],$thumbHeight[$i],true);
+                    Image::thumb($filename,$thumbPath.$thumbname.'.'.$thumbExt,'',$thumbWidth[$i],$thumbHeight[$i],true,$this->is_fixed);
                 }
                 if($this->thumbRemoveOrigin) {
                     // 生成缩略图之后删除原图

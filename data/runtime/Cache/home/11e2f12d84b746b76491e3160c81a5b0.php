@@ -1,10 +1,12 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
+<meta property="qc:admins" content="12472730776130006375" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
 <meta name="description" content="<?php echo ($seo["description"]); ?>" /> 
+<meta property="wb:webmaster" content="c9fd7603df8ff038" />
 <link rel="shortcut icon" href="__STATIC__/public/images/fav.ico" type="image/x-icon">
 <style>__SITE_THEME_CSS__</style>
 <!--[if gte IE 7]><!-->
@@ -20,7 +22,7 @@
 <!--[if lt IE 9]>
 <script src="__STATIC__/public/js/html5.js"></script>
 <![endif]-->
-<script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script>
+<script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 </head>
 
@@ -31,7 +33,7 @@ __EXTENDS_JS__
   <div class="top_bd">
     
     <div class="top_info">
-        <?php if(empty($visitor)): ?><a href="<?php echo U('user/login');?>">登录</a> | <a href="<?php echo U('user/register');?>">注册</a>       
+        <?php if(empty($visitor)): ?><a href="<?php echo U('user/login');?>">登录</a> | <a href="<?php echo U('user/register');?>">注册</a> | <a href="<?php echo U('oauth/index', array('mod'=>'qq'));?>" target="_blank" style="margin-left:10px"><img  align="absmiddle" title="QQ登录" src="__STATIC__/public/images/connect_qq.png"> 登录</a> | <a href="<?php echo U('oauth/index', array('mod'=>'sina'));?>" target="_blank" style="margin-left:10px"><img  align="absmiddle" title="新浪微博" src="__STATIC__/public/images/connect_sina_weibo.png"> 登录</a>    
         <?php else: ?>
         <a id="newmsg" href="<?php echo U('message/inbox');?>">123</a> | 
         <a href="<?php echo U('people/index', array('id'=>$visitor['doname']));?>">
@@ -53,7 +55,7 @@ __EXTENDS_JS__
              </li>
              
              <li>
-             <a href="<?php echo U('article/index');?>">文章</a>
+             <a href="<?php echo U('article/index');?>">阅读</a>
              </li>                                          
 
         </ul>
@@ -158,10 +160,10 @@ __EXTENDS_JS__
             <h2>最热话题<span class="pl">&nbsp;(<a href="<?php echo U('group/explore_topic');?>">更多</a>) </span></h2>
             <div class="topic-list">
                 <?php if(is_array($arrHotTopic)): foreach($arrHotTopic as $key=>$item): ?><dl>
-                    <dt><a href="<?php echo U('user/people',array('id'=>$item[user][doname]));?>"><img src="<?php echo ($item[user][face]); ?>"/></a></dt>
+                    <dt><a href="<?php echo U('people/index',array('id'=>$item[user][doname]));?>"><img src="<?php echo ($item[user][face]); ?>"/></a></dt>
                     <dd>
                         <header class="title"><span><a href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>#comment" title="回复数"><?php echo ($item[count_comment]); ?></a></span><a href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>" title="<?php echo ($time[title]); ?>"><?php echo ($item[title]); ?></a></header>
-                         <a href="<?php echo U('user/people',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <summary><?php echo getTime($item[addtime],time()) ?> <?php echo ($item[count_view]); ?>次阅读</summary>
+                         <a href="<?php echo U('people/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <summary><?php echo getTime($item[addtime],time()) ?> <?php echo ($item[count_view]); ?>次阅读</summary>
                         <p><?php echo ($item[content]); ?></p>
                     </dd>
                 </dl><?php endforeach; endif; ?>

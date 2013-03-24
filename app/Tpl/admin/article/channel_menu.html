@@ -1,0 +1,23 @@
+<h2>{$title}</h2>
+<table cellspacing="2" cellpadding="2" class="helptable">
+<tbody><tr><td>
+<ul>
+<li>系统内置了文章频道。您可以为这些频道进行重新命名，并确定是否显示在站点菜单上面。</li>
+<li>如果您在站点 <u>文章管理</u> 里面未开启某个频道功能，则该频道不会显示在站点菜单上面。</li>
+<li>您也可以添加自己的频道，频道将会在站点的文章首页显示，也可以指定频道访问地址为其他网站页面。</li>
+<li>自己添加的频道名称请用英文表示 如：新闻 <u><em>news</em></u> 并且不要使用下划线等特殊字符；这样有助于SEO。</li>
+</ul>
+</td></tr>
+</tbody>
+</table>
+<div class="tabnav">
+<ul>
+<foreach name="menu" key="key" item="item">
+    <if condition="$key eq $ik">
+    <li class="select"><a href="{$item[url]}">{$item[text]}</a></li>
+    <else />
+    <li><a href="{$item[url]}">{$item[text]}</a></li>
+    </if>
+</foreach>
+</ul>
+</div>

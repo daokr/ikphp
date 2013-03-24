@@ -53,7 +53,7 @@ __EXTENDS_JS__
              </li>
              
              <li>
-             <a href="<?php echo U('article/index');?>">文章</a>
+             <a href="<?php echo U('article/index');?>">阅读</a>
              </li>                                          
 
         </ul>
@@ -112,7 +112,7 @@ __EXTENDS_JS__
     <form method="POST" action="<?php echo U('user/setface');?>" enctype="multipart/form-data" >
         <img alt="<?php echo ($info["username"]); ?>" valign="middle" src="<?php echo avatar($info['userid'], 48);?>" class="pil" />
         <div class="file_info">
-            <p>从你的电脑上选择图像文件：(仅支持jpg，gif，png格式的图片)</p>
+            <p>从你的电脑上选择图像文件：(仅支持jpg，jpeg，gif，png格式的图片)  大小不超过 <?php echo C('ik_attr_allow_size');?> KB</p>
             <p><input type="file" name="picfile" style="height:25px; "/>&nbsp;&nbsp;<input class="submit" type="submit" value="上传照片" /></p>
         </div>    
     </form>

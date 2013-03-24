@@ -119,7 +119,7 @@ function avatar($uid, $size) {
     $avatar_size = explode(',', C('ik_avatar_size'));
     $size = in_array($size, $avatar_size) ? $size : '100';
     $avatar_dir = avatar_dir($uid);
-    $avatar_file = $avatar_dir . md5($uid) . "_{$size}.jpg";
+    $avatar_file = $avatar_dir . md5($uid) . "_{$size}_{$size}.jpg";
     if (!is_file(C('ik_attach_path') . 'face/' . $avatar_file)) {
         $avatar_file = "user_{$size}.jpg";
     }
@@ -135,10 +135,10 @@ function avatar_dir($uid) {
     return $dir1 . '/' . $dir2 . '/' . $dir3 . '/';
 }
 
-function attach($attach, $type) {
+function attach($attach) {
     if (false === strpos($attach, 'http://')) {
         //本地附件
-        return __ROOT__ . '/' . C('ik_attach_path') . $type . '/' . $attach;
+        return __ROOT__ . '/' . C('ik_attach_path') . $attach.'?v='.time();
         //远程附件
         //todo...
     } else {
@@ -278,4 +278,311 @@ function ikhtml($type,$typeid,$content){
 		$strcontent = str_replace ( '[图片'.$item.']', $htmlTpl, $strcontent );
 	}
 	return $strcontent;
+}
+//生成随机数(1数字,0字母数字组合)
+function random($length, $numeric = 0) {
+	PHP_VERSION < '4.2.0' ? mt_srand ( ( double ) microtime () * 1000000 ) : mt_srand ();
+	$seed = base_convert ( md5 ( print_r ( $_SERVER, 1 ) . microtime () ), 16, $numeric ? 10 : 35 );
+	$seed = $numeric ? (str_replace ( '0', '', $seed ) . '012340567890') : ($seed . 'zZ' . strtoupper ( $seed ));
+	$hash = '';
+	$max = strlen ( $seed ) - 1;
+	for($i = 0; $i < $length; $i ++) {
+		$hash .= $seed [mt_rand ( 0, $max )];
+	}
+	return $hash;
+}
+
+//格式化时间
+function sgmdate($timestamp, $dateformat='', $format=0) {
+	if(empty($dateformat)) {
+		$dateformat = 'Y-m-d H:i:s';
+	}
+	if(empty($timestamp)) {
+		$timestamp = time();
+	}
+	$result = '';
+	if($format) {
+		$time = time() - $timestamp;
+		if($time > 24*3600) {
+			$result = gmdate($dateformat, $timestamp + C('ik_timezone') * 3600);
+		} elseif ($time > 3600) {
+			$result = intval($time/3600).'小时前';
+		} elseif ($time > 60) {
+			$result = intval($time/60).'分钟前';
+		} elseif ($time > 0) {
+			$result = $time.'秒前';
+		} else {
+			$result = '现在';
+		}
+	} else {
+		$result = gmdate($dateformat, $timestamp + C('ik_timezone') * 3600);
+	}
+	return $result;
+}
+//获取文件名后缀
+function fileext($filename) {
+	return strtolower(trim(substr(strrchr($filename, '.'), 1)));
+}
+/**
+ * IKPHP专用上传 上传本地文件
+ * @author 小麦
+ * @access public
+ * @param string $filearr 文件
+ * @param string $savepath 存放图片的目录
+ * @param string $thumb 缩略图可以是数组或者字符串逗号分隔
+ * @param string $objfile 对象文件名
+ * @param string $havethumb 是否生成缩略图 默认生成 1
+ * @return void
+ */
+function savelocalfile($filearr, $savepath='', $thumb='', $arrext='',  $save_rule='', $objfile='', $havethumb=1) {
+
+	if(empty($filearr) || empty($savepath)){
+		return array('error'=>'请选择要上传的文件！');
+	}
+	$patharr = $deault = array();
+	//debug 传入参数
+	$filename = strip_tags($filearr['name']);
+	$tmpname = str_replace('\\', '\\\\', $filearr['tmp_name']);
+
+	//debug 文件后缀
+	$ext = fileext($filename) == 'gif' ? 'jpg': fileext($filename);
+	$patharr['name'] = addslashes($filename);
+	$patharr['type'] = $ext;
+	$patharr['size'] = $filearr['size'];
+	if($patharr['size']/1024 > C('ik_attr_allow_size')){
+		return array('error'=>'您上传的图片大小是：'.round($patharr['size']/1024).'文件不超过'.C('ik_attr_allow_size').'KB');
+	}
+	//debug 文件名
+	if($objfile) {
+		$newfilename = $objfile;
+		$isimage = 0;
+		$patharr['file'] = $patharr['thumb'] = $objfile;
+	} else {
+		if(empty($arrext)) $arrext = array('jpg', 'jpeg', 'gif', 'png');
+		if(in_array($ext, $arrext)) {
+			$imageinfo = @getimagesize($tmpname);
+			list($width, $height, $type) = !empty($imageinfo) ? $imageinfo : array('', '', '');
+			if(!in_array($type, array(1,2,3,6,13))) {
+				return $deault;
+			}
+			$isimage = 1;
+		} else {
+			//$isimage = 0;
+			//$ext = 'attach';
+			return array('error'=>'您上传的图片类型不对！');
+		}
+		//文件名称
+		if(empty($save_rule)){
+			$filemain = sgmdate(time(), 'YmdHis').random(4);
+		}else{
+			$filemain = $save_rule;
+		}
+		
+		//得到存储目录
+		$dirpath = getattachdir($savepath);
+		$patharr['filename'] = $filemain.'.'.$ext;
+		$patharr['file'] = $dirpath.'/'.$filemain.'.'.$ext;
+		$patharr['path'] = $dirpath.'/';
+		//上传
+		$newfilename = C('ik_attach_path').$patharr['file'];
+	}
+	if(@copy($tmpname, $newfilename)) {
+	} elseif((function_exists('move_uploaded_file') && @move_uploaded_file($tmpname, $newfilename))) {
+	} elseif(@rename($tmpname, $newfilename)) {
+	} else {
+		return $deault;
+	}
+	@unlink($tmpname);
+	
+	//debug 缩略图水印
+	if($isimage && empty($objfile)) {
+		//缩略图
+		if($havethumb == 1) {
+			// 如果$thumb是字符串
+			;
+			
+			if(is_array($thumb)){
+				$arrThumbWidth = explode(',',$thumb['width']);
+				$arrThumbHeight = explode(',',$thumb['height']);
+				foreach($arrThumbWidth as $key => $item){
+					$patharr['img_'.$item.'_'.$arrThumbHeight[$key]] = makethumb($patharr['file'],array($item,$arrThumbHeight[$key]));
+				}
+			}
+		}
+	}
+	return $patharr;
+}
+function filemain($filename) {
+	return trim(substr($filename, 0, strrpos($filename, '.')));
+}
+//生成缩略图
+function makethumb($srcfile, $thumbsizearr = array(100, 100), $dstfile='') {
+	if(empty($dstfile)) {
+		$dstfile = filemain($srcfile).'_'.$thumbsizearr[0].'_'.$thumbsizearr[1].'.jpg';//自建立缩略图
+		$srcfile_file = C('ik_attach_path').$srcfile;
+		$dstfile_file = C('ik_attach_path').$dstfile;
+	} else {
+		$srcfile_file = $srcfile;
+		$dstfile_file = $dstfile;
+	}
+	if (!file_exists($srcfile_file)) {
+		return '';
+	}
+
+	$opnotkeepscale = 4;
+	$opbestresizew = 8;
+	$opbestresizeh = 16;
+	$_IKIMAGECONFIG = array(
+			'thumbcutmode' => 2, // 裁剪模式  0是默认模式     1左或上剪切模式    2中间剪切模式    3右或下剪切模式
+			'thumbcutstartx' => 0, //x 坐标
+			'thumbcutstarty' => 0, //y 坐标
+			'thumboption' => 4, //8 宽度最佳缩放  4 综合最佳缩放 16 高度最佳缩放
+	); 
+	$option = $_IKIMAGECONFIG['thumboption'];
+	$cutmode = $_IKIMAGECONFIG['thumbcutmode'];
+	$startx = $_IKIMAGECONFIG['thumbcutstartx'];
+	$starty = $_IKIMAGECONFIG['thumbcutstarty'];
+	$dstW = intval($thumbsizearr[0]);
+	$dstH = intval($thumbsizearr[1]);
+	if($dstW<20) $dstW = 100;
+	if($dstH<20) $dstH = 100;
+
+	$imgtype = array(1=>'gif', 2=>'jpeg', 3=>'png');
+
+	$func_output = 'ImageJpeg';
+	if (!function_exists ($func_output)) {
+		return '';
+	}
+
+	$data = @getimagesize($srcfile_file);
+	//是否切割gif 默认允许
+/* 	if(!empty($data) && is_array($data) && $data[2] != 1 && $data['mime'] != 'image/gif') {
+	} else {
+		return '';
+	} */
+
+	$func_create = "imagecreatefrom".$imgtype[$data[2]];
+	if (!function_exists ($func_create)) {
+		return '';
+	}
+
+	$im = @$func_create($srcfile_file);
+	$srcW = @imagesx($im);
+	$srcH = @imagesy($im);
+	$srcX = 0;
+	$srcY = 0;
+	$dstX = 0;
+	$dstY = 0;
+
+	//SIZE
+	if($srcW < $dstW) $dstW = $srcW;
+	if($srcH < $dstH) $dstH = $srcH;
+
+	if ($option & $opbestresizew) {
+		$dstH = round($dstW * $srcH / $srcW);
+	}
+	if ($option & $opbestresizeh) {
+		$dstW = round($dstH * $srcW / $srcH);
+	}
+
+	$fdstW = $dstW;
+	$fdstH = $dstH;
+
+	//CUT
+	if ($cutmode != 0) {
+		$srcW -= $startx;
+		$srcH -= $starty;
+		if ($srcW*$dstH > $srcH*$dstW) {
+			$testW = round($dstW * $srcH / $dstH);
+			$testH = $srcH;
+		} else {
+			$testH = round($dstH * $srcW / $dstW);
+			$testW = $srcW;
+		}
+		switch ($cutmode) {
+			case 1: $srcX = 0; $srcY = 0;
+			break;
+			case 2: $srcX = round(($srcW - $testW) / 2);
+			$srcY = round(($srcH - $testH) / 2);
+			break;
+			case 3: $srcX = $srcW - $testW;
+			$srcY = $srcH - $testH;
+			break;
+		}
+		$srcW = $testW;
+		$srcH = $testH;
+		$srcX += $startx;
+		$srcY += $starty;
+	} else {
+		if (!($option & $opnotkeepscale)) {
+			if ($srcW*$dstH > $srcH*$dstW) {
+				$fdstH = round($srcH*$dstW/$srcW);
+				$dstY = floor(($dstH-$fdstH)/2);
+				$fdstW = $dstW;
+			} else {
+				$fdstW = round($srcW*$dstH/$srcH);
+				$dstX = floor(($dstW-$fdstW)/2);
+				$fdstH = $dstH;
+			}
+			$dstX=($dstX<0)?0:$dstX;
+			$dstY=($dstX<0)?0:$dstY;
+			$dstX=($dstX>($dstW/2))?floor($dstW/2):$dstX;
+			$dstY=($dstY>($dstH/2))?floor($dstH/s):$dstY;
+		}
+	}
+
+	if(function_exists("imagecopyresampled") and function_exists("imagecreatetruecolor")) {
+		$func_create = "imagecreatetruecolor";
+		$func_resize = "imagecopyresampled";
+	} elseif (function_exists("imagecreate") and function_exists("imagecopyresized")) {
+		$func_create = "imagecreate";
+		$func_resize = "imagecopyresized";
+	} else {
+		return '';
+	}
+
+	$newim = @$func_create($dstW,$dstH);
+	$black = @imagecolorallocate($newim, 0,0,0);
+	$back = @imagecolortransparent($newim, $black);
+	@imagefilledrectangle($newim,0,0,$dstW,$dstH,$black);
+	@$func_resize($newim,$im,$dstX,$dstY,$srcX,$srcY,$fdstW,$fdstH,$srcW,$srcH);
+	@$func_output($newim, $dstfile_file);
+	@imagedestroy($im);
+	@imagedestroy($newim);
+
+	if(!file_exists($dstfile_file)) {
+		return '';
+	}
+
+	return $dstfile;
+}
+// 获取目录
+function getattachdir($dirpatharr) {
+	$dirs = C('ik_attach_path');
+	$subarr = array();
+	$dirarr = explode('/', $dirpatharr);
+	foreach ($dirarr as $value) {
+		$dirs .= '/'.$value;
+		if(smkdir($dirs)) {
+			$subarr[] = $value;
+		} else {
+			break;
+		}
+	}
+	return implode('/', $subarr);
+}
+// 生成目录
+function smkdir($dirname, $ismkindex=1) {
+	$mkdir = false;
+	if(!is_dir($dirname)) {
+		if(@mkdir($dirname, 0777)) {
+			if($ismkindex) {
+				@fclose(@fopen($dirname.'/index.htm', 'w'));
+			}
+			$mkdir = true;
+		}
+	} else {
+		$mkdir = true;
+	}
+	return $mkdir;
 }

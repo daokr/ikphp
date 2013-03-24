@@ -22,19 +22,20 @@ class imagesAction extends frontendAction {
 		// 上传
 		if (! empty ( $file )) {
 			$data_dir = date ( 'Y/md/H' );
-			$result = $this->_upload ( $file, $type . '/' . $data_dir, array (
+			$result = savelocalfile($file,$type . '/' . $data_dir,
+					array (
 					'width'=>C('ik_simg.width').','.C('ik_mimg.width').','.C('ik_bimg.width'),
-					'height'=>C('ik_simg.height').','.C('ik_mimg.height').','.C('ik_bimg.height'),
-					'suffix' => '_s,_m,_b',
-			) );
+					'height'=>C('ik_simg.height').','.C('ik_mimg.height').','.C('ik_bimg.height')
+					),
+					array('jpg','jpeg','png','gif'));
 			if ($result ['error']) {
-				$arrJson = array('r'=>1, 'html'=> $result ['info']);
+				$arrJson = array('r'=>1, 'html'=> $result ['error']);
 				return $arrJson;
 			} else {
-				$name = $result ['info'] [0] ['savename'];
+				$name = $result ['filename'];
 				$path = $type . '/'.$data_dir . '/' ;
-				$size = $result ['info'] [0] ['size'];
-				$title = $result ['info'] [0] ['name'];
+				$size = $result ['size'];
+				$title = $result ['name'];
 				$photoid = D('images')->addImage($name,$path,$size,$title,$type,$typeid,$userid);
 				//浏览该$photoid下的照片
 				$arrPhoto = D('images')->getImageById($photoid);

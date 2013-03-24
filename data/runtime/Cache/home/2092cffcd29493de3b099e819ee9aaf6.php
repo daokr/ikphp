@@ -53,7 +53,7 @@ __EXTENDS_JS__
              </li>
              
              <li>
-             <a href="<?php echo U('article/index');?>">文章</a>
+             <a href="<?php echo U('article/index');?>">阅读</a>
              </li>                                          
 
         </ul>
@@ -109,7 +109,7 @@ __EXTENDS_JS__
                  <?php echo ($strArticle[content]); ?>
             </div>
             <div class="control-btns">
-            <?php if($visitor[userid] == $strArticle[userid]): ?><a href="<?php echo U('article/edit',array('id'=>$strArticle['aid']));?>">编辑</a>&nbsp; &gt;&nbsp; <a href="<?php echo U('article/delete',array('id'=>$strArticle['aid']));?>">删除</a><?php endif; ?>
+            <?php if($visitor[userid] == $strArticle[userid]): ?><a href="<?php echo U('article/edit',array('id'=>$strArticle['aid']));?>">编辑</a>&nbsp; &gt;&nbsp; <a href="<?php echo U('article/delete',array('id'=>$strArticle['aid']));?>" onclick="return confirm('确定删除?')">删除</a><?php endif; ?>
             <br/>
             本文由<a href="<?php echo U('people/index',array('id'=>$strArticle[user][doname]));?>"><?php echo ($strArticle[user][username]); ?></a>授权（爱客网）发表，文章著作权为原作者所有
             </div>

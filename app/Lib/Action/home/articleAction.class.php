@@ -53,7 +53,7 @@ class articleAction extends frontendAction {
 	public function add() {
 		$userid = $this->userid;
 		// 获取资讯分类
-		$arrChannel = $this->channel_mod->select ();
+		$arrChannel = $this->channel_mod->getAllChannel(array('isnav'=>'0'));
 		$arrCate = ''; // 初始化下拉列表
 		$arrCatename = array ();
 		foreach ( $arrChannel as $key => $item ) {

@@ -13,23 +13,26 @@
 <div class="midder">
 <h2><?php echo ($title); ?></h2>
     <div>
-    <form method="POST" action="<?php echo U('setting/edit');?>">
+    <form method="POST" action="<?php echo U('setting/url');?>">
     <table>
         <tr>
             <td width="100">形式1：</td>
             <td>
-            <label><input type="radio" <?php if(C('ik_site_urltype') == 1): ?>checked="select"<?php endif; ?>
-            name="setting[site_urltype]" value="1" /> index.php?m=article&a=show&id=1
-            </label>
+            <?php if($config[URL_MODEL] == 0): ?><label><input type="radio" name="url_model" value="0" checked="select"/> index.php?m=article&a=show&id=1 </label>
+            <?php else: ?>
+            <label><input type="radio" name="url_model" value="0" /> index.php?m=article&a=show&id=1 </label><?php endif; ?>
             </td>
         </tr>
         <tr>
             <td>形式2：</td>
             <td>
-            <label><input type="radio" <?php if(C('ik_site_urltype') == 2): ?>checked="select"<?php endif; ?> 
-            name="setting[site_urltype]" value="2" />
+             <?php if($config[URL_MODEL] == 1): ?><label><input type="radio" name="url_model" value="1" checked="select"/>
             /article/show/id/1 (暂只支持apache环境的rewrite，非apache环境勿动)
             </label>
+            <?php else: ?>
+            <label><input type="radio" name="url_model" value="1" />
+            /article/show/id/1 (暂只支持apache环境的rewrite，非apache环境勿动)
+            </label><?php endif; ?>
             </td>
         </tr>           
     </table>

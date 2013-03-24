@@ -1,0 +1,17 @@
+<h2>{$title}</h2>  
+<div class="tabnav">
+<ul>
+<foreach name="arrChannel" key="key" item="item">
+    <if condition="$item[nameid] eq $nameid">
+    <li class="select"><a href="{:U('article/index',array('ik'=>'list','nameid'=>$item[nameid],'isaudit'=>'0'))}">{$item[name]}</a></li>
+    <else />
+    <li><a href="{:U('article/index',array('ik'=>'list','nameid'=>$item[nameid],'isaudit'=>'0'))}">{$item[name]}</a></li>
+    </if>
+</foreach>
+</ul>
+</div>
+<div class="Toolbar_inbox">
+	<a class="btn_a" href="{:U('article/index',array('ik'=>'list','nameid'=>$nameid,'isaudit'=>'0'))}"><span>已发布的</span></a>
+    <a class="btn_a" href="{:U('article/index',array('ik'=>'list','nameid'=>$nameid,'isaudit'=>'1'))}">
+    <span>未审核的 <font style="color:red;">({$count_isaudit})</font></span></a>
+</div>

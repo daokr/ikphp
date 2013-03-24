@@ -179,6 +179,7 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 .top_nav .top_info{ float:right; margin-right:15px}
 .top_nav .top_items{ float:left; margin-left:15px}
 .top_nav .top_items li{ float:left; margin-right:10px}
+.top_nav a{ margin:0px 5px;}
 .top_nav a:active, .top_nav a:hover, .top_nav a:link, .top_nav a:visited {color:#d5d5d5}
 .top_nav a:active, .top_nav a:hover {color:#fff;background-color:transparent}
 

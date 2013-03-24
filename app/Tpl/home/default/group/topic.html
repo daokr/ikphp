@@ -162,7 +162,7 @@
           <div class="bd">
               <div class="group-item">
                   <div class="pic">
-                       <a href="{:U('group/show',array('id'=>$strGroup[groupid]))}" title="{$strGroup[groupname]}"><img src="{:attach($strGroup[groupicon], 'group/icon')}" alt="{$strGroup[groupname]}"></a>
+                       <a href="{:U('group/show',array('id'=>$strGroup[groupid]))}" title="{$strGroup[groupname]}"><img src="{$strGroup[icon_48]}" alt="{$strGroup[groupname]}"></a>
                   </div>
                   <div class="info">
                       <div class="title">
@@ -177,7 +177,7 @@
       <div class="side-reg" id="g-side-info">
         <div class="bd">
           <div class="group-item">
-            <div class="pic"> <a href="{:U('group/show',array('id'=>$strGroup[groupid]))}"> <img src="{:attach($strGroup[groupicon], 'group/icon')}"> </a> </div>
+            <div class="pic"> <a href="{:U('group/show',array('id'=>$strGroup[groupid]))}"> <img src="{$strGroup[icon_48]}"> </a> </div>
             <div class="info">
               <div class="title"> <a href="{:U('group/show',array('id'=>$strGroup[groupid]))}"><php>echo getsubstrutf8(t($strGroup[groupname]),0,14)</php></a> </div>
               	<div class="member-info"> <i>{$strGroup[count_user]}</i> 人聚集在这个小组 </div>

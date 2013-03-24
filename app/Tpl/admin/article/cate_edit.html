@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<include file="cate_menu" />
+<form method="POST" action="{:U('article/cate',array('ik'=>'edit','cateid'=>$strCate[cateid]))}">
+<table cellpadding="0" cellspacing="0">
+
+	<tr>
+		<th>分类名称：</th>
+		<td><input name="catename" value="{$strCate[catename]}"  maxlength="20"/></td>
+	</tr>
+	</tr>    
+</table>
+<div class="page_btn"><input type="submit" value="提 交" class="submit" /></div>
+
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<include file="cate_menu" />
+<table  cellpadding="0" cellspacing="0">
+<tr class="old">
+<td>分类名称</td>
+<td>显示顺序</td>
+<td width="200">操作</td>
+</tr>
+<foreach name="arrCate" item="item">
+<tr class="odd">
+<td>{$item[catename]}</td>
+<td>{$item[orderid]}</td>
+<td>
+<a href="{:U('article/cate',array('ik'=>'edit','cateid'=>$item[cateid]))}">[编辑]</a> 
+<a href="{:U('article/cate',array('ik'=>'delete','cateid'=>$item[cateid]))}">[合并/删除]</a> 
+<a href="index.php?m=article&a=category&cateid={$item[cateid]}" target="_blank">[访问]</a> 
+</td>
+<tr>
+</foreach>
+</table>
+
+</div>
+</body>
+</html>

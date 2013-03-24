@@ -53,7 +53,7 @@ __EXTENDS_JS__
              </li>
              
              <li>
-             <a href="<?php echo U('article/index');?>">文章</a>
+             <a href="<?php echo U('article/index');?>">阅读</a>
              </li>                                          
 
         </ul>

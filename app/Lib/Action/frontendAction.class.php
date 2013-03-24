@@ -92,7 +92,7 @@ class frontendAction extends baseAction {
 					
 				case "article" :
 					// 发表评论
-				    $arrChannel = D('article_channel')->getAllChannel();
+				    $arrChannel = D('article_channel')->getAllChannel(array('isnav'=>'0'));
 				    foreach($arrChannel as $item){
 				    	$arrNav[$item['nameid']] = array('name'=>$item['name'], 'url'=>U('article/channel',array('nameid'=>$item['nameid'])));
 				    }
@@ -100,7 +100,7 @@ class frontendAction extends baseAction {
 				default:
 					$arrNav['index'] = array('name'=>'首页', 'url'=>C('ik_site_url'));
 					$arrNav['group'] = array('name'=>'小组', 'url'=>U('group/index'));
-					$arrNav['article'] = array('name'=>'文章', 'url'=>U('article/index'));
+					$arrNav['article'] = array('name'=>'阅读', 'url'=>U('article/index'));
 					break;
 			}
 			return $arrNav;
@@ -112,11 +112,11 @@ class frontendAction extends baseAction {
 			$arrLogo = array ();
 			switch ($module_name) {
 				case "group" :
-					$arrLogo = array('name'=>'爱客小组', 'url'=>U('group/index'), 'style'=>'site_logo nav_logo');
+					$arrLogo = array('name'=>'小组', 'url'=>U('group/index'), 'style'=>'site_logo nav_logo');
 					break;
 						
 				case "article" :
-					$arrLogo = array('name'=>'爱客文章', 'url'=>U('article/index'), 'style'=>'site_logo nav_logo');
+					$arrLogo = array('name'=>'阅读', 'url'=>U('article/index'), 'style'=>'site_logo nav_logo');
 					break;
 				default:
 					$arrLogo = array('name'=>'爱客开源', 'url'=>C('ik_site_url'), 'style'=>'site_logo');

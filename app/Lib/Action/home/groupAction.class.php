@@ -208,26 +208,24 @@ class groupAction extends frontendAction {
 				}
 			}
 
-			// 小组图标
-			$groupicon = $_FILES ['picfile'];
-			// 上传
-			if (! empty ( $groupicon )) {
-				$data_dir = date ( 'Y/md/H' );
-				$result = $this->_upload ( $groupicon, 'group/icon/' . $data_dir, array (
-						'width' => '48',
-						'height' => '48',
-						'remove_origin' => true 
-				) );
-				if ($result ['error']) {
-					$this->error ( $result ['info'] );
-				} else {
-					$ext = array_pop ( explode ( '.', $result ['info'] [0] ['savename'] ) );
-					$data ['groupicon'] = $data_dir . '/' . str_replace ( '.' . $ext, '_thumb.' . $ext, $result ['info'] [0] ['savename'] );
-				}
-			}
 			if (false !== $this->_mod->create ( $data )) {
 				$groupid = $this->_mod->add ();
 				if ($groupid) {
+					// 小组图标
+					$groupicon = $_FILES ['picfile'];
+					// 上传
+					if (! empty ( $groupicon )) {
+						//上传头像
+						$result = savelocalfile($groupicon,'group/icon',
+								array('width'=>'48','height'=>'48'),
+								array('jpg','jpeg','png'),
+								md5($groupid));
+						if (!$result ['error']) {
+							$data ['groupicon'] = $result['img_48_48'];
+							//更新小组头像
+							$this->_mod->where ( 'groupid=' . $groupid )->setField ( 'groupicon', $data ['groupicon'] );
+						}
+					}
 					//添加tag
 					D('tag')->addTag('group','groupid',$groupid,$tags);
 					// 绑定成员
@@ -1020,21 +1018,18 @@ class groupAction extends frontendAction {
 				$groupicon = $_FILES ['picfile'];
 				// 上传
 				if (! empty ( $groupicon )) {
-					$data_dir = date ( 'Y/md/H' );
-					$result = $this->_upload ( $groupicon, 'group/icon/' . $data_dir, array (
-							'width' => '48',
-							'height' => '48',
-							'remove_origin' => true
-					) );
-					if ($result ['error']) {
-						$this->error ( $result ['info'] );
-					} else {
-						$ext = array_pop ( explode ( '.', $result ['info'] [0] ['savename'] ) );
-						$data ['groupicon'] = $data_dir . '/' . str_replace ( '.' . $ext, '_thumb.' . $ext, $result ['info'] [0] ['savename'] );
-						$this->_mod->where(array('groupid'=>$groupid))->save($data);
+					//上传头像
+					$result = savelocalfile($groupicon,'group/icon',
+							array('width'=>'48,60','height'=>'48,60'),
+							array('jpg','jpeg','png'),
+							md5($groupid));
+					if (!$result ['error']) {
+						$data ['groupicon'] = $result['img_48_48'];
+						//更新小组头像
+						$this->_mod->where ( 'groupid=' . $groupid )->setField ( 'groupicon', $data ['groupicon'] );
 						$this->success('小组图标修改成功！');
 					}
-				}				
+				}			
 				
 				break;
 		}		

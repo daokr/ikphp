@@ -1,0 +1,22 @@
+array(10) {
+  ["ret"]=>
+  int(0)
+  ["msg"]=>
+  string(0) ""
+  ["nickname"]=>
+  string(6) "小麦"
+  ["gender"]=>
+  string(3) "男"
+  ["figureurl"]=>
+  string(73) "http://qzapp.qlogo.cn/qzapp/100401235/DA45F33E47A8630E3AE3BEC41D56D771/30"
+  ["figureurl_1"]=>
+  string(73) "http://qzapp.qlogo.cn/qzapp/100401235/DA45F33E47A8630E3AE3BEC41D56D771/50"
+  ["figureurl_2"]=>
+  string(74) "http://qzapp.qlogo.cn/qzapp/100401235/DA45F33E47A8630E3AE3BEC41D56D771/100"
+  ["vip"]=>
+  string(1) "0"
+  ["level"]=>
+  string(1) "0"
+  ["is_yellow_year_vip"]=>
+  string(1) "0"
+}

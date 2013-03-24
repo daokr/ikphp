@@ -6,7 +6,6 @@ class userAction extends userbaseAction {
 		$this->user_mod = D ( 'user' );
 			// 访问者控制
 		if (! $this->visitor->is_login && in_array ( ACTION_NAME, array (
-				'follow',
 				'setbase',
 				'setcity',
 				'setdoname',
@@ -88,20 +87,12 @@ class userAction extends userbaseAction {
 	            $dir3 = substr($suid, 5, 2);
 	            $avatar_dir = $dir1.'/'.$dir2.'/'.$dir3.'/';
 	            //上传头像
-	            $suffix = '';
-	            foreach ($avatar_size as $size) {
-	                $suffix .= '_'.$size.',';
-	            }
-	            $result = $this->_upload($_FILES['picfile'], 'face/'.$avatar_dir, array(
-	                'width'=>C('ik_avatar_size'), 
-	                'height'=>C('ik_avatar_size'),
-	                'remove_origin'=>true, 
-	                'suffix'=>trim($suffix, ','),
-	                'ext' => 'jpg',
-	            ), md5($uid));
+	            $result = savelocalfile($_FILES['picfile'],'face/'.$avatar_dir,array('width'=>C('ik_avatar_size'),'height'=>C('ik_avatar_size')),
+	            		array('jpg','gif','png'),
+	            		md5($uid));
 				
 			    if ($result['error']) {
-	                $this->error($result['info']);
+	                $this->error($result['error']);
 	            } else {
 					$this->success('头像修改成功！');
 	            }	
@@ -489,5 +480,53 @@ class userAction extends userbaseAction {
 				'subtitle' => '用户'
 		) );
 		$this->display ();
+	}
+	/**
+	 * 用户绑定
+	 */
+	public function binding() {
+		if(cookie('user_bind_info')){
+			$user = object_to_array(cookie('user_bind_info'));
+			
+			if(IS_POST){
+				$email = $this->_post('email','trim');
+				$username = $this->_post('username','trim');
+				//检查email和用户名
+				$ishave = $this->user_mod->where(array('email'=>$email))->count('*');
+				if ($ishave>0) {
+					$this->error('该Email已经被使用了！');
+				}else{
+					// 连接用户中心
+					$passport = $this->_user_server ();
+					// 注册
+					$uid = $passport->register ( $username, md5(''), $email );
+					//开始执行绑定表
+					$oauth = new oauth($user['type']);
+	                $bind_info = array(
+	                    'ik_uid' => $uid,
+	                    'keyid' => $user['keyid'],
+	                    'bind_info' => $user['bind_info'],
+	                );
+	                $oauth->bindByData($bind_info);
+					// 登陆
+					$this->visitor->login ( $uid );
+					// 同步登陆
+					$synlogin = $passport->synlogin ( $uid );
+					$this->redirect ( 'people/index', array (
+							'id' => $this->visitor->info ['doname']
+					) );					
+				}
+			}
+			
+			$this->assign('user', $user);
+			$this->_config_seo ( array (
+					'title' => '完善信息',
+					'subtitle' => '绑定帐号'
+			) );
+			$this->display();
+		}else{
+			$this->redirect('oauth/index',array('mod'=>'qq'));
+		}
+
 	}	
 }

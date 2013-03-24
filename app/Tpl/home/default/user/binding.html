@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+<css file="__STATIC__/theme/{:C('ik_site_theme')}/user/images/validate.css"/>
+<script src="__STATIC__/public/js/validate/jquery.validateid.js"></script>
+
+</head>
+
+<body>
+<include file="public:header" />
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	var validator = $("#signupform").validate({
+		onkeyup: false,
+		rules:{
+			email: {
+				required: true,
+				email: true,
+				remote: "{:U('check',array('t'=>'email'))}"
+			},
+			username:{
+				required: true,
+				minlength: 2,
+				maxlength: 12,
+				remote:"{:U('check',array('t'=>'username'))}"
+			}
+		},
+		messages: {
+			email: {
+					required: "请输入Email地址",
+					email: "请输入一个正确的Email地址",
+					remote:jQuery.format("Email已经存在，请更换其他Email")
+			},
+			username:{
+				required:"请输入用户名",
+				minlength: jQuery.format("至少输入2个字符"),
+				maxlength: jQuery.format("最多输入12个字符"),
+				remote:jQuery.format("用户名已经存在，请更换其他用户名")
+			}
+		},
+
+		// the errorPlacement has to take the table layout into account
+		errorPlacement: function(error, element) {
+			if ( element.is(":radio") )
+				error.appendTo( element.parent().next().next() );
+			else if ( element.is(":checkbox") )
+				error.appendTo ( element.next() );
+			else
+				error.appendTo( element.parent().next() );
+		},
+
+		success: function(label) {
+			// set &nbsp; as text for IE
+			label.html("&nbsp;").addClass("checked");
+		}
+	});
+
+});
+</script>
+
+
+<!--main-->
+<div class="midder">
+<div class="mc">
+<h1 class="user_tit">亲爱的 {$user ['keyname']} 完善下信息吧，方便以后找回您的信息！</h1>
+
+<div style="float:left; padding-left:15px">
+<img src="{$user[face]}" width="100" height="100"/>
+</div>
+<div class="user_left">
+<form  id="signupform" method="POST" action="{:U('user/binding')}">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="Tabletext">
+
+<tr>
+<td class="label"><label id="email" for="email">Email：</label></td>
+<td class="field" width="300">
+<input class="uinput" id="email" name="email" type="email" value="" placeholder="请输入Email" autofocus/></td>
+<td class="status"></td>
+</tr>
+
+<tr>
+<td class="label"><label>用户名：</label></td>
+<td class="field"><input class="uinput" type="text" id="username" name="username" value="{$user ['ik_user_name']}"/></td>
+<td class="status"></td>
+</tr>
+
+<tr>
+<td class="label"></td>
+<td class="field">
+<input class="submit" type="submit" value="好了，保存吧" style="margin-top:8px"/> 
+</td>
+<td class="status"></td>
+</tr>
+
+<tr>
+<td class="label"><br /></td>
+<td class="field"><br /></td> 
+<td class="status"></td>
+</tr>
+
+</table>
+</form>
+</if>
+</div>
+
+
+
+<div class="cl"></div>
+
+</div>
+</div>
+<include file="public:footer" />
+</body>
+</html>

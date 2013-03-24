@@ -106,8 +106,7 @@ obj.src = $(obj).attr('url') + '&nowtime=' + new Date().getTime();
 <h1 class="user_tit">{:L('user_regist_tit')}</h1>
 
 <if condition="C('ik_isinvite') eq 2">
-<p>系统升级中，暂时关闭用户注册！</p>
-<p><a href="{SITE_URL}">[返回首页]</a></p>
+<p>系统升级中，暂时关闭用户注册！<a href="{:C('ik_site_url')}">[返回首页]</a></p>
 <else />
 
 <div class="user_left">

@@ -15,8 +15,22 @@ class settingAction extends backendAction {
 	}
 	public function url(){
 		$this->title ( '链接形式' );
-
-		$this->display ();		
+		$config_file = CONF_PATH . 'url.php';
+		$config = require $config_file;
+		if (IS_POST) {
+			$url_model = $this->_post('url_model', 'intval', 0);
+			$new_config = array(
+					'URL_MODEL' => $url_model
+			);
+			if ($this->update_config($new_config, $config_file)) {
+				$this->success(L('operation_success'));
+			} else {
+				$this->error(L('operation_failure'));
+			}
+		} else {
+			$this->assign('config', $config);
+			$this->display();
+		}	
 	}
 	public function edit() {
 		$setting = $this->_post('setting', ',');

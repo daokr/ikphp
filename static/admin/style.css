@@ -226,3 +226,16 @@ cursor:pointer; display:block; float:left}
 	padding: 5px;
 	overflow: hidden;
 }
+/****帮助***/
+.midder .helptable { width: 100%; background: #FDFFF5; border: 1px solid #D5D8C7; margin-bottom: 10px; }
+.midder .helptable td { padding: 10px 10px 10px 10px; line-height: 1.5em; }
+.midder .helptable ul { padding: 0; margin: 0 0 0 0; }
+
+.Toolbar_inbox { background-color:#d2dbea; padding:5px; line-height:26px; border-bottom:1px solid #c8cfda; margin-bottom:1px}
+.Toolbar_inbox .btn_a, .Toolbar_inbox .btn_a span { background:#fcfcfc url(images/btn_a.gif) no-repeat; cursor:pointer; word-wrap:normal}
+.Toolbar_inbox .btn_a { margin-right:5px;background-position:0 0; padding-left:8px; display:inline-block; line-height:26px; color: #333; text-decoration: none; word-wrap:normal}
+.Toolbar_inbox .btn_a span { padding-right:8px; display:inline-block; background-color: #fcfcfc; background-position: right 0; word-wrap:normal}
+.Toolbar_inbox .btn_a:hover { background-position: 0 -26px;word-wrap:normal }
+.Toolbar_inbox .btn_a:hover span { background-position: right -26px;word-wrap:normal }
+
+.pagebar{ text-align:center; margin:10px; font-size:14px;}

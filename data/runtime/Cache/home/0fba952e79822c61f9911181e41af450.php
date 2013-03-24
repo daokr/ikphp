@@ -5,6 +5,7 @@
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
 <meta name="description" content="<?php echo ($seo["description"]); ?>" /> 
+<meta property="wb:webmaster" content="c9fd7603df8ff038" />
 <link rel="shortcut icon" href="__STATIC__/public/images/fav.ico" type="image/x-icon">
 <style>__SITE_THEME_CSS__</style>
 <!--[if gte IE 7]><!-->
@@ -20,7 +21,7 @@
 <!--[if lt IE 9]>
 <script src="__STATIC__/public/js/html5.js"></script>
 <![endif]-->
-<script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script>
+<script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 </head>
 
@@ -31,7 +32,7 @@ __EXTENDS_JS__
   <div class="top_bd">
     
     <div class="top_info">
-        <?php if(empty($visitor)): ?><a href="<?php echo U('user/login');?>">登录</a> | <a href="<?php echo U('user/register');?>">注册</a>       
+        <?php if(empty($visitor)): ?><a href="<?php echo U('user/login');?>">登录</a> | <a href="<?php echo U('user/register');?>">注册</a> | <a href="<?php echo U('oauth/index', array('mod'=>'qq'));?>" target="_blank" style="margin-left:10px"><img  align="absmiddle" title="QQ登录" src="__STATIC__/public/images/connect_qq.png"> 登录</a> | <a href="<?php echo U('oauth/index', array('mod'=>'sina'));?>" target="_blank" style="margin-left:10px"><img  align="absmiddle" title="新浪微博" src="__STATIC__/public/images/connect_sina_weibo.png"> 登录</a>    
         <?php else: ?>
         <a id="newmsg" href="<?php echo U('message/inbox');?>">123</a> | 
         <a href="<?php echo U('people/index', array('id'=>$visitor['doname']));?>">
@@ -51,7 +52,10 @@ __EXTENDS_JS__
              <li>
              <a href="<?php echo U('group/index');?>">小组</a>
              </li>
-             <li>                                             
+             
+             <li>
+             <a href="<?php echo U('article/index');?>">阅读</a>
+             </li>                                          
 
         </ul>
     </div>
@@ -66,20 +70,13 @@ __EXTENDS_JS__
 <div id="header">
     
 	<div class="site_nav">
-    	<?php if($module_name == 'group'): ?><div class="site_logo nav_logo">
-            <a href="<?php echo U('group/index');?>">爱客小组</a>
+        <div class="<?php echo ($logo[style]); ?>">
+            <a href="<?php echo ($logo[url]); ?>"><?php echo ($logo[name]); ?></a>
         </div>
-        <?php else: ?>
-        <div class="site_logo">
-            <a href="__ROOT__/" title="<?php echo ($IK_SITE[base][site_title]); ?>"><?php echo ($IK_SITE[base][site_title]); ?></a>
-        </div><?php endif; ?> 
 		<div class="appnav">
-		    <ul id="nav_bar">
-           		<?php if($visitor[userid]): ?><li><a href="<?php echo U('group/index');?>">我的小组</a></li><?php endif; ?>    
-		        <li><a href="<?php echo U('group/explore');?>">发现小组</a></li>
-		        <li><a href="<?php echo U('group/explore_topic');?>">发现话题</a></li>
-		        <li><a href="<?php echo U('group/nearby');?>">北京话题</a></li>
-		    </ul>
+			    <ul id="nav_bar">
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
+			    </ul>
 		   <form onsubmit="return searchForm(this);" method="get" action="http://www.ik.com/index.php">
 		   <input type="hidden" value="search" name="app"><input type="hidden" value="q" name="ac">
 		    <div id="search_bar">

@@ -7,23 +7,30 @@
 <div class="midder">
 <h2>{$title}</h2>
     <div>
-    <form method="POST" action="{:U('setting/edit')}">
+    <form method="POST" action="{:U('setting/url')}">
     <table>
         <tr>
             <td width="100">形式1：</td>
             <td>
-            <label><input type="radio" <if condition="C('ik_site_urltype') eq 1"> checked="select" </if>
-            name="setting[site_urltype]" value="1" /> index.php?m=article&a=show&id=1
-            </label>
+            <if condition="$config[URL_MODEL] eq 0">
+            <label><input type="radio" name="url_model" value="0" checked="select"/> index.php?m=article&a=show&id=1 </label>
+            <else/>
+            <label><input type="radio" name="url_model" value="0" /> index.php?m=article&a=show&id=1 </label>
+            </if>
             </td>
         </tr>
         <tr>
             <td>形式2：</td>
             <td>
-            <label><input type="radio" <if condition="C('ik_site_urltype') eq 2"> checked="select" </if> 
-            name="setting[site_urltype]" value="2" />
+             <if condition="$config[URL_MODEL] eq 1">
+            <label><input type="radio" name="url_model" value="1" checked="select"/>
             /article/show/id/1 (暂只支持apache环境的rewrite，非apache环境勿动)
             </label>
+            <else/>
+            <label><input type="radio" name="url_model" value="1" />
+            /article/show/id/1 (暂只支持apache环境的rewrite，非apache环境勿动)
+            </label>
+            </if>
             </td>
         </tr>           
     </table>

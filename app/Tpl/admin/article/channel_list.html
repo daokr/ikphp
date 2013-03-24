@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<include file="channel_menu" />
+<table  cellpadding="0" cellspacing="0">
+<tr class="old">
+<td>英文名称</td>
+<td>频道名</td>
+<td width="200">操作</td>
+<td width="100">导航</td>
+</tr>
+<foreach name="arrChannel" item="item">
+<tr class="odd">
+<td>{$item[nameid]}</td>
+<td>{$item[name]}</td>
+<td>
+<a href="{:U('article/channel',array('ik'=>'edit','nameid'=>$item[nameid]))}">[编辑]</a> 
+<a href="index.php?m=article&a=channel&nameid={$item[nameid]}" target="_blank">[访问]</a> 
+</td>
+<td>
+<if condition="$item[isnav] eq 0">
+<a href="{:U('article/channel',array('ik'=>'isnav','isnav'=>1,'nameid'=>$item[nameid]))}">[取消导航]</a>
+<else />
+<a href="{:U('article/channel',array('ik'=>'isnav','isnav'=>0,'nameid'=>$item[nameid]))}">[开启导航]</a>
+</if>
+</td>
+<tr>
+</foreach>
+</table>
+
+</div>
+</body>
+</html>

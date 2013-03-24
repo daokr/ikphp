@@ -27,7 +27,7 @@ class groupModel extends Model {
 					'groupid' => $groupid 
 			);
 			$result = $this->where ( $where )->find ();
-			$result['icon_48'] = attach($result['groupicon'], 'group/icon');
+			$result['icon_48'] = attach($result['groupicon']);
 			return $result;
 		
 		}

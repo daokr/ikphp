@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<include file="cate_menu" />
+<form method="POST" action="{:U('article/cate',array('ik'=>'delete','cateid'=>$strCate[cateid]))}">
+<table cellpadding="0" cellspacing="0">
+
+	<tr>
+		<th>请选择您的动作：</th>
+		<td>
+            <select name="newcateid" style="float:left;" >
+                {$arrCate}
+            </select>&nbsp;&nbsp;(合并将删除原有的分类,原有分类内的文章将全部移动到新分类中。)</td>
+	</tr>
+	</tr>    
+</table>
+<div class="page_btn"><input type="submit" value="提 交" class="submit" /></div>
+
+</form>
+</div>
+</body>
+</html>

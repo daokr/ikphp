@@ -20,7 +20,7 @@
                  {$strArticle[content]}
             </div>
             <div class="control-btns">
-            <if condition="$visitor[userid] eq $strArticle[userid]"><a href="{:U('article/edit',array('id'=>$strArticle['aid']))}">编辑</a>&nbsp; &gt;&nbsp; <a href="{:U('article/delete',array('id'=>$strArticle['aid']))}">删除</a></if>
+            <if condition="$visitor[userid] eq $strArticle[userid]"><a href="{:U('article/edit',array('id'=>$strArticle['aid']))}">编辑</a>&nbsp; &gt;&nbsp; <a href="{:U('article/delete',array('id'=>$strArticle['aid']))}" onclick="return confirm('确定删除?')">删除</a></if>
             <br/>
             本文由<a href="{:U('people/index',array('id'=>$strArticle[user][doname]))}">{$strArticle[user][username]}</a>授权（爱客网）发表，文章著作权为原作者所有
             </div>

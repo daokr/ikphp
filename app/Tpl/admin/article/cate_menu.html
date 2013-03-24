@@ -1,0 +1,15 @@
+<h2>{$title}</h2>  
+<div class="tabnav">
+<ul>
+<foreach name="arrChannel" key="key" item="item">
+    <if condition="$item[nameid] eq $nameid">
+    <li class="select"><a href="{:U('article/cate',array('ik'=>'list','nameid'=>$item[nameid]))}">{$item[name]}</a></li>
+    <else />
+    <li><a href="{:U('article/cate',array('ik'=>'list','nameid'=>$item[nameid]))}">{$item[name]}</a></li>
+    </if>
+</foreach>
+</ul>
+</div>
+<div class="Toolbar_inbox">
+	<a class="btn_a" href="{:U('article/cate',array('ik'=>'add','nameid'=>$nameid))}"><span>添加分类</span></a>
+</div>

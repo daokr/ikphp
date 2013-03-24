@@ -5,6 +5,7 @@
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
 <meta name="description" content="<?php echo ($seo["description"]); ?>" /> 
+<meta property="wb:webmaster" content="c9fd7603df8ff038" />
 <link rel="shortcut icon" href="__STATIC__/public/images/fav.ico" type="image/x-icon">
 <style>__SITE_THEME_CSS__</style>
 <!--[if gte IE 7]><!-->
@@ -20,7 +21,7 @@
 <!--[if lt IE 9]>
 <script src="__STATIC__/public/js/html5.js"></script>
 <![endif]-->
-<script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script>
+<script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 </head>
 
@@ -31,7 +32,7 @@ __EXTENDS_JS__
   <div class="top_bd">
     
     <div class="top_info">
-        <?php if(empty($visitor)): ?><a href="<?php echo U('user/login');?>">登录</a> | <a href="<?php echo U('user/register');?>">注册</a>       
+        <?php if(empty($visitor)): ?><a href="<?php echo U('user/login');?>">登录</a> | <a href="<?php echo U('user/register');?>">注册</a> | <a href="<?php echo U('oauth/index', array('mod'=>'qq'));?>" target="_blank" style="margin-left:10px"><img  align="absmiddle" title="QQ登录" src="__STATIC__/public/images/connect_qq.png"> 登录</a> | <a href="<?php echo U('oauth/index', array('mod'=>'sina'));?>" target="_blank" style="margin-left:10px"><img  align="absmiddle" title="新浪微博" src="__STATIC__/public/images/connect_sina_weibo.png"> 登录</a>    
         <?php else: ?>
         <a id="newmsg" href="<?php echo U('message/inbox');?>">123</a> | 
         <a href="<?php echo U('people/index', array('id'=>$visitor['doname']));?>">
@@ -53,7 +54,7 @@ __EXTENDS_JS__
              </li>
              
              <li>
-             <a href="<?php echo U('article/index');?>">文章</a>
+             <a href="<?php echo U('article/index');?>">阅读</a>
              </li>                                          
 
         </ul>
@@ -104,7 +105,7 @@ __EXTENDS_JS__
 <div class="infobox">
 
 <div class="bd">
-<img align="left" alt="<?php echo ($strGroup[groupname]); ?>" src="<?php echo attach($strGroup[groupicon], 'group/icon');?>" class="pil mr5 groupicon" valign="top" />
+<img align="left" alt="<?php echo ($strGroup[groupname]); ?>" src="<?php echo ($strGroup[icon_48]); ?>" class="pil mr5 groupicon" valign="top" />
 <div>创建于<?php echo date('Y-m-d',$strGroup[addtime]) ?>&nbsp; &nbsp; <?php echo ($strGroup[role_leader]); ?>：<a href="<?php echo U('people/index',array('id'=>$strLeader[doname]));?>"><?php echo ($strLeader[username]); ?></a><br></div>
 <?php echo nl2br($strGroup[groupdesc]); ?>
 <div class="clearfix" style="margin-top: 10px;">
@@ -200,7 +201,7 @@ __EXTENDS_JS__
         
     </div>
     
-	<p class="pl">本页永久链接: <a href="<?php echo U('group/show',array(id=>$strGroup[groupid]));?>"><?php echo U('group/show',array(id=>$strGroup[groupid]));?></a></p>
+	<p class="pl">本页永久链接: <a href="<?php echo U('group/show',array(id=>$strGroup[groupid]));?>">http://www.ikphp.com<?php echo U('group/show',array(id=>$strGroup[groupid]));?></a></p>
     
     <p class="pl"><span class="feed"><a href="<?php echo U('group/rss',array(groupid=>$strGroup[groupid]));?>">feed: rss 2.0</a></span></p>
     

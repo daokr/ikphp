@@ -30,5 +30,15 @@ class articleModel extends Model {
 			D('images')->delAllImage('article',$id);
 		}
 	}
+	// 获取一篇文章的信息
+	public function getOneArticleItem($itemid){
+		$where['itemid'] = $itemid;
+		$strItem = D('article_item')->where($where)->find();
+		if(!empty($strItem)){
+			return $strItem;
+		}else{
+			return false;
+		}
+	}
 
 }

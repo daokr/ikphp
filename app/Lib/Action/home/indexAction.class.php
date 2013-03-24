@@ -34,4 +34,16 @@ class indexAction extends frontendAction {
 		$this->_config_seo ();
 		$this->display ();
 	}
+	public function test(){
+		if(IS_POST){
+			if(!empty($_FILES['file']))
+			{
+				$result = savelocalfile($_FILES['file'],'abc/ddd','48,60,100',md5(1));
+				var_dump($result);
+				
+			}
+		}else{
+			$this->display ();
+		}
+	}
 }

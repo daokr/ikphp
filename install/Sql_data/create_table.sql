@@ -83,7 +83,6 @@ INSERT INTO `ik_setting` (`name`, `data`) VALUES
 ('site_keywords', '12ik'),
 ('site_desc', '又一个爱客网(IKPHP)开源社区'),
 ('site_theme', 'blue'),
-('site_urltype', '1'),
 ('isgzip', '0'),
 ('timezone', '8'),
 ('isinvite', '0'),
@@ -91,12 +90,12 @@ INSERT INTO `ik_setting` (`name`, `data`) VALUES
 ('integrate_code', 'default'),
 ('integrate_config', ''),
 ('avatar_size', '24,32,48,64,100,200'),
-('attr_allow_exts', 'jpg,gif,png,jpeg,swf'),
+('attr_allow_exts', 'jpg,gif,png,jpeg'),
 ('attr_allow_size', '2048'),
 ('attach_path', 'data/upload/'),
-('simg', ''),
-('mimg', ''),
-('bimg', '');
+('simg', 'a:2:{s:5:"width";s:3:"120";s:6:"height";s:3:"120";}'),
+('mimg', 'a:2:{s:5:"width";s:3:"500";s:6:"height";s:3:"500";}'),
+('bimg', 'a:2:{s:5:"width";s:4:"1000";s:6:"height";s:4:"1000";}');
 -- --------------------------------------------------------
 
 --
@@ -419,6 +418,44 @@ CREATE TABLE `ik_tag_topic_index` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
+--
+-- 第三方登陆 `ik_oauth`
+--
+DROP TABLE IF EXISTS `ik_oauth`;
+CREATE TABLE `ik_oauth` (
+  `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
+  `code` varchar(20) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `config` text NOT NULL,
+  `desc` text NOT NULL,
+  `author` varchar(50) NOT NULL,
+  `ordid` tinyint(3) unsigned NOT NULL DEFAULT '255',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+INSERT INTO `ik_oauth` (`id`, `code`, `name`, `config`, `desc`, `author`, `ordid`, `status`) VALUES
+(1, 'qq', 'QQ登录', 'a:2:{s:7:"app_key";s:9:"100401235";s:10:"app_secret";s:32:"567e145f267ccde6694acb2c2582cf42";}', '申请地址：http://connect.opensns.qq.com/', 'IKPHP TEAM', 2, 1);
+
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ik_user_bind`
+--
+
+DROP TABLE IF EXISTS `ik_user_bind`;
+CREATE TABLE `ik_user_bind` (
+  `uid` int(10) unsigned NOT NULL,
+  `type` varchar(60) NOT NULL,
+  `keyid` varchar(100) NOT NULL,
+  `info` text NOT NULL,
+  KEY `uid` (`uid`),
+  KEY `uid_type` (`uid`,`type`),
+  KEY `type_keyid` (`type`,`keyid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
 
 --
 -- 表的结构 `ik_article`
@@ -486,6 +523,7 @@ DROP TABLE IF EXISTS `ik_article_channel`;
 CREATE TABLE `ik_article_channel` (
   `nameid` char(30) NOT NULL DEFAULT '' COMMENT '频道英文名称',
   `name` char(50) NOT NULL DEFAULT '' COMMENT '频道名',
+  `isnav` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否开启导航',  
   PRIMARY KEY (`nameid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='文章频道';
 

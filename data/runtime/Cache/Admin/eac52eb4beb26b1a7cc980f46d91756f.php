@@ -62,17 +62,19 @@ function refresh() {
 <body scroll="no" style="margin:0; padding:0;">
 
 <div class="header">
-    <div class="logo"><a href="{U('home')}" >&nbsp;</a></div>
+    <div class="logo"><a href="<?php echo U('index/index');?>" >&nbsp;</a></div>
     <div class="nav_sub">
-       您好,<?php echo ($admin["username"]); ?> &nbsp; | <a href="./"" target="_blank">返回前台</a> | 
+       您好,<?php echo ($admin["username"]); ?> &nbsp; | <a href="./" target="_blank">返回前台</a> | 
        <a href="javascript:void(0);" onclick="refresh();">刷新</a> | 
        <a href="<?php echo U('index/logout');?>">[退出]</a><br>    
     </div>
-    <div class="nav" id="topnav">
-         <li class="on"><a style="outline:none;" hidefocus="true" data-id="index" href="javascript:;">首页</a></li>
-         <li><a style="outline:none;" hidefocus="true" data-id="setting" href="javascript:;">全局配置</a></li>
-         <li><a style="outline:none;" hidefocus="true" data-id="user" href="javascript:;">用户管理</a></li>
-    </div>                   
+    <ul class="nav" id="topnav">	
+		<li class="on"><a style="outline:none;" hidefocus="true" data-id="index" href="javascript:;">首页</a></li>
+<li><a style="outline:none;" hidefocus="true" data-id="setting" href="javascript:;">全局配置</a></li>
+<li><a style="outline:none;" hidefocus="true" data-id="user" href="javascript:;">用户管理</a></li>
+<li><a style="outline:none;" hidefocus="true" data-id="group" href="javascript:;">小组管理</a></li>
+<li><a style="outline:none;" hidefocus="true" data-id="article" href="javascript:;">文章管理</a></li>
+    </ul>                   
 </div>
 <div class="LeftMenu">
     <div class="menubox">

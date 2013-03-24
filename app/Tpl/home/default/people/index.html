@@ -129,13 +129,12 @@
 <div class="ex1"><span></span></div>
 <div class="bd">
 <img alt="" class="userface" src="{$strUser[face_160]}">
-
 <div class="user-info">
 常居：&nbsp;<a href="{:U('location/area',array(areaid=>$strUser[area][areaid]))}">{$strUser[area][areaname]}</a>
 <br />
-<div class="pl">UID:{$strUser[userid]} <br><php>echo date('Y-m-d',$strUser[addtime]);</php> 加入</div>
-<div class="pl">级别:{$strUser['rolename']}</div>
-<div class="pl">积分:{$strUser['count_score']}</div>
+<div class="pl">UID：{$strUser[userid]} <br><php>echo date('Y-m-d',$strUser[addtime]);</php> 加入</div>
+<div class="pl">级别：{$strUser['rolename']}</div>
+<div class="pl">积分：{$strUser['count_score']}</div>
 
 <if condition="$strUser[userid] neq $visitor[userid]">
 <div class="user-opt">
@@ -228,7 +227,7 @@
         <div class="clear"></div>
     </div>
 	<br/>
-	<p class="pl">本页永久链接: <a href="{:U('people/index',array('id'=>$strUser[doname]))}">{:U('people/index',array('id'=>$strUser[doname]))}</a></p>
+	<p class="pl">本页永久链接: <a href="{:U('people/index',array('id'=>$strUser[doname]))}">http://www.ikphp.com{:U('people/index',array('id'=>$strUser[doname]))}</a></p>
 	<br>
     <p class="pl">订阅{$strUser[username]}的收藏 <br>
         <span class="feed"><a href="#"> feed: rss 2.0</a></span>
