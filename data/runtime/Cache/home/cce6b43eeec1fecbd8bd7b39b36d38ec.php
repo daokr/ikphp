@@ -7,7 +7,7 @@
 
 <body>
 <form action="<?php echo U('index/test');?>" method="post" enctype="multipart/form-data">
-<input name="file" type="file"> <input name="" type="submit" value="传">
+<input name="url" type="text"> <input name="" type="submit" value="传">
 </form>
 
 </body>

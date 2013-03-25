@@ -25,8 +25,11 @@ class indexAction extends frontendAction {
 			$arrRecommendGroup [] = $item;
 			$arrRecommendGroup [$key] ['groupdesc'] = getsubstrutf8 ( t ( $item ['groupdesc'] ), 0, 35 );
 		}
+		//统计用户数
+		$count_user = $this->user_mod->count('*');
 		
 		$this->assign ( 'ret_url', $ret_url );
+		$this->assign ( 'count_user', $count_user );
 		$this->assign ( 'arrNewGroup', $arrNewGroup );
 		$this->assign ( 'arrRecommendGroup', $arrRecommendGroup );
 		$this->assign ( 'arrHotUser', $arrHotUser );
@@ -36,9 +39,10 @@ class indexAction extends frontendAction {
 	}
 	public function test(){
 		if(IS_POST){
-			if(!empty($_FILES['file']))
+			$url = $this->_post('url');
+			if($url)
 			{
-				$result = savelocalfile($_FILES['file'],'abc/ddd','48,60,100',md5(1));
+				$result = saveremotefile($url,'charm',array('width'=>C('ik_avatar_size'),'height'=>C('ik_avatar_size')));
 				var_dump($result);
 				
 			}

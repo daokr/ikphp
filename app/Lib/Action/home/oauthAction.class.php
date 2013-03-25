@@ -6,7 +6,7 @@ class oauthAction extends frontendAction {
     public function index() {
     	$mod = $this->_get('mod', 'trim');
     	$type = $this->_get('type', 'trim', 'login');
-    	if(!$mod || $mod == 'sina'){$this->error('请求的第三方登录还在开发中；请稍后访问！');}
+    	if(!$mod){$this->error('请求的第三方登录还在开发中；请稍后访问！');}
         if ('unbind' == $type) {
             !$this->visitor->is_login && $this->redirect('user/login');
             M('user_bind')->where(array('uid'=>$this->visitor->info['id'], 'type'=>$mod))->delete();

@@ -435,7 +435,8 @@ CREATE TABLE `ik_oauth` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 INSERT INTO `ik_oauth` (`id`, `code`, `name`, `config`, `desc`, `author`, `ordid`, `status`) VALUES
-(1, 'qq', 'QQ登录', 'a:2:{s:7:"app_key";s:9:"100401235";s:10:"app_secret";s:32:"567e145f267ccde6694acb2c2582cf42";}', '申请地址：http://connect.opensns.qq.com/', 'IKPHP TEAM', 2, 1);
+(1, 'qq', 'QQ登录', 'a:2:{s:7:"app_key";s:9:"100401235";s:10:"app_secret";s:32:"567e145f267ccde6694acb2c2582cf42";}', '申请地址：http://connect.opensns.qq.com/', 'IKPHP TEAM', 1, 1),
+(2, 'sina', '微博登陆', 'a:2:{s:7:"app_key";s:10:"1001094537";s:10:"app_secret";s:32:"4228d0fe4e7000c37aad1727c1cca385";}', '申请地址：http://open.weibo.com/', 'IKPHP TEAM', 2, 1);
 
 
 -- --------------------------------------------------------
@@ -544,3 +545,72 @@ CREATE TABLE `ik_article_comment` (
   KEY `userid` (`userid`),
   KEY `referid` (`referid`,`aid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='文章评论' AUTO_INCREMENT=1 ;
+
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 'ik_robots'
+--
+DROP TABLE IF EXISTS `ik_robots`;
+CREATE TABLE `ik_robots` (
+  `robotid` smallint(6) unsigned NOT NULL auto_increment,
+  `name` varchar(50) NOT NULL DEFAULT '' COMMENT '机器人名称',
+  `userid` mediumint(8) unsigned NOT NULL DEFAULT '0' COMMENT '添加者id',
+  `addtime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '添加机器人的时间',
+  `lasttime` int(10) unsigned NOT NULL DEFAULT '0',
+  `importcatid` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '插入的分类ID',
+  `robotnum` smallint(6) unsigned NOT NULL DEFAULT '0',
+  `listurltype` varchar(10) NOT NULL DEFAULT '' COMMENT '索引列表方式',
+  `listurl` text NOT NULL COMMENT '索引列表链接',
+  `listpagestart` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '索引列表开始页码',
+  `listpageend` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '索引列表结束页码',
+  `reverseorder` tinyint(1) NOT NULL DEFAULT '1' COMMENT '索引列表结束页码',
+  `allnum` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '总的采集数目',
+  `pernum` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '每次采集信息数目',
+  `savepic` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否保存信息内的图片',
+  `encode` varchar(20) NOT NULL DEFAULT '' COMMENT '采集页面的字符集编码',
+  `picurllinkpre` text NOT NULL,
+  `saveflash` tinyint(1) NOT NULL DEFAULT '0',
+  `subjecturlrule` text NOT NULL,
+  `subjecturllinkrule` text NOT NULL,
+  `subjecturllinkpre` text NOT NULL,
+  `subjectrule` text NOT NULL,
+  `subjectfilter` text NOT NULL,
+  `subjectreplace` text NOT NULL,
+  `subjectreplaceto` text NOT NULL,
+  `subjectkey` text NOT NULL,
+  `subjectallowrepeat` tinyint(1) NOT NULL DEFAULT '0',
+  `datelinerule` text NOT NULL,
+  `fromrule` text NOT NULL,
+  `authorrule` text NOT NULL,
+  `messagerule` text NOT NULL,
+  `messagefilter` text NOT NULL,
+  `messagepagetype` varchar(10) NOT NULL DEFAULT '',
+  `messagepagerule` text NOT NULL,
+  `messagepageurlrule` text NOT NULL,
+  `messagepageurllinkpre` text NOT NULL,
+  `messagereplace` text NOT NULL,
+  `messagereplaceto` text NOT NULL,
+  `autotype` tinyint(1) NOT NULL DEFAULT '0',
+  `wildcardlen` tinyint(1) NOT NULL DEFAULT '0',
+  `subjecturllinkcancel` text NOT NULL,
+  `subjecturllinkfilter` text NOT NULL,
+  `subjecturllinkpf` text NOT NULL,
+  `subjectkeycancel` text NOT NULL,
+  `messagekey` text NOT NULL,
+  `messagekeycancel` text NOT NULL,
+  `messageformat` tinyint(1) NOT NULL DEFAULT '0',
+  `messagepageurllinkpf` text NOT NULL,
+  `uidrule` text NOT NULL COMMENT '发布者UID',
+  `defaultaddtime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '默认发布时间',
+  PRIMARY KEY  (robotid)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='采集器' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+DROP TABLE IF EXISTS ik_robotlog;
+CREATE TABLE ik_robotlog (
+  `hash` char(32) NOT NULL DEFAULT '',
+  PRIMARY KEY (hash)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='采集器日志' AUTO_INCREMENT=1 ;
+

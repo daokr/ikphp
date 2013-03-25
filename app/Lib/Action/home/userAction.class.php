@@ -215,27 +215,40 @@ class userAction extends userbaseAction {
 	}
 
 	public function setpassword() {
-		if (IS_POST) {
+		$userid = $this->userid;
+		if($userid == 0) $this->error ('你应该出发去火星报到啦。');
+		$strUser = $this->user_mod->getOneUser($userid);
 		
-			$userid = $this->userid;
-			if($userid == 0) $this->error ('你应该出发去火星报到啦。');
-			
+		if (IS_POST) {
 			$oldpwd = $this->_post('oldpwd','trim');
 			$newpwd = $this->_post('newpwd','trim');
 			$renewpwd = $this->_post('renewpwd','trim');
-			if($oldpwd == '' || $newpwd=='' || $renewpwd=='')  $this->error ("所有项都不能为空！");
-			$strUser = $this->user_mod->getOneUser($userid);
-			
-			if(md5($oldpwd) != $strUser['password']) $this->error("旧密码输入有误！");
 			
 			if($newpwd != $renewpwd) $this->error('两次输入新密码密码不一样！');
+			if($newpwd=='' || $renewpwd=='')  $this->error ("所有项都不能为空！");
+			$count_user_bind = D('user_bind')->where(array('uid'=>$userid))->count('*');
+			if($count_user_bind>0 && md5(md5('')) == $strUser['password']){
+				//如果第三方
+				//更新密码
+				$this->user_mod->where(array('userid'=>$userid))->save(array('password'=>md5($newpwd)));
+				
+			}else{
+				if($oldpwd == '')  $this->error ("旧密码不能为空！");
+				if(md5($oldpwd) != $strUser['password']) $this->error("旧密码输入有误！");
+				$this->user_mod->where(array('userid'=>$userid))->save(array('password'=>md5($newpwd)));
+			}
 			
-			//更新密码	
-			$this->user_mod->where(array('userid'=>$userid))->save(array('password'=>md5($newpwd)));
-			
-			$this->error ("密码修改成功！");
+			$this->success("密码修改成功！");
 			
 		} else {
+			$count_user_bind = D('user_bind')->where(array('uid'=>$userid))->count('*');
+			if($count_user_bind>0 &&  md5(md5('')) == $strUser['password']){
+				$ispassword = false;
+			}else{
+				$ispassword = true;
+			}
+			$this->assign('ispassword',$ispassword);
+			$this->assign('strUser',$strUser);
 			$this->_config_seo (array('title'=>'密码修改','subtitle'=>'用户'));
 			$this->display ();
 		}
@@ -482,12 +495,48 @@ class userAction extends userbaseAction {
 		$this->display ();
 	}
 	/**
-	 * 用户绑定
+	 * 绑定旧用户
+	 */
+	public function binduser(){
+		if(cookie('user_bind_info')){
+			$user = object_to_array(cookie('user_bind_info'));
+			if(IS_POST){
+				$ikemail = $this->_post('ikemail','trim');
+				$ikpassword = $this->_post('ikpassword','trim');
+				$strUser = $this->user_mod->where(array('email'=>$ikemail))->find();
+				//检查email和用户名
+				if(md5($ikpassword) != $strUser['password']){
+					$this->error("旧密码输入有误！");
+				}else{
+					// 连接用户中心
+					$passport = $this->_user_server ();
+					//开始执行绑定表
+					$oauth = new oauth($user['type']);
+					$bind_info = array(
+							'ik_uid' => $strUser['userid'],
+							'keyid' => $user['keyid'],
+							'bind_info' => $user['bind_info'],
+					);
+					$oauth->bindByData($bind_info);
+					// 登陆
+					$this->visitor->login ( $strUser['userid'] );
+					// 同步登陆
+					$synlogin = $passport->synlogin ( $strUser['userid'] );
+					$this->redirect ( 'people/index', array (
+							'id' => $this->visitor->info ['doname']
+					) );
+				}
+			}			
+		}else{
+			$this->redirect('oauth/index',array('mod'=>'qq'));
+		}		
+	}
+	/**
+	 * 用户绑定新增
 	 */
 	public function binding() {
 		if(cookie('user_bind_info')){
 			$user = object_to_array(cookie('user_bind_info'));
-			
 			if(IS_POST){
 				$email = $this->_post('email','trim');
 				$username = $this->_post('username','trim');

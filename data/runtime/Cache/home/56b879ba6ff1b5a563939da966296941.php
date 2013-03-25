@@ -35,9 +35,7 @@ __EXTENDS_JS__
   <div class="top_bd">
     
     <div class="top_info">
-        <?php if(empty($visitor)): ?><a href="<?php echo U('oauth/index', array('mod'=>'qq'));?>"><img src="__STATIC__/public/images/qq.png" /> qq登录</a>
- 
-		<a href="<?php echo U('user/login');?>">登录</a> | <a href="<?php echo U('user/register');?>">注册</a>       
+        <?php if(empty($visitor)): ?><a href="<?php echo U('user/login');?>">登录</a> | <a href="<?php echo U('user/register');?>">注册</a> | <a href="<?php echo U('oauth/index', array('mod'=>'qq'));?>" target="_blank" style="margin-left:10px"><img  align="absmiddle" title="QQ登录" src="__STATIC__/public/images/connect_qq.png"> 登录</a> | <a href="<?php echo U('oauth/index', array('mod'=>'sina'));?>" target="_blank" style="margin-left:10px"><img  align="absmiddle" title="新浪微博" src="__STATIC__/public/images/connect_sina_weibo.png"> 登录</a>    
         <?php else: ?>
         <a id="newmsg" href="<?php echo U('message/inbox');?>">123</a> | 
         <a href="<?php echo U('people/index', array('id'=>$visitor['doname']));?>">
@@ -158,26 +156,33 @@ $(document).ready(function() {
 <!--main-->
 <div class="midder">
 <div class="mc">
-<h1 class="user_tit">亲爱的 <?php echo ($user ['ik_user_name']); ?> 完善下信息吧，方便以后找回您的信息！</h1>
-
-<div style="float:left; padding-left:15px">
-<img src="__STATIC__/public/images/user_160.jpg" width="100" height="100"/>
+<div class="user_tit" style="height:60px; font-size:14px; margin-bottom:10px">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="60"><img src="__STATIC__/public/images/user_48.jpg" width="50" height="50"/></td>
+    <td style="line-height:22px; padding-top:5px" valign="top">
+    	<p>亲爱的 <?php echo ($user ['keyname']); ?></p>
+    	<p>欢迎通过 <img src="__STATIC__/public/images/connect_qq.png"/> 来到爱客网！</p>
+    </td>
+  </tr>
+</table>
 </div>
-<div class="user_left">
-<form  id="signupform" method="POST" action="<?php echo U('user/binding');?>">
 
+<div class="user_left">
+<p class="pl2">&gt; 没有爱客网的账号？填写资料马上拥有！</p>
+<form  id="signupform" method="POST" action="<?php echo U('user/binding');?>">
 <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="Tabletext">
 
 <tr>
 <td class="label"><label id="email" for="email">Email：</label></td>
 <td class="field" width="300">
 <input class="uinput" id="email" name="email" type="email" value="" placeholder="请输入Email" autofocus/></td>
-<td class="status"></td>
+<td class="status"><?php echo ($user[face]); ?></td>
 </tr>
 
 <tr>
 <td class="label"><label>用户名：</label></td>
-<td class="field"><input class="uinput" type="text" id="username" name="username" /></td>
+<td class="field"><input class="uinput" type="text" id="username" name="username" value="<?php echo ($user ['ik_user_name']); ?>"/></td>
 <td class="status"></td>
 </tr>
 
@@ -199,7 +204,43 @@ $(document).ready(function() {
 </form>
 </if>
 </div>
+<div class="aside">     
+<p class="pl2">&gt; 已有帐号？马上绑定</p>
+<form  id="signupform" method="POST" action="<?php echo U('user/binding');?>">
 
+<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="Tabletext">
+
+<tr>
+<td class="label"><label id="ikemail" for="ikemail">爱客网Email：</label></td>
+<td class="field" width="300">
+<input class="uinput" id="ikemail" name="ikemail" type="email" value="" placeholder="请输入Email" autofocus/></td>
+<td class="status"></td>
+</tr>
+
+<tr>
+<td class="label"><label>登录密码：</label></td>
+<td class="field"><input class="uinput" type="ikpassword" id="ikpassword" name="ikpassword"/></td>
+<td class="status"></td>
+</tr>
+
+<tr>
+<td class="label"></td>
+<td class="field">
+<input class="submit" type="submit" value="好了，保存吧" style="margin-top:8px"/> 
+</td>
+<td class="status"></td>
+</tr>
+
+<tr>
+<td class="label"><br /></td>
+<td class="field"><br /></td> 
+<td class="status"></td>
+</tr>
+
+</table>
+</form>
+
+</div>
 
 
 <div class="cl"></div>

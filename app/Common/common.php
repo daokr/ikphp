@@ -398,9 +398,7 @@ function savelocalfile($filearr, $savepath='', $thumb='', $arrext='',  $save_rul
 	if($isimage && empty($objfile)) {
 		//缩略图
 		if($havethumb == 1) {
-			// 如果$thumb是字符串
-			;
-			
+			// 如果$thumb是字符串			
 			if(is_array($thumb)){
 				$arrThumbWidth = explode(',',$thumb['width']);
 				$arrThumbHeight = explode(',',$thumb['height']);
@@ -410,6 +408,67 @@ function savelocalfile($filearr, $savepath='', $thumb='', $arrext='',  $save_rul
 			}
 		}
 	}
+	return $patharr;
+}
+// 保存远程图片到本地
+function saveremotefile($url, $thumbarr=array(100, 100), $mkthumb=1, $maxsize=0) {
+	
+	$patharr = $blank = array('file'=>'', 'thumb'=>'', 'name'=>'', 'type'=>'', 'size'=>0);
+
+	$ext = fileext($url);
+	$patharr['type'] = $ext;
+	
+	if(in_array($ext, array('jpg', 'jpeg', 'gif', 'png'))) {
+		$isimage = 1;
+	} else {
+		//$isimage = 0;
+		//$ext = 'attach';
+		return false;
+	}
+	
+	//debug 文件名
+	$filemain = sgmdate(time(), 'YmdHis').random(4);
+	$patharr['filename'] = $filemain.'.'.$ext;
+
+	//debug 得到存储目录
+	$dirpath = getattachdir();
+	$patharr['file'] = $dirpath.'/'.$filemain.'.'.$ext;
+	$patharr['path'] = $dirpath.'/';
+
+	//debug 上传
+	$content = sreadfile($url, 'rb', 1, $maxsize);echo $content;die;
+	if(empty($content)) return $blank;
+
+
+	writefile(C('ik_attach_path').$patharr['file'], $content, 'text', 'wb', 0);
+	if(!file_exists(C('ik_attach_path').$patharr['file'])) return $blank;
+
+	$imageinfo = @getimagesize(C('ik_attach_path').$patharr['file']);
+	list($width, $height, $type) = !empty($imageinfo) ? $imageinfo : array('', '', '');
+	if(!in_array($type, array(1,2,3,6,13))) {
+		@unlink(C('ik_attach_path').$patharr['file']);
+		return $blank;
+	}
+
+	$patharr['size'] = filesize(C('ik_attach_path').$patharr['file']);
+
+	//debug 缩略图水印
+	if($isimage) {
+		if($mkthumb) {
+			//debug 缩略图
+			if(is_array($thumbarr)){
+				$arrThumbWidth = explode(',',$thumbarr['width']);
+				$arrThumbHeight = explode(',',$thumbarr['height']);
+				foreach($arrThumbWidth as $key => $item){
+					$patharr['img_'.$item.'_'.$arrThumbHeight[$key]] = makethumb($patharr['file'],array($item,$arrThumbHeight[$key]));
+				}
+			}
+			//debug 加水印
+			//if(!empty($patharr['thumb'])) makewatermark($patharr['file']);
+		}
+		
+	}
+
 	return $patharr;
 }
 function filemain($filename) {
@@ -585,4 +644,151 @@ function smkdir($dirname, $ismkindex=1) {
 		$mkdir = true;
 	}
 	return $mkdir;
+}
+//初始化 url
+function initurl($url) {
+
+	$newurl = '';
+	$blanks = array('url'=>'');
+	$urls = $blanks;
+
+	if(strlen($url)<10) return $blanks;
+	$urls = @parse_url($url);
+	if(empty($urls) || !is_array($urls)) return $blanks;
+	if(empty($urls['scheme'])) return $blanks;
+	if($urls['scheme'] == 'file') return $blanks;
+
+	if(empty($urls['path'])) $urls['path'] = '/';
+	$newurl .= $urls['scheme'].'://';
+	$newurl .= empty($urls['user'])?'':$urls['user'];
+	$newurl .= empty($urls['pass'])?'':':'.$urls['pass'];
+	$newurl .= empty($urls['host'])?'':((!empty($urls['user']) || !empty($urls['pass']))?'@':'').$urls['host'];
+	$newurl .= empty($urls['port'])?'':':'.$urls['port'];
+	$newurl .= empty($urls['path'])?'':$urls['path'];
+	$newurl .= empty($urls['query'])?'':'?'.$urls['query'];
+	$newurl .= empty($urls['fragment'])?'':'#'.$urls['fragment'];
+
+	$urls['port'] = empty($urls['port'])?'80':$urls['port'];
+	$urls['url'] = $newurl;
+
+	return $urls;
+}
+function strexists($haystack, $needle) {
+	return !(strpos($haystack, $needle) === FALSE);
+}
+//读文件 借用 super site 的方法
+function sreadfile($filename, $mode='r', $remote=0, $maxsize=0, $jumpnum=0) {
+	if($jumpnum > 5) return '';
+	$contents = '';
+
+	if($remote) {
+		$httpstas = '';
+		$urls = initurl($filename);
+		if(empty($urls['url'])) return '';
+
+		$fp = @fsockopen($urls['host'], $urls['port'], $errno, $errstr, 20);
+		if($fp) {
+			if(!empty($urls['query'])) {
+				fputs($fp, "GET $urls[path]?$urls[query] HTTP/1.1\r\n");
+			} else {
+				fputs($fp, "GET $urls[path] HTTP/1.1\r\n");
+			}
+			fputs($fp, "Host: $urls[host]\r\n");
+			fputs($fp, "Accept: */*\r\n");
+			fputs($fp, "Referer: $urls[url]\r\n");
+			fputs($fp, "User-Agent: Mozilla/4.0 (compatible; MSIE 5.00; Windows 98)\r\n");
+			fputs($fp, "Pragma: no-cache\r\n");
+			fputs($fp, "Cache-Control: no-cache\r\n");
+			fputs($fp, "Connection: Close\r\n\r\n");
+
+			$httpstas = explode(" ", fgets($fp, 128));
+			if($httpstas[1] == 302 || $httpstas[1] == 302) {
+				$jumpurl = explode(" ", fgets($fp, 128));
+				return sreadfile(trim($jumpurl[1]), 'r', 1, 0, ++$jumpnum);
+			} elseif($httpstas[1] != 200) {
+				fclose($fp);
+				return '';
+			}
+
+			$length = 0;
+			$size = 1024;
+			while (!feof($fp)) {
+				$line = trim(fgets($fp, 128));
+				$size = $size + 128;
+				if(empty($line)) break;
+				if(strexists($line, 'Content-Length')) {
+					$length = intval(trim(str_replace('Content-Length:', '', $line)));
+					if(!empty($maxsize) && $length > $maxsize) {
+						fclose($fp);
+						return '';
+					}
+				}
+				if(!empty($maxsize) && $size > $maxsize) {
+					fclose($fp);
+					return '';
+				}
+			}
+			fclose($fp);
+
+			if(@$handle = fopen($urls['url'], $mode)) {
+				if(function_exists('stream_get_contents')) {
+					$contents = stream_get_contents($handle);
+				} else {
+					$contents = '';
+					while (!feof($handle)) {
+						$contents .= fread($handle, 8192);
+					}
+				}
+				fclose($handle);
+			} elseif(@$ch = curl_init()) {
+				curl_setopt($ch, CURLOPT_URL, $urls['url']);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);//timeout
+				$contents = curl_exec($ch);
+				curl_close($ch);
+			} else {
+				//无法远程上传
+			}
+		}
+	} else {
+		if(@$handle = fopen($filename, $mode)) {
+			$contents = fread($handle, filesize($filename));
+			fclose($handle);
+		}
+	}
+
+	return $contents;
+}
+//格式化路径
+function srealpath($path) {
+	$path = str_replace('./', '', $path);
+	if(DIRECTORY_SEPARATOR == '\\') {
+		$path = str_replace('/', '\\', $path);
+	} elseif(DIRECTORY_SEPARATOR == '/') {
+		$path = str_replace('\\', '/', $path);
+	}
+	return $path;
+}
+//写文件 借用 super site 的方法
+function writefile($filename, $writetext, $filemod='text', $openmod='w', $eixt=1) {
+	if(!@$fp = fopen($filename, $openmod)) {
+		if($eixt) {
+			exit('File :<br>'.srealpath($filename).'<br>Have no access to write!');
+		} else {
+			return false;
+		}
+	} else {
+		$text = '';
+		if($filemod == 'php') {
+			$text = "<?php\r\n\r\nif(!defined('IN_IK')) exit('Access Denied');\r\n\r\n";
+		}
+		$text .= $writetext;
+		if($filemod == 'php') {
+			$text .= "\r\n\r\n?>";
+		}
+		flock($fp, 2);
+		fwrite($fp, $text);
+		fclose($fp);
+		return true;
+	}
 }

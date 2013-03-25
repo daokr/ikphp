@@ -110,10 +110,13 @@ __EXTENDS_JS__
 
 <div class="utable">
 <form method="POST" action="<?php echo U('user/setpassword');?>">
+
+<p>亲，你是第三方登录的用户；请尽快设置下密码吧；方便你以后直接用：<?php echo ($strUser[email]); ?> 账号登录</p>
+
 <table cellpadding="5" cellspacing="5">
-<tr>
+<?php if($ispassword): ?><tr>
 <th>旧密码：</th><td><input class="uinput" name="oldpwd" value="" type="password" /></td>
-</tr>
+</tr><?php endif; ?>
 <tr>
 <th>新密码：</th><td><input class="uinput" name="newpwd" value="" type="password" /></td>
 </tr>
