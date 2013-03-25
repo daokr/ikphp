@@ -1,4 +1,4 @@
-array(10) {
+﻿array(10) {
   ["ret"]=>
   int(0)
   ["msg"]=>
@@ -19,4 +19,33 @@ array(10) {
   string(1) "0"
   ["is_yellow_year_vip"]=>
   string(1) "0"
+}
+f
+array(13) {
+  ["file"]=>
+  string(43) "article/2013/0325/21/201303252147144rfT.jpg"
+  ["thumb"]=>
+  string(0) ""
+  ["name"]=>
+  string(0) ""
+  ["type"]=>
+  string(3) "jpg"
+  ["size"]=>
+  int(130509)
+  ["filename"]=>
+  string(22) "201303252147144rfT.jpg"
+  ["path"]=>
+  string(21) "article/2013/0325/21/"
+  ["img_24_24"]=>
+  string(49) "article/2013/0325/21/201303252147144rfT_24_24.jpg"
+  ["img_32_32"]=>
+  string(49) "article/2013/0325/21/201303252147144rfT_32_32.jpg"
+  ["img_48_48"]=>
+  string(49) "article/2013/0325/21/201303252147144rfT_48_48.jpg"
+  ["img_64_64"]=>
+  string(49) "article/2013/0325/21/201303252147144rfT_64_64.jpg"
+  ["img_100_100"]=>
+  string(51) "article/2013/0325/21/201303252147144rfT_100_100.jpg"
+  ["img_200_200"]=>
+  string(51) "article/2013/0325/21/201303252147144rfT_200_200.jpg"
 }

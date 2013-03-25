@@ -411,7 +411,7 @@ function savelocalfile($filearr, $savepath='', $thumb='', $arrext='',  $save_rul
 	return $patharr;
 }
 // 保存远程图片到本地
-function saveremotefile($url, $thumbarr=array(100, 100), $mkthumb=1, $maxsize=0) {
+function saveremotefile($url, $savepath, $thumbarr=array(100, 100), $mkthumb=1, $maxsize=0) {
 	
 	$patharr = $blank = array('file'=>'', 'thumb'=>'', 'name'=>'', 'type'=>'', 'size'=>0);
 
@@ -431,12 +431,12 @@ function saveremotefile($url, $thumbarr=array(100, 100), $mkthumb=1, $maxsize=0)
 	$patharr['filename'] = $filemain.'.'.$ext;
 
 	//debug 得到存储目录
-	$dirpath = getattachdir();
+	$dirpath = getattachdir($savepath); //只对文章模型使用
 	$patharr['file'] = $dirpath.'/'.$filemain.'.'.$ext;
 	$patharr['path'] = $dirpath.'/';
-
+	
 	//debug 上传
-	$content = sreadfile($url, 'rb', 1, $maxsize);echo $content;die;
+	$content = sreadfile($url, 'rb', 1, $maxsize);
 	if(empty($content)) return $blank;
 
 
@@ -460,6 +460,7 @@ function saveremotefile($url, $thumbarr=array(100, 100), $mkthumb=1, $maxsize=0)
 				$arrThumbWidth = explode(',',$thumbarr['width']);
 				$arrThumbHeight = explode(',',$thumbarr['height']);
 				foreach($arrThumbWidth as $key => $item){
+					echo $item;
 					$patharr['img_'.$item.'_'.$arrThumbHeight[$key]] = makethumb($patharr['file'],array($item,$arrThumbHeight[$key]));
 				}
 			}

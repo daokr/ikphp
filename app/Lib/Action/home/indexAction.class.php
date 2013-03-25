@@ -42,7 +42,8 @@ class indexAction extends frontendAction {
 			$url = $this->_post('url');
 			if($url)
 			{
-				$result = saveremotefile($url,'charm',array('width'=>C('ik_avatar_size'),'height'=>C('ik_avatar_size')));
+				$data_dir = date ( 'Y/md/H' );
+				$result = saveremotefile($url,'article/'.$data_dir,array('width'=>C('ik_avatar_size'),'height'=>C('ik_avatar_size')));
 				var_dump($result);
 				
 			}

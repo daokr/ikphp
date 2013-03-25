@@ -7,8 +7,6 @@
 class baseAction extends Action
 {
     protected function _initialize() {
-        //消除所有的magic_quotes_gpc转义
-        Input::noGPC();
         //初始化网站配置
         if (false === $setting = F('setting')) {
             $setting = D('setting')->setting_cache();

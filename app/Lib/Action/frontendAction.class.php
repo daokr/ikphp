@@ -10,6 +10,8 @@ class frontendAction extends baseAction {
     
     public function _initialize() {
         parent::_initialize();
+        //消除所有的magic_quotes_gpc转义
+        Input::noGPC();
         //网站状态
         //初始化访问者
         $this->_init_visitor();
