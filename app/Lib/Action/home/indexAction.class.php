@@ -9,6 +9,7 @@ class indexAction extends frontendAction {
 		$this->group_mod = D ( 'group' );
 		$this->user_mod = D ( 'user' );
 		$this->group_topic_mod = D ( 'group_topics' );
+		$this->article_mod = D('article');
 	}
 	public function index() {
 		// 来路
@@ -19,6 +20,8 @@ class indexAction extends frontendAction {
 		$arrHotTopic = $this->group_topic_mod->getHotTopic(15);
 		//活跃会员
 		$arrHotUser = $this->user_mod->getHotUser(12);
+		//获取最新的 8文章
+		$arrNewArticle = $this->article_mod->getNewArticleItem(8);
 		//推荐小组10个
 		$arrRecommendGroups = $this->group_mod->getRecommendGroup ( 10 );
 		foreach ( $arrRecommendGroups as $key => $item ) {
@@ -31,6 +34,7 @@ class indexAction extends frontendAction {
 		$this->assign ( 'ret_url', $ret_url );
 		$this->assign ( 'count_user', $count_user );
 		$this->assign ( 'arrNewGroup', $arrNewGroup );
+		$this->assign ( 'arrNewArticle', $arrNewArticle );
 		$this->assign ( 'arrRecommendGroup', $arrRecommendGroup );
 		$this->assign ( 'arrHotUser', $arrHotUser );
 		$this->assign ( 'arrHotTopic', $arrHotTopic );

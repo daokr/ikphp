@@ -24,15 +24,29 @@
             <td>
              <if condition="$config[URL_MODEL] eq 1">
             <label><input type="radio" name="url_model" value="1" checked="select"/>
-            /article/show/id/1 (暂只支持apache环境的rewrite，非apache环境勿动)
+            http://www.ikphp.com/index.php/article/show/id/1 (暂只支持apache环境的rewrite，非apache环境勿动)
             </label>
             <else/>
             <label><input type="radio" name="url_model" value="1" />
-            /article/show/id/1 (暂只支持apache环境的rewrite，非apache环境勿动)
+            http://www.ikphp.com/index.php/article/show/id/1 (暂只支持apache环境的rewrite，非apache环境勿动)
             </label>
             </if>
             </td>
-        </tr>           
+        </tr>
+        <tr>
+            <td>形式3：</td>
+            <td>
+             <if condition="$config[URL_MODEL] eq 2">
+            <label><input type="radio" name="url_model" value="2" checked="select"/>
+            http://www.ikphp.com/article/show/id/1 (暂只支持apache环境的rewrite，非apache环境勿动)
+            </label>
+            <else/>
+            <label><input type="radio" name="url_model" value="2" />
+            http://www.ikphp.com/article/show/id/1 (暂只支持apache环境的rewrite，非apache环境勿动)
+            </label>
+            </if>
+            </td>
+        </tr>                   
     </table>
     <div class="page_btn"><input type="submit" value="提 交" class="submit" /></div>
     </form>

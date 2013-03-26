@@ -112,6 +112,13 @@
             <a href="{:U('group/show',array('id'=>$item[groupid]))}">{$item[groupname]}</a> ({$item[count_user]}<if condition="$item[uptime] gt strtotime(date('Y-m-d 00:00:00'))">/<font color="orange">{$item[count_topic_today]}</font></if>)<br>
             </foreach>
             </div>
+
+			<h2>最新文章&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="pl">&nbsp;(<a href="{:U('article/index')}">全部</a>) </span></h2>
+			<div class="line23">
+			<foreach name="arrNewArticle" item="item">
+			<a href="{:U('article/show',array('id'=>$item[itemid]))}">{$item[title]}</a><br>
+ 			</foreach>
+			</div>
         
         
             <div class="clear"></div>

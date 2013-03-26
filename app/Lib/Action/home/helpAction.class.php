@@ -1,10 +1,11 @@
 <?php
 // 本类由系统自动生成，仅供测试用途
-class homeAction extends frontendAction {
+class helpAction extends frontendAction {
 	public function _initialize() {
 		parent::_initialize ();
 		$this->mod = D ( 'home_info' );
 		$this->assign('arrMenu',$this->getMenu());
+
 		$this->assign('infokey',ACTION_NAME);
 		$where = array('infokey'=>ACTION_NAME);
 		$strInfo = $this->mod->where($where)->find();
@@ -29,10 +30,10 @@ class homeAction extends frontendAction {
 	}
 	function getMenu(){
 		$arrMenu = array(
-				'about' => array('text'=>'关于我们', 'url'=>U('home/about')),
-				'contact' => array('text'=>'联系我们', 'url'=>U('home/contact')),
-				'agreement' => array('text'=>'用户条款', 'url'=>U('home/agreement')),
-				'privacy' => array('text'=>'隐私声明', 'url'=>U('home/privacy')),
+				'about' => array('text'=>'关于我们', 'url'=>U('help/about')),
+				'contact' => array('text'=>'联系我们', 'url'=>U('help/contact')),
+				'agreement' => array('text'=>'用户条款', 'url'=>U('help/agreement')),
+				'privacy' => array('text'=>'隐私声明', 'url'=>U('help/privacy')),
 		);
 		return $arrMenu;
 	}	

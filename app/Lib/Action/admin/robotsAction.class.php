@@ -468,10 +468,118 @@ class robotsAction extends backendAction {
 			exit();
 		}	//$subjectarr[0] 标题
 		
+		//文章标题过滤规则
+		$subjectfilter = $this->_post('subjectfilter','trim','');
+		$subjectfilter = !empty($subjectfilter) ? sstripslashes($subjectfilter) : '';
+		if(!empty($subjectfilter)) {
+			$rule = '('.convertrule($subjectfilter).')';
+			$subjectarr[0] = trim(preg_replace("/$rule/s", '', $subjectarr[0]));
+		}
+		
+		if($debugprocess == 'subjectfilter') {
+			showprogress('文章标题过滤后为', 1);
+			showprogress('<textarea style="width:95%;" rows="7">'.$subjectarr[0].'</textarea>');
+			$rule = shtmlspecialchars('('.convertrule($subjectfilter).')');
+			showprogress('正则表达式', 1);
+			showprogress('<input type="text" style="width: 95%" value="'.$rule.'">');
+			exit();
+		}	//$subjectarr[0] 标题
+		
+		if(empty($subjectarr[0])) {
+			showprogress('文章标题过滤后没有内容', 1);
+			exit();
+		}
+		
+		//文章标题文字替换
+		if($debugprocess == 'subjectreplace') {
+			showprogress('文章标题文字替换"前"为：', 1);
+			showprogress('<textarea style="width:95%;" rows="7">'.$subjectarr[0].'</textarea>');
+		}
+		$subjectreplace = $this->_post('subjectreplace');
+		$subjectreplace = !empty($subjectreplace) ? sstripslashes(strim($subjectreplace)) : '';
+		$subjectreplaceto = $this->_post('subjectreplaceto');
+		$subjectreplaceto = !empty($subjectreplaceto) ? sstripslashes(strim($subjectreplaceto)) : '';
+		if(!empty($subjectreplace)) {
+			$subjectarr[0] = stringreplace($subjectreplace, $subjectreplaceto, $subjectarr[0]);
+		}
+		if($debugprocess == 'subjectreplace') {
+			showprogress('文章标题文字替换"后"为：', 1);
+			showprogress('<textarea style="width:95%;" rows="7">'.$subjectarr[0].'</textarea>');
+			exit();
+		}	//$subjectarr[0] 标题
+		
+		//文章标题包含关键字
+		$subjectkey = $this->_post('subjectkey','trim','');
+		$subjectkey = !empty($subjectkey) ? sstripslashes($subjectkey) : '';
+		if($debugprocess == 'subjectkey') {
+			$newsubject = '';
+			showprogress('文章标题', 1);
+			showprogress('<input type="text" style="width: 95%" value="'.$subjectarr[0].'">');
+			$rule = convertrule($subjectkey);
+			$newsubject = preg_replace("/($rule)/s", '', $subjectarr[0]);
+			if($newsubject == $subjectarr[0]) {
+				showprogress( '文章标题不包含指定关键词,不会被采集.', 1);
+			} else {
+				showprogress('文章标题包含指定关键词,将被采集.', 1);
+			}
+			$rule = shtmlspecialchars('('.$rule.')');
+			showprogress('正则表达式', 1);
+			showprogress('<input type="text" style="width: 95%" value="'.$rule.'">');
+			exit();
+		}	//$subjectarr[0] 标题
+		
+		//文章标题关键字剔除过滤
+		$subjectkeycancel = $this->_post('subjectkeycancel','trim','');
+		$subjectkeycancel = !empty($subjectkeycancel) ? sstripslashes($subjectkeycancel) : '';		
+		if($debugprocess == 'subjectkeycancel') {
+			$newsubject = '';
+			showprogress('文章标题', 1);
+			showprogress('<input type="text" style="width: 95%" value="'.$subjectarr[0].'">');
+			$rule = convertrule($subjectkeycancel);
+			$newsubject = preg_replace("/($rule)/s", '', $subjectarr[0]);
+			if($newsubject == $subjectarr[0]) {
+				showprogress('文章标题不包含指定关键词,将被采集.', 1);
+			} else {
+				showprogress('文章标题包含指定关键词,不会被采集.', 1);
+			}
+			$rule = shtmlspecialchars('('.$rule.')');
+			showprogress('正则表达式', 1);
+			showprogress('<input type="text" style="width: 95%" value="'.$rule.'">');
+			exit();
+		}	//$subjectarr[0] 标题
+		
+		//标题结束/////////////////////////////////////////////////////////////////////////////////////
+		//内容开始/////////////////////////////////////////////////////////////////////////////////////
+		//文章内容识别规则
+		$messagearr = array();
+		$messagerule = $this->_post('messagerule','trim','');
+		$messagerule = !empty($messagerule) ? sstripslashes($messagerule) : '';	
+		if(empty($messagerule)) {
+			showprogress('文章内容识别规则未设置,程序将自动识别"文章内容",此种方法会产生一定误差.', 1);
+			$rsmessagearr = getrobotmessage($messagemsgtext, $newurlarr[0], 2);
+			$messagearr[0] = $rsmessagearr['leachmessage'];
+		} else {
+			$messagearr = pregmessage($messagemsgtext, $_POST['messagerule'], 'message');
+		}
+		if($_POST['debugprocess'] == 'messagerule') {
+			$infoarr = array(
+					'code'	=>	$messagearr[0],
+					'url'	=>	$newurlarr[0],
+					'rule'	=>	$_POST['messagerule'],
+					'source'	=>	$messagemsgtext
+			);
+			printruledebug($infoarr);
+			//$messagearr[0]	识别出来的文章内容
+		}
+		if(empty($messagearr[0])) {
+			showprogress('没识别出任何文章内容,请检查"文章内容识别规则"', 1);
+			exit();
+		}
 		
 		
 
 	}
+	////////////////////////////////////////////////////////////////////////////////
 	function geturlfile($url, $encode=1) {
 		echo $url;
 		$text = '';

@@ -49,12 +49,13 @@ class oauth {
             } else {
                 $user['ik_user_name'] = $user['keyname'];
             }
-            $user['ik_user_name'] = $user['ik_user_name'];
             $user['keyname'] = $user['keyname'];
             //用户来源 type qq
             $user['type'] = $this->_type;
             $user['face'] = $user['keyavatar_big'];
-            //$user['bind_info'] = $user['bind_info'];
+            $user['bind_info'] = serialize($user['bind_info']); //数组要转换成可以存储的介质
+           // $user['bind_info'] = $user['bind_info'];
+           //var_dump($user);echo 22222222222222222222222222;die;
             //把第三方的数据存到COOKIE
             cookie('user_bind_info', $user);
             return U('user/binding'); //跳转到绑定注册页
@@ -91,7 +92,8 @@ class oauth {
      * 绑定帐号
      */
     public function bindUser($user) {
-        $bind_info = serialize($user['bind_info']);
+        //$bind_info = serialize($user['bind_info']);
+    	$bind_info = $user['bind_info'];
         $bind_user = array(
             'uid' => $user['ik_uid'],
             'type' => $this->_type,

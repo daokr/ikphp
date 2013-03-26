@@ -40,5 +40,15 @@ class articleModel extends Model {
 			return false;
 		}
 	}
+	// 获取最新发表的文章
+	public function getNewArticleItem($limit){
+		$where['isaudit'] = '0';
+		$strItem = D('article_item')->where($where)->order('addtime desc')->limit($limit)->select();
+		if(!empty($strItem)){
+			return $strItem;
+		}else{
+			return false;
+		}		
+	}
 
 }

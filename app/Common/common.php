@@ -36,6 +36,36 @@ function sstripslashes($string) {
 	}
 	return $string;
 }
+//去除空格
+function strim($string) {
+	if(is_array($string)) {
+		foreach($string as $key => $val) {
+			$string[$key] = strim($val);
+		}
+	} else {
+		$string = trim($string);
+	}
+	return $string;
+}
+//按规则替换
+function stringreplace($replace, $replaceto, $message) {
+	if(is_array($replace)) {
+		foreach($replace as $key => $val) {
+			$message = stringreplace($val, $replaceto[$key], $message);
+		}
+	} else {
+		if(!empty($replace)) {
+			$rule = convertrule($replace);
+			if(strpos($replaceto, '[string]') === false) {
+				$replacestr = $replaceto;
+			} else {
+				$replacestr = str_replace('[string]', "\${1}", $replaceto);
+			}
+			$message = preg_replace("/($rule)/s", $replacestr, $message);
+		}
+	}
+	return $message;
+}
 /**
  * 友好时间
  */

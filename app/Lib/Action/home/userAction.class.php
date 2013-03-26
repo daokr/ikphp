@@ -518,6 +518,8 @@ class userAction extends userbaseAction {
 							'bind_info' => $user['bind_info'],
 					);
 					$oauth->bindByData($bind_info);
+					//清理绑定COOKIE
+					cookie('user_bind_info', NULL);
 					// 登陆
 					$this->visitor->login ( $strUser['userid'] );
 					// 同步登陆
@@ -536,6 +538,7 @@ class userAction extends userbaseAction {
 	 */
 	public function binding() {
 		if(cookie('user_bind_info')){
+			
 			$user = object_to_array(cookie('user_bind_info'));
 			if(IS_POST){
 				$email = $this->_post('email','trim');
@@ -557,6 +560,8 @@ class userAction extends userbaseAction {
 	                    'bind_info' => $user['bind_info'],
 	                );
 	                $oauth->bindByData($bind_info);
+	                //清理绑定COOKIE
+	                cookie('user_bind_info', NULL);
 					// 登陆
 					$this->visitor->login ( $uid );
 					// 同步登陆
