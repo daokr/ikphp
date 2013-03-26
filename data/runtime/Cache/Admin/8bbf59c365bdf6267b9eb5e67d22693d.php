@@ -1,9 +1,15 @@
 <?php if (!defined('THINK_PATH')) exit(); if($ik == 'index'): ?><li class="treemenu_on">
-    <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">首页</a>
+    <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">系统首页</a>
     <ul class="submenu" style="display: block;">
         <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('index/main');?>" target="MainIframe">首页</a></li>
         <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('cache/index');?>" target="MainIframe">缓存管理</a></li>
-    </ul>
+    </ul>   
+</li>
+<li class="treemenu_on">
+    <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">前台管理</a>
+    <ul class="submenu" style="display: block;">
+        <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('home/page');?>" target="MainIframe">单页管理</a></li>
+    </ul> 
 </li><?php endif; ?>
 <?php if($ik == 'setting'): ?><li class="treemenu_on">
     <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">全局配置</a>

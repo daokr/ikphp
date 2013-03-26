@@ -1,0 +1,29 @@
+/*infomenu*/
+.infocontent {
+	font-size: 14px;
+	line-height: 25px;
+}
+.infomenu {
+	overflow: hidden;
+}
+
+.infomenu ul {
+	
+}
+
+.infomenu ul li {
+	font-size: 14px;
+	height: 30px;
+	line-height: 30px;
+	padding: 5px 10px;
+}
+
+.infomenu ul li a {
+	padding: 5px 10px;
+}
+
+.infomenu .select{
+	background: #F0F0F0;
+	font-weight: bold;
+	padding: 5px 10px;
+}

@@ -52,19 +52,6 @@ function convertrule($rule) {
 	$rule = str_replace('\|', '|', $rule);
 	return $rule;
 }
-//替换字符串中的特殊字符
-//去掉指定字符串中\\或\'前的\
-function sstripslashes($string) {
-
-	if(is_array($string)) {
-		foreach($string as $key => $val) {
-			$string[$key] = sstripslashes($val);
-		}
-	} else {
-		$string = stripslashes($string);
-	}
-	return $string;
-}
 function printruledebug($infoarr) {
 	$rule = '';
 	if(is_array($infoarr['code'])) {

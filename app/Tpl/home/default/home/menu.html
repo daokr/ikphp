@@ -1,0 +1,11 @@
+<div class="infomenu">
+<ul>
+<volist name="arrMenu" id="item">
+    <if condition="$key eq $infokey">
+    <li class="select"><a href="{$item[url]}">{$item[text]}</a></li>
+    <else />
+    <li><a href="{$item[url]}">{$item[text]}</a></li>
+    </if>
+</volist>
+</ul>
+</div>

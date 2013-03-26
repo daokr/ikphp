@@ -23,7 +23,19 @@ function stripslashes_deep($value) {
 function todaytime() {
     return mktime(0, 0, 0, date('m'), date('d'), date('Y'));
 }
+//替换字符串中的特殊字符
+//去掉指定字符串中\\或\'前的\
+function sstripslashes($string) {
 
+	if(is_array($string)) {
+		foreach($string as $key => $val) {
+			$string[$key] = sstripslashes($val);
+		}
+	} else {
+		$string = stripslashes($string);
+	}
+	return $string;
+}
 /**
  * 友好时间
  */

@@ -1,10 +1,16 @@
 <if condition="$ik eq 'index'">
 <li class="treemenu_on">
-    <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">首页</a>
+    <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">系统首页</a>
     <ul class="submenu" style="display: block;">
         <li><a style="outline:none;" hidefocus="true" class="submenuB" href="{:U('index/main')}" target="MainIframe">首页</a></li>
         <li><a style="outline:none;" hidefocus="true" class="submenuA" href="{:U('cache/index')}" target="MainIframe">缓存管理</a></li>
-    </ul>
+    </ul>   
+</li>
+<li class="treemenu_on">
+    <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">前台管理</a>
+    <ul class="submenu" style="display: block;">
+        <li><a style="outline:none;" hidefocus="true" class="submenuB" href="{:U('home/page')}" target="MainIframe">单页管理</a></li>
+    </ul> 
 </li>
 </if>
 <if condition="$ik eq 'setting'">
