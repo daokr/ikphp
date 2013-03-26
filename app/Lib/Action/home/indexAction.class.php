@@ -43,15 +43,17 @@ class indexAction extends frontendAction {
 	}
 	public function test(){
 		if(IS_POST){
-			$url = $this->_post('url');
+	/* 		$url = $this->_post('url');
 			if($url)
 			{
 				$data_dir = date ( 'Y/md/H' );
 				$result = saveremotefile($url,'article/'.$data_dir,array('width'=>C('ik_avatar_size'),'height'=>C('ik_avatar_size')));
 				var_dump($result);
 				
-			}
+			} */
 		}else{
+			//echo sstrtotime('2013-03-21 00:36:56');
+			//echo date('Y-m-d H:m:s','1363797416');
 			$this->display ();
 		}
 	}

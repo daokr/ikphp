@@ -36,6 +36,12 @@ function sstripslashes($string) {
 	}
 	return $string;
 }
+//br 替换
+function striptbr($text) {
+	$text = preg_replace("/(\r\n|\r|\n)/s", '*', $text);
+	$text = str_replace('**', '*', $text);
+	return $text;
+}
 //去除空格
 function strim($string) {
 	if(is_array($string)) {
@@ -834,4 +840,39 @@ function writefile($filename, $writetext, $filemod='text', $openmod='w', $eixt=1
 		fclose($fp);
 		return true;
 	}
+}
+//小麦 格式化时间 修改时间 2013年 3月27日 用法如下：
+//echo sstrtotime('2013-03-21 00:36:56'); //输出：1363797416
+//echo date('Y-m-d H:m:s','1363797416');//输出：2013-03-21 00:36:56
+function sstrtotime($timestamp) {
+	global $_SCONFIG;
+
+	$timestamp = trim($timestamp);
+	if(empty($timestamp)) return 0;
+	$hour = $minute = $second = $month = $day = $year = 0;
+	$exparr = $timearr = array();
+	if(strpos($timestamp, ' ') !== false && strpos($timestamp, '-') !== false) {
+		$timearr = explode(' ', $timestamp);
+		$exparr = explode('-', $timearr[0]);
+		$year = empty($exparr[0])?0:intval($exparr[0]);
+		$month = empty($exparr[1])?0:intval($exparr[1]);
+		$day = empty($exparr[2])?0:intval($exparr[2]);
+		$exparr = explode(':', $timearr[1]);
+		$hour = empty($exparr[0])?0:intval($exparr[0]);
+		$minute = empty($exparr[1])?0:intval($exparr[1]);
+		$second = empty($exparr[2])?0:intval($exparr[2]);
+	} elseif(strpos($timestamp, '-') !== false && strpos($timestamp, ' ') === false) {
+		$exparr = explode('-', $timestamp);
+		$year = empty($exparr[0])?0:intval($exparr[0]);
+		$month = empty($exparr[1])?0:intval($exparr[1]);
+		$day = empty($exparr[2])?0:intval($exparr[2]);
+	} elseif(!strpos($timestamp, '-') === false && strpos($timestamp, ' ') !== false) {
+		$exparr = explode(':', $timestamp);
+		$hour = empty($exparr[0])?0:intval($exparr[0]);
+		$minute = empty($exparr[1])?0:intval($exparr[1]);
+		$second = empty($exparr[2])?0:intval($exparr[2]);
+	} else {
+		return 0;
+	}
+	return gmmktime($hour, $minute, $second, $month, $day, $year) - C('ik_timezone') * 3600;
 }

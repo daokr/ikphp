@@ -45,7 +45,128 @@ class robotsAction extends backendAction {
 				break;
 		}
 	}
+	//浏览列表
+	public function lists(){
+		echo 12;
+	}
 	public function publish(){
+		
+		$listurl_manual = $this->_post('listurl_manual','trim'); // listurl_manual[] http://blog.163.com/pub/channel/ent/ent_02.html
+		$listurl_auto = $this->_post('listurl_auto','trim'); // http://blog.163.com/pub/channel/ent/ent_[page].html
+		
+		$postlisturl = serialize(array('manual'=>$listurl_manual, 'auto'=>$listurl_auto));
+		$autotype = $this->_post('autotype');
+		$autotype = !empty($autotype) && intval($autotype) == 2 ? 2 : 1;
+		$name = $this->_post('name');
+		if(empty($name)){
+			$this->error('采集器名称不能为空');
+		}		
+		$subjectreplace = $this->_post('subjectreplace');
+		$subjectreplace = !empty($subjectreplace) ? implode("\n", $subjectreplace) : '';
+
+		$subjectreplaceto = $this->_post('subjectreplaceto');
+		$subjectreplaceto = !empty($subjectreplaceto) ? implode("\n", $subjectreplaceto) : '';
+		
+		$messagereplace = $this->_post('messagereplace');
+		$messagereplace = !empty($messagereplace) ? implode("\n", $messagereplace) : '';
+		
+		$messagereplaceto = $this->_post('messagereplaceto');
+		$messagereplaceto = !empty($messagereplaceto) ? implode("\n", $messagereplaceto) : '';
+		
+		$importcatid = $this->_post('import'); //导入的目录
+		
+		$data = array(
+				'name' => $this->_post('name'),
+				'addtime' => time(), //添加机器人的时间
+				'listurl' => $postlisturl,
+				'listpagestart' => $this->_post('listpagestart'),
+				'listpageend' => $this->_post('listpageend'),
+				'allnum' => $this->_post('allnum'), //总的采集数
+				'pernum' => $this->_post('pernum'),
+				'importcatid' => intval($importcatid),  //目录id
+				//'importtype' => $catarr[0], 小麦修改 这个不需要type了
+				
+				'reverseorder' => $this->_post('reverseorder','intval'), //文章倒序采集 0 否 1是
+				'encode' => $this->_post('encode'),
+				'savepic' => $this->_post('savepic'), //保存内容中的图片到本地
+				'saveflash' => $this->_post('saveflash'),
+				'subjecturlrule' => striptbr($this->_post('subjecturlrule')),
+				'subjecturllinkrule' => striptbr($this->_post('subjecturllinkrule')),
+				'subjecturllinkpre' => $this->_post('subjecturllinkpre'),
+				'subjectrule' => striptbr($this->_post('subjectrule')),
+				'subjectfilter' => striptbr($this->_post('subjectfilter')),
+				'subjectreplace' => $this->_post('subjectreplace'),
+				'subjectreplaceto' => $this->_post('subjectreplaceto'),
+				'subjectkey' => $this->_post('subjectkey'),
+				'subjectallowrepeat' => $this->_post('subjectallowrepeat'),
+				'datelinerule' => striptbr($this->_post('datelinerule')),
+				'fromrule' => striptbr($this->_post('fromrule')),
+				'authorrule' => striptbr($this->_post('authorrule')),
+				
+				'messagerule' => striptbr($this->_post('messagerule')),
+				'messagefilter' => striptbr($this->_post('messagefilter')),
+				'messagepagetype' => $this->_post('messagepagetype'),
+				'messagepagerule' => striptbr($this->_post('messagepagerule')),
+				
+				'messagepageurlrule' => striptbr($this->_post('messagepageurlrule')),
+				'messagepageurllinkpre' => $this->_post('messagepageurllinkpre'),
+				'messagereplace' => $this->_post('messagereplace'),
+				'messagereplaceto' => $this->_post('messagereplaceto'),
+				
+				'picurllinkpre' => $this->_post('picurllinkpre'),
+				'autotype' => $this->_post('autotype'),
+				'wildcardlen' => $this->_post('autotype') == 1 ? $this->_post('wildcardlen') : '0',
+				
+				'subjecturllinkcancel' => striptbr($this->_post('subjecturllinkcancel')),
+				'subjecturllinkfilter' => striptbr($this->_post('subjecturllinkfilter')),
+				'subjecturllinkpf' => $this->_post('subjecturllinkpf'),
+				'subjectkeycancel' => $this->_post('subjectkeycancel'),
+				'messagekey' => $this->_post('messagekey'),
+				'messagekeycancel' => $this->_post('messagekeycancel'),
+				'messageformat' => $this->_post('messageformat'),
+				
+				'messagepageurllinkpf' => $this->_post('messagepageurllinkpf'),
+				'uidrule' => shtmlspecialchars($this->_post('uidrule')), //发布者UID
+				//'defaultdateline' =>  empty($this->_post('defaultdateline')) ? time() : sstrtotime($this->_post('defaultdateline')),
+		);
+		
+		//对于新增的采集器与编辑的采集器的分别处理
+		$robotid = $this->_post('robotid','intval');
+		if(empty($robotid)) {
+			$robotid = 0;
+			$admin = session('admin');
+			$data['userid'] = $admin['userid'];// 添加者id 就是管理员id
+			
+			echo $admin['userid'];
+			if(!false == D('robots')->create($data)){
+				echo 22;
+				$robotid = D('robots')->add();
+				echo D('robots')->getLastSql();
+				echo $robotid;die;
+			}
+			//updaterobot($robotid);	//更新采集器缓存
+			//$this->success("采集机器人成功添加",U('robots/lists'));
+			
+		} else {
+			/* 122INSERT INTO `ik_robots` (`name`,`addtime`,`listurltype`,`listurl`,`listpagestart`,`listpageend`,
+					`allnum`,`pernum`,`importcatid`,`reverseorder`,
+					`encode`,`savepic`,`saveflash`,`subjecturlrule`,
+					`subjecturllinkrule`,`subjecturllinkpre`,`subjectrule`,
+					`subjectfilter`,`subjectkey`,`subjectallowrepeat`,`datelinerule`,
+					`fromrule`,`authorrule`,`messagerule`,`messagefilter`,`messagepagetype`,`messagepagerule`,
+					`messagepageurlrule`,`messagepageurllinkpre`,`picurllinkpre`,`autotype`,`wildcardlen`,`subjecturllinkcancel`,
+					`subjecturllinkfilter`,`subjecturllinkpf`,`subjectkeycancel`,`messagekey`,`messagekeycancel`,
+					`messageformat`,   `messagepageurllinkpf`,      `uidrule`,`userid`) VALUES ('新闻',1364317890,'new','a:2:{s:6:\"manual\";a:1:{i:0;s:47:\"http://blog.163.com/pub/channel/ent/ent_02.html\";}s:4:\"auto\";s:0:\"\";}',0,0,100,1,1,0,'',0,0,'','','','','','',1,'','','','','','page','','','','',
+							
+							
+							null,0,'','','','','','',1,'',      '',1) */
+			//UPDATE
+			$where = array('robotid' => $this->_post('robotid','intval'));
+			D('robots')->where($where)->save($data);
+			//updaterobot($_POST['robotid']);	//更新采集器缓存
+			//$this->success("采集机器人编辑成功",U('robots/lists'));
+		}
+		
 		
 	
 	}
@@ -575,13 +696,292 @@ class robotsAction extends backendAction {
 			showprogress('没识别出任何文章内容,请检查"文章内容识别规则"', 1);
 			exit();
 		}
+		$messagefilter = $this->_post('messagerule','trim','');
+		$messagefilter = !empty($messagefilter) ? sstripslashes($messagefilter) : '';
+		//文章内容过滤规则
+		if($debugprocess == 'messagefilter') {
+			showprogress('文章内容过滤"前"为', 1);
+			showprogress('<textarea style="width:95%;" rows="7">'.$messagearr[0].'</textarea>');
+			$rule = shtmlspecialchars('('.convertrule($messagefilter).')');
+		}
+		
+		if(!empty($messagefilter)) {
+			$rule = '('.convertrule($messagefilter).')';
+			$messagearr[0] = trim(preg_replace("/$rule/s", '', $messagearr[0]));
+		}
+		if($debugprocess == 'messagefilter') {
+			showprogress('文章内容过滤"前"为', 1);
+			showprogress('<textarea style="width:95%;" rows="7">'.$messagearr[0].'</textarea>');
+			$rule = shtmlspecialchars('('.convertrule($messagefilter).')');
+			showprogress('正则表达式', 1);
+			showprogress('<input type="text" style="width: 95%" value="'.$rule.'">');
+			exit();
+		}	//messagefilter[0] 内容
+		if(empty($messagearr[0])) {
+			showprogress('文章内容过滤后没有内容.', 1);
+			exit();
+		}
+		
+		//文章内容文字替换
+		if($debugprocess == 'messagereplace') {
+			showprogress('文章内容文字替换"前"为', 1);
+			showprogress('<textarea style="width:95%;" rows="7">'.$messagearr[0].'</textarea>');
+		}
+		$messagereplace = $this->_post('messagereplace');
+		$messagereplace = !empty($messagereplace) ? sstripslashes(strim($messagereplace)) : '';
+		$messagereplaceto = $this->_post('messagereplaceto');
+		$messagereplaceto = !empty($messagereplaceto) ? sstripslashes(strim($messagereplaceto)) : '';
+		$subjectreplace = $this->_post('subjectreplace');
+		if(!empty($subjectreplace)) {
+			$messagearr[0] = stringreplace($messagereplace, $messagereplaceto, $messagearr[0]);
+		}
+		if($debugprocess == 'messagereplace') {
+			showprogress($messagereplaceto.'文章内容文字替换"后"为', 1);
+			showprogress('<textarea style="width:95%;" rows="7">'.$messagearr[0].'</textarea>');
+			exit();
+		}	//$messagearr[0] 标题
+		
+		//文章内容包含关键字
+		$messagekey = $this->_post('messagekey','trim','');
+		$messagekey = !empty($messagekey) ? sstripslashes(trim($messagekey)) : '';
+		if($debugprocess == 'messagekey') {
+			$newsubject = '';
+			showprogress('文章内容', 1);
+			showprogress('<textarea style="width:95%;" rows="7">'.$messagearr[0].'</textarea>');
+			$rule = convertrule($_POST['messagekey']);
+			$newmessage = preg_replace("/($rule)/s", '', $messagearr[0]);
+			if($newmessage == $messagearr[0]) {
+				showprogress('文章内容不包含指定关键词,不会被采集.', 1);
+			} else {
+				showprogress('文章内容包含指定关键词,将被采集.', 1);
+			}
+			$rule = shtmlspecialchars('('.$rule.')');
+			showprogress('正则表达式', 1);
+			showprogress('<input type="text" style="width: 95%" value="'.$rule.'">');
+			exit();
+		}	//$messagearr[0] 标题
+		
+		//文章内容关键字剔除过滤
+		$messagekeycancel = $this->_post('messagekeycancel','trim','');
+		$messagekeycancel = !empty($messagekeycancel) ? sstripslashes(trim($messagekeycancel)) : '';
+		if($debugprocess == 'messagekeycancel') {
+			$newsubject = '';
+			showprogress('文章内容', 1);
+			showprogress('<textarea style="width:95%;" rows="7">'.$messagearr[0].'</textarea>');
+			$rule = convertrule($messagekeycancel);
+			$newmessage = preg_replace("/($rule)/s", '', $messagearr[0]);
+			if($newmessage == $messagearr[0]) {
+				showprogress('文章内容不包含指定关键词,将被采集.', 1);
+			} else {
+				showprogress('文章内容包含指定关键词,不会被采集.', 1);
+			}
+			$rule = shtmlspecialchars('('.$rule.')');
+			showprogress('正则表达式', 1);
+			showprogress('<input type="text" style="width: 95%" value="'.$rule.'">');
+			exit();
+		}	//$subjectarr[0] 标题
+		
+		//文章内容格式化
+		$messageformat = $this->_post('messageformat','intval',0);
+		if($debugprocess == 'messageformat') {
+			showprogress('文章内容格式化前为', 1);
+			showprogress('<textarea style="width:95%;" rows="7">'.$messagearr[0].'</textarea>');
+		}
+		if(!empty($messageformat)) {
+			$rsmessagearr = getrobotmessage($messagearr[0], $newurlarr[0]);
+			$messagearr[0] = $rsmessagearr['leachmessage'];
+		}
+		if($debugprocess == 'messageformat') {
+			showprogress('文章内容格式化后为', 1);
+			showprogress('<textarea style="width:95%;" rows="7">'.$messagearr[0].'</textarea>');
+			exit();
+		}
+		
+		//文章内容分页区域识别规则
+		$messagepagearr = array();
+		$messagepagerule = $this->_post('messagepagerule');
+		$messagepagerule = !empty($messagepagerule) ? sstripslashes(trim($messagepagerule)) : '';
+		if(!empty($messagepagerule)) {
+			$messagepagearr = pregmessage($messagemsgtext, $messagepagerule, 'pagearea');
+		}
+		if($debugprocess == 'messagepagerule') {
+			$infoarr = array(
+					'code'	=>	$messagepagearr[0],
+					'url'	=>	$newurlarr[0],
+					'rule'	=>	$messagepagerule,
+					'source'	=>	$messagemsgtext
+			);
+			printruledebug($infoarr);
+		}	//$messagepagearr[0]	识别出来的文章内容分页区域
+		
+		//文章内容分页链接识别规则
+		$pageurlarr = array();
+		$messagepageurlrule = $this->_post('messagepageurlrule');
+		$messagepageurlrule = !empty($messagepageurlrule) ? sstripslashes(trim($messagepageurlrule)) : '';
+		if(!empty($messagepageurlrule)) {
+			$urlarr = pregmessage($messagepagearr[0], $messagepageurlrule, 'page', -1);		//解析上步过虑后的结果
+			$pageurlarr = sarray_unique($urlarr);	//去重
+		}
+		if($debugprocess == 'messagepageurlrule') {
+			$infoarr = array(
+					'code'	=>	$pageurlarr,
+					'url'	=>	$newurlarr[0],
+					'rule'	=>	$messagepageurlrule,
+					'source'	=>	$messagepagearr[0]
+			);
+			printruledebug($infoarr);
+		}	//$pageurlarr 链接数组
+		
+		//文章内容分页链接URL补充前缀
+		if($debugprocess == 'messagepageurllinkpre') {
+			$newurlarrtmp = implode("\n", $pageurlarr);
+			showprogress('文章内容分页链接URL补充前缀"前"为', 1);
+			showprogress('<textarea style="width:95%;" rows="7">'.$newurlarrtmp.'</textarea>');
+		}
+		$messagepageurllinkpre = $this->_post('messagepageurllinkpre');
+		$messagepageurllinkpre = !empty($messagepageurllinkpre) ? sstripslashes(trim($messagepageurllinkpre)) : '';
+		
+		if(!empty($messagepageurllinkpre)) {
+			foreach ($pageurlarr as $tmpkey => $tmpvalue) {
+				if(!empty($tmpvalue)) {
+					if(strpos($tmpvalue, '://') === false) {
+						$pageurlarr[$tmpkey] = $messagepageurllinkpre.$tmpvalue;
+					} elseif(strpos($tmpvalue, '://')>10) {
+						$pageurlarr[$tmpkey] = $messagepageurllinkpre.$tmpvalue;
+					}
+				}
+			}
+		} else {
+			$url = array();
+			$posturl = parse_url($newurlarr[0]);
+			foreach ($pageurlarr as $tmpkey => $tmpvalue) {
+				if(!empty($tmpvalue)) {
+					$url = parse_url($tmpvalue);
+					if(!empty($url['host'])){
+						$pageurlarr[$tmpkey] = $tmpvalue;
+					} else {
+						$offset = strpos($tmpvalue, '/');
+						if(!is_bool($offset) && $offset == 0){
+							$pageurlarr[$tmpkey] = $posturl['scheme'].'://'.$posturl['host'].$tmpvalue;
+						} else {
+							$pageurlarr[$tmpkey] = substr($newurlarr[0], 0, strrpos($newurlarr[0], '/')).'/'.$tmpvalue;
+						}
+					}
+				}
+			}
+		}
+		if($debugprocess == 'messagepageurllinkpre') {
+			$newurlarrtmp = implode("\n", $pageurlarr);
+			showprogress('文章内容分页链接URL补充前缀"后"链接为', 1);
+			showprogress('<textarea style="width:95%;" rows="7">'.$newurlarrtmp.'</textarea>');
+			exit();
+		}	//$pageurlarr 链接数组
+		
+		//其他开始///////////////////////////////////////////////////////////////////////////////////////////
+		//信息来源识别规则
+		if($debugprocess == 'fromrule') {
+			$fromrule = $this->_post('fromrule');
+			$fromrule = !empty($fromrule) ? sstripslashes(trim($fromrule)) : '';
+			if(empty($fromrule)) {
+				showprogress('信息来源识别规则未设置', 1);
+				exit();
+			}
+			$fromarr = array();
+			if(preg_match("/\[from\]/", $fromrule)) {
+				$fromarr = pregmessage($messagemsgtext, $fromrule, 'from');
+			} else {
+				$fromarr[0] = $fromrule;
+			}
+		
+			if(preg_match("/\[from\]/", $fromrule)) {
+				$infoarr = array(
+						'code'	=>	$fromarr[0],
+						'url'	=>	$newurlarr[0],
+						'rule'	=>	$fromrule,
+						'source'	=>	$messagemsgtext
+				);
+				printruledebug($infoarr);
+			} else {
+				showprogress('信息来源固定值', 1);
+				showprogress(shtmlspecialchars($fromarr[0]));
+			}
+			//$fromarr[0]	识别出来的来源
+		}
 		
 		
+		//作者识别规则
+		if($debugprocess == 'authorrule') {
+			$authorrule = $this->_post('authorrule');
+			$authorrule = !empty($authorrule) ? sstripslashes(trim($authorrule)) : '';
+			if(empty($authorrule)) {
+				showprogress('作者识别规则未设置', 1);
+				exit();
+			}
+			$authorarr = array();
+			if(preg_match("/\[author\]/", $authorrule)) {
+				$authorarr = pregmessage($messagemsgtext, $authorrule, 'author');
+			} else {
+				$tmpauthorrule = explode('|', $authorrule);
+				$tmpauthorrule = strim($tmpauthorrule);
+				if(is_array($tmpauthorrule)) {
+					foreach($tmpauthorrule as $tmpkey => $tmpvalue) {
+						if(empty($tmpvalue)) {
+							unset($tmpauthorrule[$tmpkey]);
+						}
+					}
+					$tmprand = 0;
+					$tmprand = rand(0, count($tmpauthorrule)-1);
+					$authorarr[0] = $tmpauthorrule[$tmprand];
+				} else {
+					$authorarr[0] = $tmpauthorrule;
+				}
+			}
+			if(preg_match("/\[author\]/", $_POST['authorrule'])) {
+				$infoarr = array(
+						'code'	=>	$authorarr[0],
+						'url'	=>	$newurlarr[0],
+						'rule'	=>	$authorrule,
+						'source'	=>	$messagemsgtext
+				);
+				printruledebug($infoarr);
+			} else {
+				showprogress('作者固定值', 1);
+				showprogress(shtmlspecialchars($authorarr[0]));
+			}
+			//$authorarr[0]	识别出来的作者
+		}
+		
+		//发布者UID
+		if($debugprocess == 'uidrule') {
+			$uidrule = $this->_post('uidrule');
+			$uidrule = !empty($uidrule) ? sstripslashes(trim($uidrule)) : '';
+			if(empty($uidrule)) {
+				showprogress('发布者UID未设置', 1);
+				exit();
+			}
+			$uidarr = array();
+			$tmpuidrule = explode('|', $uidrule);
+			$tmpuidrule = strim($tmpuidrule);
+			if(is_array($tmpuidrule)) {
+				foreach($tmpuidrule as $tmpkey => $tmpvalue) {
+					if(empty($tmpvalue)) {
+						unset($tmpuidrule[$tmpkey]);
+					}
+				}
+				$tmprand = 0;
+				$tmprand = rand(0, count($tmpuidrule)-1);
+				$uidarr[0] = $tmpuidrule[$tmprand];
+			} else {
+				$uidarr[0] = $tmpuidrule;
+			}
+			showprogress('发布者UID随机抽取值', 1);
+			showprogress(shtmlspecialchars($uidarr[0]));
+		}
+		exit();
 
 	}
 	////////////////////////////////////////////////////////////////////////////////
 	function geturlfile($url, $encode=1) {
-		echo $url;
 		$text = '';
 		if(!empty($url)) {
 			if(function_exists('file_get_contents')) {
