@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder"> 
+<h2>{$title}</h2>
+<div class="tabnav">
+<ul>
+     <li><a href="{:U('robots/add',array('ik'=>'add_robot'))}">添加机器人</a></li>
+     <li  class="select"><a href="{:U('robots/lists')}">浏览机器人</a></li>
+</ul>
+</div>
+ 
+ 
+<table>
+<tr class="old">
+    <td width="150">采集名</td>
+    <td width="120">采集时间</td>
+    <td>采集次数</td>
+    <td>选择操作</td>
+</tr>
+<foreach name="list" item="item">
+<tr>
+    <td>{$item[name]}</td>
+    <td>{$item[lasttime]}</td>
+    <td>{$item[robotnum]}</td>
+    <td>
+    <a href="{:U('robots/startrobot',array('clearcache'=>'1','robotid'=>$item[robotid]))}">开始采集</a> 
+    <a href="{:U('robots/edit',array('robotid'=>$item[robotid]))}">编辑配置</a> 
+    <a href="{:U('robots/delete',array('robotid'=>$item[robotid]))}">删除机器</a></td>
+</tr>
+</foreach>
+</table>
+ 
+</div>
+</body>
+</html>

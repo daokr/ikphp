@@ -4,7 +4,51 @@ function addslashes_deep($value) {
     $value = is_array($value) ? array_map('addslashes_deep', $value) : addslashes($value);
     return $value;
 }
-
+//预定义的字符转换为 HTML 实体 shtmlspecialchars('<div>ddd</div>'); output:&lt;div&gt;ddd&lt;/div&gt;
+function shtmlspecialchars($string) {
+	if(is_array($string)) {
+		foreach($string as $key => $val) {
+			$string[$key] = shtmlspecialchars($val);
+		}
+	} else {
+		$string = preg_replace('/&amp;((#(\d{3,5}|x[a-fA-F0-9]{4})|[a-zA-Z][a-z0-9]{2,5});)/', '&\\1',
+				str_replace(array('&', '"', '<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $string));
+	}
+	return $string;
+}
+// 预定义字符前添加反斜杠 <div class="news"></div> :output:<div class=\"news\">charm</div>
+function saddslashes($string) {
+	if(is_array($string)) {
+		foreach($string as $key => $val) {
+			$string[$key] = saddslashes($val);
+		}
+	} else {
+		$string = addslashes($string);
+	}
+	return $string;
+}
+//将数组加上单引号,并整理成串 simplode(array('id'=>'1','name'=>'charm')); echo  '1','charm'
+function simplode($sarr, $comma=',') {
+	return '\''.implode('\''.$comma.'\'', $sarr).'\'';
+}
+//数组转换成字串 arrayeval(array('name'=>'abc','id'=>123)); output: Array ('name' => 'abc','id' => 123)
+function arrayeval($array, $level = 0) {
+	$space = '';
+	$evaluate = "Array $space(";
+	$comma = $space;
+	foreach($array as $key => $val) {
+		$key = is_string($key) ? '\''.addcslashes($key, '\'\\').'\'' : $key;
+		$val = !is_array($val) && (!preg_match("/^\-?\d+$/", $val) || strlen($val) > 12) ? '\''.addcslashes($val, '\'\\').'\'' : $val;
+		if(is_array($val)) {
+			$evaluate .= "$comma$key => ".arrayeval($val, $level + 1);
+		} else {
+			$evaluate .= "$comma$key => $val";
+		}
+		$comma = ",$space";
+	}
+	$evaluate .= "$space)";
+	return $evaluate;
+}
 function stripslashes_deep($value) {
     if (is_array($value)) {
         $value = array_map('stripslashes_deep', $value);
@@ -508,7 +552,6 @@ function saveremotefile($url, $savepath, $thumbarr=array(100, 100), $mkthumb=1, 
 				$arrThumbWidth = explode(',',$thumbarr['width']);
 				$arrThumbHeight = explode(',',$thumbarr['height']);
 				foreach($arrThumbWidth as $key => $item){
-					echo $item;
 					$patharr['img_'.$item.'_'.$arrThumbHeight[$key]] = makethumb($patharr['file'],array($item,$arrThumbHeight[$key]));
 				}
 			}

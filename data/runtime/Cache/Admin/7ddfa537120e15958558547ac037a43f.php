@@ -140,7 +140,7 @@ function addreplace(str, replace, replaceto) {
 <div class="tabnav">
 <ul>
      <li class="select"><a href="<?php echo U('robots/add',array('ik'=>'add_robot'));?>">添加机器人</a></li>
-     <li><a href="<?php echo U('robots/list');?>">浏览机器人</a></li>
+     <li><a href="<?php echo U('robots/lists');?>">浏览机器人</a></li>
 </ul>
 </div>
 <form method="post" name="thevalueform" id="theform" action=""  enctype="multipart/form-data" onSubmit="return submitForm(this);">

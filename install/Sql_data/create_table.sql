@@ -592,7 +592,7 @@ CREATE TABLE `ik_robots` (
   `name` varchar(50) NOT NULL DEFAULT '' COMMENT '机器人名称',
   `userid` mediumint(8) unsigned NOT NULL DEFAULT '0' COMMENT '添加者id',
   `addtime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '添加机器人的时间',
-  `lasttime` int(10) unsigned NOT NULL DEFAULT '0',
+  `lasttime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最后一次采集时间',
   `importcatid` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '插入的分类ID',
   `robotnum` smallint(6) unsigned NOT NULL DEFAULT '0',
   `listurltype` varchar(10) NOT NULL DEFAULT '' COMMENT '索引列表方式',

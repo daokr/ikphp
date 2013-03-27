@@ -49,6 +49,6 @@
 <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">采集管理</a>
 <ul class="submenu" style="display: block;">
 <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('robots/add');?>" target="MainIframe">添加新机器人</a></li>
-<li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('robots/list');?>" target="MainIframe">采集器</a></li>
+<li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('robots/lists');?>" target="MainIframe">采集器</a></li>
 </ul>
 </li><?php endif; ?>
