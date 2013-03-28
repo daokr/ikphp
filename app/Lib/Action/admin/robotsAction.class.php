@@ -1203,7 +1203,7 @@ class robotsAction extends backendAction {
 			if ($lpage < count ( $listurlarr )) {
 				$lurl = trim ( $listurlarr [$lpage] );
 				// 显示采集地址
-				showprogress ( '处理索引列表页面 <a href="' . $lurl . '" target="_blank">' . $lurl . '</a> 开始' );
+				showprogress ( '<font color=green>处理索引列表页面 <a href="' . $lurl . '" target="_blank">' . $lurl . '</a> 开始</font>' );
 				if (empty ( $_GET ['clearcache'] )) {
 					$newurlarr = cacherobotlist ( 'get', $lurl, $_GET ['robotid'] ); // 获取采集列表缓存
 				} else {
@@ -1217,12 +1217,12 @@ class robotsAction extends backendAction {
 					$newurlarr = array ();
 				}
 			} else {
-				showprogress ( '处理索引列表页面结束' );
+				showprogress ( '<font color=green>处理索引列表页面结束</font>' );
 			}
 			// 后去url列表
 			$subjecturl = array ();
 			if (! $listcache && ! empty ( $listtext )) {
-				showprogress ( '处理索引列表页面内容结束' );
+				showprogress ( '<font color=green>处理索引列表页面内容结束</font>' );
 				// 列表区域识别
 				if (empty ( $thevalue ['subjecturlrule'] )) {
 					$subjecturlarr [0] = $listtext; // $listtext 网页源码
@@ -1340,7 +1340,7 @@ class robotsAction extends backendAction {
 						if ($lpage < count ( $listurlarr )) {
 							$mpage = 0;
 							// LIST NUM
-							showprogress ('当前索引页面文章采集完毕，进入下一个索引页面');
+							showprogress ('<font color=green>当前索引页面文章采集完毕，进入下一个索引页面</font>');
 							$jumptourl = $theurl . '&robotid=' . $_GET ['robotid'] . '&lpage=' . $lpage . '&mpage=' . $mpage . '&mnum=' . $mnum . '&clearcache=1&status=' . $status;
 							showprogress ( '<font color=green><a href="' . $jumptourl . '">'.'正在采集下一个文章列表...</a></font>', 1 );
 								
@@ -1391,7 +1391,7 @@ class robotsAction extends backendAction {
 								$messagemsgtext = $this->geturlfile ( $pageurl, 1 , $thevalue );
 								$msgmsgarr = pregmessagearray ( $messagemsgtext, $thevalue, $mnum, 0, 0, $pageurl );
 								if (! empty ( $msgmsgarr ['message'] ))
-									$itemid = messageaddtodb ( $msgmsgarr, $_GET ['robotid'], $itemid );
+									$itemid = D('robots')->messageaddtodb ( $msgmsgarr, $_GET ['robotid'], $itemid );
 								showprogress ( '<font color=green>[' . $mnum . '] ' . '[' . $pagekey . '] 处理文章分页页面成功</font>', 1 );
 								$pagekey ++;
 								//include_once template ( 'admin/tpl/footer.htm', 1 );
@@ -1399,17 +1399,93 @@ class robotsAction extends backendAction {
 							}
 							
 						}
+						////////////////////////////处理内容////////////////////////////////////////////
+						if ($gotonext) {
+							$msgurl = encodeconvert ( $thevalue ['encode'], $msgurl, 1 );
+							$messagetext = $this->geturlfile ( $msgurl ,1,$thevalue); // 获取指定URL地址的文章内容
+						} else {
+							$messagetext = '';
+						}
+						//如果获取到了文章开始解析插入
+						if (! empty ( $messagetext )){
+							showprogress ( '<font color=green> 处理内容  <a href="' . $msgurl . '" target="_blank">' . $msgurl . '</a> ' . '成功</font>', 1 );
+							// 采集次数累加1并结整采集程序
+							if (empty ( $status )) {
+								$map['lasttime'] = time();
+								$map['robotnum'] = array('exp','robotnum+1');
+								D('robots')->where(array('robotid'=>$robotid))->setField($map);
+								$status = 1;
+							}
+							//整理获取到得$messagetext内容成数组
+							$msgarr = pregmessagearray ( $messagetext, $thevalue, $mnum, 1, 1, $msgurl ); // 解析文章内容
+							//如果内容标题和内容都不为空插入到库
+							if (! empty ( $msgarr ['title'] ) && ! empty ( $msgarr ['message'] ) )
+							{
+								// 插入到库中
+								$itemid = D('robots')->messageaddtodb ( $msgarr, $robotid, 0 );
+								if($itemid>0){
+									showprogress ( '<font color=green> 内容添加到数据库  <a href="' . $msgurl . '" target="_blank">' . $msgurl . '</a> ' . '成功,新文章ID='.$itemid.'</font>', 1 );
+								}
+								$mnum ++;
+							} else {
+								$mnum ++;
+							}
+							// 对文章列表页的处理
+							if (! empty ( $msgarr ['pagearr'] ) && $thevalue ['messagepagetype'] == 'page') {
+								cacherobotlist ( 'make', $msgurl, $_GET ['robotid'], $msgarr ['pagearr'], 'pagearr' );
+								jumpurl ( $theurl . '&robotid=' . $_GET ['robotid'] . '&lpage=' . $lpage . '&mpage=' . $mpage . '&mnum=' . $mnum . '&status=' . $status . '&itemid=' . $itemid . '&pagekey=1', 1 );
+							} elseif (! empty ( $msgarr ['pagearr'] ) && $thevalue ['messagepagetype'] == 'next') {
+								$pageurl = $msgarr ['pagearr'] [0];
+								//include_once template ( 'admin/tpl/footer.htm', 1 );
+								jumpurl ( $theurl . '&robotid=' . $_GET ['robotid'] . '&lpage=' . $lpage . '&mpage=' . $mpage . '&mnum=' . $mnum . '&status=' . $status . '&itemid=' . $itemid . '&pagekey=1&pageurl=' . rawurlencode ( $pageurl ), 1 );
+							}
+							// 判断采集总数是否超过了允许的采集总数
+							if ($mnum >= $thevalue ['allnum']) {
+								showprogress ('采集文章总数目已经达到最大限制'. ' (' . $mnum . ') ' . '结束', 1 );
+								$lpage = count ( $listurlarr ) + 1;
+								//include_once template ( 'admin/tpl/footer.htm', 1 );
+								jumpurl ( $theurl . '&robotid=' . $_GET ['robotid'] . '&lpage=' . $lpage . '&mpage=' . $mpage . '&mnum=' . $mnum, 1 );
+							}
+						}elseif ($gotonext) {
+							showprogress ( '<font color=red>处理内容 (<a href="' . $msgurl . '" target="_blank">' . $msgurl . '</a>) ' . '失败</font>', 1 );
+						}
+						////////////////////////////处理内容////////////////////////////////////////////
 					
 					}
+					//执行下次采集
+					$mpage ++;
+					if ($nextpage) {
+						// PER NUM
+						showprogress ( '单次采集数目达到最大限制，进入下一个采集操作' . ' (' . $thevalue ['pernum'] . ')', 1 );
+						$nexturl = $theurl . '&robotid=' . $_GET ['robotid'] . '&lpage=' . $lpage . '&mpage=' . $mpage . '&mnum=' . $mnum . '&status=' . $status;
+						showprogress ( '<a href="'.$nexturl.'">正在采集下一个文章列表...</a>', 1 );
+						//include_once template ( 'admin/tpl/footer.htm', 1 );
+						jumpurl ( $theurl . '&robotid=' . $_GET ['robotid'] . '&lpage=' . $lpage . '&mpage=' . $mpage . '&mnum=' . $mnum . '&status=' . $status, 1 );
+					}
+					
+					
 				}
 				
 			} else {
-			
+				$lpage ++;
+				if ($lpage < count ( $listurlarr )) {
+					$mpage = 0;
+					// LIST NUM
+					showprogress ( '当前索引页面文章采集完毕，进入下一个索引页面' );
+					$nexturl2 = $theurl . '&robotid=' . $_GET ['robotid'] . '&lpage=' . $lpage . '&mpage=' . $mpage . '&mnum=' . $mnum . '&status=' . $status;
+					showprogress ( '<font color=green><a href="'.$nexturl2.'">正在采集下一个文章列表...</a></font>', 1 );
+					//include_once template ( 'admin/tpl/footer.htm', 1 );
+					jumpurl ( $theurl . '&robotid=' . $_GET ['robotid'] . '&lpage=' . $lpage . '&mpage=' . $mpage . '&mnum=' . $mnum . '&status=' . $status, 1 );
+				}
 			}
 		
 		} else {
 			showprogress ( '无法链接到指定的URL地址', 1 );
 		}
+		showprogress ( '<font color=green>采集完成，点击此处查看采集结果</font>', 1 );
+		$listarr = array ();
+		$thevalue = array ();
+		$importvalue = array ();
 	
 	}
 }

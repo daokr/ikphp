@@ -345,17 +345,15 @@ function jumpurl($url, $time=1000, $mode='js') {
 }
 //正则表达式匹配 简析抓取
 function pregmessagearray($messagetext, $rulearr, $mnum, $getpage=0, $getsubject=0, $msgurl='') {
-	global $_SGLOBAL, $alang;
-
+	
 	if($getsubject) $mnum = $mnum+1;
 	$msgarr = array(
-			'subject' => '',
-			'dateline' => '',
+			'title' => '', //文章标题
+			'addtime' => '', //机器人添加时间
 			'itemfrom' => '',
 			'author' => '',
 			'message' => '',
 			'importcatid' => $rulearr['importcatid'],
-			'importtype' => $rulearr['importtype'],
 			'pagearr' => array(),
 			'picarr' => array(),
 			'flasharr' => array(),
@@ -366,64 +364,65 @@ function pregmessagearray($messagetext, $rulearr, $mnum, $getpage=0, $getsubject
 	//文章标题识别
 	if($getsubject && $messagetext && !empty($rulearr['subjectrule'])) {
 		$subjectarr = pregmessage($messagetext, $rulearr['subjectrule'], 'subject');
-		$msgarr['subject'] = $subjectarr[0];
+		$msgarr['title'] = $subjectarr[0];
 	}
 	//文章标题过滤
-	if($getsubject && $msgarr['subject'] && !empty($rulearr['subjectfilter'])) {
+	if($getsubject && $msgarr['title'] && !empty($rulearr['subjectfilter'])) {
 		$rule = convertrule($rulearr['subjectfilter']);
-		$msgarr['subject'] = preg_replace("/($rule)/s", '', $msgarr['subject']);
+		$msgarr['title'] = preg_replace("/($rule)/s", '', $msgarr['title']);
 	}
 	//文章标题文字替换
-	if($getsubject && $msgarr['subject'] && !empty($rulearr['subjectreplace'])) {
+	if($getsubject && $msgarr['title'] && !empty($rulearr['subjectreplace'])) {
 		$rulearr['subjectreplace'] = explode("\n", $rulearr['subjectreplace']);
 		$rulearr['subjectreplaceto'] = explode("\n", $rulearr['subjectreplaceto']);
-		$msgarr['subject'] = stringreplace($rulearr['subjectreplace'], $rulearr['subjectreplaceto'], $msgarr['subject']);
+		$msgarr['title'] = stringreplace($rulearr['subjectreplace'], $rulearr['subjectreplaceto'], $msgarr['title']);
 	}
 	//文章标题包含关键字
-	if($getsubject && $msgarr['subject'] && !empty($rulearr['subjectkey'])) {
+	if($getsubject && $msgarr['title'] && !empty($rulearr['subjectkey'])) {
 		$rule = convertrule($rulearr['subjectkey']);
-		$newsubject = preg_replace("/($rule)/s", '', $msgarr['subject']);
-		if($newsubject == $msgarr['subject']) {
-			showprogress('['.$mnum.'] '.$msgarr['subject'].' 标题不包含关键字，跳过');
+		$newsubject = preg_replace("/($rule)/s", '', $msgarr['title']);
+		if($newsubject == $msgarr['title']) {
+			showprogress('['.$mnum.'] '.$msgarr['title'].' 标题不包含关键字，跳过');
 			$nextprogress = false;
-			$msgarr['subject'] = '';
+			$msgarr['title'] = '';
 		}
 	}
 	//文章标题关键字剔除过滤
-	if($getsubject && $msgarr['subject'] && !empty($rulearr['subjectkeycancel'])) {
+	if($getsubject && $msgarr['title'] && !empty($rulearr['subjectkeycancel'])) {
 		$rule = convertrule($rulearr['subjectkeycancel']);
-		$newsubject = preg_replace("/($rule)/s", '', $msgarr['subject']);
-		if($newsubject != $msgarr['subject']) {
-			showprogress('['.$mnum.'] '.$msgarr['subject'].' 标题包含关键字，跳过');
+		$newsubject = preg_replace("/($rule)/s", '', $msgarr['title']);
+		if($newsubject != $msgarr['title']) {
+			showprogress('['.$mnum.'] '.$msgarr['title'].' 标题包含关键字，跳过');
 			$nextprogress = false;
-			$msgarr['subject'] = '';
+			$msgarr['title'] = '';
 		}
 	}
-	$msgarr['subject'] = trim($msgarr['subject']);
+	$msgarr['title'] = trim($msgarr['title']);
 
-	if($getsubject && $nextprogress && empty($msgarr['subject']) && $msgarr['importtype']!='album') {
+	if($getsubject && $nextprogress && empty($msgarr['title']) && $msgarr['importtype']!='album') {
 		showprogress('['.$mnum.'] 标题经处理后为空，跳过');
 		$nextprogress = false;
 	}
+	//重复性检查
 	if($getsubject && $nextprogress && !$rulearr['subjectallowrepeat']) {
-		$query = $_SGLOBAL['db']->query('SELECT COUNT(*) FROM '.tname('robotlog').' WHERE hash=\''.md5($msgarr['subject']).'\'');
+	/* 	$query = $_SGLOBAL['db']->query('SELECT COUNT(*) FROM '.tname('robotlog').' WHERE hash=\''.md5($msgarr['title']).'\'');
 		if($_SGLOBAL['db']->result($query, 0)) {
-			showprogress('['.$mnum.'] '.$msgarr['subject'].' 文章已经存在，跳过');
+			showprogress('['.$mnum.'] '.$msgarr['title'].' 文章已经存在，跳过');
 			$nextprogress = false;
-		}
+		} */
 	}
-	if($nextprogress && $getsubject && $msgarr['subject']) {
-		showprogress('<font color=green>['.$mnum.'] ['.$msgarr['subject'].'] 处理标题成功</font>');
+	if($nextprogress && $getsubject && $msgarr['title']) {
+		showprogress('<font color=green>['.$mnum.'] ['.$msgarr['title'].'] 处理标题成功</font>');
 	}
 	if(!$nextprogress) {
-		$msgarr['subject'] = '';
+		$msgarr['title'] = '';
 	}
 
-	//DATELINE
-	if(empty($rulearr['defaultdateline'])) {
-		$msgarr['dateline'] = $_SGLOBAL['timestamp'];
+	//处理文章发布时间
+	if(empty($rulearr['defaultaddtime'])) {
+		$msgarr['addtime'] = time();
 	} else {
-		$msgarr['dateline'] = intval($rulearr['defaultdateline']);
+		$msgarr['addtime'] = intval($rulearr['defaultaddtime']);//读取预设时间
 	}
 
 	//信息来源识别
@@ -479,9 +478,9 @@ function pregmessagearray($messagetext, $rulearr, $mnum, $getpage=0, $getsubject
 			}
 			$tmprand = 0;
 			$tmprand = rand(0, count($rulearr['uidrule'])-1);
-			$msgarr['uid'] = intval($rulearr['uidrule'][$tmprand]);
+			$msgarr['uid'] = intval($rulearr['uidrule'][$tmprand]); //发布者userid
 		} else {
-			$msgarr['uid'] = intval($rulearr['uidrule']);
+			$msgarr['uid'] = intval($rulearr['uidrule']); //发布者userid
 		}
 	}
 
@@ -511,7 +510,7 @@ function pregmessagearray($messagetext, $rulearr, $mnum, $getpage=0, $getsubject
 		$rule = convertrule($rulearr['messagekey']);
 		$newmessage = preg_replace("/($rule)/s", '', $msgarr['message']);
 		if($newmessage == $msgarr['message']) {
-			showprogress('['.$mnum.'] '.$msgarr['subject'].' 内容不包含关键字，跳过');
+			showprogress('['.$mnum.'] '.$msgarr['title'].' 内容不包含关键字，跳过');
 			$nextprogress = false;
 			$msgarr['message'] = '';
 		}
@@ -521,7 +520,7 @@ function pregmessagearray($messagetext, $rulearr, $mnum, $getpage=0, $getsubject
 		$rule = convertrule($rulearr['messagekeycancel']);
 		$newmessage = preg_replace("/($rule)/s", '', $msgarr['message']);
 		if(md5($newmessage) != md5($msgarr['message'])) {
-			showprogress('['.$mnum.'] '.$msgarr['subject'].' 内容包含关键字，跳过');
+			showprogress('['.$mnum.'] '.$msgarr['title'].' 内容包含关键字，跳过');
 			$nextprogress = false;
 			$msgarr['message'] = '';
 		}
@@ -536,24 +535,27 @@ function pregmessagearray($messagetext, $rulearr, $mnum, $getpage=0, $getsubject
 		if($msgarr['message']) {
 			showprogress('<font color=green>['.$mnum.'] 处理内容成功</font>');
 		} else {
-			$msgarr['subject'] = '';
+			$msgarr['title'] = '';
 			$nextprogress = false;
 			showprogress('<font color=red>['.$mnum.'] 处理内容失败</font>');
 		}
 	}
 
-	//LOCAL PIC URL
+	//保存图片
 	if($nextprogress && (!empty($rulearr['picurllinkpre']) || $rulearr['savepic'])) {
 		preg_match_all("/\<img\s+.*?src=[\'\"]*([a-z0-9\/\-_+=.~!%@?#%&;:$\\()|]+)[\'\"\s\>]+/is", $msgarr['message'], $picurlarr);
 		if(!empty($picurlarr[1])) $msgarr['picarr'] = sarray_unique($picurlarr[1]);
+		//如果有图片规则
 		if(!empty($rulearr['picurllinkpre'])) {
 			foreach($msgarr['picarr'] as $pickey => $picurl) {
 				if(strpos($picurl, '://') === false) {
 					$msgarr['picarr'][$pickey] = $rulearr['picurllinkpre'].$picurl;
 					$msgarr['message'] = str_replace($picurl, $rulearr['picurllinkpre'].$picurl, $msgarr['message']);
+					die;
 				}
 			}
 		} else {
+			
 			$url = array();
 			$posturl = parse_url($msgurl);
 			foreach ($msgarr['picarr'] as $pickey => $picurl) {
@@ -572,9 +574,11 @@ function pregmessagearray($messagetext, $rulearr, $mnum, $getpage=0, $getsubject
 					$msgarr['message'] = str_replace($picurl, $msgarr['picarr'][$pickey], $msgarr['message']);
 				}
 			}
+
+			 
 		}
 		if($rulearr['savepic']) {
-			$msgarr = saveurlarr($msgarr, 'picarr');
+			$msgarr = saveurlarr($msgarr, 'picarr' ,$msgarr['uid']);
 			showprogress('<font color=green>['.$mnum.'] '.'处理图片链接成功！</font>');
 		}
 	}
@@ -663,6 +667,43 @@ function pregmessagearray($messagetext, $rulearr, $mnum, $getpage=0, $getsubject
 		showprogress('['.$mnum.'] '.$alang['robot_robot_deal'].'<b>'.$alang['robot_robot_pagearr'].'</b>'.$alang['robot_robot_failed']);
 		}
 	 */
+	}
+	return $msgarr;
+}
+// 下载图片开始存图
+function saveurlarr($msgarr, $varname , $userid) {
+	if($varname == 'picarr') {
+		$isimage = 1;
+		
+	}
+	if(!empty($msgarr[$varname]) && is_array($msgarr[$varname])) {
+
+		foreach ($msgarr[$varname] as $ukey => $url) {
+			//保存图片
+			if($isimage) {
+				$type = 'article';
+				$data_dir = $type.'/'.date ( 'Y/md/H' );
+				$result = saveremotefile($url, $data_dir,array (
+								'width'=>C('ik_simg.width').','.C('ik_mimg.width').','.C('ik_bimg.width'),
+								'height'=>C('ik_simg.height').','.C('ik_mimg.height').','.C('ik_bimg.height')
+						));
+				
+					
+			} else {
+				$result = saveremotefile($url, array(), 0);
+			}
+			if(!empty($result['file'])){
+				$name = $result ['filename'];
+				$path = $type . '/'.$data_dir . '/' ;
+				$size = $result ['size'];
+				$title = $result ['name'];
+				$typeid = '0';
+				$photoid = D('images')->addImage($name,$path,$size,$title,$type,$typeid,$userid);
+				$msgarr['message'] = str_replace($url, $result['file'], $msgarr['message']);
+				$msgarr[$varname][$ukey] = str_replace($url, $result['file'], $msgarr[$varname][$ukey]);
+				showprogress('<font color=green>['.$name.'] '.'保存图片成功！</font>');
+			}			
+		}
 	}
 	return $msgarr;
 }

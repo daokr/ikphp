@@ -43,7 +43,26 @@ class robotsModel extends Model
 		$filepath = DATA_PATH.'robot/robot_'.$robotid.'.cache.php';
 		@include_once($filepath);
 		if(!$itemid) {
+			var_dump($msgarr);die;
+/* 			$arrArticleItem['title'] = $msgarr['title'];
+			$arrArticleItem['cateid'] = $msgarr['importcatid'];
+			$arrArticleItem['addtime'] = $msgarr['addtime'];
+			$arrArticleItem['userid'] = $msgarr['uid']; //发布者
 			
+			$arrArticle['newsfrom'] = $msgarr['itemfrom']; //来源
+			$arrArticle['newsauthor'] = $msgarr['author']; //来源author
+			$arrArticle['conent'] = $msgarr['message']; //内容
+
+			if(!false==$this->create($arrArticleItem)){
+				$newitemid = $this->add();
+				if($newitemid>0){
+					$arrArticle['itemid'] = $newitemid; //内容
+					if(!false==$this->create($arrArticle)){
+						$id = $this->add();
+					}
+				}
+			}
+			return empty($id)? $id : 0; */
 		}
 	}
 	

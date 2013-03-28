@@ -509,7 +509,7 @@ function saveremotefile($url, $savepath, $thumbarr=array(100, 100), $mkthumb=1, 
 
 	$ext = fileext($url);
 	$patharr['type'] = $ext;
-	
+	echo $ext;die;
 	if(in_array($ext, array('jpg', 'jpeg', 'gif', 'png'))) {
 		$isimage = 1;
 	} else {
@@ -531,7 +531,7 @@ function saveremotefile($url, $savepath, $thumbarr=array(100, 100), $mkthumb=1, 
 	$content = sreadfile($url, 'rb', 1, $maxsize);
 	if(empty($content)) return $blank;
 
-
+	
 	writefile(C('ik_attach_path').$patharr['file'], $content, 'text', 'wb', 0);
 	if(!file_exists(C('ik_attach_path').$patharr['file'])) return $blank;
 

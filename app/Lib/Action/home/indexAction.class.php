@@ -42,8 +42,11 @@ class indexAction extends frontendAction {
 		$this->display ();
 	}
 	public function test(){
-		
-		var_dump(MAGIC_QUOTES_GPC);
+		$map['lasttime'] = time();
+		$map['robotnum'] = array('exp','robotnum+1');
+		D('robots')->where(array('robotid'=>1))->setField($map);
+		//D('robots')->where(array('robotid'=>1))->setInc('robotnum');
+		echo D('robots')->getLastSql();die;
 	
 	}
 }
