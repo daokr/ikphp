@@ -42,11 +42,27 @@ class indexAction extends frontendAction {
 		$this->display ();
 	}
 	public function test(){
-		$map['lasttime'] = time();
+	/* 	$map['lasttime'] = time();
 		$map['robotnum'] = array('exp','robotnum+1');
-		D('robots')->where(array('robotid'=>1))->setField($map);
+		D('robots')->where(array('robotid'=>1))->setField($map); */
 		//D('robots')->where(array('robotid'=>1))->setInc('robotnum');
-		echo D('robots')->getLastSql();die;
+		//$strArticle = D('article')->field('aid')->order('aid desc')->find();
+		//echo $res['aid'];
+		//echo D('article')->getLastSql();die;
+		$ss = '<p>李双江儿子李天一现在成了媒体的重的。</p><p>
+		<img src="http://img1.ph.126.net/KT9Mocb_FuCwQsdpMtZ2rA==/1358116762646888701.jpg">我们是好样
+		<img class="abd" src="http://img1.ph.126.net/KT9Mocb_FuCwQsdpMtZ2rA==/1358116762646888702.jpg" style="ad" >中国嘎嘎嘎
+		<img src="http://img1.ph.126.net/KT9Mocb_FuCwQsdpMtZ2rA==/1358116762646888703.jpg" >大赌场</p>';
+		//echo str_replace('/\[(图片)(\d+)\]/is', '[图片1]', $ss);
+		preg_match_all("/\<img\s+.*?>/is", $ss, $picarr);
+		//echo($picarr[0][1]);
+		//开始替换
+		foreach ($picarr[0] as $key=>$item){
+			
+			$ss = str_replace($item, '[图片1]', $ss);
+			
+		}
+		echo $ss;
 	
 	}
 }

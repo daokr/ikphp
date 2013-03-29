@@ -1,4 +1,8 @@
 <?php
+/*
+ * IKPHP爱客网 安装程序 @copyright (c) 2012-3000 IKPHP All Rights Reserved @author 小麦
+* @Email:160780470@qq.com
+*/
 class robotsModel extends Model
 {
 	//更新缓存
@@ -43,26 +47,33 @@ class robotsModel extends Model
 		$filepath = DATA_PATH.'robot/robot_'.$robotid.'.cache.php';
 		@include_once($filepath);
 		if(!$itemid) {
-			var_dump($msgarr);die;
-/* 			$arrArticleItem['title'] = $msgarr['title'];
+			//var_dump($msgarr);
+			$arrArticleItem['title'] = $msgarr['title'];
 			$arrArticleItem['cateid'] = $msgarr['importcatid'];
 			$arrArticleItem['addtime'] = $msgarr['addtime'];
 			$arrArticleItem['userid'] = $msgarr['uid']; //发布者
+			$arrArticleItem['isphoto'] = $msgarr['isphoto'];
 			
 			$arrArticle['newsfrom'] = $msgarr['itemfrom']; //来源
 			$arrArticle['newsauthor'] = $msgarr['author']; //来源author
-			$arrArticle['conent'] = $msgarr['message']; //内容
+			$arrArticle['content'] = $msgarr['message']; //内容
+			
+			
 
-			if(!false==$this->create($arrArticleItem)){
-				$newitemid = $this->add();
+			if(!false == D('article_item')->create($arrArticleItem)){
+				$newitemid = D('article_item')->add();
 				if($newitemid>0){
 					$arrArticle['itemid'] = $newitemid; //内容
-					if(!false==$this->create($arrArticle)){
-						$id = $this->add();
+					if(!false == D('article')->create($arrArticle)){
+						$id = D('article')->add();
+					}
+					//更新图片
+					if(!empty($msgarr['arrphotoid'])){
+						D('images')->where(array('type'=>'article','typeid'=>'0'))->setField(array('typeid'=>$id));
 					}
 				}
 			}
-			return empty($id)? $id : 0; */
+			return empty($id) ? 0 : $id;
 		}
 	}
 	

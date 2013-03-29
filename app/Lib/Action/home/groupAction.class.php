@@ -585,7 +585,7 @@ class groupAction extends frontendAction {
 			//查询开放
 			$map = array('isopen'=>0);
 			//显示列表
-			$pagesize = 8;
+			$pagesize = 20;
 			$count = $this->_mod->where($map)->order('isrecommend DESC')->count('groupid');
 			$pager = $this->_pager($count, $pagesize);
 			$arrGroups =  $this->_mod->where($map)->order('isrecommend DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
@@ -612,7 +612,7 @@ class groupAction extends frontendAction {
 		$map['ishow']  = '0';
 		$map['groupid'] =  array('gt',0);
 		//显示列表
-		$pagesize = 3;
+		$pagesize = 20;
 		$count = $this->group_topics_mod->where($map)->order('addtime DESC')->count('topicid');
 		$pager = $this->_pager($count, $pagesize);
 		$arrTopics =  $this->group_topics_mod->where($map)->order('addtime DESC')->limit($pager->firstRow.','.$pager->listRows)->select();

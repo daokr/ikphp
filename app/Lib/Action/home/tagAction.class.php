@@ -1,5 +1,8 @@
 <?php
-// 本类由系统自动生成，仅供测试用途
+/*
+ * IKPHP爱客网 安装程序 @copyright (c) 2012-3000 IKPHP All Rights Reserved @author 小麦
+ * @Email:160780470@qq.com
+ */
 class tagAction extends frontendAction {
 	public function _initialize() {
 		parent::_initialize ();

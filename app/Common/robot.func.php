@@ -82,17 +82,7 @@ function pregmessage($message, $rule, $getstr, $limit=1) {
 	}
 	return $result;
 }
-//去掉数组中重复值
-function sarray_unique($array) {
-	$newarray = array();
-	if(!empty($array) && is_array($array)) {
-		$array = array_unique($array);
-		foreach ($array as $value) {
-			$newarray[] = $value;
-		}
-	}
-	return $newarray;
-}
+
 //获得PR值
 function getpr($arraycell, $searchaborative, $replaceaborative) {
 	$htmltags = array(
@@ -551,7 +541,6 @@ function pregmessagearray($messagetext, $rulearr, $mnum, $getpage=0, $getsubject
 				if(strpos($picurl, '://') === false) {
 					$msgarr['picarr'][$pickey] = $rulearr['picurllinkpre'].$picurl;
 					$msgarr['message'] = str_replace($picurl, $rulearr['picurllinkpre'].$picurl, $msgarr['message']);
-					die;
 				}
 			}
 		} else {
@@ -674,7 +663,6 @@ function pregmessagearray($messagetext, $rulearr, $mnum, $getpage=0, $getsubject
 function saveurlarr($msgarr, $varname , $userid) {
 	if($varname == 'picarr') {
 		$isimage = 1;
-		
 	}
 	if(!empty($msgarr[$varname]) && is_array($msgarr[$varname])) {
 
@@ -693,17 +681,34 @@ function saveurlarr($msgarr, $varname , $userid) {
 				$result = saveremotefile($url, array(), 0);
 			}
 			if(!empty($result['file'])){
+				$strArticle = D('article')->field('aid')->order('aid desc')->find();
 				$name = $result ['filename'];
-				$path = $type . '/'.$data_dir . '/' ;
 				$size = $result ['size'];
 				$title = $result ['name'];
-				$typeid = '0';
-				$photoid = D('images')->addImage($name,$path,$size,$title,$type,$typeid,$userid);
-				$msgarr['message'] = str_replace($url, $result['file'], $msgarr['message']);
-				$msgarr[$varname][$ukey] = str_replace($url, $result['file'], $msgarr[$varname][$ukey]);
+				$typeid = 0;
+				
+				$photoid = D('images')->addImage($name,$data_dir.'/',$size,$title,$type,$typeid,$userid);
+				$strImage = D('images')->getImageById($photoid);
+				
+				$arrPhotoID[$ukey] = $photoid;
+				$arrSeqid[$ukey] = $strImage['seqid']; //保存seqid
+
+				//$msgarr['message'] = str_replace($url, '[图片'.$strImage['seqid'].']', $msgarr['message']);
+				//$msgarr[$varname][$ukey] = str_replace($url, $result['file'], $msgarr[$varname][$ukey]);
 				showprogress('<font color=green>['.$name.'] '.'保存图片成功！</font>');
 			}			
 		}
+		if(!empty($arrPhotoID)){
+			$msgarr['isphoto'] = 1;
+			$msgarr['arrphotoid'] = $arrPhotoID;
+		}
+		//开始替换内容
+		//匹配图<img src="*">开始替换成IKPHP专用图片
+		preg_match_all("/\<img\s+.*?>/is", $msgarr['message'], $picarr);
+		foreach ($picarr[0] as $key=>$item){
+			$msgarr['message'] = str_replace($item, '[图片'.$arrSeqid[$key].']', $msgarr['message']);
+		}
+		
 	}
 	return $msgarr;
 }

@@ -1,5 +1,4 @@
 <?php
-
 function addslashes_deep($value) {
     $value = is_array($value) ? array_map('addslashes_deep', $value) : addslashes($value);
     return $value;
@@ -508,15 +507,17 @@ function saveremotefile($url, $savepath, $thumbarr=array(100, 100), $mkthumb=1, 
 	$patharr = $blank = array('file'=>'', 'thumb'=>'', 'name'=>'', 'type'=>'', 'size'=>0);
 
 	$ext = fileext($url);
-	$patharr['type'] = $ext;
-	echo $ext;die;
+	if($ext=='gif'){
+		$ext ='jpg';
+	}
 	if(in_array($ext, array('jpg', 'jpeg', 'gif', 'png'))) {
 		$isimage = 1;
 	} else {
-		//$isimage = 0;
-		//$ext = 'attach';
-		return false;
+		$isimage = 1;
+		$ext = 'jpg';
+		//return false;
 	}
+	$patharr['type'] = $ext;
 	
 	//debug 文件名
 	$filemain = sgmdate(time(), 'YmdHis').random(4);
@@ -918,4 +919,15 @@ function sstrtotime($timestamp) {
 		return 0;
 	}
 	return gmmktime($hour, $minute, $second, $month, $day, $year) - C('ik_timezone') * 3600;
+}
+//去掉数组中重复值
+function sarray_unique($array) {
+	$newarray = array();
+	if(!empty($array) && is_array($array)) {
+		$array = array_unique($array);
+		foreach ($array as $value) {
+			$newarray[] = $value;
+		}
+	}
+	return $newarray;
 }

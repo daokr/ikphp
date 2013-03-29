@@ -1,4 +1,8 @@
 <?php
+/*
+ * IKPHP爱客网 安装程序 @copyright (c) 2012-3000 IKPHP All Rights Reserved @author 小麦
+* @Email:160780470@qq.com
+*/
 class robotsAction extends backendAction {
 	public function _initialize() {
 		parent::_initialize ();
@@ -83,7 +87,7 @@ class robotsAction extends backendAction {
 		
 		$importcatid = $this->_post ( 'import' ); // 导入的目录
 		
-		$defaultaddtime = $this->_post ( 'defaultdateline' );
+		$defaultaddtime = $this->_post ( 'defaultaddtime' );
 		$admin = session ( 'admin' );
 		$defaultaddtime = empty ( $defaultaddtime ) ? time () : sstrtotime ( $defaultaddtime );
 		$data = array (
@@ -1059,7 +1063,8 @@ class robotsAction extends backendAction {
 			}
 			
 			$thevalue ['listurl'] = '';
-			$thevalue ['defaultdateline'] = sgmdate ( $thevalue ['defaultaddtime'] ); // 默认发布时间
+			$thevalue ['defaultaddtime'] = sgmdate ( $thevalue ['defaultaddtime'] ); // 默认发布时间
+			//echo sgmdate ( $thevalue ['defaultaddtime'] );die;
 			
 			if (! empty ( $thevalue ['listurl_manual'] )) {
 				foreach ( $thevalue ['listurl_manual'] as $tmpkey => $tmpvalue ) {

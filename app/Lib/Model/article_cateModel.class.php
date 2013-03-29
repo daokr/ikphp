@@ -1,4 +1,8 @@
 <?php
+/*
+ * IKPHP爱客网 安装程序 @copyright (c) 2012-3000 IKPHP All Rights Reserved @author 小麦
+* @Email:160780470@qq.com
+*/
 class article_cateModel extends Model {
 	
 	// 根据频道nameid获取全部分类
