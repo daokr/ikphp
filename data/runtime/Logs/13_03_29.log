@@ -1680,3 +1680,93 @@ INFO: [ view_end ] --START--
 INFO: Run ShowPageTrace Behavior [ RunTime:0.000404s ]
 INFO: [ view_end ] --END-- [ RunTime:0.000496s ]
 
+[ 2013-03-29T18:03:22+08:00 ] 127.0.0.1 /ikphp/index.php?g=admin&m=robots&a=lists
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000840s ]
+INFO: Run load_lang Behavior [ RunTime:0.002244s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003296s ]
+SQL: SHOW COLUMNS FROM `ik_robots` [ RunTime:0.005200s ]
+SQL: SHOW COLUMNS FROM `ik_article_cate` [ RunTime:0.004386s ]
+SQL: SHOW COLUMNS FROM `ik_article_channel` [ RunTime:0.004140s ]
+NOTIC: [8] Undefined variable: listarr D:\APMServ5.2.6\www\htdocs\IKPHP\app\Lib\Action\admin\robotsAction.class.php 第 15 行.
+NOTIC: [8] Undefined variable: thevalue D:\APMServ5.2.6\www\htdocs\IKPHP\app\Lib\Action\admin\robotsAction.class.php 第 16 行.
+NOTIC: [8] Undefined variable: importvalue D:\APMServ5.2.6\www\htdocs\IKPHP\app\Lib\Action\admin\robotsAction.class.php 第 17 行.
+SQL: SELECT * FROM `ik_robots` ORDER BY addtime desc  [ RunTime:0.001121s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001526s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001632s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\0f8dce140de9c869ea188c5cec8c8b32.php 第 32 行.
+NOTIC: [8] Use of undefined constant lasttime - assumed 'lasttime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\0f8dce140de9c869ea188c5cec8c8b32.php 第 33 行.
+NOTIC: [8] Use of undefined constant robotnum - assumed 'robotnum' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\0f8dce140de9c869ea188c5cec8c8b32.php 第 34 行.
+NOTIC: [8] Use of undefined constant robotid - assumed 'robotid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\0f8dce140de9c869ea188c5cec8c8b32.php 第 36 行.
+NOTIC: [8] Use of undefined constant robotid - assumed 'robotid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\0f8dce140de9c869ea188c5cec8c8b32.php 第 37 行.
+NOTIC: [8] Use of undefined constant robotid - assumed 'robotid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\0f8dce140de9c869ea188c5cec8c8b32.php 第 38 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.015115s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015229s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000965s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000857s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000797s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000916s ]
+INFO: Run content_replace Behavior [ RunTime:0.002234s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006141s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000953s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001053s ]
+
+[ 2013-03-29T18:03:25+08:00 ] 127.0.0.1 /ikphp/index.php?g=admin&m=robots&a=edit&robotid=1
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000378s ]
+INFO: Run load_lang Behavior [ RunTime:0.001515s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002114s ]
+SQL: SHOW COLUMNS FROM `ik_robots` [ RunTime:0.004663s ]
+SQL: SHOW COLUMNS FROM `ik_article_cate` [ RunTime:0.003586s ]
+SQL: SHOW COLUMNS FROM `ik_article_channel` [ RunTime:0.003906s ]
+NOTIC: [8] Undefined variable: listarr D:\APMServ5.2.6\www\htdocs\IKPHP\app\Lib\Action\admin\robotsAction.class.php 第 15 行.
+NOTIC: [8] Undefined variable: thevalue D:\APMServ5.2.6\www\htdocs\IKPHP\app\Lib\Action\admin\robotsAction.class.php 第 16 行.
+NOTIC: [8] Undefined variable: importvalue D:\APMServ5.2.6\www\htdocs\IKPHP\app\Lib\Action\admin\robotsAction.class.php 第 17 行.
+SQL: SELECT * FROM `ik_robots` WHERE ( `robotid` = 1 ) LIMIT 1   [ RunTime:0.001128s ]
+SQL: SELECT * FROM `ik_article_channel`  [ RunTime:0.000399s ]
+SQL: SELECT * FROM `ik_article_cate` WHERE ( `nameid` = 'news' )  [ RunTime:0.000462s ]
+SQL: SELECT * FROM `ik_article_cate` WHERE ( `nameid` = 'fe' )  [ RunTime:0.000510s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001528s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001639s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 161 行.
+NOTIC: [8] Use of undefined constant allnum - assumed 'allnum' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 165 行.
+NOTIC: [8] Use of undefined constant pernum - assumed 'pernum' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 170 行.
+NOTIC: [8] Use of undefined constant defaultaddtime - assumed 'defaultaddtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 183 行.
+NOTIC: [8] Use of undefined constant listurl_manual - assumed 'listurl_manual' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 197 行.
+NOTIC: [8] Use of undefined constant listurl_auto - assumed 'listurl_auto' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 206 行.
+NOTIC: [8] Use of undefined constant listpagestart - assumed 'listpagestart' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 210 行.
+NOTIC: [8] Use of undefined constant listpageend - assumed 'listpageend' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 212 行.
+NOTIC: [8] Use of undefined constant wildcardlen - assumed 'wildcardlen' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 215 行.
+NOTIC: [8] Use of undefined constant reverseorder - assumed 'reverseorder' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 236 行.
+NOTIC: [8] Use of undefined constant encode - assumed 'encode' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 251 行.
+NOTIC: [8] Use of undefined constant subjecturlrule - assumed 'subjecturlrule' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 263 行.
+NOTIC: [8] Use of undefined constant subjecturllinkrule - assumed 'subjecturllinkrule' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 275 行.
+NOTIC: [8] Use of undefined constant subjecturllinkcancel - assumed 'subjecturllinkcancel' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 285 行.
+NOTIC: [8] Use of undefined constant subjecturllinkfilter - assumed 'subjecturllinkfilter' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 292 行.
+NOTIC: [8] Use of undefined constant subjecturllinkpre - assumed 'subjecturllinkpre' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 297 行.
+NOTIC: [8] Use of undefined constant subjecturllinkpf - assumed 'subjecturllinkpf' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 305 行.
+NOTIC: [8] Use of undefined constant subjectrule - assumed 'subjectrule' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 322 行.
+NOTIC: [8] Use of undefined constant subjectfilter - assumed 'subjectfilter' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 329 行.
+NOTIC: [8] Use of undefined constant subjectkey - assumed 'subjectkey' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 354 行.
+NOTIC: [8] Use of undefined constant subjectkeycancel - assumed 'subjectkeycancel' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 361 行.
+NOTIC: [8] Use of undefined constant subjectallowrepeat - assumed 'subjectallowrepeat' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 368 行.
+NOTIC: [8] Use of undefined constant robotid - assumed 'robotid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\Admin\7ddfa537120e15958558547ac037a43f.php 第 589 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.040039s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040168s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000656s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000408s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000339s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000392s ]
+INFO: Run content_replace Behavior [ RunTime:0.001649s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003801s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000397s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000508s ]
+

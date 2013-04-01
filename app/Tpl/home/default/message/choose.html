@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<!--main-->
+<div class="midder">
+	<div class="mc">
+    	<h1>选择收件人</h1>
+    	<div class="cleft">
+            <div style="width:100%" class="indent">
+            <foreach name="arrFollowUser" item="item">
+              <dl class="obu">
+                <dt>
+                    <a class="nbg" href="{:U('message/write',array('touserid'=>$item[userid]))}">
+                    <img  alt="{$item[username]}" class="m_sub_img" src="{$item[face]}">
+                    </a>
+                </dt>
+                <dd><a href="{:U('message/write',array('touserid'=>$item[userid]))}" title="{$item[username]}">{$item[username]}</a></dd>
+              </dl>
+			</foreach>              
+              <br clear="all">
+            </div>
+        </div>
+        <div class="cright">
+
+            
+			<p class="pl2">&gt; <a href="{:U('message/ikmail',array('d'=>'inbox'))}">回到我的收件箱</a></p>
+
+                
+        </div>
+    </div>
+</div>
+
+<include file="public:footer" />
+</body>
+</html>

@@ -1,0 +1,15 @@
+<div class="tabnav">
+<ul>
+    <if condition="$ik eq 'outbox'">
+    	<li class="select"><a href="{:U('message/ikmail',array(d=>outbox))}">发件箱</a></li>
+    <else/>
+    	<li><a href="{:U('message/ikmail',array(d=>outbox))}">发件箱</a></li>
+    </if>
+    <if condition="$ik eq 'inbox' OR $ik eq 'spam' OR $ik eq 'unread'">
+    	<li class="select"><a href="{:U('message/ikmail',array(d=>inbox))}">收件箱</a></li>
+    <else/>
+    	<li><a href="{:U('message/ikmail',array(d=>inbox))}">收件箱</a></li>
+    </if>    
+</ul>
+</div>
+

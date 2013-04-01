@@ -100,98 +100,75 @@ __EXTENDS_JS__
 <!--APP NAV-->
 
 </header>
+<!--main-->
 <div class="midder">
+	<div class="mc">
+    	<h1>我的收件箱(<?php echo ($unreadnum); ?>封未拆)</h1>
+    	<div class="cleft">
+        	<div class="tabnav">
+<ul>
+    <?php if($ik == 'outbox'): ?><li class="select"><a href="<?php echo U('message/ikmail',array(d=>outbox));?>">发件箱</a></li>
+    <?php else: ?>
+    	<li><a href="<?php echo U('message/ikmail',array(d=>outbox));?>">发件箱</a></li><?php endif; ?>
+    <?php if($ik == 'inbox' OR $ik == 'spam' OR $ik == 'unread'): ?><li class="select"><a href="<?php echo U('message/ikmail',array(d=>inbox));?>">收件箱</a></li>
+    <?php else: ?>
+    	<li><a href="<?php echo U('message/ikmail',array(d=>inbox));?>">收件箱</a></li><?php endif; ?>    
+</ul>
+</div>
 
-
-    <div class="mc">
-    
-   	    <h1><?php echo ($seo["title"]); ?></h1>
-       
-        <div class="cleft w700">
-
-
-            <div class="group_topics">
-                <table class="olt">
-                    <tbody>
-            <?php if(!empty($arrTopic)): if(is_array($arrTopic)): foreach($arrTopic as $key=>$item): ?><tr class="pl">
-               <td class="td-subject"><a title="<?php echo ($item[title]); ?>" href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>"><?php echo getsubstrutf8(t($item['title']),0,25); ?></a>
-                <?php if($item[isvideo] == 1): ?><img src="__STATIC__/public/images/lc_cinema.png" align="absmiddle" title="[视频]" alt="[视频]" /><?php endif; ?>                
-                <?php if($item[istop] == 1): ?><img src="__STATIC__/public/images/headtopic_1.gif" title="[置顶]" alt="[置顶]" /><?php endif; ?>
-                <?php if($item[addtime] > (strtotime(date('Y-m-d 00:00:00')))): ?><img src="__STATIC__/public/images/topic_new.gif" align="absmiddle"  title="[新帖]" alt="[新帖]" /><?php endif; ?> 
-                <?php if($item[isphoto] == 1): ?><img src="__STATIC__/public/images/image_s.gif" title="[图片]" alt="[图片]" align="absmiddle" /><?php endif; ?> 
-                <?php if($item[isattach] == 1): ?><img src="__STATIC__/public/images/attach.gif" title="[附件]" alt="[附件]" /><?php endif; ?> 
-                <?php if($item[isdigest] == 1): ?><img src="__STATIC__/public/images/posts.gif" title="[精华]" alt="[精华]" /><?php endif; ?>
-                </td>
-                <td class="td-reply" nowrap="nowrap"><?php if($item[count_comment] > 0): echo ($item[count_comment]); ?> 回应<?php endif; ?></td>
-                <td class="td-time" nowrap="nowrap"><?php echo getTime($item[uptime],time()); ?></td>
-                <td align="right"><a href="<?php echo U('group/show',array('id'=>$item[groupid]));?>"><?php echo getsubstrutf8(t($item[group][groupname]),0,10); ?></a></td>
-                </tr><?php endforeach; endif; endif; ?>         
-                </tbody>
-              </table>
-            </div>
-            
-             
-            
+ 
             <div class="clear"></div>
-    
-    
-    	</div>
-    
-        <div class="cright w250" id="cright">   
-              
-			<div class="mod" id="g-user-profile">
-
-    <div class="usercard">
-      <div class="pic">
-            <a href="<?php echo U('people/index',array('id'=>$strUser[doname]));?>"><img alt="<?php echo ($strUser[username]); ?>" src="<?php echo ($strUser[face]); ?>"></a>
-      </div>
-      <div class="info">
-           <div class="name">
-               <a href="<?php echo U('people/index',array('id'=>$strUser[doname]));?>"><?php echo ($strUser[username]); ?></a>
-           </div>
-                <?php if($strUser[area] != ''): echo ($strUser[area][areaname]); else: ?>火星<?php endif; ?>                        
-                 <br>
-       </div>
-    </div>
-               
-    <div class="group-nav">
-     <ul>
-		<?php if($action_name == 'my_group_topics'): ?><li class="on"><a href="<?php echo U('group/my_group_topics');?>">我的小组话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/my_group_topics');?>">我的小组话题</a></li><?php endif; ?>
-        
-		<?php if($action_name == 'my_topics'): ?><li class="on"><a href="<?php echo U('group/my_topics');?>">我发起的话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/my_topics');?>">我发起的话题</a></li><?php endif; ?>
-        		
-		<?php if($action_name == 'my_replied_topics'): ?><li class="on"><a href="<?php echo U('group/my_replied_topics');?>">我回应的话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/my_replied_topics');?>">我回应的话题</a></li><?php endif; ?>
-		
-		<?php if($action_name == 'my_collect_topics'): ?><li class="on"><a href="<?php echo U('group/my_collect_topics');?>">我喜欢的话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/my_collect_topics');?>">我喜欢的话题</a></li><?php endif; ?>
-		
-		<?php if($action_name == 'mine'): ?><li class="on"><a href="<?php echo U('group/mine');?>">我管理/加入的小组</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/mine');?>">我管理/加入的小组</a></li><?php endif; ?>
-     </ul>
-    </div>
-             
-</div> 
-         
-<div class="mod">
-<?php if($visitor): ?><div class="create-group">
-<a href="<?php echo U('group/create');?>"><i>+</i>申请创建小组</a>
-</div><?php endif; ?>
-</div>                 
-        
+            <div id="db-timeline-hd">
+                <ul class="menu-list">
+                	<?php if(is_array($inmenu)): foreach($inmenu as $key=>$item): if($ik == $key): ?><li class="on"><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li>
+                        <?php else: ?>
+                        	<li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li><?php endif; endforeach; endif; ?>
+                </ul>
+            </div>  
+		 <form  method="post" onSubmit="return isConfirmed" action="<?php echo U('message/doing',array('d'=>'all'));?>">            
+            <table class="olt">
+              <tbody>
+                <tr>
+                  <td class="pl" style="width:112px;"><span class="doumail_from">来自</span></td>
+                  <td width="20"></td>
+                  <td class="pl">话题</td>
+                  <td class="pl" style="width:110px;">时间</td>
+                  <td class="pl" style="width:40px;" align="center">选择</td>
+                  <td class="pl" style="width:120px;visibility:hidden;border-bottom:none" align="center">mail_options</td>
+                </tr>
+               <?php if(is_array($arrMessage)): foreach($arrMessage as $key=>$item): ?><tr>
+                  <td>
+                  <?php if($item[userid] == 0): ?><span class="sys_doumail">系统邮件</span>{else} <span class="doumail_from"><?php echo ($item[user][username]); ?></span><?php endif; ?>
+                  </td>
+                  <td class="m" align="center">&gt;</td>
+                  <td><a href="<?php echo U('message/show',array('messageid'=>$item[messageid]));?>"><?php echo ($item[title]); ?></a></td>
+                  <td><?php echo ($item[addtime]); ?></td>
+                  <td align="center"><input name="messageid[]" value="<?php echo ($item[messageid]); ?>" type="checkbox"></td>
+                  <td style="display: none;" class="mail_options">
+                  <?php if($ik != 'spam'): ?><a rel="direct" class="post_link" href="<?php echo U('message/doing',array('d'=>'spam','messageid'=>$item[messageid]));?>">垃圾消息</a><?php endif; ?>
+                  <a onClick="return confirm('真的要删除消息吗？')" class="post_link" href="<?php echo U('message/doing',array('d'=>'del','type'=>'inbox','messageid'=>$item[messageid]));?>">删除</a>
+                  </td>
+                </tr><?php endforeach; endif; ?>
+                <tr>
+                  <td colspan="4" align="right">
+                    <input name="type" value="inbox" type="hidden">
+                   <?php if($ik == 'spam'): ?><input name="mc_submit" value="删除" data-confirm="真的要删除短消息吗?" type="submit"><?php endif; ?>
+                   <?php if($ik == 'unread' OR $ik == 'inbox'): ?><input name="mc_submit" value="删除" data-confirm="真的要删除短消息吗?" type="submit">
+                    <input name="mc_submit" value="垃圾消息" 	type="submit">
+                    <input name="mc_submit" value="标记为已读"  type="submit"><?php endif; ?>                                                         
+                  </td>
+                  <td align="center"><input name="checkAll" value="checkAll" onclick="ToggleCheck(this);" type="checkbox"></td>
+                </tr>
+              </tbody>
+            </table>
+        </form>    
         </div>
-    
-    </div><!--//mc-->
-
-
-</div>                
+        <div class="cright">
+			<p class="pl2">&gt; <a href="<?php echo U('message/ikmail',array('d'=>'choose'));?>">给我关注的人写信</a></p>
+<p class="pl2">&gt; <a href="<?php echo U('user/follow',array('userid'=>$userid));?>">去我关注的人列表</a></p>   
+        </div>
+    </div>
+</div>
 <!--footer-->
 <footer>
 <div id="footer">

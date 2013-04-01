@@ -55,7 +55,11 @@ __EXTENDS_JS__
              
              <li>
              <a href="<?php echo U('article/index');?>">阅读</a>
-             </li>                                          
+             </li>   
+             
+             <li>
+             <a href="http://www.ikphp.com/down/IKPHP_Beta_1.5.zip" style="color:#fff" title="beta版1.5">IKPHP_Beta版1.5源码下载</a>
+             </li>                                                      
 
         </ul>
     </div>

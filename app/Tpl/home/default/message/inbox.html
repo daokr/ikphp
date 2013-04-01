@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<!--main-->
+<div class="midder">
+	<div class="mc">
+    	<h1>我的收件箱({$unreadnum}封未拆)</h1>
+    	<div class="cleft">
+        	<include file="menu" /> 
+            <div class="clear"></div>
+            <div id="db-timeline-hd">
+                <ul class="menu-list">
+                	<foreach name="inmenu" item="item">
+                    	<if condition="$ik eq $key">
+                        	<li class="on"><a href="{$item[url]}">{$item[text]}</a></li>
+                        <else/>
+                        	<li><a href="{$item[url]}">{$item[text]}</a></li>
+                        </if>
+                    </foreach>
+                </ul>
+            </div>  
+		 <form  method="post" onSubmit="return isConfirmed" action="{:U('message/doing',array('d'=>'all'))}">            
+            <table class="olt">
+              <tbody>
+                <tr>
+                  <td class="pl" style="width:112px;"><span class="doumail_from">来自</span></td>
+                  <td width="20"></td>
+                  <td class="pl">话题</td>
+                  <td class="pl" style="width:110px;">时间</td>
+                  <td class="pl" style="width:40px;" align="center">选择</td>
+                  <td class="pl" style="width:120px;visibility:hidden;border-bottom:none" align="center">mail_options</td>
+                </tr>
+               <foreach name="arrMessage" item="item">           
+                <tr>
+                  <td>
+                  <if condition="$item[userid] eq 0">
+                  <span class="sys_doumail">系统邮件</span>{else} <span class="doumail_from">{$item[user][username]}</span> 
+                  </if>
+                  </td>
+                  <td class="m" align="center">&gt;</td>
+                  <td><a href="{:U('message/show',array('messageid'=>$item[messageid]))}">{$item[title]}</a></td>
+                  <td>{$item[addtime]}</td>
+                  <td align="center"><input name="messageid[]" value="{$item[messageid]}" type="checkbox"></td>
+                  <td style="display: none;" class="mail_options">
+                  <if condition="$ik neq 'spam'">
+                  <a rel="direct" class="post_link" href="{:U('message/doing',array('d'=>'spam','messageid'=>$item[messageid]))}">垃圾消息</a>
+                  </if>
+                  <a onClick="return confirm('真的要删除消息吗？')" class="post_link" href="{:U('message/doing',array('d'=>'del','type'=>'inbox','messageid'=>$item[messageid]))}">删除</a>
+                  </td>
+                </tr>
+               </foreach>
+                <tr>
+                  <td colspan="4" align="right">
+                    <input name="type" value="inbox" type="hidden">
+                   <if condition="$ik eq 'spam'">
+                    <input name="mc_submit" value="删除" data-confirm="真的要删除短消息吗?" type="submit">
+				   </if>
+                   <if condition="$ik eq 'unread' OR $ik eq 'inbox'">
+                    <input name="mc_submit" value="删除" data-confirm="真的要删除短消息吗?" type="submit">
+                    <input name="mc_submit" value="垃圾消息" 	type="submit">
+                    <input name="mc_submit" value="标记为已读"  type="submit">
+				   </if>                                                         
+                  </td>
+                  <td align="center"><input name="checkAll" value="checkAll" onclick="ToggleCheck(this);" type="checkbox"></td>
+                </tr>
+              </tbody>
+            </table>
+        </form>    
+        </div>
+        <div class="cright">
+			<include file="rightmenu" />   
+        </div>
+    </div>
+</div>
+<include file="public:footer" />
+</body>
+</html>

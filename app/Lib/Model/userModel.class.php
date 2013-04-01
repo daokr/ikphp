@@ -54,18 +54,16 @@ class userModel extends Model
 	//获取一个用户的信息
 	public function getOneUser($userid){
 	
-		$strUser = $this->where(array(
-			'userid'=>$userid,
-		))->find();
-		
+		$strUser = $this->where(array('userid'=>$userid))->find();
+		if(empty($strUser)){
+			return false;
+		}
 		$strUser['face'] = avatar($userid, 48);
 		$strUser['face_160'] = avatar($userid, 160);
 		
 		//地区
 		if($strUser['areaid'] > 0){
-			
 			$strUser['area'] = D('area')->getOneArea($strUser['areaid']);
-		
 		}else{
 			$strUser['area'] = array(
 				'areaid'	=> '0',

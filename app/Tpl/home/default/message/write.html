@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<!--main-->
+<div class="midder">
+  <div class="mc">
+    <h1>发送短消息</h1>
+    <form method="POST" action="{:U('message/write',array('touserid'=>$strTouser[userid]))}">
+      <table class="table_1" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <th>收件人：</th>
+          <td><img alt="{$strTouser[username]}" class="m_sub_img" src="{$strTouser[face]}" /><br />{$strTouser[username]}</td>
+        </tr>
+        <tr>
+          <th>标题：</th>
+          <td><input  type="text" placeholder="请填写标题" class="txt"  name="title" size="50" maxlength="64" value="" style="width:400px;"></td>
+        </tr>        
+        <tr>
+          <th>内容：</th>
+          <td><textarea class="utext" name="content" style="width:570px; height:170px" maxlength="500"></textarea></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>
+            <input type="hidden" name="userid" value="{$visitor[userid]}" />
+            <input type="hidden" name="touserid" value="{$strTouser[userid]}" />
+            <input type="submit" value="好了，发送" class="submit" />&nbsp;&nbsp;<a href="{:U('message/ikmail',array('d'=>'inbox'))}">取消</a>
+            </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+
+<include file="public:footer" />
+</body>
+</html>

@@ -642,9 +642,24 @@ CREATE TABLE `ik_robots` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='采集器' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
-DROP TABLE IF EXISTS ik_robotlog;
-CREATE TABLE ik_robotlog (
-  `hash` char(32) NOT NULL DEFAULT '',
-  PRIMARY KEY (hash)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='采集器日志' AUTO_INCREMENT=1 ;
+
+--
+-- 表的结构 `ik_message`
+--
+DROP TABLE IF EXISTS `ik_message`;
+CREATE TABLE `ik_message` (
+  `messageid` int(11) NOT NULL AUTO_INCREMENT COMMENT '消息ID',
+  `userid` int(11) NOT NULL DEFAULT '0' COMMENT '发送用户ID',
+  `touserid` int(11) NOT NULL DEFAULT '0' COMMENT '接收消息的用户ID',
+  `title` char(64) NOT NULL DEFAULT '' COMMENT '标题',  
+  `content` text NOT NULL COMMENT '内容',
+  `isread` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否已读',
+  `isspam` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否垃圾邮件',  
+  `isinbox` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否在收件箱显示',  
+  `isoutbox` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否在发件箱显示',  
+  `addtime` int(11) NOT NULL DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`messageid`),
+  KEY `touserid` (`touserid`,`isread`),
+  KEY `userid` (`userid`,`touserid`,`isread`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='短消息表' AUTO_INCREMENT=1 ;
 
