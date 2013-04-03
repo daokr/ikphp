@@ -39,7 +39,9 @@
                 <tr>
                   <td>
                   <if condition="$item[userid] eq 0">
-                  <span class="sys_doumail">系统邮件</span>{else} <span class="doumail_from">{$item[user][username]}</span> 
+                 	 <span class="sys_doumail">系统邮件</span>
+                  <else/>
+                  	<span class="doumail_from">{$item[user][username]}</span> 
                   </if>
                   </td>
                   <td class="m" align="center">&gt;</td>

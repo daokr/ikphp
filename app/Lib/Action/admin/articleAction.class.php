@@ -78,7 +78,8 @@ class articleAction extends backendAction {
 		$strItem = $this->mod->getOneArticleItem($itemid);
 		if($strItem){
 			$this->item_mod->where(array('itemid'=>$itemid))->setField(array('isaudit'=>$isaudit));
-			$this->redirect ( 'article/index',array('ik'=>'list','nameid'=>$nameid,'isaudit'=>'0'));
+			$isaudit = $isaudit == 0? 1 : 0;
+			$this->redirect ( 'article/index',array('ik'=>'list','nameid'=>$nameid,'isaudit'=>$isaudit));
 		}else{
 			$this->error('文章不存在或已被删除！');
 		}

@@ -34,7 +34,7 @@ __EXTENDS_JS__
     <div class="top_info">
         <?php if(empty($visitor)): ?><a href="<?php echo U('user/login');?>">登录</a> | <a href="<?php echo U('user/register');?>">注册</a> | <a href="<?php echo U('oauth/index', array('mod'=>'qq'));?>" target="_blank" style="margin-left:10px"><img  align="absmiddle" title="QQ登录" src="__STATIC__/public/images/connect_qq.png"> 登录</a> | <a href="<?php echo U('oauth/index', array('mod'=>'sina'));?>" target="_blank" style="margin-left:10px"><img  align="absmiddle" title="新浪微博" src="__STATIC__/public/images/connect_sina_weibo.png"> 登录</a>    
         <?php else: ?>
-        <a id="newmsg" href="<?php echo U('message/inbox');?>">123</a> | 
+        <a id="newmsg" href="<?php echo U('message/ikmail',array('d'=>'inbox'));?>">新消息(<?php echo ($count_new_msg); ?>)</a> | 
         <a href="<?php echo U('people/index', array('id'=>$visitor['doname']));?>">
         	<?php echo ($visitor["username"]); ?>
         </a> | 
@@ -138,7 +138,9 @@ __EXTENDS_JS__
                 </tr>
                <?php if(is_array($arrMessage)): foreach($arrMessage as $key=>$item): ?><tr>
                   <td>
-                  <?php if($item[userid] == 0): ?><span class="sys_doumail">系统邮件</span>{else} <span class="doumail_from"><?php echo ($item[user][username]); ?></span><?php endif; ?>
+                  <?php if($item[userid] == 0): ?><span class="sys_doumail">系统邮件</span>
+                  <?php else: ?>
+                  	<span class="doumail_from"><?php echo ($item[user][username]); ?></span><?php endif; ?>
                   </td>
                   <td class="m" align="center">&gt;</td>
                   <td><a href="<?php echo U('message/show',array('messageid'=>$item[messageid]));?>"><?php echo ($item[title]); ?></a></td>
@@ -184,7 +186,8 @@ __EXTENDS_JS__
             · <a href="<?php echo U('help/privacy');?>">隐私申明</a>
         </span>
         <div class="cl"></div>
-        <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  <?php echo C('site_icp');?> <span style="color:green">ThinkPHP 版本 <?php echo (THINK_VERSION); ?></span><br /><span style="font-size:0.83em;"></span>
+        <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  <?php echo C('site_icp');?> <span style="color:green">ThinkPHP 版本 <?php echo (THINK_VERSION); ?></span><br />
+        <span style="font-size:0.83em;">{__RUNTIME__}</span>
         
         <!--<script src="http://s21.cnzz.com/stat.php?id=2973516&web_id=2973516" language="JavaScript"></script>-->
         </p>   

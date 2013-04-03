@@ -10,10 +10,7 @@ class indexAction extends backendAction {
        
     }
 
-    public function index() {
-    	$admin = array('username'=>$_SESSION['admin']['username'], 'rolename'=>$_SESSION['admin']['role_id']);
-    	$this->assign('admin', $admin);
-    			
+    public function index() {   			
     	$this->title('管理中心');
         $this->display();
     }

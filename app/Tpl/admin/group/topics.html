@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<h2>{$title}</h2>  
+<div class="Toolbar_inbox">
+	<a class="btn_a" href="{:U('group/topics',array('isaudit'=>'0'))}"><span>已审核的</span></a>
+    <a class="btn_a" href="{:U('group/topics',array('isaudit'=>'1'))}">
+    <span>未审核的 <font style="color:red;">({$count_isaudit})</font></span></a>
+</div>
+<table  cellpadding="0" cellspacing="0">
+<tr class="old">
+<td>ID</td>
+<td>标题</td>
+<td>发布人</td>
+<td>所在小组</td>
+<td>评论数</td>
+<td>浏览数</td>
+<td>创建时间</td>
+<td>审核状态</td>
+<td width="200">操作</td>
+</tr>
+<foreach name="list" item="item">
+<tr class="odd">
+<td>{$item[topicid]}</td>
+<td><a href="index.php?m=group&a=topic&id={$item[topicid]}" target="_blank">{$item[title]}</a></td>
+<td>{$item[user][username]}</td>
+<td>{$item[count_comment]}</td>
+<td>{$item[count_view]}</td>
+<td>{$item[count_user]}</td>
+<td>{$item[addtime]}</td>
+<td>
+<if condition="$item[isaudit] eq 0">
+已审核
+<else/>
+未审核
+</if>
+</td>
+<td>
+<a href="#">[编辑]</a> 
+<if condition="$item[isaudit] eq 0">
+<a href="{:U('group/isaudit',array('ik'=>'topic','id'=>$item[topicid],'isaudit'=>'1'))}">[取消审核]</a> 
+<else/>
+<a href="{:U('group/isaudit',array('ik'=>'topic','id'=>$item[topicid],'isaudit'=>'0'))}">[审核]</a> 
+</if>
+</td>
+<tr>
+</foreach>
+</table>
+<div class="pagebar">{$pageUrl}</div>
+</div>
+</body>
+</html>

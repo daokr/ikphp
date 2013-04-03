@@ -7,7 +7,7 @@
 <title><?php echo ($title); ?> - <?php echo ($site_title); ?></title>
 <link rel="stylesheet" type="text/css" href="__STATIC__/admin/style.css" />
 <script src="__STATIC__/public/js/jquery.js" type="text/javascript"></script>
-
+<script src="__STATIC__/admin/js/common.js" type="text/javascript"></script>
 </head>
 
 <body>

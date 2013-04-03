@@ -27,7 +27,7 @@ class messageAction extends frontendAction {
 		if (IS_POST) {
 			$msg_userid = $this->_post('userid');
 			$msg_title = $this->_post('title','t');
-			$msg_content = $this->_post('content','t');
+			$msg_content = $this->_post('content');
 			if($msg_title=='' || $msg_content=='') $this->error("标题和内容都不能为空！");
 			if(mb_strlen($msg_title,'utf8')>64) $this->error('标题很长很长很长很长...^_^');
 			if(mb_strlen($msg_content,'utf8')>500) $this->error('发这么多内容干啥^_^');
@@ -86,7 +86,7 @@ class messageAction extends frontendAction {
 				$arrMessages = $this->mod->where($where)->order('addtime desc')->limit(10)->select();
 				foreach($arrMessages as $key=>$item){
 					$arrMessage[] = $item;
-					$arrMessage[$key]['touser']	 = $this->user_mod->getOneUser($item['touserid']);
+					$arrMessage[$key]['user']	 = $this->user_mod->getOneUser($item['touserid']);
 					$arrMessage[$key]['content'] = getsubstrutf8(t($item['content']),0,200);
 					$arrMessage[$key]['addtime'] =  date('Y-m-d H:i',$item['addtime']);
 				}
@@ -106,7 +106,7 @@ class messageAction extends frontendAction {
 				$arrMessages = $this->mod->where($where)->order('addtime desc')->limit(10)->select();
 				foreach($arrMessages as $key=>$item){
 					$arrMessage[] = $item;
-					$arrMessage[$key]['touser']	 = $this->user_mod->getOneUser($item['touserid']);
+					$arrMessage[$key]['user']	 = $this->user_mod->getOneUser($item['touserid']);
 					$arrMessage[$key]['content'] = getsubstrutf8(t($item['content']),0,200);
 					$arrMessage[$key]['addtime'] =  date('Y-m-d H:i',$item['addtime']);
 				}
@@ -140,7 +140,7 @@ class messageAction extends frontendAction {
 				$arrMessages = $this->mod->where($where)->order('addtime desc')->limit(10)->select();
 				foreach($arrMessages as $key=>$item){
 					$arrMessage[] = $item;
-					$arrMessage[$key]['touser']	 = $this->user_mod->getOneUser($item['touserid']);
+					$arrMessage[$key]['user']	 = $this->user_mod->getOneUser($item['touserid']);
 					$arrMessage[$key]['content'] = getsubstrutf8(t($item['content']),0,200);
 					$arrMessage[$key]['addtime'] =  date('Y-m-d H:i',$item['addtime']);
 				}
@@ -238,21 +238,53 @@ class messageAction extends frontendAction {
 		{
 			//发往对方
 			if($arrMessages['isoutbox']==1){
-				header("Location: ".SITE_URL.U('message','ikmail',array('ik'=>'inbox')));
+				$this->redirect('message/ikmail',array('d'=>'inbox'));				
 			}
 			$touser = $this->user_mod->getOneUser($arrMessages['touserid']);//来自哪位用户
-			$touserArea = aac('location')->getAreaForApp($touser['areaid']);//来自哪位用户的地址
-			$touserArea = empty($touserArea['three']['areaname']) ? '火星' : $touserArea['three']['areaname'];
-			$strUserinfo = '<span class="m">发往：'.$touser['username'].'（'.$touserArea.'）</span>';
+			$strUserinfo = '<span class="m">发往：'.$touser['username'].'（'.$touser['area']['areaname'].'）</span>';
 			$type = 'outbox';
-			$title = '我发送的消息';
+			$this->_config_seo ( array (
+					'title' => '我发送的消息',
+					'subtitle' => '消息中心'
+			) );
+		}
+		if($arrMessages['touserid'] == $userid)
+		{
+			//接收的信息
+			if($arrMessages['isinbox']==1){
+				$this->redirect('message/ikmail',array('d'=>'inbox'));
+			}
+			$touser = $this->user_mod->getOneUser($arrMessages['userid']);//来自哪位用户
+			$strUserinfo = '<span class="m">来自：'.$touser['username'].'（'.$touser['area']['areaname'].'）</span>';
+			$type = 'inbox';
+			//isread设为已读
+			$this->mod->where(array('isread'=>0,'touserid'=>$userid,'messageid'=>$messageid))->setField('isread','1');
+			$this->_config_seo ( array (
+					'title' => '我接收的消息',
+					'subtitle' => '消息中心'
+			) );
+		}
+		if($arrMessages['userid'] == 0 && $arrMessages['touserid']==$userid)
+		{
+			//接收的信息 系统消息
+			if($arrMessages['isinbox']==1){
+				$this->redirect('message/ikmail',array('d'=>'inbox'));
+			}
+			$strUserinfo = '<span class="m">来自：<span class="sys_doumail_big">系统邮件</span> </span>';
+			$touser = $this->user_mod->getOneUser($arrMessages['userid']);//来自哪位用户;
+			//isread设为已读
+			$this->mod->where(array('isread'=>0,'touserid'=>$userid,'messageid'=>$messageid))->setField('isread','1');
+			$this->_config_seo ( array (
+					'title' => '我接收的系统消息',
+					'subtitle' => '消息中心'
+			) );
 		}
 		
-		$this->assign ( 'arrMessage', $arrMessage );
-		$this->_config_seo ( array (
-				'title' => '我发送的消息',
-				'subtitle' => '消息中心'
-		) );
+		$this->assign ( 'touser', $touser );
+		$this->assign ( 'strUserinfo', $strUserinfo );
+		$this->assign ( 'arrMessages', $arrMessages );
+		$this->assign ( 'type', $type );
+		
 		$this->display ();
 	}
 

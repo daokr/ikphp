@@ -1,0 +1,6 @@
+<h2>{$title}</h2>  
+<div class="Toolbar_inbox">
+	<a class="btn_a" href="{:U('group/groups',array('isaudit'=>'0'))}"><span>已审核的</span></a>
+    <a class="btn_a" href="{:U('group/groups',array('isaudit'=>'1'))}">
+    <span>未审核的 <font style="color:red;">({$count_isaudit})</font></span></a>
+</div>

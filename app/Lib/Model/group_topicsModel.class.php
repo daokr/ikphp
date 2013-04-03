@@ -35,6 +35,7 @@ class group_topicsModel extends Model {
 	public function getHotTopic($limit){
 		$where['groupid']  = array('gt',0);
 		$where['isshwo'] = 0;
+		$where['isaudit']  = '0';
 		//$arrList = $this->field('userid,topicid,groupid')->where ( $where )->order('count_comment desc')->limit($limit)->select();
 		$arrList = $this->field('userid,topicid,groupid')->where ( $where )->order('istop desc,addtime desc')->limit($limit)->select();
 		

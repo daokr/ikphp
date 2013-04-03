@@ -179,8 +179,8 @@ class groupAction extends frontendAction {
 			if ($_POST ['grp_agreement'] != 1)
 				$this->error ( '不同意社区指导原则是不允许创建小组的！' );
 			$data ['userid'] = $this->visitor->info ['userid'];
-			$data ['groupname'] = $this->_post ( 'groupname', 'trim' );
-			$data ['groupdesc'] = $this->_post ( 'groupdesc', 'trim' );
+			$data ['groupname'] = ikwords($this->_post ( 'groupname', 'trim' ));
+			$data ['groupdesc'] = ikwords($this->_post ( 'groupdesc', 'trim' ));
 			$data ['tag'] = $this->_post ( 'tag', 'trim' );
 			$tags = str_replace ( ' ', ' ', $data ['tag'] );
 			$arrtag = explode ( ' ', $tags );
@@ -342,8 +342,8 @@ class groupAction extends frontendAction {
 			$seqnum > 0 ? $isvideo = 1 : $isvideo = 0;
 			$arrData = array (
 					'groupid' => $groupid,
-					'title' => htmlspecialchars($title),
-					'content' => $content,
+					'title' => ikwords(htmlspecialchars($title)),
+					'content' => ikwords($content),
 					'isvideo' => $isvideo,
 					'iscomment' => $iscomment,
 					'addtime' => time (),
@@ -610,6 +610,7 @@ class groupAction extends frontendAction {
 	public function explore_topic(){
 		//查询是否显示
 		$map['ishow']  = '0';
+		$map['isaudit']  = '0';
 		$map['groupid'] =  array('gt',0);
 		//显示列表
 		$pagesize = 20;
@@ -647,7 +648,7 @@ class groupAction extends frontendAction {
 			$data = array(
 					'topicid'	=> $topicid,
 					'userid'	=> $this->userid,
-					'content'	=> $content,
+					'content'	=> ikwords($content),
 					'addtime'	=> time(),
 			);
 			if (false !== $this->group_topics_comments->create ( $data )) {
@@ -691,7 +692,7 @@ class groupAction extends frontendAction {
 				'topicid'	=> $topicid,
 				'userid'	=> $this->userid,
 				'referid'	=> $referid,
-				'content'	=> htmlspecialchars_decode($content), // ajax 提交过来数据的转一下
+				'content'	=> ikwords(htmlspecialchars_decode($content)), // ajax 提交过来数据的转一下
 				'addtime'	=> time(),
 		);
 		if (false !== $this->group_topics_comments->create ( $data )) {

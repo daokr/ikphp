@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<include file="top_menu" />
+<table  cellpadding="0" cellspacing="0">
+<tr class="old">
+<td>ID</td>
+<td>组名</td>
+<td>描述</td>
+<td>创建人</td>
+<td>帖子统计</td>
+<td>成员统计</td>
+<td>创建时间</td>
+<td>审核状态</td>
+<td width="200">操作</td>
+</tr>
+<foreach name="list" item="item">
+<tr class="odd">
+<td>{$item[groupid]}</td>
+<td><a href="index.php?m=group&a=show&id={$item[groupid]}" target="_blank">{$item[groupname]}</a></td>
+<td>{$item[groupdesc]}</td>
+<td>{$item[user][username]}</td>
+<td>{$item[count_topic]}</td>
+<td>{$item[count_user]}</td>
+<td>{$item[addtime]}</td>
+<td>
+<if condition="$item[isaudit] eq 0">
+已审核
+<else/>
+未审核
+</if>
+</td>
+<td>
+<a href="#">[编辑]</a> 
+<if condition="$item[isaudit] eq 0">
+<a href="{:U('group/isaudit',array('ik'=>'group','id'=>$item[groupid],'isaudit'=>'1'))}">[取消审核]</a> 
+<else/>
+<a href="{:U('group/isaudit',array('ik'=>'group','id'=>$item[groupid],'isaudit'=>'0'))}">[审核]</a> 
+</if>
+</td>
+<tr>
+</foreach>
+</table>
+<div class="pagebar">{$pageUrl}</div>
+</div>
+</body>
+</html>

@@ -274,6 +274,7 @@ CREATE TABLE `ik_group_topics` (
   `count_recommend` int(11) NOT NULL DEFAULT '0' COMMENT '推荐人数',
   `istop` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否置顶',
   `isshow` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否显示',
+  `isaudit` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否审核',
   `iscomment` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否允许评论',
   `isphoto` tinyint(1) NOT NULL DEFAULT '0',
   `isattach` tinyint(1) NOT NULL DEFAULT '0',
@@ -662,4 +663,16 @@ CREATE TABLE `ik_message` (
   KEY `touserid` (`touserid`,`isread`),
   KEY `userid` (`userid`,`touserid`,`isread`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='短消息表' AUTO_INCREMENT=1 ;
+-- --------------------------------------------------------
 
+--
+-- 表的结构 `ik_message`
+--
+DROP TABLE IF EXISTS `ik_words`;
+CREATE TABLE `ik_words` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `admin` varchar(50) NOT NULL,
+  `find` varchar(255) NOT NULL DEFAULT '' COMMENT '违禁词语',  
+  `replacement` varchar(255) NOT NULL DEFAULT '' COMMENT '替换词',  
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='词组过滤' AUTO_INCREMENT=1 ;

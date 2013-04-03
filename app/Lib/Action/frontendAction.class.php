@@ -26,6 +26,10 @@ class frontendAction extends baseAction {
      */
     private function _init_visitor() {
     	$this->visitor = new user_visitor();
+    	$userid = $this->visitor->info['userid'];
+    	$count_msg_unread = D('message')->where(array('touserid'=>$userid,'isread'=>0,'isinbox'=>0))->count();
+    	$count_new_msg = $count_msg_unread>0 ? $count_msg_unread : 0;
+    	$this->assign('count_new_msg', $count_new_msg);
     	$this->assign('visitor', $this->visitor->info);
     }
     /**

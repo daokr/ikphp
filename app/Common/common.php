@@ -368,6 +368,14 @@ function ikhtml($type,$typeid,$content){
 
 		$strcontent = str_replace ( '[图片'.$item.']', $htmlTpl, $strcontent );
 	}
+	//匹配链接
+	preg_match_all ( '/\[(url)=([http|https|ftp]+:\/\/[a-zA-Z0-9\.\-\?\=\_\&amp;\/\'\`\%\:\@\^\+\,\.]+)\]([^\[]+)(\[\/url\])/is',
+	$strcontent, $contenturl);
+	foreach($contenturl[2] as $c1)
+	{
+		$strcontent = str_replace ( "[url={$c1}]", '<a href="'.$c1.'" target="_blank">', $strcontent);
+		$strcontent = str_replace ( "[/url]", '</a>', $strcontent);
+	}
 	return $strcontent;
 }
 //生成随机数(1数字,0字母数字组合)
@@ -930,4 +938,12 @@ function sarray_unique($array) {
 		}
 	}
 	return $newarray;
+}
+//IKPHP专用过滤违禁词语
+function ikwords($content){
+	$badwords = F('badwords');
+	if(!empty($badwords) && is_array($badwords)) {
+		$content = @preg_replace($badwords['find'], $badwords['replace'], $content);
+	}
+	return $content;
 }

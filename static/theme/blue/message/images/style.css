@@ -149,3 +149,4 @@ td.mail_options { display:none;border-bottom:none; }
 	margin-top:10px;
 }
 .showtable .messagebox{ padding:10px; border-bottom: 1px dashed #DDDDDD; border-top: 1px dashed #DDDDDD; margin-bottom:10px}
+.nbg a:active, .nbg a:hover {background:none!important}
