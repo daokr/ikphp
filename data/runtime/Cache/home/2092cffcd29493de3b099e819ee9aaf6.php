@@ -1,15 +1,28 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
-<title><?php echo C('ik_site_title');?> - <?php echo C('ik_site_subtitle');?></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="<?php echo C('ik_site_keywords');?>" /> 
-<meta name="description" content="<?php echo C('ik_site_desc');?>" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
+<meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
+<meta name="description" content="<?php echo ($seo["description"]); ?>" /> 
+<meta property="wb:webmaster" content="c9fd7603df8ff038" />
 <link rel="shortcut icon" href="__STATIC__/public/images/fav.ico" type="image/x-icon">
-<meta name="robots" content="all" />
-<meta name="author" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
-<meta name="Copyright" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
 <style>__SITE_THEME_CSS__</style>
+<!--[if gte IE 7]><!-->
+    <link href="__STATIC__/public/js/dialog/skins5/idialog.css" rel="stylesheet" />
+<!--<![endif]-->
+<!--[if lt IE 7]>
+    <link href="__STATIC__/public/js/dialog/skins5/idialog.css" rel="stylesheet" />
+<![endif]-->
+<script>var siteUrl = '__SITE_URL__';</script>
+<script src="__STATIC__/public/js/jquery.js" type="text/javascript"></script>
+<script src="__STATIC__/public/js/common.js" type="text/javascript"></script>
+<script src="__STATIC__/public/js/all.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="__STATIC__/public/js/html5.js"></script>
+<![endif]-->
+<script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
+__EXTENDS_JS__
 </head>
 
 <body>
@@ -87,29 +100,69 @@
 <!--APP NAV-->
 
 </header>
-<div style="margin:150px auto; width:500px;">
-  <img src="__STATIC__/public/images/ik_error.gif" style="float:left;">
-  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
-    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($error); ?></li>
-    <li style="color:#666;line-height: 10px;">&nbsp;</li>
 
-    <li style="color:#666;"> 
-        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
-        <script type="text/javascript">
-            (function(){
-                var secs=5,si=setInterval(function(){
-                    if(--secs){
-                        document.getElementById('f3s').innerHTML = secs;
-                    }
-                    else{
-                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
-                    }
-            }, 1000)})();
-        </script>
- 	</li>
+<div class="midder">
+<div class="mc">
+    <div class="cleft">
+        <div class="art-body">
+            <h1 class="title"><?php echo ($strArticle[title]); ?></h1>
+            <div class="art-info">
+            作者：<a href="<?php echo U('people/index',array('id'=>$strArticle[user][doname]));?>"><?php echo ($strArticle[newsauthor]); ?></a>&nbsp;&nbsp;<?php echo date('Y-m-d H:i',$strArticle[addtime]) ?>&nbsp;&nbsp;<a href="#comments"><?php echo ($strArticle[count_comment]); ?>条回复</a>&nbsp;&nbsp;浏览<?php echo ($strArticle[count_view]); ?>次&nbsp;&nbsp;<a href="#formMini">我要回复</a> 
+            </div>
+        
+            <div class="art-text">
+                 <?php echo ($strArticle[content]); ?>
+            </div>
+            <div class="control-btns">
+            <?php if($visitor[userid] == $strArticle[userid]): ?><a href="<?php echo U('article/edit',array('id'=>$strArticle['aid']));?>">编辑</a>&nbsp; &gt;&nbsp; <a href="<?php echo U('article/delete',array('id'=>$strArticle['aid']));?>" onclick="return confirm('确定删除?')">删除</a><?php endif; ?>
+            <br/>
+            本文由<a href="<?php echo U('people/index',array('id'=>$strArticle[user][doname]));?>"><?php echo ($strArticle[user][username]); ?></a>授权（爱客网）发表，文章著作权为原作者所有
+            </div>
+            
+      	  <div class="clear"></div>
+          <div class="art-titles"> 
+             <span class="fl"><?php if(!empty($upArticle)): ?>上一篇：<a href="<?php echo U('article/show',array('id'=>$upArticle['aid']));?>"><?php echo ($upArticle['title']); ?></a><?php endif; ?></span>
+             <span class="fr"><?php if(!empty($downArticle)): ?>下一篇：<a href="<?php echo U('article/show',array('id'=>$downArticle['aid']));?>"><?php echo ($downArticle['title']); ?></a><?php endif; ?></span>
+          </div>
+      </div>
+    
+    
+    
+    </div>
 
-  </ul>
+
+    <div class="cright">
+    
+        <div class="mod" id="g-user-profile">
+
+    <div class="usercard">
+      <div class="pic">
+            <a href="<?php echo U('people/index',array('id'=>$strUser[doname]));?>"><img alt="<?php echo ($strUser[username]); ?>" src="<?php echo ($strUser[face]); ?>"></a>
+      </div>
+      <div class="info">
+           <div class="name">
+               <a href="<?php echo U('people/index',array('id'=>$strUser[doname]));?>"><?php echo ($strUser[username]); ?></a>
+           </div>
+                <?php if($strUser[area] != ''): echo ($strUser[area][areaname]); else: ?>火星<?php endif; ?>                        
+                <br>
+       </div>
+    </div>
+               
+  
+             
+</div> 
+         
+<div class="mod">
+    <?php if($visitor): ?><div class="create-group">
+    <a href="<?php echo U('article/add');?>"><i>+</i>去投稿</a>
+    </div><?php endif; ?>
 </div>
+        
+    </div>
+
+</div>
+</div>
+
 <!--footer-->
 <footer>
 <div id="footer">

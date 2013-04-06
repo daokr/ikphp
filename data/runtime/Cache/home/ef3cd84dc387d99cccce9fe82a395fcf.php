@@ -1,15 +1,28 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
-<title><?php echo C('ik_site_title');?> - <?php echo C('ik_site_subtitle');?></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="<?php echo C('ik_site_keywords');?>" /> 
-<meta name="description" content="<?php echo C('ik_site_desc');?>" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
+<meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
+<meta name="description" content="<?php echo ($seo["description"]); ?>" /> 
+<meta property="wb:webmaster" content="c9fd7603df8ff038" />
 <link rel="shortcut icon" href="__STATIC__/public/images/fav.ico" type="image/x-icon">
-<meta name="robots" content="all" />
-<meta name="author" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
-<meta name="Copyright" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
 <style>__SITE_THEME_CSS__</style>
+<!--[if gte IE 7]><!-->
+    <link href="__STATIC__/public/js/dialog/skins5/idialog.css" rel="stylesheet" />
+<!--<![endif]-->
+<!--[if lt IE 7]>
+    <link href="__STATIC__/public/js/dialog/skins5/idialog.css" rel="stylesheet" />
+<![endif]-->
+<script>var siteUrl = '__SITE_URL__';</script>
+<script src="__STATIC__/public/js/jquery.js" type="text/javascript"></script>
+<script src="__STATIC__/public/js/common.js" type="text/javascript"></script>
+<script src="__STATIC__/public/js/all.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="__STATIC__/public/js/html5.js"></script>
+<![endif]-->
+<script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
+__EXTENDS_JS__
 </head>
 
 <body>
@@ -87,29 +100,57 @@
 <!--APP NAV-->
 
 </header>
-<div style="margin:150px auto; width:500px;">
-  <img src="__STATIC__/public/images/ik_error.gif" style="float:left;">
-  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
-    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($error); ?></li>
-    <li style="color:#666;line-height: 10px;">&nbsp;</li>
+<!--main-->
+<div class="midder">
+    <h1>申请创建小组</h1>
+    <div class="mc">
 
-    <li style="color:#666;"> 
-        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
-        <script type="text/javascript">
-            (function(){
-                var secs=5,si=setInterval(function(){
-                    if(--secs){
-                        document.getElementById('f3s').innerHTML = secs;
-                    }
-                    else{
-                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
-                    }
-            }, 1000)})();
-        </script>
- 	</li>
+        <div class="cleft">
+        <form method="POST" action="<?php echo U('group/create');?>"  enctype="multipart/form-data" onsubmit="return createGroup(this);">
+        <table width="100%" cellpadding="0" cellspacing="0" class="table_1">
+            <tr>
+                <th>小组名称：</th>
+                <td><input type="text" value="" maxlength="63" size="31" name="groupname" tabindex="1" class="txt"    placeholder="请填写小组名称"></td>
+            </tr>
+            <tr>
+                <th>小组介绍：</th>
+                <td><textarea style="width:500px;height:200px;" name="groupdesc" tabindex="2" id="editor_mini" class="txt"   placeholder="请填写小组介绍"></textarea></td>
+            </tr>
+            <tr>
+                <th>小组标签：</th>
+                <td>
+                	<input style="width:300px;" onKeyDown="checkTag(this)" onKeyUp="checkTag(this)"  onBlur="checkTag(this)" type="text" value=""  name="tag" id="tag" tabindex="3" class="txt" placeholder="请填写小组标签"> <span class="tip">最多 5 个标签</span>
+                </td>
+            </tr> 
+            <tr>
+                <th>&nbsp;</th>
+                <td style="padding-top:0px ">
+                	<p class="tips">标签作为关键词可以被用户搜索到，多个标签之间用空格分隔开。</p>
+                </td>
+            </tr>                        
+            <tr>
+                <th>小组图标：</th>
+                <td><input type="file" name="picfile" class="txt" tabindex="4"><span class="tip">(仅支持jpg，gif，png格式图片)</span></td>
+            </tr>           
+            <tr>
+                <th>&nbsp;</th>
+                <td>
+                <label><input type="checkbox" checked  name="grp_agreement" id="grp_agreement" value="1" tabindex="5">&nbsp;我已认真阅读并同意《社区指导原则》和《免责声明》</label>
+                </td>
+            </tr>
+            <tr>
+                <th>&nbsp;</th>
+                <td><input class="submit" type="submit" value="创建小组" tabindex="6"/></td>
+            </tr>
+        </table>
+        </form>
+        </div>
+    
+        <div class="cright"></div>
 
-  </ul>
-</div>
+	</div>
+
+</div>                
 <!--footer-->
 <footer>
 <div id="footer">

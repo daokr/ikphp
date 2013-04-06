@@ -126,5 +126,19 @@ class groupModel extends Model {
 		}
 		return $result;
 	}
+	// 删除小组
+	public function delGroup($groupid){
+		$where['groupid'] = array('exp',' IN ('.$groupid.') ');
+		//先删除帖子
+		$arrTopic = D('group_topics')->field('topicid')->where($where)->select();
+		foreach($arrTopic as $item){
+			D('group_topics')->delTopic($item['topicid']);
+		}
+		//删除小组会员
+		D('group_users')->where($where)->delete();
+		//删除小组
+		$this->where($where)->delete();
+		return true;
+	}
 
 }

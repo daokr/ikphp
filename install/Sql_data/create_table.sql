@@ -241,6 +241,27 @@ CREATE TABLE `ik_group` (
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `ik_group_setting`
+--
+DROP TABLE IF EXISTS `ik_group_setting`;
+CREATE TABLE `ik_group_setting` (
+  `name` char(32) NOT NULL DEFAULT '' COMMENT '选项名字',
+  `data` char(255) NOT NULL DEFAULT '' COMMENT '选项内容',
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='管理配置';
+--
+-- 转存表中的数据 `ik_system_options`
+--
+
+INSERT INTO `ik_group_setting` (`name`, `data`) VALUES
+('iscreate', '0'),
+('group_isaudit', '0'),
+('topic_isaudit', '0'),
+('maxgroup', '10'),
+('jionmax', '50');
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `ik_group_users`
 --
 DROP TABLE IF EXISTS `ik_group_users`;
@@ -666,7 +687,7 @@ CREATE TABLE `ik_message` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `ik_message`
+-- 表的结构 `ik_words`
 --
 DROP TABLE IF EXISTS `ik_words`;
 CREATE TABLE `ik_words` (
@@ -676,3 +697,5 @@ CREATE TABLE `ik_words` (
   `replacement` varchar(255) NOT NULL DEFAULT '' COMMENT '替换词',  
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='词组过滤' AUTO_INCREMENT=1 ;
+
+

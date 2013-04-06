@@ -14,6 +14,15 @@ class baseAction extends Action
             $setting = D('setting')->setting_cache();
         }
         C($setting);
+        //初始化小组配置
+        if (false === $group_setting = F('group_setting')) {
+        	$res = D('group_setting')->getField('name,data');
+        	foreach ($res as $key=>$val) {
+        		$group_setting['ik_'.$key] = unserialize($val) ? unserialize($val) : $val;
+        	}
+        	F('group_setting',$group_setting);//写缓存
+        }
+        C($group_setting);
         //当前app名称
         $this->assign('module_name',strtolower(MODULE_NAME));
         //当前action名称

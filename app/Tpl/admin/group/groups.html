@@ -7,8 +7,10 @@
 <!--main-->
 <div class="midder">
 <include file="top_menu" />
+<include file="action_menu" />
 <table  cellpadding="0" cellspacing="0">
 <tr class="old">
+  <td width="20"><input name="chkall" onclick="ToggleCheck(this)" type="checkbox"></td>
 <td>ID</td>
 <td>组名</td>
 <td>描述</td>
@@ -21,6 +23,7 @@
 </tr>
 <foreach name="list" item="item">
 <tr class="odd">
+<td><input type="checkbox" value="{$item[groupid]}" name="itemid"></td>
 <td>{$item[groupid]}</td>
 <td><a href="index.php?m=group&a=show&id={$item[groupid]}" target="_blank">{$item[groupname]}</a></td>
 <td>{$item[groupdesc]}</td>
@@ -36,16 +39,17 @@
 </if>
 </td>
 <td>
-<a href="#">[编辑]</a> 
+<a href="{:U('group/delete',array('ik'=>'group','id'=>$item[groupid],'isaudit'=>$isaudit))}">[删除]</a> &nbsp;&nbsp;
 <if condition="$item[isaudit] eq 0">
 <a href="{:U('group/isaudit',array('ik'=>'group','id'=>$item[groupid],'isaudit'=>'1'))}">[取消审核]</a> 
 <else/>
-<a href="{:U('group/isaudit',array('ik'=>'group','id'=>$item[groupid],'isaudit'=>'0'))}">[审核]</a> 
+<a href="{:U('group/isaudit',array('ik'=>'group','id'=>$item[groupid],'isaudit'=>'0'))}">[通过审核]</a> 
 </if>
 </td>
 <tr>
 </foreach>
 </table>
+<include file="action_menu" />
 <div class="pagebar">{$pageUrl}</div>
 </div>
 </body>

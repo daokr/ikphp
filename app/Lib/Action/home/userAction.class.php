@@ -276,6 +276,14 @@ class userAction extends userbaseAction {
 			if (! $uid) {
 				$this->error ( $passport->get_error () );
 			}
+			//权限控制
+			if($uid>0){
+				$query = $this->user_mod->field('isenable')->where(array('userid'=>$uid))->find();
+				if($query['isenable']==1){
+					$this->error('由于你在该网站发布不良信息或其他错误操作，该账号已经被冻结！如有请疑问联系站长！');
+					exit();
+				}
+			}
 			// 登陆
 			$this->visitor->login ( $uid );
 			// 登陆完成钩子

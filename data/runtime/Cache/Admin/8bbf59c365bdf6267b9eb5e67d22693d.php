@@ -19,17 +19,19 @@
 <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('setting/url');?>" target="MainIframe">链接形式</a></li>
      </ul>
 </li> 
+<!--
 <li class="treemenu_on">
     <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">前台界面</a>
     <ul class="submenu" style="display: block;">
         <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('nav/index');?>" target="MainIframe">导航设置</a></li>
         <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('setting/theme');?>" target="MainIframe">前台风格</a></li>        
      </ul>
-</li><?php endif; ?>
+</li>
+--><?php endif; ?>
 <?php if($ik == 'user'): ?><li class="treemenu_on">
     <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">用户管理</a>
     <ul class="submenu" style="display: block;">
-    <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('user/index');?>" target="MainIframe">会员列表</a></li>
+    <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('user/manage');?>" target="MainIframe">会员列表</a></li>
     </ul>
 </li><?php endif; ?>
 
@@ -52,8 +54,7 @@
 <?php if($ik == 'group'): ?><li class="treemenu_on">
     <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">小组管理</a>
     <ul class="submenu" style="display: block;">
-    <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('group/groups');?>" target="MainIframe">全部小组</a></li>
-    <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('group/topics');?>" target="MainIframe">帖子管理</a></li>
-    <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('group/topiccomments');?>" target="MainIframe">帖子评论管理</a></li>
+    <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('group/setting');?>" target="MainIframe">小组配置</a></li>
+    <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('group/manage');?>" target="MainIframe">批量管理</a></li>
     </ul>
 </li><?php endif; ?>

@@ -103,7 +103,7 @@ __EXTENDS_JS__
 <!--main-->
 <div class="midder">
   <div class="mc">
-    <h1><?php echo ($strTopic[title]); ?></h1>
+    <h1><?php echo ($strTopic[title]); if($strTopic[isaudit] == 1): ?><font class="red">[审核中]</font><?php endif; ?></h1>
     <div class="cleft"> 
       
 <?php if($page==1){ ?>

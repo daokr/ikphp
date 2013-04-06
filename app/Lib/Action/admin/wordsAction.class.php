@@ -60,7 +60,7 @@ class wordsAction extends backendAction {
 			}
 			// 更新缓存
 			$this->updatewords();
-			$this->success('词语过滤更新成功');
+			$this->redirect('words/lists');
 		}else{
 			//查询条件
 			$map = '';

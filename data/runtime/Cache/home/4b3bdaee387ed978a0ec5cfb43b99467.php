@@ -104,7 +104,7 @@ __EXTENDS_JS__
 <div class="midder">
 
 <div class="mc">
-<h1 class="group_tit"><?php echo ($strGroup[groupname]); ?></h1>
+<h1 class="group_tit"><?php echo ($strGroup[groupname]); if($strGroup[isaudit] == 1): ?><font class="red">[审核中]</font><?php endif; ?></h1>
 <div class="cleft">
 <div class="infobox">
 

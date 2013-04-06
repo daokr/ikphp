@@ -1,15 +1,28 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
-<title><?php echo C('ik_site_title');?> - <?php echo C('ik_site_subtitle');?></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="<?php echo C('ik_site_keywords');?>" /> 
-<meta name="description" content="<?php echo C('ik_site_desc');?>" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
+<meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
+<meta name="description" content="<?php echo ($seo["description"]); ?>" /> 
+<meta property="wb:webmaster" content="c9fd7603df8ff038" />
 <link rel="shortcut icon" href="__STATIC__/public/images/fav.ico" type="image/x-icon">
-<meta name="robots" content="all" />
-<meta name="author" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
-<meta name="Copyright" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
 <style>__SITE_THEME_CSS__</style>
+<!--[if gte IE 7]><!-->
+    <link href="__STATIC__/public/js/dialog/skins5/idialog.css" rel="stylesheet" />
+<!--<![endif]-->
+<!--[if lt IE 7]>
+    <link href="__STATIC__/public/js/dialog/skins5/idialog.css" rel="stylesheet" />
+<![endif]-->
+<script>var siteUrl = '__SITE_URL__';</script>
+<script src="__STATIC__/public/js/jquery.js" type="text/javascript"></script>
+<script src="__STATIC__/public/js/common.js" type="text/javascript"></script>
+<script src="__STATIC__/public/js/all.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="__STATIC__/public/js/html5.js"></script>
+<![endif]-->
+<script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
+__EXTENDS_JS__
 </head>
 
 <body>
@@ -87,29 +100,49 @@
 <!--APP NAV-->
 
 </header>
-<div style="margin:150px auto; width:500px;">
-  <img src="__STATIC__/public/images/ik_error.gif" style="float:left;">
-  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
-    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($error); ?></li>
-    <li style="color:#666;line-height: 10px;">&nbsp;</li>
 
-    <li style="color:#666;"> 
-        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
-        <script type="text/javascript">
-            (function(){
-                var secs=5,si=setInterval(function(){
-                    if(--secs){
-                        document.getElementById('f3s').innerHTML = secs;
-                    }
-                    else{
-                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
-                    }
-            }, 1000)})();
-        </script>
- 	</li>
+<!--main-->
+<div class="midder">
 
-  </ul>
+<div class="mc">
+<h1>更改<?php echo ($strGroup[groupname]); ?>设置</h1>
+<div class="tabnav">
+<ul>
+<?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i; if($type == $key): ?><li class="select"><a href="<?php echo ($item["url"]); ?>" ><?php echo ($item["text"]); ?></a></li>
+<?php else: ?>
+<li><a href="<?php echo ($item["url"]); ?>" ><?php echo ($item["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+</ul>
 </div>
+
+<div class="cleft">
+
+	<div class="face_form">
+    
+        <form method="POST" action="<?php echo U('group/update',array('d'=>'icon'));?>" enctype="multipart/form-data" >
+          <img align="left" alt="<?php echo ($strGroup[groupname]); ?>" title="<?php echo ($strGroup[groupname]); ?>" valign="middle" src="<?php echo ($strGroup[icon_48]); ?>" class="pil">
+          <div class="file_info">
+    		<p>从你的电脑上选择图像文件：(仅支持jpg，gif，png格式的图片)</p>
+    		<p><input type="file" style="height:25px; " name="picfile">&nbsp;&nbsp;<input type="submit" value="上传照片" class="submit">
+               <input type="hidden" name="groupid" value="<?php echo ($strGroup[groupid]); ?>" /></p>
+    	  </div>
+        </form>
+        
+	</div>
+
+</div>
+
+<div class="cright">
+
+<p class="pl2">&gt; <a href="<?php echo U('group/show',array('id'=>$strGroup[groupid]));?>">返回<?php echo ($strGroup[groupname]); ?></a></p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
 <!--footer-->
 <footer>
 <div id="footer">

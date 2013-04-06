@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<h2>{$title}</h2>
+<form method="POST" action="{:U('group/setting')}">
+<table cellpadding="0" cellspacing="0">
+
+	<tr>
+		<th>创建群组：</th>
+		<td>
+		<input type="radio"  <if condition="C('ik_iscreate') eq 0"> checked="select" </if> name="setting[iscreate]" value="0" />开启 
+		<input type="radio"  <if condition="C('ik_iscreate') eq 1"> checked="select" </if> name="setting[iscreate]" value="1" />关闭        
+        </td>
+	</tr>
+	<tr>
+		<th>小组是否要审核：</th>
+		<td>
+        <input type="radio"  <if condition="C('ik_group_isaudit') eq 0"> checked="select" </if> name="setting[group_isaudit]" value="0" />不需要审核 
+		<input type="radio"  <if condition="C('ik_group_isaudit') eq 1"> checked="select" </if> name="setting[group_isaudit]" value="1" />需要审核 
+        </td>
+	</tr>
+	<tr>
+		<th>帖子是否要审核：</th>
+		<td>
+        <input type="radio"  <if condition="C('ik_topic_isaudit') eq 0"> checked="select" </if> name="setting[topic_isaudit]" value="0" />不需要审核 
+		<input type="radio"  <if condition="C('ik_topic_isaudit') eq 1"> checked="select" </if> name="setting[topic_isaudit]" value="1" />需要审核 
+        </td>
+	</tr>
+	<tr>
+		<th>最多创建群组数：</th>
+		<td><input style="width: 80px;" name="setting[maxgroup]" value="{:C('ik_maxgroup')}" /></td>
+	</tr>
+
+	<tr>
+		<th>最多加入群组数：</th>
+		<td><input style="width: 80px;" name="setting[jionmax]" value="{:C('ik_jionmax')}" /></td>
+	</tr>
+
+</table>
+<div class="page_btn"><input type="submit" value="提 交" class="submit" /></div>
+
+</form>
+</div>
+</body>
+</html>

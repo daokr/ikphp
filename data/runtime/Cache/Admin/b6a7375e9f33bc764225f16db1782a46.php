@@ -46,34 +46,21 @@
 <tr class="old">
   <td width="20"><input name="chkall" onclick="ToggleCheck(this)" type="checkbox"></td>
 <td>ID</td>
-<td>组名</td>
-<td>描述</td>
-<td>创建人</td>
-<td>帖子统计</td>
-<td>成员统计</td>
-<td>创建时间</td>
-<td>审核状态</td>
+<td>帖子ID</td>
+<td>内容</td>
+<td>发布者</td>
+<td>发布时间</td>
 <td width="200">操作</td>
 </tr>
 <?php if(is_array($list)): foreach($list as $key=>$item): ?><tr class="odd">
-<td><input type="checkbox" value="<?php echo ($item[groupid]); ?>" name="itemid"></td>
-<td><?php echo ($item[groupid]); ?></td>
-<td><a href="index.php?m=group&a=show&id=<?php echo ($item[groupid]); ?>" target="_blank"><?php echo ($item[groupname]); ?></a></td>
-<td><?php echo ($item[groupdesc]); ?></td>
+<td><input type="checkbox" value="<?php echo ($item[commentid]); ?>" name="itemid"></td>
+<td><?php echo ($item[commentid]); ?></td>
+<td><?php echo ($item[topicid]); ?></td>
+<td><?php echo ($item[content]); ?></td>
 <td><?php echo ($item[user][username]); ?></td>
-<td><?php echo ($item[count_topic]); ?></td>
-<td><?php echo ($item[count_user]); ?></td>
 <td><?php echo ($item[addtime]); ?></td>
 <td>
-<?php if($item[isaudit] == 0): ?>已审核
-<?php else: ?>
-未审核<?php endif; ?>
-</td>
-<td>
-<a href="<?php echo U('group/delete',array('ik'=>'group','id'=>$item[groupid],'isaudit'=>$isaudit));?>">[删除]</a> &nbsp;&nbsp;
-<?php if($item[isaudit] == 0): ?><a href="<?php echo U('group/isaudit',array('ik'=>'group','id'=>$item[groupid],'isaudit'=>'1'));?>">[取消审核]</a> 
-<?php else: ?>
-<a href="<?php echo U('group/isaudit',array('ik'=>'group','id'=>$item[groupid],'isaudit'=>'0'));?>">[通过审核]</a><?php endif; ?>
+<a href="<?php echo U('group/delete',array('ik'=>'comment','id'=>$item[commentid]));?>">[删除]</a> &nbsp;&nbsp;
 </td>
 <tr><?php endforeach; endif; ?>
 </table>

@@ -185,6 +185,7 @@ class groupAction extends frontendAction {
 			$tags = str_replace ( ' ', ' ', $data ['tag'] );
 			$arrtag = explode ( ' ', $tags );
 			$data ['groupname'] = $this->_post ( 'groupname', 'trim' );
+			$data ['isaudit'] = C('ik_group_isaudit');//是否要审核 0 不审核 1 审核
 			$data ['addtime'] = time ();
 			// 小组名唯一性判断
 			if ($this->iscreate ( $data ['groupname'] ))
@@ -240,9 +241,15 @@ class groupAction extends frontendAction {
 					) );
 				}
 			}
+		}else{
+			//判断权限
+			if(C('ik_iscreate')==1) $this->error('您好，网站暂时关闭创建小组；如有疑问联系站长！');
+			//获取该用户已经创建了多少个小组
+			$maxgroup = $this->_mod->where(array('userid'=>$this->userid))->count();
+			if($maxgroup>=C('ik_maxgroup')) $this->error('您好，您的积分不够，最多只能创建'.$maxgroup.'个小组！');
+			$this->_config_seo ();
+			$this->display ();
 		}
-		$this->_config_seo ();
-		$this->display ();
 	}
 	public function iscreate($groupname) {
 		if ($groupname) {
@@ -256,6 +263,10 @@ class groupAction extends frontendAction {
 		$group = $this->_mod->getOneGroup ( $id );
 		// 存在性检查
 		! $group && $this->error ( '呃...你想要的东西不在这儿' );
+		// 审核
+		$user = $this->visitor->get ();
+		if($group['isaudit']==1 && $group['userid']!=$user['userid'] && $_SESSION['admin']['userid']!=1) $this->error('该小组正在审核中，请稍后访问！');
+		
 		$strLeader = $this->user_mod->getOneUser ( $group ['userid'] );
 		// 是否加入
 		$isGroupUser = $this->_mod->isGroupUser ( $this->userid, $id );
@@ -289,6 +300,8 @@ class groupAction extends frontendAction {
 		}
 		// 获取小组信息
 		$group = $this->_mod->getOneGroup ( $groupid );
+		// 审核
+		if($group['isaudit']==1) $this->error('该小组还在审核中，暂时还不能发帖！');
 		// 预先执行添加一条记录
 		$strLastTipic = $this->group_topics_mod->where ( array (
 				'userid' => $userid,
@@ -344,6 +357,7 @@ class groupAction extends frontendAction {
 					'groupid' => $groupid,
 					'title' => ikwords(htmlspecialchars($title)),
 					'content' => ikwords($content),
+					'isaudit' => C('ik_topic_isaudit'), //审核
 					'isvideo' => $isvideo,
 					'iscomment' => $iscomment,
 					'addtime' => time (),
@@ -444,6 +458,8 @@ class groupAction extends frontendAction {
 			$topic_id = $this->_get ( 'id' );
 			$strTopic = $this->group_topics_mod->getOneTopic ( $topic_id );
 			! $strTopic && $this->error ( '呃...你想要的东西不在这儿' );
+			//审核
+			if($strTopic['isaudit']==1 && $strTopic ['userid']!=$user['userid'] && $_SESSION['admin']['userid']!=1) $this->error('该帖子正在审核中，请稍后访问！');
 			$strTopic ['user'] = $this->user_mod->getOneUser ( $strTopic ['userid'] );
 			$strTopic ['user'] ['signed'] = hview ( $strTopic ['user'] ['signed'] );
 			
@@ -525,8 +541,8 @@ class groupAction extends frontendAction {
 				'userid' => $this->userid 
 		) )->count ( '*' );
 		
-		if ($userGroupNum >= 20)
-			$this->error ( '你加入的小组总数已经到达20个，不能再加入小组！' );
+		if ($userGroupNum >= C('ik_jionmax'))
+			$this->error ( '你加入的小组总数已经到达'.$userGroupNum.'个，不能再加入小组！' );
 		
 		$groupUserNum = $this->group_users_mod->where ( array (
 				'userid' => $this->userid,
@@ -582,8 +598,9 @@ class groupAction extends frontendAction {
 		if(!empty($tag)){
 			
 		}else{
-			//查询开放
-			$map = array('isopen'=>0);
+			//查询
+			$map = array('isopen'=>0); //开放公开
+			$map = array('isaudit'=>0);//通过审核
 			//显示列表
 			$pagesize = 20;
 			$count = $this->_mod->where($map)->order('isrecommend DESC')->count('groupid');
@@ -898,8 +915,8 @@ class groupAction extends frontendAction {
 				$uptime = time ();
 				$arrData = array (
 						'groupid' => $groupid,
-						'title' => htmlspecialchars($title),
-						'content' => $content,
+						'title' => ikwords(htmlspecialchars($title)),
+						'content' => ikwords($content),
 						'iscomment' => $iscomment,
 						'uptime' => $uptime
 				);

@@ -1,0 +1,13 @@
+<div class="Toolbar_inbox">
+<a class="btn_a" href="javascript:;" data-url="{:U('group/ajax_delete',array('ik'=>$ik))}" onclick="Delete(this)">
+<span>删除选中</span>
+</a>
+<if condition="$ik neq 'comments'">
+<a class="btn_a" href="javascript:;" data-url="{:U('group/ajax_audit',array('ik'=>$ik,'isaudit'=>0))}" onclick="Audit(this)">
+<span>通过审核</span>
+</a>  
+<a class="btn_a" href="javascript:;" data-url="{:U('group/ajax_audit',array('ik'=>$ik,'isaudit'=>1))}" onclick="Audit(this)">
+<span>取消审核</span>
+</a> 
+</if>     
+</div>

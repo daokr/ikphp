@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<include file="top_menu" />
+<include file="action_menu" />
+<table  cellpadding="0" cellspacing="0">
+<tr class="old">
+  <td width="20"><input name="chkall" onclick="ToggleCheck(this)" type="checkbox"></td>
+<td>ID</td>
+<td>帖子ID</td>
+<td>内容</td>
+<td>发布者</td>
+<td>发布时间</td>
+<td width="200">操作</td>
+</tr>
+<foreach name="list" item="item">
+<tr class="odd">
+<td><input type="checkbox" value="{$item[commentid]}" name="itemid"></td>
+<td>{$item[commentid]}</td>
+<td>{$item[topicid]}</td>
+<td>{$item[content]}</td>
+<td>{$item[user][username]}</td>
+<td>{$item[addtime]}</td>
+<td>
+<a href="{:U('group/delete',array('ik'=>'comment','id'=>$item[commentid]))}">[删除]</a> &nbsp;&nbsp;
+</td>
+<tr>
+</foreach>
+</table>
+<include file="action_menu" />
+<div class="pagebar">{$pageUrl}</div>
+</div>
+</body>
+</html>

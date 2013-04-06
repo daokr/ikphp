@@ -77,6 +77,7 @@ class group_topicsModel extends Model {
 	public function getTopics($strgroupid,$limit){
 		$where['groupid'] = array('exp',' IN ('.$strgroupid.') ');
 		$where['isshow'] = 0;
+		$where['isaudit'] = 0;//审核
 		$result = $this->where ( $where )->order('uptime desc')->limit($limit)->select();
 		return $result;	
 	}
@@ -107,20 +108,24 @@ class group_topicsModel extends Model {
 	
 		return $strComment;
 	}
-	// 删除话题的单个评论
+	// 删除话题的单个或多个评论$commentid='1,2,3' 以逗号分隔
 	public function delComment($commentid){
-		$where['commentid']  = $commentid;
-		$arrComment = D('group_topics_comments')->where($where)->find();
+		$where['commentid'] = array('exp',' IN ('.$commentid.') ');
+		$arrComment = D('group_topics_comments')->field('topicid')->where($where)->select();
 		if($arrComment){
 			D('group_topics_comments')->where($where)->delete();
 			//更新帖子评论统计
-			$this->where(array('topicid'=>$arrComment['topicid']))->setDec('count_comment');
+			foreach ($arrComment as $item){
+				$map['topicid'] = $item['topicid'];
+				$map['count_comment'] = array('gt','0');
+				$this->where($map)->setDec('count_comment');
+			}
 			return true;
 		}else{
 			return false;
 		}
 	}
-	// 删除话题的所有评论
+	// 根据topicid删除话题的所有评论
 	public function delTopicComment($topicid){
 		$where['topicid']  = $topicid;
 		$arrComment = D('group_topics_comments')->where($where)->select();
@@ -130,25 +135,35 @@ class group_topicsModel extends Model {
 		}
 		return true;
 	}
-	// 根据topicid删除帖子话题
+    /**
+     * 通过$topicid删除话题
+     * @access public
+     * @param string $topicid 要删除的id字符串如：id=1,2,3
+     * @return boolean
+     */
 	public function delTopic($topicid){
-		$where['topicid']  = $topicid;
+		$where['topicid'] = array('exp',' IN ('.$topicid.') ');
 		$arrTopic = $this->where($where)->find();
 		if($arrTopic){
 			//删除帖子表
 			$this->where($where)->delete();
 			//更新group表帖子数
-			D('group')->where($where)->setDec('count_topic');
+			$group = D('group')->where($where)->select();
+			foreach ($group as $item){
+				if($item['count_topic']>0){
+					D('group')->where(array('groupid'=>$item['groupid']))->setDec('count_topic');
+				}
+			}
 			//删除评论表
-			$this->delTopicComment($topicid);
+			D('group_topics_comments')->where($where)->delete();
 			//删除喜欢收藏表
-			D('group_topics_collects')->delCollectTopic($topicid);
+			D('group_topics_collects')->where($where)->delete();
 			//删除tag标签表
-			
+			D('tag_topic_index')->where($where)->delete();
 			//删除图片
 			D('images')->delAllImage('topic',$topicid);
 			//删除视频
-			//$this->delete('videos',array('typeid'=>$topicid,'type'=>'topic'));
+			//D('videos')->delAllVideos('topic',$topicid);
 			return true;
 		}else{
 			return false;

@@ -1,6 +1,29 @@
-<h2>{$title}</h2>  
-<div class="Toolbar_inbox">
-	<a class="btn_a" href="{:U('group/groups',array('isaudit'=>'0'))}"><span>已审核的</span></a>
-    <a class="btn_a" href="{:U('group/groups',array('isaudit'=>'1'))}">
-    <span>未审核的 <font style="color:red;">({$count_isaudit})</font></span></a>
+<h2>{$title}</h2> 
+<div class="tabnav">
+<ul>
+<foreach name="menu" key="key" item="item">
+    <if condition="$key eq $ik">
+    <li class="select"><a href="{$item[url]}">{$item[text]}</a></li>
+    <else />
+    <li><a href="{$item[url]}">{$item[text]}</a></li>
+    </if>
+</foreach>
+</ul>
 </div>
+<if condition="$ik neq 'comments'">
+<div class="tabnav">
+<ul>
+	<if condition="$isaudit eq 0">
+   		 <li class="select"><a href="{:U('group/manage',array('ik'=>$ik,'isaudit'=>'0'))}">已审核的</a></li>
+	<else/>
+   		 <li><a href="{:U('group/manage',array('ik'=>$ik,'isaudit'=>'0'))}">已审核的</a></li>
+    </if>
+    <if condition="$isaudit eq 1">
+ <li class="select"><a href="{:U('group/manage',array('ik'=>$ik,'isaudit'=>'1'))}">未审核的 <font style="color:red;">({$count_isaudit})</font></a></li>   
+    <else/>
+ <li><a href="{:U('group/manage',array('ik'=>$ik,'isaudit'=>'1'))}">未审核的 <font style="color:red;">({$count_isaudit})</font></a></li>      
+    </if>
+    
+</ul>
+</div>
+</if>
