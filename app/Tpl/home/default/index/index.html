@@ -94,12 +94,12 @@
            <foreach name="arrHotUser" item="item">
             <dl class="obu">
                 <dt>
-                    <a href="{:U('people/index',array('id'=>$item[doname]))}">
+                    <a href="people/{$item[doname]}">
                     <img alt="{$item[username]}" class="m_sub_img" src="{$item[face]}" width="48" />
                     </a>
                 </dt>
                 <dd>
-                    <a href="{U('hi','',array('id'=>$item[doname]))}">{$item[username]}</a>
+                    <a href="people/{$item[doname]}">{$item[username]}</a>
                 </dd>
             </dl>
             </foreach>

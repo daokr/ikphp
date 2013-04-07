@@ -181,12 +181,12 @@ __EXTENDS_JS__
             
            <?php if(is_array($arrHotUser)): foreach($arrHotUser as $key=>$item): ?><dl class="obu">
                 <dt>
-                    <a href="<?php echo U('people/index',array('id'=>$item[doname]));?>">
+                    <a href="people/<?php echo ($item[doname]); ?>">
                     <img alt="<?php echo ($item[username]); ?>" class="m_sub_img" src="<?php echo ($item[face]); ?>" width="48" />
                     </a>
                 </dt>
                 <dd>
-                    <a href="{U('hi','',array('id'=>$item[doname]))}"><?php echo ($item[username]); ?></a>
+                    <a href="<?php echo U('people/index',array('id'=>$item[doname]));?>"><?php echo ($item[username]); ?></a>
                 </dd>
             </dl><?php endforeach; endif; ?>
             <br clear="all"/>

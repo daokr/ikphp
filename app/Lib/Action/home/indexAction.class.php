@@ -49,7 +49,7 @@ class indexAction extends frontendAction {
 		//$strArticle = D('article')->field('aid')->order('aid desc')->find();
 		//echo $res['aid'];
 		//echo D('article')->getLastSql();die;
-		$ss = '<p>李双江儿子李天一现在成了媒体的重的。</p><p>
+/* 		$ss = '<p>李双江儿子李天一现在成了媒体的重的。</p><p>
 		<img src="http://img1.ph.126.net/KT9Mocb_FuCwQsdpMtZ2rA==/1358116762646888701.jpg">我们是好样
 		<img class="abd" src="http://img1.ph.126.net/KT9Mocb_FuCwQsdpMtZ2rA==/1358116762646888702.jpg" style="ad" >中国嘎嘎嘎
 		<img src="http://img1.ph.126.net/KT9Mocb_FuCwQsdpMtZ2rA==/1358116762646888703.jpg" >大赌场</p>';
@@ -62,7 +62,7 @@ class indexAction extends frontendAction {
 			$ss = str_replace($item, '[图片1]', $ss);
 			
 		}
-		echo $ss;
+		echo $ss; */
 	
 	}
 }

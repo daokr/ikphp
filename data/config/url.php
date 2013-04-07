@@ -5,7 +5,8 @@ return array (
   'URL_ROUTER_ON' => true,
   'URL_ROUTE_RULES' => 
   array (
-    '/^people$/' => 'people/index',
-    '/^people\/^[A-Za-z0-9]+([._\-\+]*[A-Za-z0-9]+)*$/' => 'people/index?id=:1',
+    '/^people\/(\w+)$/' => 'people/index?id=:1',
+    '/^group\/topic\/(\d+)$/' => 'group/topic?id=:1',
+    '/^group\/(\d+)$/' => 'group/show?id=:1',
   ),
 );
