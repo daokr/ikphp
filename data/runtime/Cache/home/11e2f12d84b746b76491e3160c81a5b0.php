@@ -164,10 +164,10 @@ __EXTENDS_JS__
             <h2>最热话题<span class="pl">&nbsp;(<a href="<?php echo U('group/explore_topic');?>">更多</a>) </span></h2>
             <div class="topic-list">
                 <?php if(is_array($arrHotTopic)): foreach($arrHotTopic as $key=>$item): ?><dl>
-                    <dt><a href="<?php echo U('people/index',array('id'=>$item[user][doname]));?>"><img src="<?php echo ($item[user][face]); ?>"/></a></dt>
+                    <dt><a href="people/<?php echo ($item[user][doname]); ?>"><img src="<?php echo ($item[user][face]); ?>"/></a></dt>
                     <dd>
                         <header class="title"><span><a href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>#comment" title="回复数"><?php echo ($item[count_comment]); ?></a></span><a href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>" title="<?php echo ($time[title]); ?>"><?php echo ($item[title]); ?></a></header>
-                         <a href="<?php echo U('people/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <summary><?php echo getTime($item[addtime],time()) ?> <?php echo ($item[count_view]); ?>次阅读</summary>
+                         <a href="people/<?php echo ($item[user][doname]); ?>"><?php echo ($item[user][username]); ?></a> <summary><?php echo getTime($item[addtime],time()) ?> <?php echo ($item[count_view]); ?>次阅读</summary>
                         <p><?php echo ($item[content]); ?></p>
                     </dd>
                 </dl><?php endforeach; endif; ?>
@@ -186,7 +186,7 @@ __EXTENDS_JS__
                     </a>
                 </dt>
                 <dd>
-                    <a href="<?php echo U('people/index',array('id'=>$item[doname]));?>"><?php echo ($item[username]); ?></a>
+                    <a href="people/<?php echo ($item[doname]); ?>"><?php echo ($item[username]); ?></a>
                 </dd>
             </dl><?php endforeach; endif; ?>
             <br clear="all"/>

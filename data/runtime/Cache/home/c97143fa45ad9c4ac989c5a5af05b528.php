@@ -309,7 +309,7 @@ __EXTENDS_JS__
         <div class="clear"></div>
     </div>
 	<br/>
-	<p class="pl">本页永久链接: <a href="<?php echo U('people/index',array('id'=>$strUser[doname]));?>">http://www.ikphp.com<?php echo U('people/index',array('id'=>$strUser[doname]));?></a></p>
+	<p class="pl">本页永久链接: <a href="http://www.ikphp.com/people/<?php echo ($strUser[doname]); ?>">http://www.ikphp.com/people/<?php echo ($strUser[doname]); ?></a></p>
 	<br>
     <p class="pl">订阅<?php echo ($strUser[username]); ?>的收藏 <br>
         <span class="feed"><a href="#"> feed: rss 2.0</a></span>

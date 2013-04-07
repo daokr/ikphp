@@ -75,10 +75,10 @@
             <div class="topic-list">
                 <foreach name="arrHotTopic" item="item">
                 <dl>
-                    <dt><a href="{:U('people/index',array('id'=>$item[user][doname]))}"><img src="{$item[user][face]}"/></a></dt>
+                    <dt><a href="people/{$item[user][doname]}"><img src="{$item[user][face]}"/></a></dt>
                     <dd>
                         <header class="title"><span><a href="{:U('group/topic',array('id'=>$item[topicid]))}#comment" title="回复数">{$item[count_comment]}</a></span><a href="{:U('group/topic',array('id'=>$item[topicid]))}" title="{$time[title]}">{$item[title]}</a></header>
-                         <a href="{:U('people/index',array('id'=>$item[user][doname]))}">{$item[user][username]}</a> <summary><php>echo getTime($item[addtime],time())</php> {$item[count_view]}次阅读</summary>
+                         <a href="people/{$item[user][doname]}">{$item[user][username]}</a> <summary><php>echo getTime($item[addtime],time())</php> {$item[count_view]}次阅读</summary>
                         <p>{$item[content]}</p>
                     </dd>
                 </dl>
