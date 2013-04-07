@@ -23,6 +23,7 @@ class settingAction extends backendAction {
 		$config = require $config_file;
 		if (IS_POST) {
 			$url_model = $this->_post('url_model', 'intval', 0);
+			
 			$new_config = array(
 					'URL_MODEL' => $url_model
 			);

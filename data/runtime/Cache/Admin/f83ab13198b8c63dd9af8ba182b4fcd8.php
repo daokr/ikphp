@@ -13,7 +13,7 @@
 <div class="midder">
 <h2><?php echo ($title); ?></h2>
     <div>
-    <form method="POST" action="<?php echo U('setting/url');?>">
+    <form action="<?php echo U('setting/url');?>" method="post">
     <table>
         <tr>
             <td width="100">形式1：</td>
