@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<h2>{$title}</h2> 
+<table  cellpadding="0" cellspacing="0">
+<tr class="old">
+<td>ID</td>
+<td>缓存名称</td>
+<td>描述</td>
+<td width="200">操作</td>
+</tr>
+<foreach name="list" item="item">
+<tr class="odd">
+<td>{$item[id]}</td>
+<td>{$item[name]}</td>
+<td style="color:#999">{$item[desc]}</td>
+<td>
+<a href="{:U('cache/delete',array('id'=>$item[id]))}">[清除]</a>
+</td>
+<tr>
+</foreach>
+</table>
+
+
+</div>
+</body>
+</html>

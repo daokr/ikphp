@@ -284,6 +284,14 @@ function U($url='',$vars='',$suffix=true,$redirect=false,$domain=false) {
     if($domain) {
         $url   =  (is_ssl()?'https://':'http://').$domain.$url;
     }
+    //修改人 小麦 2013-4-8 IKPHP专用
+    if(C('URL_ROUTER_ON') && C('URL_MODEL')!=0 && is_array(C('URL_IKPHP_RULES'))){
+    	//显示页
+    	$urlrules = C('URL_IKPHP_RULES');
+    	foreach ($urlrules as $key=>$item){
+  			$url = str_replace($key, $item, $url);
+    	}
+    }
     if($redirect) // 直接跳转URL
         redirect($url);
     else

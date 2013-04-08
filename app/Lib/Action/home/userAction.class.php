@@ -121,7 +121,7 @@ class userAction extends userbaseAction {
 			{
 				$this->error ("个性域名至少要2位数字、字母、或下划线(_)组成！");
 			
-			}else if(!preg_match ( '/^[A-Za-z0-9]+([._\-\+]*[A-Za-z0-9]+)*$/', $doname ))
+			}else if(!preg_match ( '/^[a-zA-Z]{1}[a-zA-Z0-9\-_]{0,14}$/', $doname ))
 			{
 				$this->error ("个性域名必须是数字、字母或下划线(_)组成！");
 			}

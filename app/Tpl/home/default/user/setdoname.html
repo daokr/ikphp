@@ -12,14 +12,21 @@
 <include file="user:set_menu" />
 
     <div class="utable">
-    <form method="POST" action="{:U('user/setdoname')}">
+    <form method="POST" action="{:U('user/setdoname')}" onsubmit="return checkDoname(this);">
     <table cellpadding="5" cellspacing="5">
     <tr>
     <th>个性域名：</th>
     <td>
-    <input type="text" disabled="true" value="{:C('ik_site_url')}/people/" class="txt" style="width:165px; font-family:Arial; font-size:12px"/> <input class="txt" name="doname" value="{$strUser[doname]}" type="text" />
+    {:C('ik_site_url')}/people/ <input class="txt" name="doname" value="{$strUser[doname]}" type="text" />
     </td>
     </tr>
+    <tr>
+    <th>&nbsp;</th>
+    <td>
+	<div class="tips">域名最长15个字符，可输入英文字母 数字 和 符号( - _ )，首字符必须是英文字母</div>
+    </td>
+    </tr>    
+    
     <tr><th></th><td><input class="submit" type="submit" value="好了，保存"  /></td></tr>
     
     </table>

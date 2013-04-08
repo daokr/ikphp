@@ -7,7 +7,7 @@
 <title><?php echo ($title); ?> - <?php echo ($site_title); ?></title>
 <link rel="stylesheet" type="text/css" href="__STATIC__/admin/style.css" />
 <script src="__STATIC__/public/js/jquery.js" type="text/javascript"></script>
-
+<script src="__STATIC__/admin/js/common.js" type="text/javascript"></script>
 </head>
 <body>
 <!--main-->
@@ -31,21 +31,16 @@
     <li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li><?php endif; endforeach; endif; ?>
 </ul>
 </div>
-<form method="POST" action="<?php echo U('article/channel',array('ik'=>'add'));?>">
+<form method="POST" action="<?php echo U('article/channel',array('ik'=>'edit','nameid'=>$strChannel[nameid]));?>">
 <table cellpadding="0" cellspacing="0">
 
 	<tr>
 		<th>频道名称：</th>
-		<td><input name="name" value="" /></td>
+		<td><input name="name" value="<?php echo ($strChannel[name]); ?>" /></td>
 	</tr>
 	<tr>
 		<th>英文名称ID：</th>
-		<td><input name="nameid" value=""/> (请不要包含下划线)</td>
-	</tr>
-	<tr>
-		<th>文章分类：</th>
-		<td><textarea cols="37" rows="8" name="catename"></textarea> (一行一个分类，多个元素用"回车"格开。)</td>
-</td>
+		<td><?php echo ($strChannel[nameid]); ?></td>
 	</tr>    
 </table>
 <div class="page_btn"><input type="submit" value="提 交" class="submit" /></div>
