@@ -25,3 +25,13 @@ function savaTag(tid)
 		}
 	
 }
+function checkDoname(that){
+	var doname = $(that).find('input[name=doname]').val();
+	var format = /^[a-zA-Z]{1}[a-zA-Z0-9\-_]{0,14}$/;
+	if ($.trim(doname) === '') {
+	   tips('域名不能为空'); return false;
+	} else if (!format.test(doname)) {
+	   tips('请检查域名格式'); return false;
+	}
+	$(that).find('input[type=submit]').val('正在提交^_^').attr('disabled',true);
+}

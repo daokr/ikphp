@@ -102,47 +102,40 @@ __EXTENDS_JS__
 </header>
 <!--main-->
 <div class="midder">
-	<div class="mc">
-    	<h1><?php echo ($seo["title"]); ?></h1>
-    	<div class="cleft">
-        	
-
-  <table width="100%" cellpadding="0" cellspacing="0" class="showtable">
-      <tr>
-        <td width="75" valign="top">
-        <?php if($touser[userid] > 0): ?><a href="<?php echo U('people/index',array('id'=>$touser[doname]));?>" class="nbg">
-       	 <img alt="<?php echo ($touser[username]); ?>" style="padding:5px;" src="<?php echo ($touser[face]); ?>">
-        </a>
-        <?php else: ?>
-         <img alt="<?php echo ($touser[username]); ?>" style="padding:5px;" src="<?php echo ($touser[face]); ?>"><?php endif; ?>
-        </td>
-        <td valign="top">
-   
-          <div class="pl2"><?php echo ($strUserinfo); ?></div>
-          <div class="pl2">时间: <?php echo ($arrMessages[addtime]); ?></div>
-          <div class="ul"><span class="pl2">话题: </span><span class="m"><?php echo ($arrMessages[title]); ?></span></div>
-          <div class="messagebox">
-          <?php echo nl2br($arrMessages[content]) ?>
-          </div>
-          <?php if($type == 'inbox'): if($arrMessages[userid] != 0): ?><a class="submit"  title="回信" href="<?php echo U('message/write',array('touserid'=>$touser[userid]));?>">回信</a>&nbsp;&nbsp;&nbsp;&nbsp;<?php endif; ?>
-          <a class="gray-submit" onclick="return confirm('真的要删除消息吗?')" title="删除" href="<?php echo U('message/doing',array('d'=>'del','type'=>'inbox','messageid'=>$arrMessages[messageid]));?>">删除</a><?php endif; ?>
-          <?php if($type == 'outbox'): ?><a class="gray-submit" onclick="return confirm('真的要删除消息吗?')" title="删除" href="<?php echo U('message/doing',array('d'=>'del','type'=>'outbox','messageid'=>$arrMessages[messageid]));?>">删除</a><?php endif; ?>
-          </td>
-      </tr>
-  </table>
-
-             
-        </div>
-        <div class="cright">
-            <?php if($type == 'inbox'): ?><p class="pl2">&gt; <a href="<?php echo U('message/ikmail',array('d'=>'inbox'));?>">返回到我的收件箱</a></p>
-			<p class="pl2">&gt; <a href="<?php echo U('people/index',array('id'=>$touser[doname]));?>">去<?php echo ($touser[username]); ?>的主页看看</a></p><?php endif; ?>
-            <?php if($type == 'outbox'): ?><p class="pl2">&gt; <a href="<?php echo U('message/ikmail',array('d'=>'outbox'));?>">回我的发件箱</a></p>
-            <p class="pl2">&gt; <a href="<?php echo U('message/ikmail',array('d'=>'inbox'));?>">去我的收件箱</a></p><br/>
-			<p class="pl2">&gt; <a href="<?php echo U('people/index',array('id'=>$touser[doname]));?>">去<?php echo ($touser[username]); ?>的主页看看</a></p><?php endif; ?>           
-        </div>
-    </div>
+<div class="mc">
+<h1 class="set_tit">用户信息管理</h1>
+<div class="tabnav">
+<ul>
+<?php if(is_array($user_menu_list)): $i = 0; $__LIST__ = $user_menu_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i; if($user_menu_curr == $key): ?><li class="select"><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li>
+<?php else: ?>
+<li><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+</ul>
 </div>
 
+<div class="utable">
+<form method="POST" action="<?php echo U('user/setpassword');?>">
+<?php if(!$ispassword): ?><p>亲，你是第三方登录的用户；请尽快设置下密码吧；方便你以后直接用：<?php echo ($strUser[email]); ?> 账号登录</p><?php endif; ?>
+<table cellpadding="5" cellspacing="5">
+<?php if($ispassword): ?><tr>
+<th>旧密码：</th><td><input class="uinput" name="oldpwd" value="" type="password" /></td>
+</tr><?php endif; ?>
+<tr>
+<th>新密码：</th><td><input class="uinput" name="newpwd" value="" type="password" /></td>
+</tr>
+<tr>
+<th>重复新密码：</th><td><input class="uinput" name="renewpwd" value="" type="password" /></td>
+</tr>
+
+<tr><th></th><td><input class="submit" type="submit" value="修改密码"  /></td></tr>
+
+</table>
+</form>
+</div>
+
+
+
+</div>
+</div>
 <!--footer-->
 <footer>
 <div id="footer">

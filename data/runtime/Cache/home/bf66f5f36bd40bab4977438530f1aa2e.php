@@ -102,35 +102,29 @@ __EXTENDS_JS__
 </header>
 <!--main-->
 <div class="midder">
-  <div class="mc">
-    <h1>发送短消息</h1>
-    <form method="POST" action="<?php echo U('message/write',array('touserid'=>$strTouser[userid]));?>">
-      <table class="table_1" width="100%" cellspacing="0" cellpadding="0">
-        <tr>
-          <th>收件人：</th>
-          <td><img alt="<?php echo ($strTouser[username]); ?>" class="m_sub_img" src="<?php echo ($strTouser[face]); ?>" /><br /><?php echo ($strTouser[username]); ?></td>
-        </tr>
-        <tr>
-          <th>标题：</th>
-          <td><input  type="text" placeholder="请填写标题" class="txt"  name="title" size="50" maxlength="64" value="" style="width:400px;"></td>
-        </tr>        
-        <tr>
-          <th>内容：</th>
-          <td><textarea class="utext" name="content" style="width:570px; height:170px" maxlength="500"></textarea></td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>
-            <input type="hidden" name="userid" value="<?php echo ($visitor[userid]); ?>" />
-            <input type="hidden" name="touserid" value="<?php echo ($strTouser[userid]); ?>" />
-            <input type="submit" value="好了，发送" class="submit" />&nbsp;&nbsp;<a href="<?php echo U('message/ikmail',array('d'=>'inbox'));?>">取消</a>
-            </td>
-        </tr>
-      </table>
-    </form>
-  </div>
-</div>
+<div class="mc">
 
+<h1 class="set_tit">用户信息管理</h1>
+<div class="tabnav">
+<ul>
+<?php if(is_array($user_menu_list)): $i = 0; $__LIST__ = $user_menu_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i; if($user_menu_curr == $key): ?><li class="select"><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li>
+<?php else: ?>
+<li><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+</ul>
+</div>
+    <?php if($info["face"] == ''): ?><div style="font-size:14px; line-height:30px">请上传头像后才可以正常使用浏览网站^_^</div><?php endif; ?>
+    <div class="face_form">
+    <form method="POST" action="<?php echo U('user/setface');?>" enctype="multipart/form-data" >
+        <img alt="<?php echo ($info["username"]); ?>" valign="middle" src="<?php echo avatar($info['userid'], 48);?>" class="pil" />
+        <div class="file_info">
+            <p>从你的电脑上选择图像文件：(仅支持jpg，jpeg，gif，png格式的图片)  大小不超过 <?php echo C('ik_attr_allow_size');?> KB</p>
+            <p><input type="file" name="picfile" style="height:25px; "/>&nbsp;&nbsp;<input class="submit" type="submit" value="上传照片" /></p>
+        </div>    
+    </form>
+    </div>
+    
+</div>
+</div>
 <!--footer-->
 <footer>
 <div id="footer">

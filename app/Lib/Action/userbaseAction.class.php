@@ -28,7 +28,7 @@ class userbaseAction extends frontendAction {
     				'setdoname' => array('text'=>'个性域名', 'url'=>U('user/setdoname')),
     				'setcity' => array('text'=>'常居地', 'url'=>U('user/setcity')),
     				'setpassword' => array('text'=>'修改密码', 'url'=>U('user/setpassword')),
-    				'bind' => array('text'=>'第三方绑定', 'url'=>U('user/bind')),
+    				//'bind' => array('text'=>'第三方绑定', 'url'=>U('user/bind')),
     			);
 		return $menu;
 	}

@@ -100,98 +100,43 @@ __EXTENDS_JS__
 <!--APP NAV-->
 
 </header>
+<!--main-->
 <div class="midder">
+<div class="mc">
+<h1 class="set_tit">用户信息管理</h1>
+<div class="tabnav">
+<ul>
+<?php if(is_array($user_menu_list)): $i = 0; $__LIST__ = $user_menu_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i; if($user_menu_curr == $key): ?><li class="select"><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li>
+<?php else: ?>
+<li><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+</ul>
+</div>
 
-
-    <div class="mc">
+    <div class="utable">
+    <form method="POST" action="<?php echo U('user/setdoname');?>" onsubmit="return checkDoname(this);">
+    <table cellpadding="5" cellspacing="5">
+    <tr>
+    <th>个性域名：</th>
+    <td>
+    <?php echo C('ik_site_url');?>/people/ <input class="txt" name="doname" value="<?php echo ($strUser[doname]); ?>" type="text" />
+    </td>
+    </tr>
+    <tr>
+    <th>&nbsp;</th>
+    <td>
+	<div class="tips">域名最长15个字符，可输入英文字母 数字 和 符号( - _ )，首字符必须是英文字母</div>
+    </td>
+    </tr>    
     
-   	    <h1><?php echo ($seo["title"]); ?></h1>
-       
-        <div class="cleft w700">
-
-
-            <div class="group_topics">
-                <table class="olt">
-                    <tbody>
-            <?php if(!empty($arrTopic)): if(is_array($arrTopic)): foreach($arrTopic as $key=>$item): ?><tr class="pl">
-               <td class="td-subject"><a title="<?php echo ($item[title]); ?>" href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>"><?php echo getsubstrutf8(t($item['title']),0,25); ?></a>
-                <?php if($item[isvideo] == 1): ?><img src="__STATIC__/public/images/lc_cinema.png" align="absmiddle" title="[视频]" alt="[视频]" /><?php endif; ?>                
-                <?php if($item[istop] == 1): ?><img src="__STATIC__/public/images/headtopic_1.gif" title="[置顶]" alt="[置顶]" /><?php endif; ?>
-                <?php if($item[addtime] > (strtotime(date('Y-m-d 00:00:00')))): ?><img src="__STATIC__/public/images/topic_new.gif" align="absmiddle"  title="[新帖]" alt="[新帖]" /><?php endif; ?> 
-                <?php if($item[isphoto] == 1): ?><img src="__STATIC__/public/images/image_s.gif" title="[图片]" alt="[图片]" align="absmiddle" /><?php endif; ?> 
-                <?php if($item[isattach] == 1): ?><img src="__STATIC__/public/images/attach.gif" title="[附件]" alt="[附件]" /><?php endif; ?> 
-                <?php if($item[isdigest] == 1): ?><img src="__STATIC__/public/images/posts.gif" title="[精华]" alt="[精华]" /><?php endif; ?>
-                </td>
-                <td class="td-reply" nowrap="nowrap"><?php if($item[count_comment] > 0): echo ($item[count_comment]); ?> 回应<?php endif; ?></td>
-                <td class="td-time" nowrap="nowrap"><?php echo getTime($item[uptime],time()); ?></td>
-                <td align="right"><a href="<?php echo U('group/show',array('id'=>$item[groupid]));?>"><?php echo getsubstrutf8(t($item[group][groupname]),0,10); ?></a></td>
-                </tr><?php endforeach; endif; endif; ?>         
-                </tbody>
-              </table>
-            </div>
-            
-             
-            
-            <div class="clear"></div>
+    <tr><th></th><td><input class="submit" type="submit" value="好了，保存"  /></td></tr>
     
-    
-    	</div>
-    
-        <div class="cright w250" id="cright">   
-              
-			<div class="mod" id="g-user-profile">
-
-    <div class="usercard">
-      <div class="pic">
-            <a href="<?php echo U('people/index',array('id'=>$strUser[doname]));?>"><img alt="<?php echo ($strUser[username]); ?>" src="<?php echo ($strUser[face]); ?>"></a>
-      </div>
-      <div class="info">
-           <div class="name">
-               <a href="<?php echo U('people/index',array('id'=>$strUser[doname]));?>"><?php echo ($strUser[username]); ?></a>
-           </div>
-                <?php if($strUser[area] != ''): echo ($strUser[area][areaname]); else: ?>火星<?php endif; ?>                        
-                 <br>
-       </div>
+    </table>
+    </form>
     </div>
-               
-    <div class="group-nav">
-     <ul>
-		<?php if($action_name == 'my_group_topics'): ?><li class="on"><a href="<?php echo U('group/my_group_topics');?>">我的小组话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/my_group_topics');?>">我的小组话题</a></li><?php endif; ?>
-        
-		<?php if($action_name == 'my_topics'): ?><li class="on"><a href="<?php echo U('group/my_topics');?>">我发起的话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/my_topics');?>">我发起的话题</a></li><?php endif; ?>
-        		
-		<?php if($action_name == 'my_replied_topics'): ?><li class="on"><a href="<?php echo U('group/my_replied_topics');?>">我回应的话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/my_replied_topics');?>">我回应的话题</a></li><?php endif; ?>
-		
-		<?php if($action_name == 'my_collect_topics'): ?><li class="on"><a href="<?php echo U('group/my_collect_topics');?>">我喜欢的话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/my_collect_topics');?>">我喜欢的话题</a></li><?php endif; ?>
-		
-		<?php if($action_name == 'mine'): ?><li class="on"><a href="<?php echo U('group/mine');?>">我管理/加入的小组</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/mine');?>">我管理/加入的小组</a></li><?php endif; ?>
-     </ul>
-    </div>
-             
-</div> 
-         
-<div class="mod">
-<?php if($visitor): ?><div class="create-group">
-<a href="<?php echo U('group/create');?>"><i>+</i>申请创建小组</a>
-</div><?php endif; ?>
-</div>                 
-        
-        </div>
-    
-    </div><!--//mc-->
 
+</div>
+</div>
 
-</div>                
 <!--footer-->
 <footer>
 <div id="footer">
