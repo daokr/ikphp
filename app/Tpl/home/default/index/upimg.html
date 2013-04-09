@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta property="qc:admins" content="12472730776130006375" />
+<include file="public:head" />
+<link type="text/css" rel="stylesheet" href="__STATIC__/public/js/uploadify/uploadify.css" />
+<script src="__STATIC__/public/js/uploadify/jquery.uploadify.v2.1.4.js" type="text/javascript"></script>
+
+<script src="__STATIC__/public/js/uploadify/swfobject.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function()
+{		
+	$("#uploadify").uploadify({
+		'uploader': siteUrl + 'static/public/js/uploadify/uploadify.swf',
+		'expressInstall': siteUrl + 'static/public/js/uploadify/expressInstall.swf',
+		'script': "{:U('index/upimg')}",
+		'scriptData':'',
+		'method':'POST', 
+		'cancelImg': siteUrl+'static/public/js/uploadify/cancel.png',
+		'folder': 'UploadFile',
+		'queueID': 'fileQueue',
+		'auto': false,
+		'multi': true,
+		'buttonText': '',
+		'buttonImg': siteUrl+'static/public/images/upload-btns.png',		
+		'fileDesc':'jpg,gif,png图片格式',
+		'fileExt':'*.jpg;*.gif;*.png',
+		'onAllComplete' : function(event,data) {
+			//window.location = jumpurl;
+		}
+
+	});
+
+})
+
+</script>
+
+</head>
+
+<body>
+        <div>
+            <div id="fileQueue"></div>
+            <input type="file" id="uploadify" />
+
+            <a href="javascript:$('#uploadify').uploadifyUpload()" class="submit">开始上传</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <a href="javascript:$('#uploadify').uploadifyClearQueue()" >取消上传</a>
+            </p>
+        </div>
+        
+<include file="public:footer" />
+</body>
+</html>

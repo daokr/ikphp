@@ -65,4 +65,7 @@ class indexAction extends frontendAction {
 		echo $ss; */
 	
 	}
+	public function upimg(){
+		$this->display ();
+	}
 }
