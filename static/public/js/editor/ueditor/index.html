@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>完整demo</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" charset="utf-8" src="editor_config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="editor_all_min.js"></script>
+
+    <style type="text/css">
+body{ background:url(bg.gif) repeat 0 0;}
+.mod-qpub-main {
+    position: relative;
+	width: 980px;
+	margin:0 auto;
+}
+
+.mod-qpub-text-box .qpub-text {
+    color: #999999;
+    font-size: 20px;
+    padding-left: 0;
+    width: 934px;
+}
+.mod-qpub-text-box .qpub-text {
+ 	height: 40px;
+    line-height: 20px;
+    margin-top: 5px;
+	color: #333;
+    font-size: 20px;
+    padding-left: 0;
+	background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+	font-family: Tahoma,Helvetica,"Microsoft Yahei","微软雅黑",arial;
+}
+.mod-qpub-text-box {
+    border-bottom: 1px solid #EDEDED;
+    margin-left: 16px;
+    position: absolute;
+    top: 46px;
+    width: 934px;
+    z-index: 1000;
+}
+.qpub-text-box{display:block;z-index: -10;  background: none repeat scroll 0 0 transparent;}
+.content-warp{position: relative;}
+    </style>
+</head>
+<body>
+<div class="mod-qpub-main">
+    <div class="mod-qpub-text-box">
+    <span href="#" class="qpub-text-box">
+    <input type="text" autocomplete="off" class="qpub-text placeholder" name="title" placeholder="输入标题" id="title" tabindex="10" stash-placeholder="输入标题">
+    </span>
+    </div>
+    <div class="content-warp">
+    <script  id="editor" type="text/plain"></script>
+    </div>
+</div>
+
+
+
+</body>
+<script type="text/javascript">
+    //实例化编辑器
+    var ue = UE.getEditor('editor');
+</script>
+</html>

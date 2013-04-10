@@ -135,10 +135,10 @@ if(jQuery)(
 								<div class="cancel">\
 									<a href="javascript:jQuery(\'#' + jQuery(this).attr('id') + '\').uploadifyCancel(\'' + ID + '\')"><img src="' + settings.cancelImg + '" border="0" /></a>\
 								</div>\
-								<span class="fileName">' + fileName + ' (' + byteSize + suffix + ')</span><span class="percentage"></span>\
 								<div class="uploadifyProgress">\
 									<div id="' + jQuery(this).attr('id') + ID + 'ProgressBar" class="uploadifyProgressBar"><!--Progress Bar--></div>\
 								</div>\
+								<span class="fileName">' + fileName + ' (' + byteSize + suffix + ')</span><span class="percentage"></span>\
 							</div>');
 					}
 				});
@@ -219,7 +219,8 @@ if(jQuery)(
 					if (event.data.action(event, ID, fileObj, data) !== false) {
 						jQuery("#" + jQuery(this).attr('id') + ID + "ProgressBar").animate({'width': data.percentage + '%'},250,function() {
 							if (data.percentage == 100) {
-								jQuery(this).closest('.uploadifyProgress').fadeOut(250,function() {jQuery(this).remove()});
+								//jQuery(this).closest('.uploadifyProgress').fadeOut(250,function() {jQuery(this).remove()});
+								jQuery(this).closest('.uploadifyProgress').hide();
 							}
 						});
 						if (event.data.toDisplay == 'percentage') displayData = ' - ' + data.percentage + '%';
@@ -230,9 +231,14 @@ if(jQuery)(
 				});
 				jQuery(this).bind("uploadifyComplete", {'action': settings.onComplete}, function(event, ID, fileObj, response, data) {
 					if (event.data.action(event, ID, fileObj, unescape(response), data) !== false) {
-						jQuery("#" + jQuery(this).attr('id') + ID).find('.percentage').text(' - Completed');
+						//jQuery("#" + jQuery(this).attr('id') + ID).find('.percentage').text(' - Completed');
+						jQuery("#" + jQuery(this).attr('id') + ID).find('.percentage').hide();
 						if (settings.removeCompleted) {
-							jQuery("#" + jQuery(event.target).attr('id') + ID).fadeOut(250,function() {jQuery(this).remove()});
+							
+							//jQuery("#" + jQuery(event.target).attr('id') + ID).fadeIn(250,function() {
+								//jQuery(this).remove()
+								//});
+								jQuery("#" + jQuery(this).attr('id') + ID).find('.percentage').fadeIn(300)
 						}
 						jQuery("#" + jQuery(event.target).attr('id') + ID).addClass('completed');
 					}

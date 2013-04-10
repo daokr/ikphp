@@ -67,5 +67,8 @@ class imagesAction extends frontendAction {
 			echo json_encode($arrJson);
 		}
 	}
+	public function edialog(){
+		$this->display('image');	
+	}
 		
 }

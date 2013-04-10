@@ -18,7 +18,7 @@ address, caption, cite, code, dfn, em, i, th, var, optgroup {
     font-weight: normal;
 }
 body{ color:#333; font:12px/1.5  Arial,Helvetica,sans-serif,Microsoft YaHei; direction:ltr; }
-body{ background: url("homebg.jpg") repeat fixed center top transparent;}
+body{ /*background: url("homebg.jpg") repeat fixed center top transparent;*/}
 /**节日
 body{
 -moz-transform: rotate(-10deg); 

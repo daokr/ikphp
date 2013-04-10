@@ -22,32 +22,40 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+.uploadifyQueue{ clear:both; overflow:hidden}
 .uploadifyQueueItem {
-	background-color: #F5F5F5;
-	border: 2px solid #E5E5E5;
-	font: 11px Verdana, Geneva, sans-serif;
-	margin-top: 5px;
-	padding: 10px;
-	width: 350px;
+	background-color: #fff;
+	border: 1px solid #e5e5e7;
+	font: 12px Verdana, Geneva, sans-serif;
+	width: 130px;
+	height:130px;
+  	display: inline;
+    float: left;
+	margin: 1px 0 0 1px;
+    padding: 5px;
+	position:relative;
 }
-
+.uploadifyQueueItem:hover{ border:#f87070 solid 1px;}
+.uploadifyQueueItem .fileName{ display:none}
 .uploadifyError {
 	background-color: #FDE5DD !important;
 	border: 2px solid #FBCBBC !important;
 }
 
 .uploadifyQueueItem .cancel {
-	float: right;
+	position:absolute; right:0px; bottom:0px; 
 }
-
+.uploadifyQueueItem .cancel a{ background-color:transparent; display:block; width:18px; height:18px; background-color:#FFF;}
+.uploadifyQueueItem .cancel a:hover{ opacity:0.8}
 .uploadifyQueue .completed {
-	background-color: #E5E5E5;
+	background-color: #fff;
 }
-
+.percentage{ display:block;}
 .uploadifyProgress {
 	background-color: #E5E5E5;
-	margin-top: 10px;
-	width: 100%;
+	height:3px;
+	width: 128px;
+	position:absolute; left:6px; top:60px
 }
 
 .uploadifyProgressBar {
