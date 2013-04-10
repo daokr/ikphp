@@ -18,7 +18,6 @@ address, caption, cite, code, dfn, em, i, th, var, optgroup {
     font-weight: normal;
 }
 body{ color:#333; font:12px/1.5  Arial,Helvetica,sans-serif,Microsoft YaHei; direction:ltr; }
-body{ /*background: url("homebg.jpg") repeat fixed center top transparent;*/}
 /**节日
 body{
 -moz-transform: rotate(-10deg); 
@@ -221,8 +220,8 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 .midder{width:980px;margin:0 auto;padding:0;overflow:hidden;height:auto !important; min-height:400px; margin-top:15px; }
 .midder{ }
 .midder .mc{overflow:hidden;display: block;}
-.midder .mc .cleft{float: left;padding-right: 10px; width: 640px;background-color:#fff; padding:10px;border-radius:5px}
-.midder .mc .cright{float: right;width: 290px;background-color:#fff; padding:10px; border-radius:5px}
+.midder .mc .cleft{float: left;padding-right: 10px; width: 640px;background-color:#fff; }
+.midder .mc .cright{float: right;width: 310px;background-color:#fff; }
 .w190{width:190px}
 .w770{width:770px}
 .midder .mc .w250{ width:250px}

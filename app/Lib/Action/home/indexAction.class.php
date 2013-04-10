@@ -65,17 +65,5 @@ class indexAction extends frontendAction {
 		echo $ss; */
 	
 	}
-	public function upimg(){
-	
-		 $this->display ();
-	
-	}
-	public function up(){
-		$result = savelocalfile($_FILES['Filedata'],'test/2',array('width'=>'130','height'=>'130'),
-				array('jpg','gif','png'));
 
-		//$arrJson = array('r'=>0, 'html'=> '删除成功');
-		$result = array('src'=>'http://img.baidu.com/img/image/yiping1.jpg');
-		echo json_encode($result);	
-	}
 }

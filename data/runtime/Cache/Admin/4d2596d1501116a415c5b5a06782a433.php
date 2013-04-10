@@ -9,6 +9,14 @@
 <script src="__STATIC__/public/js/jquery.js" type="text/javascript"></script>
 <script src="__STATIC__/admin/js/common.js" type="text/javascript"></script>
 <style>.fbox{float:left;width:45%;margin-right:10px;}</style>
+<script>
+$(document).ready(function(){
+	$.getJSON("http://www.ikphp.com/index.php?m=notice&a=isupdate&callback=?", 
+	function(data){
+		$('#IKPHP_Notice').html(data);
+	}); 
+});
+</script>
 </head>
 <body>
 
@@ -57,9 +65,7 @@
 
 <div class="fbox" id="admindex_msg">
 <h2>爱客(<?php echo ($ikphp["ikphp_site_name"]); ?>)官方消息</h2>
-<table>
-
-</table>
+<table id="IKPHP_Notice"></table>
 </div>
 
 </div>

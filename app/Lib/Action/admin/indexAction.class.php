@@ -104,5 +104,6 @@ class indexAction extends backendAction {
     	session('admin', null);
     	$this->success(L('logout_success'), U('index/login'));
     	exit;
-    }    
+    }
+  
 }
