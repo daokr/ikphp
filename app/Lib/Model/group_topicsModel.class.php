@@ -37,13 +37,14 @@ class group_topicsModel extends Model {
 		$where['isshwo'] = 0;
 		$where['isaudit']  = '0';
 		//$arrList = $this->field('userid,topicid,groupid')->where ( $where )->order('count_comment desc')->limit($limit)->select();
-		$arrList = $this->field('userid,topicid,groupid')->where ( $where )->order('istop desc,addtime desc')->limit($limit)->select();
+		$arrList = $this->field('userid,topicid,groupid,content,title')->where ( $where )->order('istop desc,addtime desc')->limit($limit)->select();
 		
 		if(is_array($arrList)){
 			foreach($arrList as $key=>$item){
 				$result[] = $this->getOneTopic($item['topicid']);
 				$result[$key]['user'] = D('user')->getOneUser($item['userid']);
-				$result[$key]['content'] = getsubstrutf8(t($item['content']),0,50);
+				$result[$key]['content'] = getsubstrutf8(ikhtml_text('topic',$item['topicid'],$item['content']),0,300);
+				$result[$key]['img'] = ikhtml_img('topic',$item['topicid'],$item['content']);
 			}
 		}
 		return $result;

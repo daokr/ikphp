@@ -1,1 +1,1 @@
-<?php	return array ( 'ik_iscreate' => '1', 'ik_group_isaudit' => '0', 'ik_topic_isaudit' => '0', 'ik_maxgroup' => '10', 'ik_jionmax' => '50', );?>
+<?php	return array ( 'ik_iscreate' => '0', 'ik_group_isaudit' => '0', 'ik_topic_isaudit' => '0', 'ik_maxgroup' => '10', 'ik_jionmax' => '50', );?>
