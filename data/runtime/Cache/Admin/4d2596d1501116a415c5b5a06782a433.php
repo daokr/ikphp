@@ -11,7 +11,7 @@
 <style>.fbox{float:left;width:45%;margin-right:10px;}</style>
 <script>
 $(document).ready(function(){
-	$.getJSON("http://www.ikphp.com/index.php?m=notice&a=isupdate&callback=?", 
+	$.getJSON("http://www.ikphp.com/ikphp/index.php?m=notice&a=isupdate&v=<?php echo (IKPHP_VERSION); ?>&callback=?", 
 	function(data){
 		$('#IKPHP_Notice').html(data);
 	}); 
