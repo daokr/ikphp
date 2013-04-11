@@ -328,7 +328,7 @@ input,button,textarea,select,optgroup,option {
 }
 
 .sub-item {
-	border-bottom: 1px dashed #AAAAAA;
+	border-bottom: 1px solid #E8E8E8;
 	float: left;
 	height: 72px;
 	margin: 0 2px 15px 0;
@@ -394,8 +394,8 @@ input,button,textarea,select,optgroup,option {
 }
 /**热门话题**/
 .topic-list{}
-.topic-list dl{ margin-bottom:15px; border-bottom:#aaa dashed 1px; padding-bottom:15px}
-.topic-list dl .title{ font-size:12px;  }
+.topic-list dl{ margin-bottom:20px; border-bottom:#E8E8E8 solid 1px; padding-bottom:20px}
+.topic-list dl .title{ font-size:14px;  }
 .topic-list dl .title span{ float:right;  }
 .topic-list dl .title span a{ color:#fff;background-color:#8096b3;padding:0px 4px; border-radius:3px;}
 .topic-list dl .title span a:hover{ background-color:#336699}
@@ -403,6 +403,7 @@ input,button,textarea,select,optgroup,option {
 .topic-list dl dd{ display:table-cell; vertical-align:top; width:580px}
 .topic-list dl summary{ color:#666}
 .topic-list dl p{ margin-top:5px}
+.topic-list dl p img{ margin-left:15px}
 /**活跃会员**/
 .obu {
     display: inline;

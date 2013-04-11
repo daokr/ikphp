@@ -350,6 +350,44 @@ function h($text){
 	$text = nl2br ( $text );
 	return $text;
 }
+// ik专用解析输出第一张图片
+function ikhtml_img($type,$typeid,$content){
+	//图片
+	$arr_photo = array();
+	//匹配本地图片
+	$strcontent = $content;
+	preg_match_all ( '/\[(图片)(\d+)\]/is', $strcontent, $photos );
+	if(!empty($photos [2])){
+		$strPhoto = D('images')->getImageByseqid($type,$typeid,$photos [2][0]);
+		return $strPhoto;
+	}else{
+		return;
+	}	
+}
+function ikhtml_text($type,$typeid,$content){
+	//图片
+	$arr_photo = array();
+	//匹配本地图片
+	$strcontent = $content;	
+	preg_match_all ( '/\[(图片)(\d+)\]/is', $strcontent, $photos );		
+	foreach ($photos [2] as $key=>$item) {
+		$strPhoto = D('images')->getImageByseqid($type,$typeid,$item);
+		$arr_photo[$key] = $strPhoto['mimg'];
+		
+		$htmlTpl = '';
+
+		$strcontent = str_replace ( '[图片'.$item.']', $htmlTpl, $strcontent );
+	}
+	//匹配链接
+	preg_match_all ( '/\[(url)=([http|https|ftp]+:\/\/[a-zA-Z0-9\.\-\?\=\_\&amp;\/\'\`\%\:\@\^\+\,\.]+)\]([^\[]+)(\[\/url\])/is',
+	$strcontent, $contenturl);
+	foreach($contenturl[2] as $c1)
+	{
+		$strcontent = str_replace ( "[url={$c1}]", '', $strcontent);
+		$strcontent = str_replace ( "[/url]", '', $strcontent);
+	}
+	return $strcontent;	
+}
 // ik专用解析输出内容
 function ikhtml($type,$typeid,$content){
 	//图片

@@ -197,6 +197,25 @@ class groupAction extends backendAction {
     
     	}
     }
+    //ajax批量推荐
+    public function ajax_recommend(){
+    	$itemid = $this->_post('itemid');
+    	$ik = $this->_get ( 'ik', 'trim');
+    	$isrecommend = $this->_get('isrecommend','intval','0');
+    	if(!empty($itemid)){
+    		 
+    		switch ($ik) {
+    			case "groups" :
+    				//推荐小组
+    				$where['groupid'] = array('exp',' IN ('.$itemid.') ');
+    				$this->mod->where($where)->setField(array('isrecommend'=>$isrecommend));
+    				$arrJson = array('r'=>0, 'html'=> '操作成功');
+    				echo json_encode($arrJson);
+    				break;
+    		}
+    
+    	}
+    }
     //全部话题
     public function topics() {
     	$isaudit = $this->_get('isaudit','intval','0');

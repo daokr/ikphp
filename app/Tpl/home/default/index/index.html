@@ -77,9 +77,9 @@
                 <dl>
                     <dt><a href="{:U('people/index',array('id'=>$item[user][doname]))}"><img src="{$item[user][face]}"/></a></dt>
                     <dd>
-                        <header class="title"><span><a href="{:U('group/topic',array('id'=>$item[topicid]))}#comment" title="回复数">{$item[count_comment]}</a></span><a href="{:U('group/topic',array('id'=>$item[topicid]))}" title="{$time[title]}">{$item[title]}</a></header>
-                         <a href="{:U('people/index',array('id'=>$item[user][doname]))}">{$item[user][username]}</a> <summary><php>echo getTime($item[addtime],time())</php> {$item[count_view]}次阅读</summary>
-                        <p>{$item[content]}</p>
+                        <header class="title"><a href="{:U('group/topic',array('id'=>$item[topicid]))}" title="{$time[title]}">{$item[title]}</a></header>
+                         <a href="{:U('people/index',array('id'=>$item[user][doname]))}">{$item[user][username]}</a> <summary><php>echo getTime($item[addtime],time())</php> 阅读 {$item[count_view]} 评论 {$item[count_comment]}</summary>
+                        <p><a href="{:U('group/topic',array('id'=>$item[topicid]))}" title="{$time[title]}"><img src="{$item[img][simg]}" class="fr"></a>{$item[content]}</p>
                     </dd>
                 </dl>
                 </foreach>

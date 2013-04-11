@@ -166,9 +166,9 @@ __EXTENDS_JS__
                 <?php if(is_array($arrHotTopic)): foreach($arrHotTopic as $key=>$item): ?><dl>
                     <dt><a href="<?php echo U('people/index',array('id'=>$item[user][doname]));?>"><img src="<?php echo ($item[user][face]); ?>"/></a></dt>
                     <dd>
-                        <header class="title"><span><a href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>#comment" title="回复数"><?php echo ($item[count_comment]); ?></a></span><a href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>" title="<?php echo ($time[title]); ?>"><?php echo ($item[title]); ?></a></header>
-                         <a href="<?php echo U('people/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <summary><?php echo getTime($item[addtime],time()) ?> <?php echo ($item[count_view]); ?>次阅读</summary>
-                        <p><?php echo ($item[content]); ?></p>
+                        <header class="title"><a href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>" title="<?php echo ($time[title]); ?>"><?php echo ($item[title]); ?></a></header>
+                         <a href="<?php echo U('people/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <summary><?php echo getTime($item[addtime],time()) ?> 阅读 <?php echo ($item[count_view]); ?> 评论 <?php echo ($item[count_comment]); ?></summary>
+                        <p><a href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>" title="<?php echo ($time[title]); ?>"><img src="<?php echo ($item[img][simg]); ?>" class="fr"></a><?php echo ($item[content]); ?></p>
                     </dd>
                 </dl><?php endforeach; endif; ?>
             </div>
