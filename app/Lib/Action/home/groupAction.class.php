@@ -1144,5 +1144,23 @@ class groupAction extends frontendAction {
 		}
 		
 	}
+	//rss 订阅
+	public function rss(){			
+		$groupid = $this->_get('id');
+		$strGroup = $this->_mod->getOneGroup($groupid);
+		$arrTopics = $this->group_topics_mod->getTopics($groupid,30);
+		
+		foreach($arrTopics as $key=>$item){
+			$arrTopic[] = $item;
+			$arrTopic[$key]['content'] = ikhtml_text('topic', $item['topicid'], $item['content']);
+		}
+		
+		$pubdate = time();
+		$this->assign('pubdate', $pubdate);
+		$this->assign('arrTopic', $arrTopic);
+		$this->assign('strGroup', $strGroup);
+		$this->assign('xmlheader','<?xml version="1.0" encoding="UTF-8" ?>');
+		$this->display('rss','UTF-8','text/xml');
+	}
 		
 }
