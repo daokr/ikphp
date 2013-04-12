@@ -1,0 +1,918 @@
+[ 2013-04-12T10:28:45+08:00 ] 127.0.0.1 /IKPHP/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000872s ]
+INFO: Run load_lang Behavior [ RunTime:0.002384s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003478s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004779s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 1 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001483s ]
+SQL: SHOW COLUMNS FROM `ik_group` [ RunTime:0.004887s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.005003s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics` [ RunTime:0.004877s ]
+SQL: SHOW COLUMNS FROM `ik_article` [ RunTime:0.004515s ]
+SQL: SELECT `groupid` FROM `ik_group` WHERE ( `isshow` = 0 ) ORDER BY addtime desc LIMIT 10   [ RunTime:0.016327s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 37 ) LIMIT 1   [ RunTime:0.000473s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 37 ) LIMIT 1   [ RunTime:0.000512s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 36 ) LIMIT 1   [ RunTime:0.000441s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 36 ) LIMIT 1   [ RunTime:0.000506s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 35 ) LIMIT 1   [ RunTime:0.000470s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 35 ) LIMIT 1   [ RunTime:0.000506s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 34 ) LIMIT 1   [ RunTime:0.000468s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 34 ) LIMIT 1   [ RunTime:0.000465s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 33 ) LIMIT 1   [ RunTime:0.000411s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 33 ) LIMIT 1   [ RunTime:0.000526s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 32 ) LIMIT 1   [ RunTime:0.000471s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 32 ) LIMIT 1   [ RunTime:0.000545s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 31 ) LIMIT 1   [ RunTime:0.000457s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 31 ) LIMIT 1   [ RunTime:0.000507s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 30 ) LIMIT 1   [ RunTime:0.000469s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 30 ) LIMIT 1   [ RunTime:0.000574s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 29 ) LIMIT 1   [ RunTime:0.000462s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 29 ) LIMIT 1   [ RunTime:0.000533s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 28 ) LIMIT 1   [ RunTime:0.000450s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 28 ) LIMIT 1   [ RunTime:0.000534s ]
+SQL: SELECT `userid`,`topicid`,`groupid`,`content`,`title` FROM `ik_group_topics` WHERE ( `groupid` > 0 ) AND ( `isaudit` = 0 ) ORDER BY istop desc,addtime desc LIMIT 15   [ RunTime:0.000719s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 7 ) LIMIT 1   [ RunTime:0.000481s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 7 ) LIMIT 1   [ RunTime:0.000514s ]
+SQL: SHOW COLUMNS FROM `ik_images` [ RunTime:0.004702s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 7 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.001258s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 7 ) AND ( `seqid` = 2 ) LIMIT 1   [ RunTime:0.000523s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 3 ) LIMIT 1   [ RunTime:0.000637s ]
+SQL: SHOW COLUMNS FROM `ik_area` [ RunTime:0.004472s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 2 ) LIMIT 1   [ RunTime:0.001287s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 7 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000535s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 7 ) AND ( `seqid` = 2 ) LIMIT 1   [ RunTime:0.000556s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 7 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000527s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 4 ) LIMIT 1   [ RunTime:0.000435s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 4 ) LIMIT 1   [ RunTime:0.000526s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 4 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000536s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 3 ) LIMIT 1   [ RunTime:0.000515s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 2 ) LIMIT 1   [ RunTime:0.000465s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 4 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000529s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 4 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000526s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 32 ) LIMIT 1   [ RunTime:0.000456s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 32 ) LIMIT 1   [ RunTime:0.000500s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000519s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 3 ) LIMIT 1   [ RunTime:0.000464s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 31 ) LIMIT 1   [ RunTime:0.000435s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 31 ) LIMIT 1   [ RunTime:0.000504s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000555s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 3 ) LIMIT 1   [ RunTime:0.000466s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 23 ) LIMIT 1   [ RunTime:0.000454s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 23 ) LIMIT 1   [ RunTime:0.000503s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000519s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 3 ) LIMIT 1   [ RunTime:0.000508s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 9 ) LIMIT 1   [ RunTime:0.000436s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 9 ) LIMIT 1   [ RunTime:0.000509s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 6 ) LIMIT 1   [ RunTime:0.000553s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 2 ) LIMIT 1   [ RunTime:0.000464s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 1 ) LIMIT 1   [ RunTime:0.000405s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 1 ) LIMIT 1   [ RunTime:0.000546s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 1 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000520s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000546s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 3 ) LIMIT 1   [ RunTime:0.000470s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 1 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000526s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 1 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000511s ]
+SQL: SELECT `userid` FROM `ik_user` WHERE ( `isenable` = 0 ) ORDER BY uptime desc LIMIT 12   [ RunTime:0.000508s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000525s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 3 ) LIMIT 1   [ RunTime:0.000589s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 3 ) LIMIT 1   [ RunTime:0.000512s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 2 ) LIMIT 1   [ RunTime:0.000461s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 8 ) LIMIT 1   [ RunTime:0.000520s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 6 ) LIMIT 1   [ RunTime:0.000560s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 2 ) LIMIT 1   [ RunTime:0.000441s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 9 ) LIMIT 1   [ RunTime:0.000532s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 7 ) LIMIT 1   [ RunTime:0.000530s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 5 ) LIMIT 1   [ RunTime:0.000522s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 4 ) LIMIT 1   [ RunTime:0.000543s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 37 ) LIMIT 1   [ RunTime:0.000492s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 2 ) LIMIT 1   [ RunTime:0.000522s ]
+SQL: SHOW COLUMNS FROM `ik_article_item` [ RunTime:0.004722s ]
+SQL: SELECT * FROM `ik_article_item` WHERE ( `isaudit` = 0 ) ORDER BY addtime desc LIMIT 8   [ RunTime:0.001474s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `isrecommend` = 1 ) ORDER BY groupid asc LIMIT 10   [ RunTime:0.000667s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 19 ) LIMIT 1   [ RunTime:0.000463s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 19 ) LIMIT 1   [ RunTime:0.000532s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 20 ) LIMIT 1   [ RunTime:0.000445s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 20 ) LIMIT 1   [ RunTime:0.000493s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 27 ) LIMIT 1   [ RunTime:0.000433s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 27 ) LIMIT 1   [ RunTime:0.000491s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 28 ) LIMIT 1   [ RunTime:0.000489s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 28 ) LIMIT 1   [ RunTime:0.000510s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 29 ) LIMIT 1   [ RunTime:0.000462s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 29 ) LIMIT 1   [ RunTime:0.000509s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 30 ) LIMIT 1   [ RunTime:0.000445s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 30 ) LIMIT 1   [ RunTime:0.000506s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 31 ) LIMIT 1   [ RunTime:0.000434s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 31 ) LIMIT 1   [ RunTime:0.000500s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 32 ) LIMIT 1   [ RunTime:0.000472s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 32 ) LIMIT 1   [ RunTime:0.000510s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 33 ) LIMIT 1   [ RunTime:0.000469s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 33 ) LIMIT 1   [ RunTime:0.000510s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 34 ) LIMIT 1   [ RunTime:0.000441s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 34 ) LIMIT 1   [ RunTime:0.000498s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user` LIMIT 1   [ RunTime:0.000388s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001938s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002049s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant style - assumed 'style' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 78 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 79 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 79 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 83 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 83 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 83 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 83 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 83 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 83 行.
+NOTIC: [8] Use of undefined constant userid - assumed 'userid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 105 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant itemid - assumed 'itemid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant itemid - assumed 'itemid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant itemid - assumed 'itemid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant itemid - assumed 'itemid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.070496s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.070601s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001632s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001351s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001284s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001462s ]
+INFO: Run content_replace Behavior [ RunTime:0.002426s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008536s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001375s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001482s ]
+
+[ 2013-04-12T10:28:48+08:00 ] 127.0.0.1 /IKPHP/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000398s ]
+INFO: Run load_lang Behavior [ RunTime:0.001768s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002381s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.003885s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 1 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001162s ]
+SQL: SHOW COLUMNS FROM `ik_group` [ RunTime:0.004074s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004414s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics` [ RunTime:0.004097s ]
+SQL: SHOW COLUMNS FROM `ik_article` [ RunTime:0.003631s ]
+SQL: SELECT `groupid` FROM `ik_group` WHERE ( `isshow` = 0 ) ORDER BY addtime desc LIMIT 10   [ RunTime:0.001339s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 37 ) LIMIT 1   [ RunTime:0.000424s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 37 ) LIMIT 1   [ RunTime:0.000524s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 36 ) LIMIT 1   [ RunTime:0.000443s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 36 ) LIMIT 1   [ RunTime:0.000511s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 35 ) LIMIT 1   [ RunTime:0.000498s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 35 ) LIMIT 1   [ RunTime:0.000502s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 34 ) LIMIT 1   [ RunTime:0.000445s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 34 ) LIMIT 1   [ RunTime:0.000493s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 33 ) LIMIT 1   [ RunTime:0.000447s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 33 ) LIMIT 1   [ RunTime:0.000512s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 32 ) LIMIT 1   [ RunTime:0.000459s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 32 ) LIMIT 1   [ RunTime:0.000531s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 31 ) LIMIT 1   [ RunTime:0.000446s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 31 ) LIMIT 1   [ RunTime:0.000499s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 30 ) LIMIT 1   [ RunTime:0.000440s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 30 ) LIMIT 1   [ RunTime:0.000505s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 29 ) LIMIT 1   [ RunTime:0.000451s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 29 ) LIMIT 1   [ RunTime:0.000528s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 28 ) LIMIT 1   [ RunTime:0.000484s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 28 ) LIMIT 1   [ RunTime:0.000521s ]
+SQL: SELECT `userid`,`topicid`,`groupid`,`content`,`title` FROM `ik_group_topics` WHERE ( `groupid` > 0 ) AND ( `isaudit` = 0 ) ORDER BY istop desc,addtime desc LIMIT 15   [ RunTime:0.000671s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 7 ) LIMIT 1   [ RunTime:0.000441s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 7 ) LIMIT 1   [ RunTime:0.000515s ]
+SQL: SHOW COLUMNS FROM `ik_images` [ RunTime:0.003857s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 7 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.001160s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 7 ) AND ( `seqid` = 2 ) LIMIT 1   [ RunTime:0.000535s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 3 ) LIMIT 1   [ RunTime:0.000535s ]
+SQL: SHOW COLUMNS FROM `ik_area` [ RunTime:0.003584s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 2 ) LIMIT 1   [ RunTime:0.001194s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 7 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000515s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 7 ) AND ( `seqid` = 2 ) LIMIT 1   [ RunTime:0.000520s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 7 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000522s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 4 ) LIMIT 1   [ RunTime:0.000422s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 4 ) LIMIT 1   [ RunTime:0.000534s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 4 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000535s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 3 ) LIMIT 1   [ RunTime:0.000549s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 2 ) LIMIT 1   [ RunTime:0.000480s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 4 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000532s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 4 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000518s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 32 ) LIMIT 1   [ RunTime:0.000443s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 32 ) LIMIT 1   [ RunTime:0.000502s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000596s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 3 ) LIMIT 1   [ RunTime:0.000443s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 31 ) LIMIT 1   [ RunTime:0.000451s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 31 ) LIMIT 1   [ RunTime:0.000528s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000530s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 3 ) LIMIT 1   [ RunTime:0.000448s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 23 ) LIMIT 1   [ RunTime:0.000495s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 23 ) LIMIT 1   [ RunTime:0.000612s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000528s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 3 ) LIMIT 1   [ RunTime:0.000475s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 9 ) LIMIT 1   [ RunTime:0.000443s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 9 ) LIMIT 1   [ RunTime:0.000516s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 6 ) LIMIT 1   [ RunTime:0.000526s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 2 ) LIMIT 1   [ RunTime:0.000447s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 1 ) LIMIT 1   [ RunTime:0.000480s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 1 ) LIMIT 1   [ RunTime:0.000530s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 1 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000534s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000538s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 3 ) LIMIT 1   [ RunTime:0.000469s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 1 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000534s ]
+SQL: SELECT * FROM `ik_images` WHERE ( `type` = 'topic' ) AND ( `typeid` = 1 ) AND ( `seqid` = 1 ) LIMIT 1   [ RunTime:0.000537s ]
+SQL: SELECT `userid` FROM `ik_user` WHERE ( `isenable` = 0 ) ORDER BY uptime desc LIMIT 12   [ RunTime:0.000511s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000527s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 3 ) LIMIT 1   [ RunTime:0.000467s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 3 ) LIMIT 1   [ RunTime:0.000522s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 2 ) LIMIT 1   [ RunTime:0.000448s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 8 ) LIMIT 1   [ RunTime:0.000540s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 6 ) LIMIT 1   [ RunTime:0.000543s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 2 ) LIMIT 1   [ RunTime:0.000470s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 9 ) LIMIT 1   [ RunTime:0.000517s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 7 ) LIMIT 1   [ RunTime:0.000541s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 5 ) LIMIT 1   [ RunTime:0.000530s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 4 ) LIMIT 1   [ RunTime:0.000535s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `areaid` = 37 ) LIMIT 1   [ RunTime:0.000465s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 2 ) LIMIT 1   [ RunTime:0.000547s ]
+SQL: SHOW COLUMNS FROM `ik_article_item` [ RunTime:0.003831s ]
+SQL: SELECT * FROM `ik_article_item` WHERE ( `isaudit` = 0 ) ORDER BY addtime desc LIMIT 8   [ RunTime:0.001226s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `isrecommend` = 1 ) ORDER BY groupid asc LIMIT 10   [ RunTime:0.000691s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 19 ) LIMIT 1   [ RunTime:0.000444s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 19 ) LIMIT 1   [ RunTime:0.000508s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 20 ) LIMIT 1   [ RunTime:0.000455s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 20 ) LIMIT 1   [ RunTime:0.000524s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 27 ) LIMIT 1   [ RunTime:0.000460s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 27 ) LIMIT 1   [ RunTime:0.000508s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 28 ) LIMIT 1   [ RunTime:0.000438s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 28 ) LIMIT 1   [ RunTime:0.000561s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 29 ) LIMIT 1   [ RunTime:0.000430s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 29 ) LIMIT 1   [ RunTime:0.000520s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 30 ) LIMIT 1   [ RunTime:0.000495s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 30 ) LIMIT 1   [ RunTime:0.000515s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 31 ) LIMIT 1   [ RunTime:0.000482s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 31 ) LIMIT 1   [ RunTime:0.000520s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 32 ) LIMIT 1   [ RunTime:0.000452s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 32 ) LIMIT 1   [ RunTime:0.000554s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 33 ) LIMIT 1   [ RunTime:0.000458s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 33 ) LIMIT 1   [ RunTime:0.000508s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 34 ) LIMIT 1   [ RunTime:0.000440s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 34 ) LIMIT 1   [ RunTime:0.000502s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user` LIMIT 1   [ RunTime:0.000404s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001615s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001722s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant style - assumed 'style' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 78 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 79 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 79 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 83 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 83 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 83 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 83 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 83 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 83 行.
+NOTIC: [8] Use of undefined constant userid - assumed 'userid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 105 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 152 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 153 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 157 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 158 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 167 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 169 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 170 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 171 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 184 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 185 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 189 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 197 行.
+NOTIC: [8] Use of undefined constant itemid - assumed 'itemid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant itemid - assumed 'itemid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant itemid - assumed 'itemid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant itemid - assumed 'itemid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\11e2f12d84b746b76491e3160c81a5b0.php 第 202 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.055816s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.055927s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001617s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001352s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001271s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001451s ]
+INFO: Run content_replace Behavior [ RunTime:0.002190s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008268s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001364s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001461s ]
+
