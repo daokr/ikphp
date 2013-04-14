@@ -395,14 +395,14 @@ input,button,textarea,select,optgroup,option {
 /**热门话题**/
 .topic-list{}
 .topic-list dl{ margin-bottom:20px; border-bottom:#E8E8E8 solid 1px; padding-bottom:20px}
-.topic-list dl .title{ font-size:14px;  }
+.topic-list dl .title{ font-size:16px; margin-bottom:5px}
 .topic-list dl .title span{ float:right;  }
 .topic-list dl .title span a{ color:#fff;background-color:#8096b3;padding:0px 4px; border-radius:3px;}
 .topic-list dl .title span a:hover{ background-color:#336699}
-.topic-list dl dt{ float:left; width:48px; height:48px; margin-right:1em; display:table-cell; vertical-align:top}
+.topic-list dl dt{ float:left; width:48px; height:48px; margin-right:1em; display:table-cell; vertical-align:top; margin-top:5px}
 .topic-list dl dd{ display:table-cell; vertical-align:top; width:580px}
-.topic-list dl summary{ color:#666}
-.topic-list dl p{ margin-top:5px}
+.topic-list dl summary{ color:#929292}
+.topic-list dl p{ margin-top:5px; line-height:20px}
 .topic-list dl p img{ margin-left:15px}
 /**活跃会员**/
 .obu {

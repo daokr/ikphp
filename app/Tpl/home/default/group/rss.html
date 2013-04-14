@@ -1,0 +1,23 @@
+{$xmlheader}
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+  <title>{:C('ik_site_title')}: {$strGroup[groupname]}小组的讨论</title>
+  <link>{:C('ik_site_url')}{:U('group/show',array('id'=>$strGroup[groupid]))}</link>
+  <description><![CDATA[{$IK_SITE[base][site_title]} {$strGroup[groupname]}小组二日内的最新讨论话题]]></description>
+  <language>zh_cn</language>
+  <copyright>&amp;amp;copy; {$Think.IKPHP_YEAR}, {$Think.IKPHP_SITENAME}.</copyright>
+  <pubDate><php> echo date('Y-m-d H:i:s',$pubdate)</php></pubDate>
+	<foreach name="arrTopic" item="item">
+    <item>
+        <title>{$item[title]}{:C('ik_site_title')}{$strGroup[groupname]}小组</title>
+        <link>{:U('group/topic',array('id'=>$item[topicid]))}</link>
+        <description><![CDATA[{$item[content]}]]></description>
+        <content:encoded><![CDATA[{$item[content]}]]></content:encoded>
+        <dc:creator>{$item[username]}</dc:creator>
+        <pubDate><php>echo date('Y-m-d H:i:s',$item[addtime])</php></pubDate>
+        <guid isPermaLink="true">{:U('group/topic',array('id'=>$item[topicid]))}</guid>
+   </item>
+	</foreach>
+	<runtime>{__RUNTIME__}</runtime>
+</channel>
+</rss>

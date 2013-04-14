@@ -96,9 +96,7 @@ function ajaxFileUpload(ajaxurl, data){
                         var oPhotoDiv = $(html);
                         oPhotoDiv.prependTo(oThumbList);
                         oThumbList.show();
-
-                        var oText = $("textarea[name='content']");
-                        oText.val(oText.val() + "[图片" + data.seq_id +"]");
+						$('#editor_full').insert_caret("[图片" + data.seq_id +"]");
                     }
 					
                 },
