@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<h2>{$title}</h2> 
+<form method="POST" action="{:U('oauth/save',array('ik'=>'unitelogin'))}">
+<table cellpadding="0" cellspacing="0">
+
+	<tr>
+		<th>接口标识：</th>
+		<td>{$strData[code]}<input name="id" value="{$strData[id]}" type="hidden" />
+        </td>
+	</tr>
+    <tr>
+		<th>接口名称：</th>
+		<td>
+        <input name="name" value="{$strData[name]}"  maxlength="20"/>
+        </td>
+	</tr>
+    <tr>
+		<th>App Key：</th>
+		<td>
+        <input name="key" value="{$strData[key]}"  />
+        </td>
+	</tr>
+    <tr>
+		<th>App Code：</th>
+		<td>
+        <input name="keycode" value="{$strData[keycode]}" style="width:280px"/>
+        </td>
+	</tr>        
+	</tr>    
+</table>
+<div class="page_btn"><input type="submit" value="提 交" class="submit" /></div>
+
+</form>
+</div>
+</body>
+</html>

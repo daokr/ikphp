@@ -76,7 +76,7 @@ __EXTENDS_JS__
              </li>   
              
              <li>
-             <a href="http://www.ikphp.com/down/IKPHP_Beta_1.5.zip" style="color:#fff" title="beta版1.5">IKPHP_Beta版1.5源码下载</a>
+             <a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a>
              </li>                                                      
 
         </ul>
@@ -129,7 +129,8 @@ __EXTENDS_JS__
             <div>
             <b>爱客网开源社区程序，内容互动性强，交流更方便</b><br><em>简单</em><em>快捷</em><em>方便</em><em>建设本地化，垂直型社区；目前已有<cite><?php echo ($count_user); ?></cite>位用户加入！</em>
             </div>
-            <a class="submit" href="<?php echo U('user/register');?>">加入我们</a>
+            <a class="submit" href="<?php echo U('user/register');?>">＋加入我们</a>
+            <a class="submit" href="<?php echo U('help/download');?>">↓源码下载</a>
             </div>
             
             <div class="login">

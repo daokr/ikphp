@@ -697,5 +697,18 @@ CREATE TABLE `ik_words` (
   `replacement` varchar(255) NOT NULL DEFAULT '' COMMENT '替换词',  
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='词组过滤' AUTO_INCREMENT=1 ;
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ik_downcount`
+--
+DROP TABLE IF EXISTS `ik_downcount`;
+CREATE TABLE `ik_downcount` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `userip` char(64) NOT NULL DEFAULT '' COMMENT '下载者ip',    
+  `downfrom` char(64) NOT NULL DEFAULT '' COMMENT '下载来源',       
+  `downtime` int(11) NOT NULL DEFAULT '0' COMMENT '时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='统计下载次数';
 
 

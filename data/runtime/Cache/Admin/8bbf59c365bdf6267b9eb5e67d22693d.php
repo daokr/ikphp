@@ -58,3 +58,10 @@
     <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('group/manage');?>" target="MainIframe">批量管理</a></li>
     </ul>
 </li><?php endif; ?>
+
+<?php if($ik == 'oauth'): ?><li class="treemenu_on">
+    <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">第三方应用</a>
+    <ul class="submenu" style="display: block;">
+    <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('oauth/manage');?>" target="MainIframe">联合登录</a></li>
+    </ul>
+</li><?php endif; ?>

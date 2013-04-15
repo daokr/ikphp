@@ -48,7 +48,7 @@ class articleAction extends frontendAction {
 		
 		$this->_config_seo ( array (
 				'title' => '最新美文',
-				'subtitle' => '文章' 
+				'subtitle' => '阅读' 
 		) );
 		$this->display ();
 	}
@@ -71,7 +71,7 @@ class articleAction extends frontendAction {
 		$this->assign ( 'arrCate', $arrCate );
 		$this->_config_seo ( array (
 				'title' => '发表新文章',
-				'subtitle' => '文章' 
+				'subtitle' => '阅读' 
 		) );
 		$this->display ();
 	}
@@ -197,7 +197,7 @@ class articleAction extends frontendAction {
 		$this->assign ( 'arrPhotos', $arrPhotos );
 		$this->_config_seo ( array (
 				'title' => '编辑“'.$strArticle['title'].'”',
-				'subtitle' => '文章'
+				'subtitle' => '阅读'
 		) );	
 		$this->display ('add');
 	}
@@ -237,7 +237,7 @@ class articleAction extends frontendAction {
 		$this->assign ( 'strUser', $strArticle ['user'] );
 		$this->_config_seo ( array (
 				'title' => $strArticle ['title'],
-				'subtitle' => '文章' 
+				'subtitle' => '阅读' 
 		) );
 		$this->display ();
 	}
@@ -267,7 +267,7 @@ class articleAction extends frontendAction {
 				
 		$this->_config_seo ( array (
 				'title' => $strChannel['name'].'&nbsp;-&nbsp;'.$strCate['catename'],
-				'subtitle' => '文章'
+				'subtitle' => '阅读'
 		) );
 		$this->assign ( 'arrCate', $arrCate );
 		$this->display ();
@@ -304,7 +304,7 @@ class articleAction extends frontendAction {
 		$this->assign ( 'arrCate', $arrCate );
 		$this->_config_seo ( array (
 				'title' => $strChannel['name'],
-				'subtitle' => '文章' 
+				'subtitle' => '阅读' 
 		) );
 		$this->display ();
 	}	

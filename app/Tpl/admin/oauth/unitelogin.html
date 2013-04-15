@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<h2>{$title}</h2> 
+<table  cellpadding="0" cellspacing="0">
+<tr class="old">
+<td>ID</td>
+<td>接口标识</td>
+<td>接口名称</td>
+<td>接口描述</td>
+<td>App Key</td>
+<td>App Code</td>
+<td>作者</td>
+<td>状态</td>
+<td width="200">操作</td>
+</tr>
+<foreach name="list" item="item">
+<tr class="odd">
+<td>{$item[id]}</td>
+<td>{$item[code]}</td>
+<td>{$item[name]}</td>
+<td>{$item[desc]}</td>
+<td>{$item[key]}</td>
+<td>{$item[keycode]}</td>
+<td>{$item[author]}</td>
+<td>
+<if condition="$item[status] eq 1">
+<font color="green">已启用</font>
+<else/>
+<font color="red">已停用</font>
+</if>
+</td>
+<td>
+<a href="{:U('oauth/edit',array('ik'=>'unitelogin','id'=>$item[id]))}">[编辑]</a> &nbsp;&nbsp;
+<if condition="$item[status] eq 1">
+<a href="{:U('oauth/status',array('ik'=>'unitelogin','id'=>$item[id],'status'=>'0'))}">[停用]</a> 
+<else/>
+<a href="{:U('oauth/status',array('ik'=>'unitelogin','id'=>$item[id],'status'=>'1'))}">[启用]</a> 
+</if>
+</td>
+<tr>
+</foreach>
+</table>
+<include file="action_menu" />
+<div class="pagebar">{$pageUrl}</div>
+</div>
+</body>
+</html>

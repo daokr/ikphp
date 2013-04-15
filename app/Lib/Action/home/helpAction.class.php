@@ -7,6 +7,7 @@ class helpAction extends frontendAction {
 	public function _initialize() {
 		parent::_initialize ();
 		$this->mod = D ( 'home_info' );
+		$this->down_mod = D ( 'downcount' );
 		$this->assign('arrMenu',$this->getMenu());
 
 		$this->assign('infokey',ACTION_NAME);
@@ -37,8 +38,28 @@ class helpAction extends frontendAction {
 				'contact' => array('text'=>'联系我们', 'url'=>U('help/contact')),
 				'agreement' => array('text'=>'用户条款', 'url'=>U('help/agreement')),
 				'privacy' => array('text'=>'隐私声明', 'url'=>U('help/privacy')),
+				'download' => array('text'=>'源码下载', 'url'=>U('help/download')),
 		);
 		return $arrMenu;
+	}
+	public function download(){
+		$from = $this->_get('id');
+		$countdown = $this->down_mod->count(); 
+		if(empty($from)){
+			$this->_config_seo (array('title'=>'IKPHP源码下载','subtitle'=>'首页'));
+			$this->assign('count', $countdown);	
+			$this->display('down');
+		}else{
+			
+			if($from == 1)
+			{ 
+				$data = array('userip'=>get_client_ip(),'downfrom'=>'本地下载','downtime'=>time());
+				if(!false == $this->down_mod->create($data)){
+					$this->down_mod->add(); 
+					header('Location: http://www.ikphp.com/down/IKPHP_V1.5.1.zip');
+				}
+			}
+		}
 	}	
 	
 }
