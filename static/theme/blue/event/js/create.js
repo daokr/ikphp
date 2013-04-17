@@ -184,6 +184,56 @@ IK("editable-select", "datePicker", "validate", function() {
 	$("#repeat_type").trigger("change");
 	$("body").click(b)
 });
+//ikphp地图弹出层
+IK(function() {
+	var a = /{(.+?)}/g;
+	$.substitute = function(c, b) {
+		return c.replace(a,
+		function(e, d) {
+			return typeof b[d] === "undefined" ? "": b[d]
+		})
+	}
+});
+var cardW = 388;
+var cardH = 106;
+var pinicon = window._pinicon_;
+var staticMap = "http://maps.google.cn/maps/api/staticmap?size=" + cardW + "x" + cardH + "&zoom=13{loc}&markers=icon:" + pinicon + "|{coordinate}&sensor=false&language=zh-CN";
+var empty_image = "http://maps.google.cn/maps/api/staticmap?size=388x106&amp;zoom=6&amp;center=北京,CN&amp;sensor=false&amp;language=zh-CN";
+var previewMap = function(f, b) {
+	var e = $(f).data("detail");
+	var d = $(b).parent().parent().parent();
+	var g = d.find(".map-card");
+	var a = e.coordinate || "";
+	if (a == "0.0,0.0") {
+		a = ""
+	}
+	var h = $.substitute(staticMap, {
+		loc: a ? "": "&center=" + (e.street_address || "北京"),
+		coordinate: a ? "|" + a: ""
+	});
+	var c = ['<div class="map-card" style="margin: 5px 0 10px 18px;_margin: 5px 0 15px 10px;"><div class="bd">', '<a href="javascript:void(0);" data-type="known_address" class="lnk-modify-addr">', '<img src="{src}" width="' + cardW + '" height="' + cardH + '">', "", "</a>", '<div class="map-card-modify" ', "", '>已标记地点 <a href="javascript:void(0);" data-type="known_address" class="no-visited lnk-modify-addr">修改</a></div>', '<input type="hidden" id="selected_known_address" value="', a, '">', "</div></div>"];
+	if (!a) {
+		c[3] = '<span class="map-card-nomark">在地图上标记地点</span>';
+		c[6] = 'style="display:none;"';
+		h = empty_image
+	}
+	c = c.join("").replace("{src}", h);
+	if (!g.length) {
+		g = $(c).appendTo(d)
+	} else {
+		g = g.replaceWith(c)
+	}
+	$("#coordinate").val(a);
+	g.find(".lnk-modify-addr").data("coordinate", a);
+	$("#selected_known_address").data(e);
+	$("#street_address").val(e.street_address || "");
+	IK.updateCity(e.loc_id, e.district_id, e.region_id)
+};
+
+
+
+
+//验证
 IK("validate", "editable-select", function() {
 	function k(C, z) {
 		var A = $(C).val().split("-");

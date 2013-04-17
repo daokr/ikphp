@@ -1,74 +1,314 @@
-/*会员列表*/
-.obu_bar{ margin-top:10px;}
-.obu {
-    display: inline;
-    float: left;
-    margin: 0 0 10px;
-    width: 73px;
+p {
+    margin-bottom: 0.7em;
+    margin-top: 0.5em;
 }
-.obu dt {
-    height: 50px;
-    line-height: 16px;
-    margin: 0;
-    overflow: hidden;
-    text-align: center;
+a.no-hover:hover, a.no-visited:visited, a:link {
+	color:#37a
 }
-.obu dd {
-	height:30px;
-    margin: 0;
-    overflow: hidden;
-    text-align: center;
+a:hover {
+	background-color:#37a;
+	color:#fff
+}
+a.bn-post:hover {
+	background-color:#fff
+}
+a.bn-big-action, a.bn-big-action:link, a.bn-big-action:hover, a.bn-big-action:visited {
+	display: inline-block;
+	background: #a88360;
+	color: #fff;
+	border-radius: 2px;
+	margin-right: 20px;
+	padding: 0 1em;
+	line-height: 2.2em;
+	vertical-align: middle;
+}
+a.gloomy, a.gloomy:link, a.gloomy:visited {
+	color:#808080
+}
+a.gloomy:hover {
+	color:#fff;
+	background-color:#808080
 }
 
-/*活动列表*/
-.events-list {
+.ll {
+    float: left;
 }
-.events-list li {
-    display: inline-block;
+.ui-slide-screen {
+	position:relative;
+	overflow:hidden
+}
+.ui-slide-screen .ui-slide-contents {
+	position:absolute
+}
+.title {
+	color:#111
+}
+.paginator .thispage {
+	background:#69c
+}
+.ui-slide-screen .ui-slide-contents {
+	width: 1600%
+}
+#db-events-guess {
+	position: relative;
+	color: #526f7c;
+}
+#db-events-guess .hd {
+	height: 2.25em;
+	border-bottom: 1px dotted #dadada;
+	padding-bottom: 0;
+	margin-bottom: 20px;
+}
+#db-events-guess .bd {
+	height: 220px;
+	width: 600px;
+}
+#db-events-guess .bd li {
+	height: 216px;
+	padding: 0 20px;
+    width: 110px;
+	display: inline-block;
+    font-size: 12px;
+    margin-bottom: 40px;
     overflow: hidden;
+    text-align: center;
     vertical-align: top;
-    float:left;
-	height:130px;
-	width: 295px;
 }
-.events-list .pic {
+.gallery li .pic {
+    padding-bottom: 10px;
+}
+#db-events-guess .bd a {
+	font-size: 14px
+}
+.ui-slides .hd {
+	height:2.45em
+}
+.ui-slides .hd h2 {
+	float:left;
+	border:0;
+	margin-bottom:0
+}
+.ui-slides .hd .ui-slide-control {
+	float:right
+}
+.ui-slide-control .ui-slide-counter {
+	display:inline-block;
+	margin-right:10px
+}
+.ui-slide-control a, .ui-slide-control a:active, .ui-slide-control a:hover, .ui-slide-control a:link {
+	display:inline-block;
+	vertical-align:middle;
+	width:19px;
+	height:19px;
+	cursor:pointer;
+	background-image:url(slide_control.png);
+	background-color:#fff;
+	background-repeat:no-repeat
+}
+.ui-slide-control a.btn-prev {
+	background-position:0 -21px
+}
+.ui-slide-control a.btn-next {
+	background-position:-22px -2px
+}
+.ui-slide-control a.btn-prev-disabled {
+	background-position:0 -2px
+}
+.cats-board {
+	background: #f6f5f2;
+	padding: 9px;
+}
+.cats-board h5 {
+	margin-bottom: 9px;
+}
+.cats-board h5, .cats-board h5 a {
+	font-size: 14px;
+	color: #111;
+}
+.cats-board h5 a:hover {
+	color: #111;
+	background: #eee;
+}
+.cats-board .entry {
+	margin: 7px;
+	width: 100px;
+	line-height: 1.95;
+}
+.cats-board .entry a {
+	padding: 0 3px;
+	border-radius: 1px;
+	line-height: 1.4em;
+	display: inline-block;
+}
+.mod h2 {
+	margin-bottom: 0.7em;
+	font-size: 15px;
+}
+.mod {
+	margin-bottom: 40px;
+}
+h2 {
+    color: #333333; margin:0px; padding:0px
+}
+.event-mod-2col .hd h2 {
+	font-size:14px
+}
+.event-mod-2col .events-list, .event-mod-big .events-list, .events-list-2col, .fluid-mods, .inline-list {
+	font-size:0;
+*word-spacing:-0.3em
+}
+.event-mod-2col .list-entry, .event-mod-big .list-entry, .events-list-2col .list-entry, .fluid-mods .mod, .inline-list li {
+	font-size:12px;
+	display:inline-block;
+	vertical-align:top;
+	zoom:1;
+*display:inline;
+*word-spacing:normal
+}
+.event-mod-2col .list-entry, .event-mod-big .list-entry, .events-list-2col .list-entry {
+	width:278px;
+	margin:0;
+	padding:20px 18px 20px 0
+}
+.event-mod-2col .title {
+	overflow:hidden;
+	height:1.7em;
+	margin-bottom:16px
+}
+.event-mod-2col .pic {
+	width:70px;
+	height:90px;
+	margin-right:20px
+}
+/**列表**/
+.event-mod {margin-bottom: 10px;}
+.event-mod h2 {
+	border-bottom: 1px dotted #dadada;
+	padding-bottom: 0.3em;
+	margin-bottom: 20px;
+}
+.event-mod {
+	margin-bottom: 10px;
+}
+.event-mod .title a {
+	font-size: 13px;
+}
+
+.events-list-2col {
+    margin-left: -30px;
+    margin-top: 0;
+}
+.events-list-2col .list-entry {
+    border: 0 none;
+    margin-left: 30px;
+    padding: 0 0 40px;
+    width: 278px;
+}
+
+.events-list .list-entry .info {
+    color: #666666;
+    margin-left: 90px;
+    padding-right: 5px;
+}
+.events-list .list-entry .pic {
+    margin-right: 20px;
+}
+.events-list .pic, .pic-items .pic {
     float: left;
-    height: 75px;
+    margin-right: 20px;
     overflow: hidden;
-    width: 75px;
+    width: 70px;
 }
-.events-list .pic {
-    margin-right: 10px;
-}
-.events-list .info {
-    float: left;
-    width: 205px;
-}
-.events-list .title {
-    line-height: 1.5;
-    margin-bottom: 5px;
-}
-.events-list .info a {
-    font-size: 14px;
-}
-.events-list .datetime {
-    margin-bottom: 5px;
+.events-list .list-entry .info .title {
+    font-size: 12px;
+    height: auto;
+    overflow: visible;
+	line-height: 1.5;
+	margin-bottom: 6px;
 }
 .events-list address {
     color: #666666;
     display: block;
     font-style: normal;
 }
-.events-list .followers {
-    color: #999999;
+/**右侧内容**/
+.simple-list-1col .list-entry {
+	clear:both;
+	margin-bottom:25px;
+	overflow:hidden;
+	zoom:1
 }
-
-/**/
-.bd {
-    background: none repeat scroll 0 0 #F5F5F5;
-    border-radius: 4px 4px 4px 4px;
-    color: #333333;
-    font-size: 14px;
-    padding: 10px;
-    text-align: center;
+.simple-list-1col p {
+	margin-top:0
+}
+.simple-list-1col li li {
+	margin-bottom:.3em
+}
+.simple-list-1col .ll {
+	margin-right:10px
+}
+.simple-list-1col a.ll:hover{
+	background-color: transparent;
+}
+.simple-list-1col .info {
+	padding-left:60px
+}
+.simple-list-1col .title {
+	font-size:13px;
+	height:1.5em;
+	overflow:hidden;
+	margin:-2px 0 4px
+}
+.simple-list-1col .event-title {
+	font-size:13px;
+	margin:-2px 0 4px
+}
+.simple-list-1col .tip {
+	color:#666;
+	font-size:12px
+}
+.simple-list-1col .sup-list {
+	line-height:1.6;
+	margin-top:.6em
+}
+.simple-list-1col .sup-list a {
+	color:#333
+}
+.simple-list-1col .sup-list a:hover {
+	border-bottom:1px solid #ccc;
+	background:transparent
+}
+.on-selling-events-price {
+    color: #FF8263;
+    font-weight: bold;
+}
+.linkgrid li {
+	width: 50%;
+}
+.linkgrid a {
+	height: 50px;
+	padding: 25px;
+	border: 1px solid #eee;
+	margin-right: 0px;
+	display: block;
+	line-height: 24px;
+}
+.linkgrid a:hover {
+	background: #fcfcfc;
+}
+.linkgrid a span.info {
+	color: #666;
+}
+.linkgrid a strong {
+	display: block;
+	font-size: 14px;
+	font-weight: 400;
+}
+.lnk-rss {
+	padding-left: 20px;
+	display: line-block;
+}
+.lnk-rss, .lnk-rss:hover {
+	background-image: url('feed1.png');
+	background-repeat: no-repeat;
 }
