@@ -389,11 +389,15 @@ function ikhtml_text($type,$typeid,$content){
 	return $strcontent;	
 }
 // ik专用解析输出内容
-function ikhtml($type,$typeid,$content){
+function ikhtml($type,$typeid,$content,$isformat = '0'){
 	//图片
 	$arr_photo = array();
 	//匹配本地图片
 	$strcontent = $content;	
+	//是否开启格式化内容
+	if($isformat =='1'){
+		$strcontent = str_replace(' ', '&nbsp;', $strcontent);
+	}
 	preg_match_all ( '/\[(图片)(\d+)\]/is', $strcontent, $photos );		
 	foreach ($photos [2] as $key=>$item) {
 		$strPhoto = D('images')->getImageByseqid($type,$typeid,$item);
@@ -414,6 +418,7 @@ function ikhtml($type,$typeid,$content){
 		$strcontent = str_replace ( "[url={$c1}]", '<a href="'.$c1.'" target="_blank">', $strcontent);
 		$strcontent = str_replace ( "[/url]", '</a>', $strcontent);
 	}
+
 	return $strcontent;
 }
 //生成随机数(1数字,0字母数字组合)

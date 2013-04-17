@@ -17,7 +17,7 @@
             </div>
         
             <div class="art-text">
-                 {$strArticle[content]}
+                {$strArticle[content]}
             </div>
             <div class="control-btns">
             <if condition="$visitor[userid] eq $strArticle[userid]"><a href="{:U('article/edit',array('id'=>$strArticle['aid']))}">编辑</a>&nbsp; &gt;&nbsp; <a href="{:U('article/delete',array('id'=>$strArticle['aid']))}" onclick="return confirm('确定删除?')">删除</a></if>
