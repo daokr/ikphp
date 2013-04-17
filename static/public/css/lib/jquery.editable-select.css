@@ -1,0 +1,34 @@
+input.editable-select {
+	background:#FFF url(arrow-down.gif) right center no-repeat;
+	padding-right:13px
+}
+.editable-select-options {
+	position:absolute;
+	display:none;
+	overflow:auto;
+	margin:0;
+	padding:0;
+	background:#FFF;
+	border:1px solid #CCC;
+	z-index:10
+}
+.editable-select-iframe {
+	position:absolute;
+	background:#FFF;
+	z-index:9;
+	display:none
+}
+.editable-select-options ul {
+	margin:0;
+	padding:0;
+	z-index:10;
+	list-style:none;
+	list-style-image:none
+}
+.editable-select-options li {
+	cursor:default;
+	padding:2px
+}
+.editable-select-options li.selected {
+	background:#eaeaea
+}
