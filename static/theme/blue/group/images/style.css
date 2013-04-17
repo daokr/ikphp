@@ -1019,6 +1019,9 @@ a.button-join:hover{ background-color:#ffeee0;}
 	*letter-spacing:normal;
 	word-spacing:-0.43em
 }
+.group-list .no-result{
+	font-size:12px; margin:20px 0px
+}
 .group-list .result {
 	display:inline-block;
 	*display:inline;

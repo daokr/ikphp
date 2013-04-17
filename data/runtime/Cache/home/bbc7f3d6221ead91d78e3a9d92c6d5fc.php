@@ -62,7 +62,7 @@
              </li>   
              
              <li>
-             <a href="http://www.ikphp.com/down/IKPHP_Beta_1.5.zip" style="color:#fff" title="beta版1.5">IKPHP_Beta版1.5源码下载</a>
+             <a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a>
              </li>                                                      
 
         </ul>

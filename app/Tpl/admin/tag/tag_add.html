@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<include file="top_menu" />
+<form method="POST" action="{:U('tag/manage',array('ik'=>'addtag'))}">
+<table cellpadding="0" cellspacing="0">
+
+		<th>Tag名称：</th>
+		<td><textarea cols="37" rows="8" name="tags"></textarea> (一行一个Tag，多个元素用"回车"格开。)</td>
+</td>
+	</tr>    
+</table>
+<div class="page_btn"><input type="submit" value="提 交" class="submit" /></div>
+
+</form>
+</div>
+</body>
+</html>

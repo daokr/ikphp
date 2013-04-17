@@ -52,14 +52,14 @@ class robotsModel extends Model
 			$arrArticleItem['cateid'] = $msgarr['importcatid'];
 			$arrArticleItem['addtime'] = $msgarr['addtime'];
 			$arrArticleItem['userid'] = $msgarr['uid']; //发布者
-			$arrArticleItem['isphoto'] = $msgarr['isphoto'];
+			$arrArticleItem['isphoto'] = empty($msgarr['isphoto']) ? 0 : 1;
 			
 			$arrArticle['newsfrom'] = $msgarr['itemfrom']; //来源
 			$arrArticle['newsauthor'] = $msgarr['author']; //来源author
 			$arrArticle['content'] = $msgarr['message']; //内容
 			
 			
-
+			//dump(D('article_item')->create($arrArticleItem));die;
 			if(!false == D('article_item')->create($arrArticleItem)){
 				$newitemid = D('article_item')->add();
 				if($newitemid>0){

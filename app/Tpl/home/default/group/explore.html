@@ -29,7 +29,10 @@
                 </div>
             </div>
             </foreach>
-                        
+            
+            <if condition="empty($list)">
+				<p class="no-result">没有关于"{$seo.title}"，可以换个类别再试试</p>
+            </if>
         </div>
         
         <div class="clear"></div>

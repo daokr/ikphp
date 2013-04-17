@@ -594,9 +594,23 @@ class groupAction extends frontendAction {
 	}
 	// 发现小组
 	public function explore(){
-		$tag = $this->_get('tagid', 'trim,urldecode','');
+		$tag = $this->_get('tag', 'trim,urldecode','');
 		if(!empty($tag)){
-			
+			$strTag = D('tag')->getOneTagByName($tag);
+			//查询
+			$map = array('tagid'=>$strTag['tagid']); 
+			$arrGroupid = D('tag_group_index')->field('groupid')->where($map)->order('groupid DESC')->select();
+			foreach ($arrGroupid as $item){
+				$groupid[] = $item['groupid']; 
+			}
+			$groupid = implode(',',$groupid);
+			$where['groupid'] = array('exp',' IN ('.$groupid.') ');
+			//显示列表
+			$pagesize = 20;
+			$count = $this->_mod->where($where)->order('isrecommend DESC')->count('groupid');
+			$pager = $this->_pager($count, $pagesize);
+			$arrGroups =  $this->_mod->where($where)->order('isrecommend DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
+			$this->_config_seo (array('title'=>$tag.'相关的小组','subtitle'=>'小组'));
 		}else{
 			//查询
 			$map = array('isopen'=>0); //开放公开
@@ -606,21 +620,22 @@ class groupAction extends frontendAction {
 			$count = $this->_mod->where($map)->order('isrecommend DESC')->count('groupid');
 			$pager = $this->_pager($count, $pagesize);
 			$arrGroups =  $this->_mod->where($map)->order('isrecommend DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
-			
-			foreach($arrGroups as $key=>$item){
-				$arrData[] = $this->_mod->getOneGroup($item['groupid']);
-			}
-			foreach($arrData as $key=>$item){
-				$exploreGroup[] =  $item;
-				$exploreGroup[$key]['groupname'] = getsubstrutf8(t($item[groupname]),0,14);
-				$exploreGroup[$key]['groupdesc'] = getsubstrutf8(t($item['groupdesc']),0,45);
-			}
-			
-			$this->assign('pageUrl', $pager->fshow());
-			$this->assign('list', $exploreGroup);
 			$this->_config_seo (array('title'=>'发现小组','subtitle'=>'小组'));
-			$this->display ();
 		}
+		
+		foreach($arrGroups as $key=>$item){
+			$arrData[] = $this->_mod->getOneGroup($item['groupid']);
+		}
+		foreach($arrData as $key=>$item){
+			$exploreGroup[] =  $item;
+			$exploreGroup[$key]['groupname'] = getsubstrutf8(t($item[groupname]),0,14);
+			$exploreGroup[$key]['groupdesc'] = getsubstrutf8(t($item['groupdesc']),0,45);
+		}
+			
+		$this->assign('pageUrl', $pager->fshow());
+		$this->assign('list', $exploreGroup);
+		
+		$this->display ();
 
 	}
 	// 发现话题

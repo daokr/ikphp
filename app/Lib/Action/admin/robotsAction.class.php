@@ -1425,7 +1425,7 @@ class robotsAction extends backendAction {
 							$msgarr = pregmessagearray ( $messagetext, $thevalue, $mnum, 1, 1, $msgurl ); // 解析文章内容
 							//如果内容标题和内容都不为空插入到库
 							if (! empty ( $msgarr ['title'] ) && ! empty ( $msgarr ['message'] ) )
-							{
+							{  
 								// 插入到库中
 								$itemid = D('robots')->messageaddtodb ( $msgarr, $robotid, 0 );
 								if($itemid>0){
@@ -1487,7 +1487,9 @@ class robotsAction extends backendAction {
 		} else {
 			showprogress ( '无法链接到指定的URL地址', 1 );
 		}
-		showprogress ( '<font color=green>采集完成，点击此处查看采集结果</font>', 1 );
+		$strCate = $this->cate_mod->getOneCate($thevalue ['importcatid']);
+		$listurl = U('article/index',array('ik'=>'list','nameid'=>$strCate['nameid'],'isaudit'=>0));
+		showprogress ( '<font color=green>采集完成，<a href="'.$listurl.'">点击此处查看</a> 采集结果</font>', 1 );
 		$listarr = array ();
 		$thevalue = array ();
 		$importvalue = array ();

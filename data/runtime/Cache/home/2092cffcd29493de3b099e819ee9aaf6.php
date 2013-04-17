@@ -130,7 +130,7 @@ __EXTENDS_JS__
             </div>
         
             <div class="art-text">
-                 <?php echo ($strArticle[content]); ?>
+                <?php echo ($strArticle[content]); ?>
             </div>
             <div class="control-btns">
             <?php if($visitor[userid] == $strArticle[userid]): ?><a href="<?php echo U('article/edit',array('id'=>$strArticle['aid']));?>">编辑</a>&nbsp; &gt;&nbsp; <a href="<?php echo U('article/delete',array('id'=>$strArticle['aid']));?>" onclick="return confirm('确定删除?')">删除</a><?php endif; ?>

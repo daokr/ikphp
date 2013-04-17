@@ -23,9 +23,6 @@
 <![endif]-->
 <script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
-<link rel="stylesheet" type="text/css" href="__STATIC__/theme/<?php echo C('ik_site_theme');?>/user/images/validate.css" />
-<script src="__STATIC__/public/js/validate/jquery.validateid.js"></script>
-
 </head>
 
 <body>
@@ -122,167 +119,67 @@ __EXTENDS_JS__
 <!--APP NAV-->
 
 </header>
-
-
-<script type="text/javascript">
-$(document).ready(function() {
-	
-	var validator = $("#signupform").validate({
-		onkeyup: false,
-		rules:{
-			<?php if(C('ik_isinvite') == 1): ?>invitecode:{
-				required:true,
-				remote:"<?php echo U('check',array('t'=>'isinvite'));?>"
-			},<?php endif; ?>
-			email: {
-				required: true,
-				email: true,
-				remote: "<?php echo U('check',array('t'=>'email'));?>"
-			},
-			password: {
-				required: true,
-				minlength: 5
-			},
-			repassword: {
-				required: true,
-				minlength: 5,
-				equalTo: "#password"
-			},
-			username:{
-				required: true,
-				minlength: 2,
-				maxlength: 12,
-				remote:"<?php echo U('check',array('t'=>'username'));?>"
-			}
-		},
-		messages: {
-		<?php if(C('ik_isinvite') == 1): ?>invitecode:{
-				required:"请输入邀请码",
-				remote:jQuery.format("邀请码无效，请寻找新的邀请码！")
-			},<?php endif; ?>
-			email: {
-					required: "请输入Email地址",
-					email: "请输入一个正确的Email地址",
-					remote:jQuery.format("Email已经存在，请更换其他Email")
-			},
-			password: {
-				required: "请输入密码",
-				minlength: jQuery.format("至少输入6个字符")
-			},
-			repassword: {
-				required: "请重复输入密码",
-				minlength: jQuery.format("两次输入密码不一致"),
-				equalTo: "两次输入密码不一致"
-			},
-			username:{
-				required:"请输入用户名",
-				minlength: jQuery.format("至少输入2个字符"),
-				maxlength: jQuery.format("最多输入12个字符"),
-				remote:jQuery.format("用户名已经存在，请更换其他用户名")
-			}
-		},
-
-		// the errorPlacement has to take the table layout into account
-		errorPlacement: function(error, element) {
-			if ( element.is(":radio") )
-				error.appendTo( element.parent().next().next() );
-			else if ( element.is(":checkbox") )
-				error.appendTo ( element.next() );
-			else
-				error.appendTo( element.parent().next() );
-		},
-
-		success: function(label) {
-			// set &nbsp; as text for IE
-			label.html("&nbsp;").addClass("checked");
-		}
-	});
-
-});
-</script>
-
-<script language="javascript">
-function newgdcode(obj) {
-obj.src = $(obj).attr('url') + '&nowtime=' + new Date().getTime();
-//后面传递一个随机参数，否则在IE7和火狐下，不刷新图片
-}
-</script>
-
-
-<!--main-->
 <div class="midder">
-<div class="mc">
-<h1 class="user_tit"><?php echo L('user_regist_tit');?></h1>
+	<div class="mc">
+		<aside class="w190 fl">
+			<section class="categories">
+				<div class="hd">
+					<h3>全部分类</h3>
+				</div>
+				<ul class="list categories-list">
+                    <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><li><a href="<?php echo U('article/category',array('cateid'=>$item[cateid]));?>"><?php echo ($item[catename]); ?></a></li><?php endforeach; endif; ?>
+				</ul>
+			</section>
+			<section class="personal-publish">
+				<div class="hd">
+					<h3>作品投稿</h3>
+				</div>
+				<div class="bd">
+					<p>个人作者可以在爱客上直接发布作品。 内容领域不限，唯一要求是保证质量优秀。 发表后，作者可直接从中获得分成。</p>
+					<p class="entrance">
+						<a href="<?php echo U('article/add');?>" class="btn btn-large">去投稿<i class="arrow-right"></i></a>
+					</p>
+				</div>
+			</section>
+		</aside>
+		<article class="w770 fr">
+			<section>
+				<div class="hd tag-heading">
+					<h3 class="the-tag-name"><?php echo ($seo["title"]); ?></h3>
+				</div>
 
-<?php if(C('ik_isinvite') == 2): ?><p>系统升级中，暂时关闭用户注册！<a href="<?php echo C('ik_site_url');?>">[返回首页]</a></p>
-<?php else: ?>
+				<div class="bd">
+					<ul class="list-lined article-list">
+						<?php if(is_array($arrArticle)): foreach($arrArticle as $key=>$item): ?><li class="item" id="article-407582">
+							<div class="title">
+								<a href="<?php echo U('article/show',array('id'=>$item[aid]));?>"><?php echo ($item[title]); ?> 
+                                <?php if($item[isphoto]): ?>[图文]<?php endif; ?>
+                                </a>
+							</div>
+                           <?php if($item[isphoto]): ?><div class="cover">
+                                <a class="pic" href="<?php echo U('article/show',array('id'=>$item[aid]));?>">
+									<img src="<?php echo ($item[photo][simg]); ?>" />
+								</a> 
+							</div><?php endif; ?>                           
+							<div class="info">
+								<div class="article-desc-brief">
+									<?php echo getsubstrutf8(t($item[content]),0,150); ?>...
+                                    <a href="<?php echo U('article/show',array('id'=>$item[aid]));?>">（更多）</a>
+								</div>
+							</div>
+							<a href="<?php echo U('people/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <span class="time">发表于 <?php echo date('Y-m-d H:i',$item[addtime]) ?> 评论 <?php echo ($item[count_comment]); ?> | 浏览 <?php echo ($item[count_view]); ?></span> 
+						</li><?php endforeach; endif; ?>
 
-<div class="user_left">
-<form  id="signupform" method="POST" action="<?php echo U('user/register');?>">
-
-<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="Tabletext">
-<?php if(C('ik_isinvite') == 1): ?><tr>
-<td class="label"><label id="invitecode" for="invitecode">
-<font color="red">邀请码：</font></label></td>
-<td class="field" width="300"><input class="uinput" id="invitecode" name="invitecode" type="text" value="" placeholder="请输入邀请码"/></td>
-<td class="status"></td>
-</tr><?php endif; ?>
+					</ul>
+				</div>
 
 
-<tr>
-<td class="label"><label id="email" for="email">Email：</label></td>
-<td class="field" width="300"><input class="uinput" id="email" name="email" type="email" value="" placeholder="请输入Email" autofocus/></td>
-<td class="status"></td>
-</tr>
-<tr>
-<td class="label"><label>密码：</label></td>
-<td class="field"><input class="uinput" type="password" id="password" name="password"  /></td>
-<td class="status"></td>
-</tr>
-<tr>
-<td class="label"><label>重复密码：</label></td>
-<td class="field"><input class="uinput" type="password" id="repassword" name="repassword"  /></td>
-<td class="status"></td>
-</tr>
-
-<tr>
-<td class="label"><label>用户名：</label></td>
-<td class="field"><input class="uinput" type="text" id="username" name="username" /></td>
-<td class="status"></td>
-</tr>
-
-<tr><td class="label">验证码：</td><td class="field">
-<input name="authcode"  class="uinput" style="width:50px; float:left"/>
-<img src="<?php echo U('captcha/'.time());?>" url="<?php echo U('captcha/'.time());?>" onclick="javascript:newgdcode(this);" alt="点击刷新验证码" style="cursor:pointer; margin-left:5px; float:left;" align="absmiddle"/></td>
-<td class="status"></td></tr>
-
-<tr>
-<td class="label"></td>
-<td class="field">
-<input type="hidden" name="fuserid" value="<?php echo ($fuserid); ?>" />
-<input class="submit" type="submit" value="注册" style="margin-top:8px"/> 
-</td>
-<td class="status"></td>
-</tr>
-
-<tr>
-<td class="label"><br /></td>
-<td class="field"><br /></td> 
-<td class="status"></td>
-</tr>
-
-</table>
-</form><?php endif; ?>
-</div>
-
-<div class="aside">
+			</section>
             
-	<p class="pl2">&gt; 已经拥有12ik网帐号? <a href="<?php echo U('user/login');?>" rel="nofollow">直接登录</a></p>
-
-</div>
-<div class="cl"></div>
-
-</div>
+             <div class="page"><?php echo ($pageUrl); ?></div>   
+             
+		</article>
+	</div>
 </div>
 <!--footer-->
 <footer>

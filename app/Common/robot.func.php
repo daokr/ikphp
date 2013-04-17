@@ -701,6 +701,9 @@ function saveurlarr($msgarr, $varname , $userid) {
 		if(!empty($arrPhotoID)){
 			$msgarr['isphoto'] = 1;
 			$msgarr['arrphotoid'] = $arrPhotoID;
+		}else{
+			//不保存图片
+			$msgarr['isphoto'] = 0;
 		}
 		//开始替换内容
 		//匹配图<img src="*">开始替换成IKPHP专用图片

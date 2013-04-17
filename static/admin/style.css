@@ -68,6 +68,14 @@ a {
 	line-height: 1.62;
 	margin-top: 5px;
 	padding: 3px;
+	border:1px solid #DDDDDD
+}
+.uinput:focus,input:focus,select:focus,textarea:focus{
+	border:1px solid #afafaf
+}
+textarea{
+	line-height: 20px;
+	font-size:13px;
 }
 .submit ,input[type=submit]{
 	font-size: 13px;
