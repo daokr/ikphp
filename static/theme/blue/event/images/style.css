@@ -473,3 +473,66 @@ word-spacing-0.43em
 	background:#f6f6f6;
 	color:#ccc
 }
+.map-ft h4 {
+	color:#056800;
+	width:70px;
+	margin-top:19px
+}
+.info-window {
+	font-size:14px
+}
+.map-error-fix {
+	float:right;
+	padding-right:15px;
+	padding-top:5px
+}
+#pageAddressHook .map-item-error {
+	margin-bottom:0
+}
+#map-search-container {
+	padding:10px
+}
+#search-control-ui {
+	width:400px;
+	padding:4px 0 4px 10px;
+	border:1px solid #c9c9c9;
+	border-radius:6px
+}
+#q-address {
+	width:370px;
+	font-size:14px;
+	border:0;
+	outline:0
+}
+#btn-search {
+	width:18px;
+	height:18px;
+	border:0;
+	background:transparent url(ic_srh.png) no-repeat 50% 50%;
+	overflow:hidden;
+	font-size:0;
+	cursor:pointer;
+	-webkit-appearance:none
+}
+.map-footer {
+	padding:10px;
+	font-weight:bold;
+	text-align:center;
+	line-height:24px
+}
+.map-footer a.map-save:active, .map-footer a.map-save:hover, .map-footer a.map-save:link, .map-footer a.map-save:visited {
+	color:#fff;
+	background:#39c;
+	border-width:0
+}
+.map-footer a.map-save:hover {
+	background:#46abdd!important;
+	color:#fff!important
+}
+.map-footer a.map-cancel:active, .map-footer a.map-cancel:hover, .map-footer a.map-cancel:link, .map-footer a.map-cancel:visited {
+	background:#d7d7d7;
+	border-width:0
+}
+.map-footer a.map-cancel:hover {
+	background:#ddd!important
+}

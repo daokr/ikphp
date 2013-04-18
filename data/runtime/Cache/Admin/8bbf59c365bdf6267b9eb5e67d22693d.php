@@ -4,6 +4,7 @@
         <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('index/main');?>" target="MainIframe">首页</a></li>
         <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('cache/index');?>" target="MainIframe">缓存管理</a></li>
         <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('words/lists');?>" target="MainIframe">违禁词过滤</a></li>
+        <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('tag/manage');?>" target="MainIframe">标签管理</a></li>
     </ul>   
 </li>
 <li class="treemenu_on">
@@ -63,5 +64,12 @@
     <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">第三方应用</a>
     <ul class="submenu" style="display: block;">
     <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('oauth/manage');?>" target="MainIframe">联合登录</a></li>
+    </ul>
+</li><?php endif; ?>
+
+<?php if($ik == 'location'): ?><li class="treemenu_on">
+    <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">区域管理</a>
+    <ul class="submenu" style="display: block;">
+    <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('area/manage');?>" target="MainIframe">省份管理</a></li>
     </ul>
 </li><?php endif; ?>

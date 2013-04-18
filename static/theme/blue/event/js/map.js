@@ -45,9 +45,9 @@ IK(function() {
 				var v = "";
 				$.each(x,
 				function(t, y) {
-					var A = y.long_name || "";
+					var A = y.long_name || ""; alert(A)
 					if (A && y.types[0] == "sublocality") {
-						var z = $("#district_id");
+						var z = $("#district_id");alert(z.val())
 						if (!+z.val()) {
 							z.children().each(function(B, C) {
 								if (C.innerHTML.indexOf(A) != -1) {

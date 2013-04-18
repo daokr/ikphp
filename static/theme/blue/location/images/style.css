@@ -61,18 +61,19 @@ a.gloomy:hover {
 }
 #db-events-guess .bd {
 	height: 220px;
-	width: 600px;
+	width: 640px;
 }
 #db-events-guess .bd li {
 	height: 216px;
 	padding: 0 20px;
-    width: 110px;
+    width: 120px;
 	display: inline-block;
     font-size: 12px;
     margin-bottom: 40px;
     overflow: hidden;
     text-align: center;
     vertical-align: top;
+	float:left;
 }
 .gallery li .pic {
     padding-bottom: 10px;
@@ -113,6 +114,9 @@ a.gloomy:hover {
 }
 .ui-slide-control a.btn-prev-disabled {
 	background-position:0 -2px
+}
+.ui-slide-control a.btn-next-disabled {
+	background-position:-22px -21px
 }
 .cats-board {
 	background: #f6f5f2;
