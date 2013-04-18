@@ -66,3 +66,10 @@
     <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('oauth/manage');?>" target="MainIframe">联合登录</a></li>
     </ul>
 </li><?php endif; ?>
+
+<?php if($ik == 'location'): ?><li class="treemenu_on">
+    <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">区域管理</a>
+    <ul class="submenu" style="display: block;">
+    <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('area/manage');?>" target="MainIframe">省份管理</a></li>
+    </ul>
+</li><?php endif; ?>
