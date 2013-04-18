@@ -8,6 +8,9 @@
   if($.browser.webkit || $.browser.safari || $.browser.opera || $.browser.mozilla || (parseInt($.browser.version,10) > 8)){
       lowLevelBrowser = false;
   }
+  
+  IK.add('dialog-css', {path: '__STATIC__/public/css/ui/dialog.css', type: 'css'});
+  IK.add('dialog', {path: '__STATIC__/public/js/ui/dialog.js', type: 'js', requires: ['dialog-css']});
    // Editable Select
   IK.add('editable-select-css', {path: '__STATIC__/public/css/lib/jquery.editable-select.css', type: 'css'});
   IK.add('editable-select', {path: '__STATIC__/public/js/lib/jquery.editable-select.js', type:"js", requires: ['editable-select-css']});
@@ -20,19 +23,19 @@
   
   window._pinicon_ = 'http://img3.douban.com/pics/loc/pin.png';
 
-/*
-  IK.add('imap', {path: 'http://img3.douban.com/js/ui/packed_imap5379049193.js', type: 'js', requires: ['jquery.ui', 'dialog']});
+
+  IK.add('imap', {path: '__STATIC__/public/js/ui/imap.js', type: 'js', requires: ['jquery.ui', 'dialog']});
   IK.add('google_map', {path: 'http://maps.google.com/maps/api/js?sensor=false&language=zh-CN&libraries=places&callback=loadMap', type: 'js'});
 
   function loadMap(){
     IK('imap', 
-    'http://img3.douban.com/css/ui/packed_jquery.ui.autocomplete7277993207.css',
-    'http://img3.douban.com/js/lib/packed_jquery.ui.autocomplete.min8652083192.js',
-    'http://img3.douban.com/js/loc/create/packed_map4130290222.js');
+    '__STATIC__/public/css/ui/jquery.ui.autocomplete.css',
+    '__STATIC__/public/js/lib/jquery.ui.autocomplete.min.js',
+    '__STATIC__/theme/{:C("ik_site_theme")}/{$module_name}/js/map.js');
   }
 
   IK('google_map');
-  */
+
   
   //离开页面
 </script>
