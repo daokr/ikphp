@@ -17,6 +17,7 @@
 <script>var siteUrl = '__SITE_URL__';</script>
 <script src="__STATIC__/public/js/jquery.js" type="text/javascript"></script>
 <script src="__STATIC__/public/js/common.js" type="text/javascript"></script>
+<script src="__STATIC__/public/js/IK.js" type="text/javascript" data-cfg-autoload="false"></script>
 <script src="__STATIC__/public/js/all.js" type="text/javascript"></script>
 <!--[if lt IE 9]>
 <script src="__STATIC__/public/js/html5.js"></script>
@@ -28,6 +29,23 @@ __EXTENDS_JS__
 <body>
 <!--头部开始-->
 <header>
+<?php if($module_name == 'index' && empty($visitor)): ?><div class="hd-wrap">
+            <div class="hd">
+                <div class="logo">
+                    <h1><a href="__SITE_URL__" title="爱客开源">爱客开源</a></h1>
+                </div>
+                <div class="top-nav-items">
+                <ul>
+                <li> <a href="http://www.ikphp.com" class="lnk-home" target="_blank">爱客首页</a></li>
+                <li> <a href="<?php echo U('group/index');?>" class="lnk-group" target="_blank">爱客小组</a></li>
+                <li> <a href="<?php echo U('article/index');?>" class="lnk-article" target="_blank">爱客阅读</a></li>
+                <li> <a href="<?php echo U('location/index');?>" class="lnk-location" target="_blank">爱客同城</a></li>
+                <li> <a href="<?php echo U('site/index');?>" class="lnk-site" target="_blank">爱客小站</a></li>
+                </ul>
+                </div>
+            </div>
+</div>
+<?php else: ?>
 <div class="top_nav">
   <div class="top_bd">
     
@@ -56,9 +74,11 @@ __EXTENDS_JS__
              <li>
              <a href="<?php echo U('article/index');?>">阅读</a>
              </li>   
-             
              <li>
-             <a href="http://www.ikphp.com/down/IKPHP_Beta_1.5.zip" style="color:#fff" title="beta版1.5">IKPHP_Beta版1.5源码下载</a>
+             <a href="<?php echo U('location/index');?>">同城</a>
+             </li> 
+             <li>
+             <a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a>
              </li>                                                      
 
         </ul>
@@ -68,6 +88,7 @@ __EXTENDS_JS__
   </div>
   
 </div>
+
 <!--header-->
 
 
@@ -96,7 +117,8 @@ __EXTENDS_JS__
 
 	</div>
         
-</div>
+</div><?php endif; ?>
+
 <!--APP NAV-->
 
 </header>

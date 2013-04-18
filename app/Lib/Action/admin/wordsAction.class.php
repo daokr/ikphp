@@ -117,9 +117,9 @@ class wordsAction extends backendAction {
 					$data['admin'] = $_SESSION['admin']['username'];
 					$oldwords[md5($newfind)] = $newreplacement;
 				}
-			}
-			if(!empty($data)) {
-				$this->mod->add($data);
+				if(!empty($data)) {
+					$this->mod->add($data);
+				}
 			}
 			// 更新缓存
 			$this->updatewords();

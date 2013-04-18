@@ -997,3 +997,67 @@ IK("validate", "editable-select", function() {
 		history.go(-1)
 	})
 }); 
+//城市select
+$(function(){
+	//初始化城市
+	var loc_id = $('#loc_id').val();
+	var url = $('#loc_id').attr('data-url');
+	$.post(url, {
+				areaid: loc_id
+			},
+			function(res) {
+				if(res.r){
+					$('#district_id').html('');
+					$('#district_id').append('<option value="0">城区</option>');
+					for(var i=0;i<res.children.length; i++){
+					$('#district_id').append('<option value="'+res.children[i]['areaid']+'">'+res.children[i]['areaname']+'</option>')
+					}
+				}
+	},"json");
+			
+	$('#city').click(function(){
+		var left = $(this).offset().left;
+		var top = $(this).offset().top;
+		$('#city-picker').css({'left':left,'top':top+35});
+		$('#city-picker').fadeIn(100);
+	});
+	$('#city-picker .bd').find('a').click(function(){
+		var _self = $(this);
+		var cityid = $(this).attr('data-value');
+		$.post(url, {
+				areaid: cityid
+			},
+			function(res) {
+				if(res.r){
+					$('#district_id').html('');
+					$('#district_id').append('<option value="0">城区</option>');
+					for(var i=0;i<res.children.length; i++){
+					$('#district_id').append('<option value="'+res.children[i]['areaid']+'">'+res.children[i]['areaname']+'</option>')
+					}
+					$('#city').val($(_self).text());
+				}
+			},"json");
+		$('#city-picker').fadeOut(100);
+	});
+	//选择商圈
+	$('#district_id').bind('change',function(){
+		var _self = $(this);
+		var district_id = $(this).val();
+		$.post(url, {
+				areaid: district_id
+			},
+			function(res) {
+				if(res.r){
+					$('#region_id').html('');
+					$('#region_id').append('<option value="0">商圈(可选)</option>');
+					for(var i=0;i<res.children.length; i++){
+					$('#region_id').append('<option value="'+res.children[i]['areaid']+'">'+res.children[i]['areaname']+'</option>')
+					}
+				}else{
+					$('#region_id').html('');
+					$('#region_id').append('<option value="0">商圈(可选)</option>');
+				}
+			},"json");
+	})
+	
+});

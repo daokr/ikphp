@@ -445,7 +445,7 @@ word-spacing-0.43em
 	left:1px!important;
 	border-right-color:#fff
 }
-.citypicker { position: absolute; padding: 16px 14px; }
+.citypicker { position: absolute; padding: 16px 14px; z-index:100; left:100px; top:100px}
 .citypicker .cities { width:310px; position:relative; }
 .cities .hd { padding: 0 0 15px 15px; border-bottom:1px solid #ddd; margin-bottom:15px;}
 .cities .hd .tab { margin-right:20px; color:#2E7AB3;cursor:pointer;}

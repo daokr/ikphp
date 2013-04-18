@@ -16,18 +16,18 @@
 <table  cellpadding="0" cellspacing="0">
 <tr class="old">
 <td>ID</td>
-<td>省份</td>
+<td>区域名称</td>
 <td>ZM</td>
-<td>城市</td>
+<td>查看</td>
 <td width="200">操作</td>
 </tr>
 <?php if(is_array($list)): foreach($list as $key=>$item): ?><tr class="odd">
 <td><?php echo ($item[areaid]); ?></td>
 <td><?php echo ($item[areaname]); ?></td>
 <td><?php echo ($item[zm]); ?></td>
-<td><a href="<?php echo U('area/manage',array('ik'=>'city','id'=>$item[areaid]));?>">[查看城市]</a></td>
+<td><a href="<?php echo U('area/manage',array('ik'=>'city','id'=>$item[areaid]));?>">[查看二级区域]</a></td>
 <td>
-<a href="<?php echo U('area/add',array('ik'=>'city','id'=>$item[areaid]));?>">[添加城市]</a> &nbsp;&nbsp;
+<a href="<?php echo U('area/add',array('ik'=>'city','id'=>$item[areaid]));?>">[添加二级区域]</a> &nbsp;&nbsp;
 <a href="<?php echo U('area/edit',array('ik'=>'province','id'=>$item[areaid]));?>">[编辑]</a> &nbsp;&nbsp;
 <a href="<?php echo U('area/delete',array('ik'=>'province','id'=>$item[areaid]));?>">[删除]</a>
 </td>

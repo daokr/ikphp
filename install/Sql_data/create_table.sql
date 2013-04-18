@@ -168,42 +168,71 @@ CREATE TABLE `ik_area` (
 --
 -- 转存表中的数据 `ik_area`
 --
-INSERT INTO `ik_area` (`areaid`, `areaname`, `zm`, `referid`) VALUES
-(1,'广东','G','0'),
-(2,'北京','B','0'),
-(3,'上海','S','0'),
-(4,'江苏','J','0'),
-(5,'浙江','Z','0'),
-(6,'山东','S','0'),
-(7,'四川','S','0'),
-(8,'湖北','H','0'),
-(9,'福建','F','0'),
-(10,'河南','H','0'),
-(11,'辽宁','L','0'),
-(12,'陕西','S','0'),
-(13,'湖南','H','0'),
-(14,'河北','H','0'),
-(15,'安徽','A','0'),
-(16,'黑龙江','H','0'),
-(17,'重庆','C','0'),
-(18,'天津','T','0'),
-(19,'广西','G','0'),
-(20,'山西','S','0'),
-(21,'江西','J','0'),
-(22,'吉林','J','0'),
-(23,'云南','Y','0'),
-(24,'内蒙古','N','0'),
-(25,'贵州','G','0'),
-(26,'甘肃','G','0'),
-(27,'新疆','X','0'),
-(28,'海南','H','0'),
-(29,'宁夏','N','0'),
-(30,'青海','Q','0'),
-(31,'西藏','X','0'),
-(32,'香港','X','0'),
-(33,'澳门','A','0'),
-(34,'台湾','T','0'),
-(35,'钓鱼岛','D','0');
+INSERT INTO `ik_area` VALUES ('1', '北京', 'B', '0');
+INSERT INTO `ik_area` VALUES ('2', '上海', 'S', '0');
+INSERT INTO `ik_area` VALUES ('3', '广东', 'G', '0');
+INSERT INTO `ik_area` VALUES ('4', '江苏', 'J', '0');
+INSERT INTO `ik_area` VALUES ('5', '浙江', 'Z', '0');
+INSERT INTO `ik_area` VALUES ('6', '山东', 'S', '0');
+INSERT INTO `ik_area` VALUES ('7', '四川', 'S', '0');
+INSERT INTO `ik_area` VALUES ('8', '湖北', 'H', '0');
+INSERT INTO `ik_area` VALUES ('9', '福建', 'F', '0');
+INSERT INTO `ik_area` VALUES ('10', '河南', 'H', '0');
+INSERT INTO `ik_area` VALUES ('11', '辽宁', 'L', '0');
+INSERT INTO `ik_area` VALUES ('12', '陕西', 'S', '0');
+INSERT INTO `ik_area` VALUES ('13', '湖南', 'H', '0');
+INSERT INTO `ik_area` VALUES ('14', '河北', 'H', '0');
+INSERT INTO `ik_area` VALUES ('15', '安徽', 'A', '0');
+INSERT INTO `ik_area` VALUES ('16', '黑龙江', 'H', '0');
+INSERT INTO `ik_area` VALUES ('17', '重庆', 'C', '0');
+INSERT INTO `ik_area` VALUES ('18', '天津', 'T', '0');
+INSERT INTO `ik_area` VALUES ('19', '广西', 'G', '0');
+INSERT INTO `ik_area` VALUES ('20', '山西', 'S', '0');
+INSERT INTO `ik_area` VALUES ('21', '江西', 'J', '0');
+INSERT INTO `ik_area` VALUES ('22', '吉林', 'J', '0');
+INSERT INTO `ik_area` VALUES ('23', '云南', 'Y', '0');
+INSERT INTO `ik_area` VALUES ('24', '内蒙古', 'N', '0');
+INSERT INTO `ik_area` VALUES ('25', '贵州', 'G', '0');
+INSERT INTO `ik_area` VALUES ('26', '甘肃', 'G', '0');
+INSERT INTO `ik_area` VALUES ('27', '新疆', 'X', '0');
+INSERT INTO `ik_area` VALUES ('28', '海南', 'H', '0');
+INSERT INTO `ik_area` VALUES ('29', '宁夏', 'N', '0');
+INSERT INTO `ik_area` VALUES ('30', '青海', 'Q', '0');
+INSERT INTO `ik_area` VALUES ('31', '西藏', 'X', '0');
+INSERT INTO `ik_area` VALUES ('32', '香港', 'X', '0');
+INSERT INTO `ik_area` VALUES ('33', '澳门', 'A', '0');
+INSERT INTO `ik_area` VALUES ('34', '台湾', 'T', '0');
+INSERT INTO `ik_area` VALUES ('35', '钓鱼岛', 'D', '0');
+INSERT INTO `ik_area` VALUES ('36', '东城区', 'D', '1');
+INSERT INTO `ik_area` VALUES ('37', '西城区', 'X', '1');
+INSERT INTO `ik_area` VALUES ('38', '朝阳区', 'C', '1');
+INSERT INTO `ik_area` VALUES ('39', '丰台区', 'F', '1');
+INSERT INTO `ik_area` VALUES ('40', '石景山区', 'S', '1');
+INSERT INTO `ik_area` VALUES ('41', '海淀区', 'H', '1');
+INSERT INTO `ik_area` VALUES ('42', '门头沟区', 'M', '1');
+INSERT INTO `ik_area` VALUES ('43', '房山区', 'F', '1');
+INSERT INTO `ik_area` VALUES ('44', '通州区', 'T', '1');
+INSERT INTO `ik_area` VALUES ('45', '顺义区', 'S', '1');
+INSERT INTO `ik_area` VALUES ('46', '昌平区', 'C', '1');
+INSERT INTO `ik_area` VALUES ('47', '大兴区', 'D', '1');
+INSERT INTO `ik_area` VALUES ('48', '怀柔区', 'H', '1');
+INSERT INTO `ik_area` VALUES ('49', '平谷区', 'P', '1');
+INSERT INTO `ik_area` VALUES ('50', '密云县', 'M', '1');
+INSERT INTO `ik_area` VALUES ('51', '延庆县', 'Y', '1');
+INSERT INTO `ik_area` VALUES ('52', '地安门', '', '36');
+INSERT INTO `ik_area` VALUES ('53', '和平里', '', '36');
+INSERT INTO `ik_area` VALUES ('54', '王府井/东单', '', '36');
+INSERT INTO `ik_area` VALUES ('55', '建国门/北京站', '', '36');
+INSERT INTO `ik_area` VALUES ('56', '东四', '', '36');
+INSERT INTO `ik_area` VALUES ('57', '安定门', '', '36');
+INSERT INTO `ik_area` VALUES ('58', '朝阳门', '', '36');
+INSERT INTO `ik_area` VALUES ('59', '东直门', '', '36');
+INSERT INTO `ik_area` VALUES ('60', '广渠门', '', '36');
+INSERT INTO `ik_area` VALUES ('61', '左安门', '', '36');
+INSERT INTO `ik_area` VALUES ('62', '沙子口', '', '36');
+INSERT INTO `ik_area` VALUES ('63', '前门', '', '36');
+INSERT INTO `ik_area` VALUES ('64', '崇文门', '', '36');
+INSERT INTO `ik_area` VALUES ('65', '天坛', '', '36');
 
 -- --------------------------------------------------------
 

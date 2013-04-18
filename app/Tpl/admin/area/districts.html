@@ -12,7 +12,6 @@
 <td>ID</td>
 <td>区域名称</td>
 <td>ZM</td>
-<td>查看</td>
 <td width="200">操作</td>
 </tr>
 <foreach name="list" item="item">
@@ -20,11 +19,9 @@
 <td>{$item[areaid]}</td>
 <td>{$item[areaname]}</td>
 <td>{$item[zm]}</td>
-<td><a href="{:U('area/manage',array('ik'=>'districts','id'=>$item[areaid]))}">[查看三级区域]</a></td>
 <td>
-<a href="{:U('area/add',array('ik'=>'districts','id'=>$item[areaid]))}">[添加三级区域]</a> &nbsp;&nbsp;
-<a href="{:U('area/edit',array('ik'=>'city','id'=>$item[areaid]))}">[编辑]</a> &nbsp;&nbsp;
-<a href="{:U('area/delete',array('ik'=>'city','id'=>$item[areaid]))}">[删除]</a>
+<a href="{:U('area/edit',array('ik'=>'province','id'=>$item[areaid]))}">[编辑]</a> &nbsp;&nbsp;
+<a href="{:U('area/delete',array('ik'=>'province','id'=>$item[areaid]))}">[删除]</a>
 </td>
 <tr>
 </foreach>

@@ -10,12 +10,6 @@ class areaAction extends backendAction {
 	}
 	public function manage(){
 		$ik = $this->_get ( 'ik', 'trim','province');
-		$menu = array(
-				'province' => array('text'=>'全部省份', 'url'=>U('area/manage',array('ik'=>'province'))),
-				'addprovince' => array('text'=>'添加省份', 'url'=>U('area/manage',array('ik'=>'addprovince'))),
-		);
-		
-		$this->assign('menu', $menu);
 		$this->assign('ik', $ik);
 		switch ($ik) {
 			case "province" :
@@ -23,14 +17,17 @@ class areaAction extends backendAction {
 				break;
 			case "city" :
 				$this->city();
-				break;				
+				break;
+			case "districts" :
+				$this->districts();
+				break;								
 		}
 	}
 	public function province() {
 		//查询条件
 		$list = $this->mod->where(array('referid'=>'0'))->select();
 		$this->assign('list', $list);
-		$this->title ( '省份管理' );
+		$this->title ( '一级区域管理' );
 		$this->display('province');
 	}
 	public function city() {
@@ -40,8 +37,19 @@ class areaAction extends backendAction {
 		//查询条件
 		$list = $this->mod->where(array('referid'=>$referid))->select();
 		$this->assign('list', $list);
-		$this->title ( $str['areaname'].'的城市管理' );
+		$this->title ( $str['areaname'].' > 二级区域管理' );
 		$this->display('city');
+	}
+	public function districts() {
+		//查询条件
+		$referid = $this->_get('id');
+		//获取单个区域
+		$str = $this->mod->getOneArea($referid);
+		//查询条件
+		$list = $this->mod->where(array('referid'=>$referid))->select();
+		$this->assign('list', $list);
+		$this->title ( $str['areaname'].' > 三级区域管理' );
+		$this->display('districts');
 	}
 	public function add() {
 		//查询条件
@@ -65,11 +73,49 @@ class areaAction extends backendAction {
 	}
 	public function addcity($str){
 		if(IS_POST){
-			//$tags = $this->_post('tags','trim');
-			//$this->mod->addTag('','','',$tags);
-			//$this->success('添加成功',U('tag/manage',array('ik'=>'tags')));
+			$id = $this->_post('id','intval');
+			$areaname = $this->_post('areaname','trim');
+			$areaname = explode("\n", $areaname); //换行
+			$updatecount = $newcount = $ignorecount = 0;
+			$data = array();
+			
+			foreach($areaname as $key=>$value) {
+				list($name, $zm) = array_map('trim', explode('=', $value));
+				$data['areaname'] = $name;
+				$data['zm'] = $zm;
+				$data['referid'] = $id;
+				if(!empty($data)) {
+					$this->mod->add($data);
+				}
+			}
+			$this->redirect('area/manage',array('ik'=>'city','id'=>$id));
+			
 		}else{
-			$this->title ( '在添加['.$str['areaname'].']二级区域' );
+			$this->title ( '添加['.$str['areaname'].']二级区域' );
+			$this->display('area_add');
+		}
+	}
+	public function adddistricts($str){
+		if(IS_POST){
+			$id = $this->_post('id','intval');
+			$areaname = $this->_post('areaname','trim');
+			$areaname = explode("\n", $areaname); //换行
+			$updatecount = $newcount = $ignorecount = 0;
+			$data = array();
+				
+			foreach($areaname as $key=>$value) {
+				list($name, $zm) = array_map('trim', explode('=', $value));
+				$data['areaname'] = $name;
+				$data['zm'] = empty($zm) ? '' : $zm;
+				$data['referid'] = $id;
+				if(!empty($data)) {
+					$this->mod->add($data);
+				}
+			}
+			$this->redirect('area/manage',array('ik'=>'districts','id'=>$id));
+				
+		}else{
+			$this->title ( '添加['.$str['areaname'].']三级区域' );
 			$this->display('area_add');
 		}
 	}	
