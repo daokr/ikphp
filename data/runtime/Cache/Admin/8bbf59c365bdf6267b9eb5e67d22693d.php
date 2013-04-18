@@ -4,6 +4,7 @@
         <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('index/main');?>" target="MainIframe">首页</a></li>
         <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('cache/index');?>" target="MainIframe">缓存管理</a></li>
         <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('words/lists');?>" target="MainIframe">违禁词过滤</a></li>
+        <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('tag/manage');?>" target="MainIframe">标签管理</a></li>
     </ul>   
 </li>
 <li class="treemenu_on">

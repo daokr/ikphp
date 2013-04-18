@@ -2,13 +2,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>无标题文档</title>
+<include file="public:head" />
+<script>
+
+$(document).ready(function(){
+	$.getJSON("http://www.douban.com/j/location/city_district?loc_id=118244&ck=ZeuH&callback=?", 
+	function(data){
+		$('#IKPHP_Notice').html(data);
+	}); 
+});
+</script>
 </head>
 
 <body>
-<form action="{:U('index/test')}" method="post" enctype="multipart/form-data">
-<input name="url" type="text"> <input name="" type="submit" value="传">
-</form>
 
+<div id="IKPHP_Notice"></div>
 </body>
 </html>
