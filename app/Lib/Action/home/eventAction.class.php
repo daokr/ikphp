@@ -17,6 +17,7 @@ class eventAction extends frontendAction {
 		}
 		$this->area_mod = D ( 'area' );
 		$this->user_mod = D ( 'user' );
+		$this->cate_mod = D ( 'event_cate' );
 	}
 		
 	public  function index(){
@@ -25,12 +26,18 @@ class eventAction extends frontendAction {
 	//创建
 	public  function create(){
 		$loc = $this->_get('loc','trim');
+		//获取分类
+		$arrCate = $this->cate_mod->getAllCate();
+		
+		
 		$currtCity = $this->area_mod->getOneAreaBypy($loc); //当前所在城市
 		$arrCity = $this->area_mod->getHotCity();
 
-		$this->_config_seo (array('title'=>'创建同城活动','subtitle'=>$currtCity['areaname']));
+		
+		$this->assign('arrCate',$arrCate);
 		$this->assign('currtCity',$currtCity);
 		$this->assign('arrCity',$arrCity);
+		$this->_config_seo (array('title'=>'创建同城活动','subtitle'=>$currtCity['areaname']));
 		$this->display();
 	}
 	

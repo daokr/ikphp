@@ -72,4 +72,10 @@
     <ul class="submenu" style="display: block;">
     <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('area/manage');?>" target="MainIframe">区域管理</a></li>
     </ul>
+</li> 
+<li class="treemenu_on">
+    <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">同城管理</a>
+    <ul class="submenu" style="display: block;">
+    <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('event/cate');?>" target="MainIframe">活动分类</a></li>
+    </ul>
 </li><?php endif; ?>

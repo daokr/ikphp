@@ -875,20 +875,32 @@ CREATE TABLE `ik_downcount` (
   `downtime` int(11) NOT NULL DEFAULT '0' COMMENT '时间',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='统计下载次数';
--- --------------------------------------------------------
-
---
--- 表的结构 `ik_event_type`
---
+-- ----------------------------
+-- Table structure for `ik_event_cate`
+-- ----------------------------
 DROP TABLE IF EXISTS `ik_event_cate`;
-CREATE TABLE `ik_event_type` (
+CREATE TABLE `ik_event_cate` (
   `cateid` int(11) NOT NULL AUTO_INCREMENT COMMENT '活动分类ID',
   `catename` char(120) NOT NULL DEFAULT '' COMMENT '分类名',
   `enname` char(120) NOT NULL DEFAULT '' COMMENT '英文名称',
   `referid` int(11) NOT NULL DEFAULT '0' COMMENT '父ID',
-  PRIMARY KEY (`typeid`),
-  KEY `areaid` (`referid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='活动分类' AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`cateid`),
+  KEY `cateid` (`referid`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='活动分类';
+
+-- ----------------------------
+-- Records of ik_event_cate
+-- ----------------------------
+INSERT INTO `ik_event_cate` VALUES ('1', '音乐', 'music', '0');
+INSERT INTO `ik_event_cate` VALUES ('2', '戏剧', 'drama', '0');
+INSERT INTO `ik_event_cate` VALUES ('3', '讲座', 'salon', '0');
+INSERT INTO `ik_event_cate` VALUES ('4', '聚会', 'party', '0');
+INSERT INTO `ik_event_cate` VALUES ('5', '电影', 'film', '0');
+INSERT INTO `ik_event_cate` VALUES ('6', '展览', 'exhibition', '0');
+INSERT INTO `ik_event_cate` VALUES ('7', '运动', 'sports', '0');
+INSERT INTO `ik_event_cate` VALUES ('8', '公益', 'commonweal', '0');
+INSERT INTO `ik_event_cate` VALUES ('9', '旅行', 'travel', '0');
+INSERT INTO `ik_event_cate` VALUES ('10', '其他', 'others', '0');
 -- --------------------------------------------------------
 --
 -- 表的结构 `ik_event`
