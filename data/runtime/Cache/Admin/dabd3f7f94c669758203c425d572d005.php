@@ -18,18 +18,23 @@
 <td>ID</td>
 <td>区域名称</td>
 <td>ZM</td>
+<td>拼音</td>
 <td>查看</td>
 <td width="200">操作</td>
 </tr>
 <?php if(is_array($list)): foreach($list as $key=>$item): ?><tr class="odd">
 <td><?php echo ($item[areaid]); ?></td>
-<td><?php echo ($item[areaname]); ?></td>
+<td><?php echo ($item[areaname]); ?> <?php if($item[ishot] == 1): ?><font color="#ff6600">[热]</font><?php endif; ?></td>
 <td><?php echo ($item[zm]); ?></td>
+<td><?php echo ($item[pinyin]); ?></td>
 <td><a href="<?php echo U('area/manage',array('ik'=>'districts','id'=>$item[areaid]));?>">[查看三级区域]</a></td>
-<td>
+<td width="300">
 <a href="<?php echo U('area/add',array('ik'=>'districts','id'=>$item[areaid]));?>">[添加三级区域]</a> &nbsp;&nbsp;
 <a href="<?php echo U('area/edit',array('ik'=>'city','id'=>$item[areaid]));?>">[编辑]</a> &nbsp;&nbsp;
-<a href="<?php echo U('area/delete',array('ik'=>'city','id'=>$item[areaid]));?>">[删除]</a>
+<a href="<?php echo U('area/delete',array('ik'=>'city','id'=>$item[areaid]));?>">[删除]</a> &nbsp;&nbsp;
+<?php if($item[ishot] == 0): ?><a href="<?php echo U('area/setting',array('id'=>$item[areaid],'ishot'=>1));?>">[设为热门]</a>
+<?php else: ?>
+<a href="<?php echo U('area/setting',array('id'=>$item[areaid],'ishot'=>0));?>">[取消热门]</a><?php endif; ?>
 </td>
 <tr><?php endforeach; endif; ?>
 </table>

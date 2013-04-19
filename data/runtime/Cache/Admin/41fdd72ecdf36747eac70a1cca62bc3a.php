@@ -18,6 +18,7 @@
 <td>ID</td>
 <td>区域名称</td>
 <td>ZM</td>
+<td>拼音</td>
 <td>查看</td>
 <td width="200">操作</td>
 </tr>
@@ -25,6 +26,7 @@
 <td><?php echo ($item[areaid]); ?></td>
 <td><?php echo ($item[areaname]); ?></td>
 <td><?php echo ($item[zm]); ?></td>
+<td><?php echo ($item[pinyin]); ?></td>
 <td><a href="<?php echo U('area/manage',array('ik'=>'city','id'=>$item[areaid]));?>">[查看二级区域]</a></td>
 <td>
 <a href="<?php echo U('area/add',array('ik'=>'city','id'=>$item[areaid]));?>">[添加二级区域]</a> &nbsp;&nbsp;

@@ -1058,6 +1058,43 @@ $(function(){
 					$('#region_id').append('<option value="0">商圈(可选)</option>');
 				}
 			},"json");
+	});
+	//乘车路线
+	$("#addDirectionHook").click(function(b) {
+		b.preventDefault();
+		if($("#direction").length) {
+			return false
+		}
+		var a = '<div class="item"><input class="basic-input" id="direction" name="direction" type="text" size="60" placeholder="乘车路线" maxlength="100"/><a href="javascript:void(0);" id="directionCancelHook" class="btn-cancel">×</a>';
+		+"</div>", $tmpl = $(a);
+		$tmpl.insertAfter($("#addDirectionHook").parent()).find("input").focus();
+		$(this).hide()
+	});
+	$("#pageAddressHook").delegate("#directionCancelHook", "click", function(q) {
+		$(this).parent().remove();
+		$("#addDirectionHook").show();
+		q.preventDefault()
 	})
+	//费用
+	var feehtml = '<div class="con_item fee_item"><input type="text" class="basic-input fee-name" maxlength="15" placeholder="选填" name="feename[]"/> <input type="text" class="basic-input fee-num" maxlength="6" name="feevalue"/></div>';
+	$('#activeFeeHook input[name=fee]').bind('change',function(){
+		var _self = $(this);
+		if(_self.val()==1){
+			if($('#fee_item_list').find('div').length==0){
+				$('#fee_item_list').append(feehtml);
+			}
+			$('#active_fee').slideDown(200)
+		}else if(_self.val()==0){
+			$('#active_fee').slideUp(200)
+		}	
+	});
+	$('#addFeeHook').click(function(){
+		var newhtml = '<div class="con_item fee_item"><input type="text" class="basic-input fee-name" maxlength="15" placeholder="选填" name="feename[]"/> <input type="text" class="basic-input fee-num" maxlength="6" name="feevalue"/> <a class="btn-cancel" href="javascript:void(0);">×</a></div>';
+		$('#fee_item_list').append(newhtml);
+	});
+	$('#fee_item_list .btn-cancel').live('click',function(){
+		$(this).parent().remove();
+	});
 	
 });
+

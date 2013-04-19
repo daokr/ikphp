@@ -24,13 +24,11 @@ class eventAction extends frontendAction {
 	}
 	//创建
 	public  function create(){
-		$currtCity = array('areaid'=>1,'areaname'=>'北京'); //当前所在城市
-		$arrCity = array();
-		$arrCity[0]= array('id'=>1,'areaname'=>'北京');
-		$arrCity[1]= array('id'=>2,'areaname'=>'上海');
-	
-		
-		$this->_config_seo (array('title'=>'创建同城活动','subtitle'=>'北京'));
+		$loc = $this->_get('loc','trim');
+		$currtCity = $this->area_mod->getOneAreaBypy($loc); //当前所在城市
+		$arrCity = $this->area_mod->getHotCity();
+
+		$this->_config_seo (array('title'=>'创建同城活动','subtitle'=>$currtCity['areaname']));
 		$this->assign('currtCity',$currtCity);
 		$this->assign('arrCity',$arrCity);
 		$this->display();

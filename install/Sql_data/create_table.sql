@@ -161,78 +161,214 @@ CREATE TABLE `ik_area` (
   `areaname` varchar(32) NOT NULL DEFAULT '',
   `zm` char(1) NOT NULL DEFAULT '' COMMENT '首字母',
   `referid` int(11) NOT NULL DEFAULT '0',
+  `pinyin` varchar(30) NOT NULL DEFAULT '',
   PRIMARY KEY (`areaid`),
   KEY `referid` (`referid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='本地化' AUTO_INCREMENT=1 ;
-
+) ENGINE=MyISAM AUTO_INCREMENT=202 DEFAULT CHARSET=utf8 COMMENT='本地化';
 --
 -- 转存表中的数据 `ik_area`
 --
-INSERT INTO `ik_area` VALUES ('1', '北京', 'B', '0');
-INSERT INTO `ik_area` VALUES ('2', '上海', 'S', '0');
-INSERT INTO `ik_area` VALUES ('3', '广东', 'G', '0');
-INSERT INTO `ik_area` VALUES ('4', '江苏', 'J', '0');
-INSERT INTO `ik_area` VALUES ('5', '浙江', 'Z', '0');
-INSERT INTO `ik_area` VALUES ('6', '山东', 'S', '0');
-INSERT INTO `ik_area` VALUES ('7', '四川', 'S', '0');
-INSERT INTO `ik_area` VALUES ('8', '湖北', 'H', '0');
-INSERT INTO `ik_area` VALUES ('9', '福建', 'F', '0');
-INSERT INTO `ik_area` VALUES ('10', '河南', 'H', '0');
-INSERT INTO `ik_area` VALUES ('11', '辽宁', 'L', '0');
-INSERT INTO `ik_area` VALUES ('12', '陕西', 'S', '0');
-INSERT INTO `ik_area` VALUES ('13', '湖南', 'H', '0');
-INSERT INTO `ik_area` VALUES ('14', '河北', 'H', '0');
-INSERT INTO `ik_area` VALUES ('15', '安徽', 'A', '0');
-INSERT INTO `ik_area` VALUES ('16', '黑龙江', 'H', '0');
-INSERT INTO `ik_area` VALUES ('17', '重庆', 'C', '0');
-INSERT INTO `ik_area` VALUES ('18', '天津', 'T', '0');
-INSERT INTO `ik_area` VALUES ('19', '广西', 'G', '0');
-INSERT INTO `ik_area` VALUES ('20', '山西', 'S', '0');
-INSERT INTO `ik_area` VALUES ('21', '江西', 'J', '0');
-INSERT INTO `ik_area` VALUES ('22', '吉林', 'J', '0');
-INSERT INTO `ik_area` VALUES ('23', '云南', 'Y', '0');
-INSERT INTO `ik_area` VALUES ('24', '内蒙古', 'N', '0');
-INSERT INTO `ik_area` VALUES ('25', '贵州', 'G', '0');
-INSERT INTO `ik_area` VALUES ('26', '甘肃', 'G', '0');
-INSERT INTO `ik_area` VALUES ('27', '新疆', 'X', '0');
-INSERT INTO `ik_area` VALUES ('28', '海南', 'H', '0');
-INSERT INTO `ik_area` VALUES ('29', '宁夏', 'N', '0');
-INSERT INTO `ik_area` VALUES ('30', '青海', 'Q', '0');
-INSERT INTO `ik_area` VALUES ('31', '西藏', 'X', '0');
-INSERT INTO `ik_area` VALUES ('32', '香港', 'X', '0');
-INSERT INTO `ik_area` VALUES ('33', '澳门', 'A', '0');
-INSERT INTO `ik_area` VALUES ('34', '台湾', 'T', '0');
-INSERT INTO `ik_area` VALUES ('35', '钓鱼岛', 'D', '0');
-INSERT INTO `ik_area` VALUES ('36', '东城区', 'D', '1');
-INSERT INTO `ik_area` VALUES ('37', '西城区', 'X', '1');
-INSERT INTO `ik_area` VALUES ('38', '朝阳区', 'C', '1');
-INSERT INTO `ik_area` VALUES ('39', '丰台区', 'F', '1');
-INSERT INTO `ik_area` VALUES ('40', '石景山区', 'S', '1');
-INSERT INTO `ik_area` VALUES ('41', '海淀区', 'H', '1');
-INSERT INTO `ik_area` VALUES ('42', '门头沟区', 'M', '1');
-INSERT INTO `ik_area` VALUES ('43', '房山区', 'F', '1');
-INSERT INTO `ik_area` VALUES ('44', '通州区', 'T', '1');
-INSERT INTO `ik_area` VALUES ('45', '顺义区', 'S', '1');
-INSERT INTO `ik_area` VALUES ('46', '昌平区', 'C', '1');
-INSERT INTO `ik_area` VALUES ('47', '大兴区', 'D', '1');
-INSERT INTO `ik_area` VALUES ('48', '怀柔区', 'H', '1');
-INSERT INTO `ik_area` VALUES ('49', '平谷区', 'P', '1');
-INSERT INTO `ik_area` VALUES ('50', '密云县', 'M', '1');
-INSERT INTO `ik_area` VALUES ('51', '延庆县', 'Y', '1');
-INSERT INTO `ik_area` VALUES ('52', '地安门', '', '36');
-INSERT INTO `ik_area` VALUES ('53', '和平里', '', '36');
-INSERT INTO `ik_area` VALUES ('54', '王府井/东单', '', '36');
-INSERT INTO `ik_area` VALUES ('55', '建国门/北京站', '', '36');
-INSERT INTO `ik_area` VALUES ('56', '东四', '', '36');
-INSERT INTO `ik_area` VALUES ('57', '安定门', '', '36');
-INSERT INTO `ik_area` VALUES ('58', '朝阳门', '', '36');
-INSERT INTO `ik_area` VALUES ('59', '东直门', '', '36');
-INSERT INTO `ik_area` VALUES ('60', '广渠门', '', '36');
-INSERT INTO `ik_area` VALUES ('61', '左安门', '', '36');
-INSERT INTO `ik_area` VALUES ('62', '沙子口', '', '36');
-INSERT INTO `ik_area` VALUES ('63', '前门', '', '36');
-INSERT INTO `ik_area` VALUES ('64', '崇文门', '', '36');
-INSERT INTO `ik_area` VALUES ('65', '天坛', '', '36');
+INSERT INTO `ik_area` VALUES ('1', '北京', 'B', '0', 'beijing');
+INSERT INTO `ik_area` VALUES ('2', '上海', 'S', '0', 'shanghai');
+INSERT INTO `ik_area` VALUES ('3', '广东', 'G', '0', 'guangdong');
+INSERT INTO `ik_area` VALUES ('4', '江苏', 'J', '0', 'jiangsu');
+INSERT INTO `ik_area` VALUES ('5', '浙江', 'Z', '0', 'zhejiang');
+INSERT INTO `ik_area` VALUES ('6', '山东', 'S', '0', 'shandong');
+INSERT INTO `ik_area` VALUES ('7', '四川', 'S', '0', 'sichuan');
+INSERT INTO `ik_area` VALUES ('8', '湖北', 'H', '0', 'hubei');
+INSERT INTO `ik_area` VALUES ('9', '福建', 'F', '0', 'fujian');
+INSERT INTO `ik_area` VALUES ('10', '河南', 'H', '0', 'henan');
+INSERT INTO `ik_area` VALUES ('11', '辽宁', 'L', '0', 'liaoning');
+INSERT INTO `ik_area` VALUES ('12', '陕西', 'S', '0', 'shanxi');
+INSERT INTO `ik_area` VALUES ('13', '湖南', 'H', '0', 'hunan');
+INSERT INTO `ik_area` VALUES ('14', '河北', 'H', '0', 'hebei');
+INSERT INTO `ik_area` VALUES ('15', '安徽', 'A', '0', 'anhui');
+INSERT INTO `ik_area` VALUES ('16', '黑龙江', 'H', '0', 'heilongjiang');
+INSERT INTO `ik_area` VALUES ('17', '重庆', 'C', '0', 'zhongqing');
+INSERT INTO `ik_area` VALUES ('18', '天津', 'T', '0', 'tianjin');
+INSERT INTO `ik_area` VALUES ('19', '广西', 'G', '0', 'guangxi');
+INSERT INTO `ik_area` VALUES ('20', '山西', 'S', '0', 'shanxi');
+INSERT INTO `ik_area` VALUES ('21', '江西', 'J', '0', 'jiangxi');
+INSERT INTO `ik_area` VALUES ('22', '吉林', 'J', '0', 'jilin');
+INSERT INTO `ik_area` VALUES ('23', '云南', 'Y', '0', 'yunnan');
+INSERT INTO `ik_area` VALUES ('24', '内蒙古', 'N', '0', 'neimenggu');
+INSERT INTO `ik_area` VALUES ('25', '贵州', 'G', '0', 'guizhou');
+INSERT INTO `ik_area` VALUES ('26', '甘肃', 'G', '0', 'gansu');
+INSERT INTO `ik_area` VALUES ('27', '新疆', 'X', '0', 'xinjiang');
+INSERT INTO `ik_area` VALUES ('28', '海南', 'H', '0', 'hainan');
+INSERT INTO `ik_area` VALUES ('29', '宁夏', 'N', '0', 'ningxia');
+INSERT INTO `ik_area` VALUES ('30', '青海', 'Q', '0', 'qinghai');
+INSERT INTO `ik_area` VALUES ('31', '西藏', 'X', '0', 'xicang');
+INSERT INTO `ik_area` VALUES ('32', '香港', 'X', '0', 'xianggang');
+INSERT INTO `ik_area` VALUES ('33', '澳门', 'A', '0', 'aomen');
+INSERT INTO `ik_area` VALUES ('34', '台湾', 'T', '0', 'taiwan');
+INSERT INTO `ik_area` VALUES ('35', '钓鱼岛', 'D', '0', 'diaoyudao');
+INSERT INTO `ik_area` VALUES ('36', '东城区', 'D', '1', 'dongchengqu');
+INSERT INTO `ik_area` VALUES ('37', '西城区', 'X', '1', 'xichengqu');
+INSERT INTO `ik_area` VALUES ('38', '朝阳区', 'C', '1', 'chaoyangqu');
+INSERT INTO `ik_area` VALUES ('39', '丰台区', 'F', '1', 'fengtaiqu');
+INSERT INTO `ik_area` VALUES ('40', '石景山区', 'S', '1', 'shijingshanqu');
+INSERT INTO `ik_area` VALUES ('41', '海淀区', 'H', '1', 'haidianqu');
+INSERT INTO `ik_area` VALUES ('42', '门头沟区', 'M', '1', 'mentougouqu');
+INSERT INTO `ik_area` VALUES ('43', '房山区', 'F', '1', 'fangshanqu');
+INSERT INTO `ik_area` VALUES ('44', '通州区', 'T', '1', 'tongzhouqu');
+INSERT INTO `ik_area` VALUES ('45', '顺义区', 'S', '1', 'shunyiqu');
+INSERT INTO `ik_area` VALUES ('46', '昌平区', 'C', '1', 'changpingqu');
+INSERT INTO `ik_area` VALUES ('47', '大兴区', 'D', '1', 'daxingqu');
+INSERT INTO `ik_area` VALUES ('48', '怀柔区', 'H', '1', 'huairouqu');
+INSERT INTO `ik_area` VALUES ('49', '平谷区', 'P', '1', 'pingguqu');
+INSERT INTO `ik_area` VALUES ('50', '密云县', 'M', '1', 'miyunxian');
+INSERT INTO `ik_area` VALUES ('51', '延庆县', 'Y', '1', 'yanqingxian');
+INSERT INTO `ik_area` VALUES ('52', '地安门', '', '36', '');
+INSERT INTO `ik_area` VALUES ('53', '和平里', '', '36', '');
+INSERT INTO `ik_area` VALUES ('54', '王府井/东单', '', '36', '');
+INSERT INTO `ik_area` VALUES ('55', '建国门/北京站', '', '36', '');
+INSERT INTO `ik_area` VALUES ('56', '东四', '', '36', '');
+INSERT INTO `ik_area` VALUES ('57', '安定门', '', '36', '');
+INSERT INTO `ik_area` VALUES ('58', '朝阳门', '', '36', '');
+INSERT INTO `ik_area` VALUES ('59', '东直门', '', '36', '');
+INSERT INTO `ik_area` VALUES ('60', '广渠门', '', '36', '');
+INSERT INTO `ik_area` VALUES ('61', '左安门', '', '36', '');
+INSERT INTO `ik_area` VALUES ('62', '沙子口', '', '36', '');
+INSERT INTO `ik_area` VALUES ('63', '前门', '', '36', '');
+INSERT INTO `ik_area` VALUES ('64', '崇文门', '', '36', '');
+INSERT INTO `ik_area` VALUES ('65', '天坛', '', '36', '');
+INSERT INTO `ik_area` VALUES ('85', '杨浦区', 'Y', '2', 'yangpuqu');
+INSERT INTO `ik_area` VALUES ('83', '闸北区', 'Z', '2', 'zhabeiqu');
+INSERT INTO `ik_area` VALUES ('82', '普陀区', 'P', '2', 'putuoqu');
+INSERT INTO `ik_area` VALUES ('80', '长宁区', 'C', '2', 'changningqu');
+INSERT INTO `ik_area` VALUES ('79', '徐汇区', 'X', '2', 'xuhuiqu');
+INSERT INTO `ik_area` VALUES ('78', '黄浦区', 'H', '2', 'huangpuqu');
+INSERT INTO `ik_area` VALUES ('84', '虹口区', 'H', '2', 'hongkouqu');
+INSERT INTO `ik_area` VALUES ('81', '静安区', 'J', '2', 'jinganqu');
+INSERT INTO `ik_area` VALUES ('66', '呼和浩特', 'H', '24', 'huhehaote');
+INSERT INTO `ik_area` VALUES ('67', '包头', 'B', '24', 'baotou');
+INSERT INTO `ik_area` VALUES ('68', '呼伦贝尔', 'H', '24', 'hulunbeier');
+INSERT INTO `ik_area` VALUES ('69', '赤峰', 'C', '24', 'chifeng');
+INSERT INTO `ik_area` VALUES ('70', '鄂尔多斯', 'E', '24', 'eerduosi');
+INSERT INTO `ik_area` VALUES ('71', '通辽', 'T', '24', 'tongliao');
+INSERT INTO `ik_area` VALUES ('72', '锡林郭勒', 'X', '24', 'xilinguole');
+INSERT INTO `ik_area` VALUES ('73', '巴彦淖尔', 'B', '24', 'bayannaoer');
+INSERT INTO `ik_area` VALUES ('74', '兴安盟', 'X', '24', 'xinganmeng');
+INSERT INTO `ik_area` VALUES ('75', '乌海', 'W', '24', 'wuhai');
+INSERT INTO `ik_area` VALUES ('76', '乌兰察布', 'W', '24', 'wulanchabu');
+INSERT INTO `ik_area` VALUES ('77', '阿拉善盟', 'A', '24', 'alashanmeng');
+INSERT INTO `ik_area` VALUES ('86', '闵行区', '', '2', 'xingqu');
+INSERT INTO `ik_area` VALUES ('87', '宝山区', 'B', '2', 'baoshanqu');
+INSERT INTO `ik_area` VALUES ('88', '嘉定区', 'J', '2', 'jiadingqu');
+INSERT INTO `ik_area` VALUES ('89', '浦东新区', 'P', '2', 'pudongxinqu');
+INSERT INTO `ik_area` VALUES ('90', '金山区', 'J', '2', 'jinshanqu');
+INSERT INTO `ik_area` VALUES ('91', '松江区', 'S', '2', 'songjiangqu');
+INSERT INTO `ik_area` VALUES ('92', '青浦区', 'Q', '2', 'qingpuqu');
+INSERT INTO `ik_area` VALUES ('93', '奉贤区', 'F', '2', 'fengxianqu');
+INSERT INTO `ik_area` VALUES ('94', '崇明县', 'C', '2', 'chongmingxian');
+INSERT INTO `ik_area` VALUES ('95', '广州', 'G', '3', 'guangzhou');
+INSERT INTO `ik_area` VALUES ('96', '深圳', 'S', '3', 'shen');
+INSERT INTO `ik_area` VALUES ('97', '东莞', 'D', '3', 'dong');
+INSERT INTO `ik_area` VALUES ('98', '佛山', 'F', '3', 'foshan');
+INSERT INTO `ik_area` VALUES ('99', '汕头', 'S', '3', 'shantou');
+INSERT INTO `ik_area` VALUES ('100', '珠海', 'Z', '3', 'zhuhai');
+INSERT INTO `ik_area` VALUES ('101', '惠州', 'H', '3', 'huizhou');
+INSERT INTO `ik_area` VALUES ('102', '中山', 'Z', '3', 'zhongshan');
+INSERT INTO `ik_area` VALUES ('103', '江门', 'J', '3', 'jiangmen');
+INSERT INTO `ik_area` VALUES ('104', '揭阳', 'J', '3', 'jieyang');
+INSERT INTO `ik_area` VALUES ('105', '湛江', 'Z', '3', 'zhanjiang');
+INSERT INTO `ik_area` VALUES ('106', '茂名', 'M', '3', 'maoming');
+INSERT INTO `ik_area` VALUES ('107', '潮州', 'C', '3', 'chaozhou');
+INSERT INTO `ik_area` VALUES ('108', '梅州', 'M', '3', 'meizhou');
+INSERT INTO `ik_area` VALUES ('109', '肇庆', 'Z', '3', 'zhaoqing');
+INSERT INTO `ik_area` VALUES ('110', '韶关', 'S', '3', 'shaoguan');
+INSERT INTO `ik_area` VALUES ('111', '清远', 'Q', '3', 'qingyuan');
+INSERT INTO `ik_area` VALUES ('112', '河源', 'H', '3', 'heyuan');
+INSERT INTO `ik_area` VALUES ('113', '汕尾', 'S', '3', 'shanwei');
+INSERT INTO `ik_area` VALUES ('114', '阳江', 'Y', '3', 'yangjiang');
+INSERT INTO `ik_area` VALUES ('115', '云浮', 'Y', '3', 'yunfu');
+INSERT INTO `ik_area` VALUES ('116', '南京', 'N', '4', 'nanjing');
+INSERT INTO `ik_area` VALUES ('117', '苏州', 'S', '4', 'suzhou');
+INSERT INTO `ik_area` VALUES ('118', '昆山', 'K', '4', 'kunshan');
+INSERT INTO `ik_area` VALUES ('119', '常熟', 'C', '4', 'changshu');
+INSERT INTO `ik_area` VALUES ('120', '张家港', 'Z', '4', 'zhangjiagang');
+INSERT INTO `ik_area` VALUES ('121', '太仓', 'T', '4', 'taicang');
+INSERT INTO `ik_area` VALUES ('122', '无锡', 'W', '4', 'wuxi');
+INSERT INTO `ik_area` VALUES ('123', '江阴', 'J', '4', 'jiangyin');
+INSERT INTO `ik_area` VALUES ('124', '常州', 'C', '4', 'changzhou');
+INSERT INTO `ik_area` VALUES ('125', '徐州', 'X', '4', 'xuzhou');
+INSERT INTO `ik_area` VALUES ('126', '南通', 'N', '4', 'nantong');
+INSERT INTO `ik_area` VALUES ('127', '如皋', 'R', '4', 'rugao');
+INSERT INTO `ik_area` VALUES ('128', '启东', 'Q', '4', 'qidong');
+INSERT INTO `ik_area` VALUES ('129', '扬州', 'Y', '4', 'yangzhou');
+INSERT INTO `ik_area` VALUES ('130', '盐城', 'Y', '4', 'yancheng');
+INSERT INTO `ik_area` VALUES ('131', '连云港', 'L', '4', 'lianyungang');
+INSERT INTO `ik_area` VALUES ('132', '镇江', 'Z', '4', 'zhenjiang');
+INSERT INTO `ik_area` VALUES ('133', '泰州', 'T', '4', 'taizhou');
+INSERT INTO `ik_area` VALUES ('134', '淮安', 'H', '4', 'huaian');
+INSERT INTO `ik_area` VALUES ('135', '宿迁', 'S', '4', 'suqian');
+INSERT INTO `ik_area` VALUES ('136', '杭州', 'H', '5', 'hangzhou');
+INSERT INTO `ik_area` VALUES ('137', '温州', 'W', '5', 'wenzhou');
+INSERT INTO `ik_area` VALUES ('138', '宁波', 'N', '5', 'ningbo');
+INSERT INTO `ik_area` VALUES ('139', '台州', 'T', '5', 'taizhou');
+INSERT INTO `ik_area` VALUES ('140', '金华', 'J', '5', 'jinhua');
+INSERT INTO `ik_area` VALUES ('141', '嘉兴', 'J', '5', 'jiaxing');
+INSERT INTO `ik_area` VALUES ('142', '绍兴', 'S', '5', 'shaoxing');
+INSERT INTO `ik_area` VALUES ('143', '湖州', 'H', '5', 'huzhou');
+INSERT INTO `ik_area` VALUES ('144', '丽水', 'L', '5', 'lishui');
+INSERT INTO `ik_area` VALUES ('145', '衢州', 'Q', '5', 'quzhou');
+INSERT INTO `ik_area` VALUES ('146', '舟山', 'Z', '5', 'zhoushan');
+INSERT INTO `ik_area` VALUES ('147', '青岛', 'Q', '6', 'qingdao');
+INSERT INTO `ik_area` VALUES ('148', '济南', 'J', '6', 'jinan');
+INSERT INTO `ik_area` VALUES ('149', '烟台', 'Y', '6', 'yantai');
+INSERT INTO `ik_area` VALUES ('150', '潍坊', 'W', '6', 'weifang');
+INSERT INTO `ik_area` VALUES ('151', '临沂', 'L', '6', 'linyi');
+INSERT INTO `ik_area` VALUES ('152', '淄博', 'Z', '6', 'zibo');
+INSERT INTO `ik_area` VALUES ('153', '济宁', 'J', '6', 'jining');
+INSERT INTO `ik_area` VALUES ('154', '威海', 'W', '6', 'weihai');
+INSERT INTO `ik_area` VALUES ('155', '泰安', 'T', '6', 'taian');
+INSERT INTO `ik_area` VALUES ('156', '聊城', 'L', '6', 'liaocheng');
+INSERT INTO `ik_area` VALUES ('157', '东营', 'D', '6', 'dongying');
+INSERT INTO `ik_area` VALUES ('158', '枣庄', 'Z', '6', 'zaozhuang');
+INSERT INTO `ik_area` VALUES ('159', '菏泽', 'H', '6', 'heze');
+INSERT INTO `ik_area` VALUES ('160', '日照', 'R', '6', 'rizhao');
+INSERT INTO `ik_area` VALUES ('161', '德州', 'D', '6', 'dezhou');
+INSERT INTO `ik_area` VALUES ('162', '滨州', 'B', '6', 'binzhou');
+INSERT INTO `ik_area` VALUES ('163', '莱芜', 'L', '6', 'laiwu');
+INSERT INTO `ik_area` VALUES ('164', '成都', 'C', '7', 'chengdu');
+INSERT INTO `ik_area` VALUES ('165', '绵阳', 'M', '7', 'mianyang');
+INSERT INTO `ik_area` VALUES ('166', '南充', 'N', '7', 'nanchong');
+INSERT INTO `ik_area` VALUES ('167', '德阳', 'D', '7', 'deyang');
+INSERT INTO `ik_area` VALUES ('168', '达州', 'D', '7', 'dazhou');
+INSERT INTO `ik_area` VALUES ('169', '乐山', 'L', '7', 'leshan');
+INSERT INTO `ik_area` VALUES ('170', '宜宾', 'Y', '7', 'yibin');
+INSERT INTO `ik_area` VALUES ('171', '内江', 'N', '7', 'neijiang');
+INSERT INTO `ik_area` VALUES ('172', '自贡', 'Z', '7', 'zigong');
+INSERT INTO `ik_area` VALUES ('173', '泸州', '', '7', 'zhou');
+INSERT INTO `ik_area` VALUES ('174', '遂宁', 'S', '7', 'suining');
+INSERT INTO `ik_area` VALUES ('175', '广安', 'G', '7', 'guangan');
+INSERT INTO `ik_area` VALUES ('176', '眉山', 'M', '7', 'meishan');
+INSERT INTO `ik_area` VALUES ('177', '广元', 'G', '7', 'guangyuan');
+INSERT INTO `ik_area` VALUES ('178', '攀枝花', 'P', '7', 'panzhihua');
+INSERT INTO `ik_area` VALUES ('179', '资阳', 'Z', '7', 'ziyang');
+INSERT INTO `ik_area` VALUES ('180', '凉山', 'L', '7', 'liangshan');
+INSERT INTO `ik_area` VALUES ('181', '巴中', 'B', '7', 'bazhong');
+INSERT INTO `ik_area` VALUES ('182', '雅安', 'Y', '7', 'yaan');
+INSERT INTO `ik_area` VALUES ('183', '阿坝', 'A', '7', 'aba');
+INSERT INTO `ik_area` VALUES ('184', '甘孜', 'G', '7', 'ganzi');
+INSERT INTO `ik_area` VALUES ('185', '武汉', 'W', '8', 'wuhan');
+INSERT INTO `ik_area` VALUES ('186', '宜昌', 'Y', '8', 'yichang');
+INSERT INTO `ik_area` VALUES ('187', '荆州', 'J', '8', 'jingzhou');
+INSERT INTO `ik_area` VALUES ('188', '襄阳', 'X', '8', 'xiangyang');
+INSERT INTO `ik_area` VALUES ('189', '十堰', 'S', '8', 'shiyan');
+INSERT INTO `ik_area` VALUES ('190', '黄冈', 'H', '8', 'huanggang');
+INSERT INTO `ik_area` VALUES ('191', '黄石', 'H', '8', 'huangshi');
+INSERT INTO `ik_area` VALUES ('192', '孝感', 'X', '8', 'xiaogan');
+INSERT INTO `ik_area` VALUES ('193', '荆门', 'J', '8', 'jingmen');
+INSERT INTO `ik_area` VALUES ('194', '咸宁', 'X', '8', 'xianning');
+INSERT INTO `ik_area` VALUES ('195', '恩施', 'E', '8', 'enshi');
+INSERT INTO `ik_area` VALUES ('196', '随州', 'S', '8', 'suizhou');
+INSERT INTO `ik_area` VALUES ('197', '鄂州', 'E', '8', 'ezhou');
+INSERT INTO `ik_area` VALUES ('198', '仙桃', 'X', '8', 'xiantao');
+INSERT INTO `ik_area` VALUES ('199', '天门', 'T', '8', 'tianmen');
+INSERT INTO `ik_area` VALUES ('200', '潜江', 'Q', '8', 'qianjiang');
+INSERT INTO `ik_area` VALUES ('201', '神农架林区', 'S', '8', 'shennongjialinqu');
 
 -- --------------------------------------------------------
 
@@ -739,6 +875,43 @@ CREATE TABLE `ik_downcount` (
   `downtime` int(11) NOT NULL DEFAULT '0' COMMENT '时间',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='统计下载次数';
+-- --------------------------------------------------------
 
-
+--
+-- 表的结构 `ik_event_type`
+--
+DROP TABLE IF EXISTS `ik_event_cate`;
+CREATE TABLE `ik_event_type` (
+  `cateid` int(11) NOT NULL AUTO_INCREMENT COMMENT '活动分类ID',
+  `catename` char(120) NOT NULL DEFAULT '' COMMENT '分类名',
+  `enname` char(120) NOT NULL DEFAULT '' COMMENT '英文名称',
+  `referid` int(11) NOT NULL DEFAULT '0' COMMENT '父ID',
+  PRIMARY KEY (`typeid`),
+  KEY `areaid` (`referid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='活动分类' AUTO_INCREMENT=1 ;
+-- --------------------------------------------------------
+--
+-- 表的结构 `ik_event`
+--
+DROP TABLE IF EXISTS `ik_event`;
+CREATE TABLE `ik_event` (
+  `eventid` int(11) NOT NULL AUTO_INCREMENT COMMENT '活动ID',
+  `userid` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
+  `groupid` int(11) NOT NULL DEFAULT '0' COMMENT '小组ID',
+  `typeid` int(11) NOT NULL DEFAULT '0' COMMENT '活动类型ID',
+  `title` char(120) NOT NULL DEFAULT '' COMMENT '标题',
+  `content` text NOT NULL COMMENT '内容',
+  `time_start` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '开始时间',
+  `time_end` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '结束时间',
+  `path` char(32) NOT NULL DEFAULT '' COMMENT '图片路劲',
+  `poster` char(16) NOT NULL DEFAULT '' COMMENT '海报图片',
+  `areaid` int(11) NOT NULL DEFAULT '0' COMMENT '县区ID',
+  `address` char(120) NOT NULL DEFAULT '' COMMENT '详细地址',
+  `count_userdo` int(11) NOT NULL DEFAULT '0' COMMENT '统计参加的',
+  `count_userwish` int(11) NOT NULL DEFAULT '0' COMMENT '统计感兴趣的',
+  `isrecommend` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否推荐0默认1推荐',
+  `addtime` int(11) NOT NULL DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`eventid`),
+  KEY `areaid` (`areaid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='活动' AUTO_INCREMENT=1 ;
 

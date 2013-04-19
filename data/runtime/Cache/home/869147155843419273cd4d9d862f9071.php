@@ -371,7 +371,7 @@ __EXTENDS_JS__
         <span class="tab">W - Z</span>
       </div>
       <div class="bd hot">
-          <?php if(is_array($arrCity)): foreach($arrCity as $key=>$item): ?><span><a data-uid="" data-value="<?php echo ($item[id]); ?>" href="javascript:;"><?php echo ($item[areaname]); ?></a></span><?php endforeach; endif; ?>
+          <?php if(is_array($arrCity)): foreach($arrCity as $key=>$item): ?><span><a data-uid="<?php echo ($item[pinyin]); ?>" data-value="<?php echo ($item[areaid]); ?>" href="javascript:;"><?php echo ($item[areaname]); ?></a></span><?php endforeach; endif; ?>
       </div>
         
         
@@ -401,20 +401,13 @@ __EXTENDS_JS__
     <label>                                                                  
       <input name="fee" type="radio" class="fee-value" value="1"  />收费
     </label> 
-
-    <input type="hidden" name="fee_detail" id="fee_detail" value=""/>
   </div>
-  <div id="active_fee" class="item inner-back hide" style="display:block">
+  <div id="active_fee" class="item inner-back hide">
     <div class="con_item">
       <span>名称 </span><span class="pl">（如：预售票等）</span> <span style="margin-left:15px;">费用（元）</span>
     </div>
-    <div class="con_item fee_item">
-      <input type="text" class="basic-input fee-name" maxlength="15" placeholder="选填"/> <input type="text" class="basic-input fee-num" maxlength="6"/>
-    </div>
-    <a href="#" id="addFeeHook">添加费用</a>
-  </div>
-  <div id="tickets_field" class="item inner-back hide">
-    在接下来的"发售电子票"环节里，设置详细的票务信息。
+    <div id="fee_item_list"></div>
+    <a href="javascript:;" id="addFeeHook">添加费用</a>
   </div>
 </div>
 

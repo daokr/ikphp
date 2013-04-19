@@ -82,4 +82,22 @@ class areaModel extends Model {
 		return $strArea;
 	
 	}
+	//获取热门城市
+	public function getHotCity(){
+		$result = $this->where(array('ishot'=>'1'))->order('areaid asc')->select();
+		if($result){
+			return $result;
+		}else{
+			return false;
+		}
+	}
+	//根据拼音获取城市区域
+	public function getOneAreaBypy($pinyin){
+		$result = $this->where(array('pinyin'=>$pinyin))->order('areaid asc')->find();
+		if($result){
+			return $result;
+		}else{
+			return false;
+		}
+	}
 }

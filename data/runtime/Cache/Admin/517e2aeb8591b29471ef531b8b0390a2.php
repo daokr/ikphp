@@ -18,7 +18,7 @@
     <tr>
         <th>名称：</th>
         <td><input type="hidden" value="<?php echo ($str[areaid]); ?>" name="id"/>
-        <textarea cols="37" rows="8" name="areaname"></textarea> (一行一个，名称=索引字母，多个元素用"回车"格开。如：北京=B)</td>
+        <textarea cols="37" rows="8" name="areaname"></textarea> (一行一个，多个元素用"回车"格开)</td>
     </tr>    
 </table>
 <div class="page_btn"><input type="submit" value="提 交" class="submit" /></div>

@@ -21,13 +21,20 @@ class locationAction extends frontendAction {
 	}
 	public function getarea(){
 		$id = $this->_post('areaid');
-		$arrStrict = $this->area_mod->field('areaid,areaname')->where(array('referid'=>$id))->select();
-		if($arrStrict){
-			$arrJson = array(
-					'id'=> $id,
-					'r'=> true,
-					'children'=>$arrStrict,
-			);
+		if(!empty($id)){
+			$arrStrict = $this->area_mod->field('areaid,areaname')->where(array('referid'=>$id))->select();
+			if($arrStrict){
+				$arrJson = array(
+						'id'=> $id,
+						'r'=> true,
+						'children'=>$arrStrict,
+				);
+			}else{
+				$arrJson = array(
+						'id'=> $id,
+						'r'=> false,
+				);
+			}
 		}else{
 			$arrJson = array(
 					'id'=> $id,

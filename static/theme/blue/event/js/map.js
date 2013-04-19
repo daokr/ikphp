@@ -44,19 +44,17 @@ IK(function() {
 				var x = u[0].address_components;
 				var v = "";
 				$.each(x,
-				function(t, y) {
-					var A = y.long_name || ""; alert(A)
+				function(t, y) { 
+					var A = y.long_name || ""; 
 					if (A && y.types[0] == "sublocality") {
-						var z = $("#district_id");alert(z.val())
-						if (!+z.val()) {
-							z.children().each(function(B, C) {
+						var z = $("#district_id");
+						z.children().each(function(B, C) {
 								if (C.innerHTML.indexOf(A) != -1) {
 									C.selected = "selected";
-									IK.updateCity($("#loc_id").val(), C.value);
+									//IK.updateCity($("#loc_id").val(), C.value);
 									return false
 								}
-							})
-						}
+						})
 						return false
 					} else {
 						v = A + v
