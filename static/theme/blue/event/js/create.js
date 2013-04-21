@@ -959,21 +959,14 @@ IK("validate", "editable-select", function() {
 	var j = {
 		callback : function(z) {
 			var A = $("#submit_form").val();
+			var createurl = $('#eform').attr('action');
 			$("#submit_form").val("正在提交，请稍后...").unbind("click");
-			$.post("/j/location/create_event", $(z).serialize(), function(B) {
+			$.post(createurl, $(z).serialize(), function(B) {
 				if(B.r) {
 					$(window).unbind();
-					if($("#event_id").length) {
-						window.location.href = IK_BASE_URL + "/event/" + B.id + "/"
-					} else {
-						window.location.href = IK_BASE_URL + "/event/" + B.id + "/upload_poster"
-					}
+				    window.location.href = B.jumpurl;
 				} else {
-					if("error_desc" in B) {
-						alert(B.error_desc)
-					} else {
-						alert("创建失败，请正确填写各项内容")
-					}
+					alert("创建失败，请正确填写各项内容")
 					$("#submit_form").val(A).bind("click", q)
 				}
 			})
@@ -1088,13 +1081,58 @@ $(function(){
 			$('#active_fee').slideUp(200)
 		}	
 	});
-	$('#addFeeHook').click(function(){
+	$('#addFeeHook').live('click',function(){
 		var newhtml = '<div class="con_item fee_item"><input type="text" class="basic-input fee-name" maxlength="15" placeholder="选填" name="feename[]"/> <input type="text" class="basic-input fee-num" maxlength="6" name="feevalue"/> <a class="btn-cancel" href="javascript:void(0);">×</a></div>';
+		var maxitem = $('#fee_item_list').find('.fee_item').length;
+		if(maxitem==4){
+			$('#addFeeHook').remove();
+		}
 		$('#fee_item_list').append(newhtml);
 	});
 	$('#fee_item_list .btn-cancel').live('click',function(){
+		var maxitem = $('#fee_item_list').find('.fee_item').length;
+		if(maxitem<maxitem+1 && $('#addFeeHook').length==0){
+			$('#active_fee').append('<a id="addFeeHook" href="javascript:;">添加费用</a>');
+		}
 		$(this).parent().remove();
 	});
 	
 });
+//分类选择
+$(function(){
+	//subtype-select
+	$('#type').change(function(){
+		$("#subtype-select").html('<img src="'+siteUrl+'static/public/images/loading.gif" />').fadeIn(1000);
+		var oneid = $(this).children('option:selected').val();  //弹出select的值
+		var suburl = $(this).attr('data-suburl');
+		if(oneid==0){
+			$("#subtype-select").fadeOut(300).html('');
+		}else{
+		   $.post(suburl, {ik:'two',oneid:oneid},function(res) {
+			   $("#subtype-select").html(res.subcate);
+			   $("#tagsContainer").html(res.tag);
+			},"JSON");
+		}
+	});
+	//设置标签
+	$('#tagsContainer span').live('click',function(){
+		var text = $(this).text(), input = $('#tags');
+		var vals = input.val();
+		//设置input
+		if($(this).hasClass('selected-tag'))
+		{ 
+			$(this).removeClass('selected-tag');
+			//删除
+			var value = vals.replace(' '+text, '').replace(text, '').replace(/\s+/, ' ');
+			input.val($.trim(value));
+		
+		}else{
+			if(vals.split(' ').length < 5)
+			{
+				$(this).addClass('selected-tag');
+				input.val(vals ? vals + " " + text : text);
+			}
+		}
+	});
+})
 

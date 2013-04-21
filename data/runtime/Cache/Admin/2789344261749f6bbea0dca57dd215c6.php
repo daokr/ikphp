@@ -30,20 +30,12 @@
 <tr class="old">
 <td>ID</td>
 <td>分类名称</td>
-<td>英文名称</td>
-<td>标签</td>
-<td>子分类</td>
-<td width="280">操作</td>
+<td width="200">操作</td>
 </tr>
 <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><tr class="odd">
 <td><?php echo ($item[cateid]); ?></td>
 <td><?php echo ($item[catename]); ?></td>
-<td><?php echo ($item[enname]); ?></td>
-<td><?php echo ($item[tag]); ?></td>
-<td><a href="<?php echo U('event/cate',array('ik'=>'subcatelist','id'=>$item[cateid]));?>">查看子类</a></td>
 <td>
-<a href="<?php echo U('event/cate',array('ik'=>'addsubcate','id'=>$item[cateid]));?>">[添加子类]</a> &nbsp;&nbsp;
-<a href="<?php echo U('event/cate',array('ik'=>'addtag','id'=>$item[cateid]));?>">[添加标签]</a> &nbsp;&nbsp;
 <a href="<?php echo U('event/cate',array('ik'=>'edit','id'=>$item[cateid]));?>">[编辑]</a> &nbsp;&nbsp;
 <a href="<?php echo U('event/cate',array('ik'=>'delete','id'=>$item[cateid]));?>">[合并/删除]</a> &nbsp;&nbsp;
 </td>

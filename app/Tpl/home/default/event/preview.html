@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<div class="midder">
+    <div class="mc">
+    	<h1>{$seo.title}</h1>
+        <div class="cleft">
+    
+	  
+            <h2>活动内容已提交，审核中......</h2>
+            <p>爱客管理员会在2个工作日审核你的活动内容，并将审核结果通过站内信发给您。</p>
+
+            <p>
+                <a href="{:U('event/show',array('id'=>$eventid))}">&gt; 查看活动页面</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{:U('event/create')}">&gt; 继续创建活动</a>
+            </p>
+            
+
+        </div><!--//left-->
+    
+        <div class="cright">
+
+        </div><!--//right-->
+    
+    </div><!--//mc-->
+</div><!--//midder-->
+<include file="public:footer" />
+</body>
+</html>

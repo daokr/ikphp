@@ -619,7 +619,8 @@ function filemain($filename) {
 	return trim(substr($filename, 0, strrpos($filename, '.')));
 }
 //生成缩略图
-function makethumb($srcfile, $thumbsizearr = array(100, 100), $dstfile='') {
+//$cummode 裁剪模式 array；
+function makethumb($srcfile, $thumbsizearr = array(100, 100), $dstfile='', $arrcummode='') {
 	if(empty($dstfile)) {
 		$dstfile = filemain($srcfile).'_'.$thumbsizearr[0].'_'.$thumbsizearr[1].'.jpg';//自建立缩略图
 		$srcfile_file = C('ik_attach_path').$srcfile;
@@ -635,15 +636,23 @@ function makethumb($srcfile, $thumbsizearr = array(100, 100), $dstfile='') {
 	$opnotkeepscale = 4;
 	$opbestresizew = 8;
 	$opbestresizeh = 16;
-	$_IKIMAGECONFIG = array(
-			'thumbcutmode' => 2, // 裁剪模式  0是默认模式     1左或上剪切模式    2中间剪切模式    3右或下剪切模式
-			'thumbcutstartx' => 0, //x 坐标
-			'thumbcutstarty' => 0, //y 坐标
-			'thumboption' => 4, //8 宽度最佳缩放  4 综合最佳缩放 16 高度最佳缩放
-	); 
+	//默认系统模式
+	if(empty($arrcummode)){
+		$_IKIMAGECONFIG = array(
+				'thumbcutmode' => 2, // 裁剪模式  0是默认模式     1左或上剪切模式    2中间剪切模式    3右或下剪切模式
+				'thumbcutstartx' => 0, //x 坐标
+				'thumbcutstarty' => 0, //y 坐标
+				'thumboption' => 4, //8 宽度最佳缩放  4 综合最佳缩放 16 高度最佳缩放
+		);
+		
+	}else{
+		
+		$_IKIMAGECONFIG = $arrcummode;
+	}
+
 	$option = $_IKIMAGECONFIG['thumboption'];
 	$cutmode = $_IKIMAGECONFIG['thumbcutmode'];
-	$startx = $_IKIMAGECONFIG['thumbcutstartx'];
+	$startx = $_IKIMAGECONFIG['thumbcutstartx']; 
 	$starty = $_IKIMAGECONFIG['thumbcutstarty'];
 	$dstW = intval($thumbsizearr[0]);
 	$dstH = intval($thumbsizearr[1]);

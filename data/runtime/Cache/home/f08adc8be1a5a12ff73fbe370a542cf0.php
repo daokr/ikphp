@@ -123,67 +123,28 @@ __EXTENDS_JS__
 
 </header>
 <div class="midder">
-	<div class="mc">
-		<aside class="w190 fl">
-			<section class="categories">
-				<div class="hd">
-					<h3>全部分类</h3>
-				</div>
-				<ul class="list categories-list">
-                    <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><li><a href="<?php echo U('article/category',array('cateid'=>$item[cateid]));?>"><?php echo ($item[catename]); ?></a></li><?php endforeach; endif; ?>
-				</ul>
-			</section>
-			<section class="personal-publish">
-				<div class="hd">
-					<h3>作品投稿</h3>
-				</div>
-				<div class="bd">
-					<p>个人作者可以在爱客上直接发布作品。 内容领域不限，唯一要求是保证质量优秀。 发表后，作者可直接从中获得分成。</p>
-					<p class="entrance">
-						<a href="<?php echo U('article/add');?>" class="btn btn-large">去投稿<i class="arrow-right"></i></a>
-					</p>
-				</div>
-			</section>
-		</aside>
-		<article class="w770 fr">
-			<section>
-				<div class="hd tag-heading">
-					<h3 class="the-tag-name"><?php echo ($seo["title"]); ?></h3>
-				</div>
+    <div class="mc">
+    	<h1><?php echo ($seo["title"]); ?></h1>
+        <div class="cleft">
+    
+	  
+            <h2>活动内容已提交，审核中......</h2>
+            <p>爱客管理员会在2个工作日审核你的活动内容，并将审核结果通过站内信发给您。</p>
 
-				<div class="bd">
-					<ul class="list-lined article-list">
-						<?php if(is_array($arrArticle)): foreach($arrArticle as $key=>$item): ?><li class="item" id="article-407582">
-							<div class="title">
-								<a href="<?php echo U('article/show',array('id'=>$item[aid]));?>"><?php echo ($item[title]); ?> 
-                                <?php if($item[isphoto]): ?>[图文]<?php endif; ?>
-                                </a>
-							</div>
-                           <?php if($item[isphoto]): ?><div class="cover">
-                                <a class="pic" href="<?php echo U('article/show',array('id'=>$item[aid]));?>">
-									<img src="<?php echo ($item[photo][simg]); ?>" />
-								</a> 
-							</div><?php endif; ?>                           
-							<div class="info">
-								<div class="article-desc-brief">
-									<?php echo getsubstrutf8(t($item[content]),0,150); ?>...
-                                    <a href="<?php echo U('article/show',array('id'=>$item[aid]));?>">（更多）</a>
-								</div>
-							</div>
-							<a href="<?php echo U('people/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <span class="time">发表于 <?php echo date('Y-m-d H:i',$item[addtime]) ?> 评论 <?php echo ($item[count_comment]); ?> | 浏览 <?php echo ($item[count_view]); ?></span> 
-						</li><?php endforeach; endif; ?>
-
-					</ul>
-				</div>
-
-
-			</section>
+            <p>
+                <a href="<?php echo U('event/show',array('id'=>$eventid));?>">&gt; 查看活动页面</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="<?php echo U('event/create');?>">&gt; 继续创建活动</a>
+            </p>
             
-             <div class="page"><?php echo ($pageUrl); ?></div>   
-             
-		</article>
-	</div>
-</div>
+
+        </div><!--//left-->
+    
+        <div class="cright">
+
+        </div><!--//right-->
+    
+    </div><!--//mc-->
+</div><!--//midder-->
 <!--footer-->
 <footer>
 <div id="footer">

@@ -162,7 +162,7 @@ __EXTENDS_JS__
 </header>
 <div class="midder">
     <div class="mc">
-    	<h1>创建同城活动</h1>
+    	<h1><?php echo ($seo["title"]); ?></h1>
         <div class="cleft">
             <div class="nav-step">
               <span>1. 填写活动信息</span>
@@ -171,20 +171,22 @@ __EXTENDS_JS__
               <span class="pl">&gt;</span>
               <span class="pl">3. 提交活动</span>
             </div>
-<form id="eform" name="eform" action="" method="post" autocomplete="off" tagName="form">        
+<form id="eform" name="eform" action="<?php echo U('event/create');?>" method="post" autocomplete="off" tagName="form">        
 <div class="row">
   <label class="field" for="type">活动分类</label>
   <div class="item">
-    <select name="type" class="basic-input" id="type">
+    <select name="type" class="basic-input" id="type" data-suburl="<?php echo U('event/ajax_subcate');?>">
       <option value="0">请选择</option>
       <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><option value="<?php echo ($item[cateid]); ?>"><?php echo ($item[catename]); ?></option><?php endforeach; endif; ?>
-    </select></div>
-  <div id="subtype-select" class="hide"></div>
+    </select>
+	<span id="subtype-select" class="hide"></span>   
+   </div>
 </div>
+
 <div class="row row-title">
         <label class="field" for="title">活动标题</label>
         <div class="item">
-            <input type="text" size="64" name="title" maxlength="70" class="basic-input " value="" id="title">
+            <input type="text" size="64" name="title" maxlength="70" class="basic-input " value="" id="title" style="width:395px">
         </div>
 </div>
 <hr class="hrline">
@@ -296,7 +298,7 @@ __EXTENDS_JS__
 
 <div class="row" id="pageAddressHook">
   
-  <label class="field" for="page_address">活动地点<em class="man">*</em></label>
+  <label class="field" for="page_address">活动地点</label>
   <div class="item map-item-error">
     <span class="validate-error map-error-fix" style="display: inline;"></span>
     <input id="coordinate" type="hidden" name="coordinate" value="" />
@@ -363,7 +365,7 @@ __EXTENDS_JS__
 
     
 <div class="row">
-  <label class="field" for="desc">活动详情<em class="man">*</em></label>
+  <label class="field" for="desc">活动详情</label>
   <div class="item desc">
     <textarea class="basic-input" id="desc" name="desc" rows="10" cols="54" max_length="4000" ></textarea>
   </div>
@@ -395,7 +397,7 @@ __EXTENDS_JS__
 
     <hr class="hrline" />
     <div class="row">
-        <label for="priv" class="field">参加权限<em class="man">*</em></label>
+        <label for="priv" class="field">参加权限</label>
         <div class="item floatbug">
             <label for="allow_others">
                 <input id="allow_others" name="priv" type="checkbox"  />只有被邀请的成员才能参加
@@ -408,18 +410,16 @@ __EXTENDS_JS__
         </div>
     </div>
     <div class="row">
-        <label for="label" class="field">活动标签<em class="man">*</em></label>
+        <label for="label" class="field">活动标签</label>
         <div class="item">
             <input id="tags" name="tags" class="basic-input" size="55" value="">
         </div>
-        <div id="tagsContainer" class="item">
-        <span class="event-tag">放映</span><span class="event-tag selected-tag">锅匠</span><span class="event-tag">锅匠，裁缝，士兵，间谍</span><span class="event-tag">奥斯卡</span><span class="event-tag">咖啡</span><span class="event-tag">戛纳电影节</span><span class="event-tag">威尼斯电影节</span><span class="event-tag">吕布</span><span class="event-tag">天堂电影院</span><span class="event-tag">观影</span>
-        </div>
+        <div id="tagsContainer" class="item"></div>
     </div>
     <hr class="hrline" />
     <div class="row footer">
         <div class="item">
-            <input class="loc-btn" type="button" id="submit_form" value="下一步：上传活动海报" />
+            <input class="loc-btn" type="button" id="submit_form" value="下一步：上传活动海报"/>
             <a id="cancel_form" class="lnk-flat">取消</a>
         </div>
     </div>

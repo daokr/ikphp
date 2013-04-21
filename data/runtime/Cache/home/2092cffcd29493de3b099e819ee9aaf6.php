@@ -17,6 +17,7 @@
 <script>var siteUrl = '__SITE_URL__';</script>
 <script src="__STATIC__/public/js/jquery.js" type="text/javascript"></script>
 <script src="__STATIC__/public/js/common.js" type="text/javascript"></script>
+<script src="__STATIC__/public/js/IK.js" type="text/javascript" data-cfg-autoload="false"></script>
 <script src="__STATIC__/public/js/all.js" type="text/javascript"></script>
 <!--[if lt IE 9]>
 <script src="__STATIC__/public/js/html5.js"></script>
@@ -73,7 +74,9 @@ __EXTENDS_JS__
              <li>
              <a href="<?php echo U('article/index');?>">阅读</a>
              </li>   
-             
+             <li>
+             <a href="<?php echo U('location/index');?>">同城</a>
+             </li> 
              <li>
              <a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a>
              </li>                                                      

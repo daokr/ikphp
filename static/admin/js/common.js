@@ -52,3 +52,14 @@ function Audit(obj){
 		if(res.r==0){window.location.reload();}
 	});	
 }
+$(function(){
+	//换色
+	$('.midder table tr').hover(
+		function(){ 
+			$(this).addClass('oddover');
+		},
+		function(){
+			$(this).removeClass('oddover');
+		}
+	);
+})

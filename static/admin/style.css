@@ -162,12 +162,13 @@ cursor:pointer; display:block; float:left}
 }
 .midder table tr td {
 	border-bottom: 1px solid #eee;
-	height: 32px;
-	line-height: 32px;
+	height: 35px;
+	line-height: 35px;
 	padding: 0 10px;
 	vertical-align: top;
 	margin: 0;
 	outline: 0 none;
+	font-size:13px
 }
 
 .midder table tr.old td {
@@ -180,6 +181,7 @@ cursor:pointer; display:block; float:left}
 .midder table tr.odd td {
 	background: none repeat scroll 0 0 #FBFBFB;
 }
+.midder table tr.oddover td{ background-color:#fdf4ef}
 
 /*分页*/
 .page {

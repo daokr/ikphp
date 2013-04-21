@@ -1,4 +1,5 @@
 <h2>{$title}</h2>  
+<if condition="$ik neq 'addsubcate' && $ik neq 'subcatelist'">
 <div class="tabnav">
 <ul>
 <foreach name="menu" key="key" item="item">
@@ -10,3 +11,9 @@
 </foreach>
 </ul>
 </div>
+<else/>
+<div class="Toolbar_inbox">
+    <a class="btn_a" href="{:U('event/cate',array('ik'=>'catelist'))}"><span>返回</span></a>
+	<a class="btn_a" href="{:U('event/cate',array('ik'=>'addsubcate','id'=>$strCate[cateid]))}"><span>添加子分类</span></a>
+</div>
+</if>
