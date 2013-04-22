@@ -966,7 +966,7 @@ IK("validate", "editable-select", function() {
 					$(window).unbind();
 				    window.location.href = B.jumpurl;
 				} else {
-					alert("创建失败，请正确填写各项内容")
+					error(B.html)
 					$("#submit_form").val(A).bind("click", q)
 				}
 			})
@@ -1068,6 +1068,7 @@ $(function(){
 		$("#addDirectionHook").show();
 		q.preventDefault()
 	})
+	/**
 	//费用
 	var feehtml = '<div class="con_item fee_item"><input type="text" class="basic-input fee-name" maxlength="15" placeholder="选填" name="feename[]"/> <input type="text" class="basic-input fee-num" maxlength="6" name="feevalue"/></div>';
 	$('#activeFeeHook input[name=fee]').bind('change',function(){
@@ -1096,7 +1097,121 @@ $(function(){
 		}
 		$(this).parent().remove();
 	});
+	**/
 	
+});
+$(function() {
+	var g = $("#active_fee");
+	var a = $("#addFeeHook");
+	var d = $("#tickets_field");
+	function i() {
+		var j = $("#active_fee .fee_item"), k = [];
+		j.each(function(l, m) {
+			var n = [];
+			$(m).find("input").each(function(p, o) {
+				if(p == 1 && $.trim(o.value)) {
+					n.push($.trim(o.value))
+				} else {
+					if(p == 0) {
+						n.push($.trim(o.value))
+					}
+				}
+			});
+			if(n.length > 1) {
+				k.push(n.join("=="))
+			}
+		});
+		$("#fee_detail").val(k.join("||"))
+	}
+
+	function f(l, m, k) {
+		var j = '<div class="con_item fee_item hide">', l = l || "", m = m || "";
+		j += '<input type="text" class="basic-input fee-name" placeholder="选填" value="' + l + '" maxlength="15"/> ';
+		j += '<input type="text" class="basic-input fee-num" value="' + m + '" maxlength="6"/>';
+		if(!(k && k == 1)) {
+			j += '<a href="javascript:void(0);" class="btn-cancel">×</a>'
+		}
+		j += "</div>";
+		return j
+	}
+
+	function e(j) {
+		j.preventDefault();
+		if(lowLevelBrowser) {
+			$(j.target).parent().remove()
+		} else {
+			$(j.target).parent().slideUp("fast", function() {
+				$(this).remove()
+			})
+		}
+		i();
+		if($(".active_fee .fee_item").length < 10) {
+			a.show()
+		}
+	}
+
+	function b(k) {
+		var j = a.parent().find(".fee_item").length;
+		if(j < 5) {
+			if(lowLevelBrowser) {
+				$(f()).insertBefore(a).show()
+			} else {
+				$(f()).insertBefore(a).slideDown("fast")
+			}
+			if(j == 4) {
+				a.hide()
+			}
+		}
+		k.preventDefault()
+	}
+
+	function h() { 
+		var j = $(this).val();
+		if(j == 1) {
+			d.hide();
+			if(lowLevelBrowser) {
+				g.show()
+			} else {
+				g.slideDown("fast")
+			}
+		} else {
+			if(j == 2) {
+				g.hide();
+				if(lowLevelBrowser) {
+					d.show()
+				} else {
+					d.slideDown("fast")
+				}
+			} else {
+				if(lowLevelBrowser) {
+					g.hide();
+					d.hide()
+				} else {
+					g.slideUp("fast");
+					d.slideUp("fast")
+				}
+			}
+		}
+	}
+	$(':input[name="fee"]').click(h);
+	$(':input[name="fee"][checked]').trigger("click");
+	if($("#fee_detail").val()) {
+		$("#active_fee .fee_item").remove();
+		var c = $("#fee_detail").val().split("||");
+		$.each(c, function(k, m) {
+			if(k < 10) {
+				var o = m.split("=="), l = o[0] || "", n = o[1] || "", j = f(l, n, k + 1);
+				$(j).insertBefore(a)
+			}
+		});
+		$("#active_fee .fee_item").show();
+		if(c.length > 9) {
+			a.hide()
+		}
+	}
+	$("#active_fee").delegate(".btn-cancel", "click", e);
+	a.click(b);
+	$("#activeFeeHook").delegate("#active_fee input", "change", i)
 });
 //分类选择
 $(function(){

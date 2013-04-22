@@ -33,6 +33,58 @@ class eventAction extends frontendAction {
 		$arrCity = $this->area_mod->getHotCity();
 	
 		if(IS_POST){
+			//接收数据
+			$data['userid'] = $this->userid;
+			$data['title'] = $this->_post('title','trim,t');
+			$data['cateid'] = $this->_post('cateid','intval');
+			$data['subcateid'] = $this->_post('subcateid','intval');
+			$data['content'] = $this->_post('content','trim');
+			//地址
+			$data['loc_id'] = $this->_post('loc_id','intval');
+			$data['city'] = $this->_post('city','trim');
+			$data['district_id'] = $this->_post('district_id','intval');
+			$data['region_id'] = $this->_post('region_id','intval');
+			$data['street_address'] = $this->_post('street_address','trim');
+			
+			
+			$data['begin_date'] = $this->_post('begin_date','trim');
+			$data['begin_time'] = $this->_post('begin_time','trim');
+			$data['end_date']   = $this->_post('end_date','trim');
+			$data['end_time']   = $this->_post('end_time','trim');
+			
+			$data['repeat_type'] = $this->_post('repeat_type','trim');
+			$data['repeat_time'] = $this->_post('repeat_time','trim');
+			
+			$data['more_begin_day'] = $this->_post('more_begin_day','trim');
+			$data['more_end_day'] = $this->_post('more_end_day','trim');
+			$data['one_begin_time'] = $this->_post('one_begin_time','trim');
+			$data['one_end_time'] = $this->_post('one_end_time','trim');
+			
+			$data['week_begin_day'] = $this->_post('week_begin_day','trim');
+			$data['week_end_day'] = $this->_post('week_end_day','trim');
+			$data['week_begin_time'] = $this->_post('week_begin_time','trim');
+			$data['week_end_time'] = $this->_post('week_end_time','trim');	
+
+			$data['week_mon'] = $this->_post('week_mon','trim'); //on 代表选中
+			$data['week_tue'] = $this->_post('week_tue','trim');
+			$data['week_wed'] = $this->_post('week_wed','trim');
+			$data['week_thu'] = $this->_post('week_thu','trim');
+			$data['week_fri'] = $this->_post('week_fri','trim');
+			$data['week_sat'] = $this->_post('week_sat','trim');
+			$data['week_sun'] = $this->_post('week_sun','trim');
+			
+			//费用
+			$data['fee'] = $this->_post('fee','intval'); // 0 免费 1收费
+			$data['fee_detail'] = $this->_post('fee_detail','trim');
+			
+			//检测
+			if(mb_strlen ( $data['title'], 'utf8' ) < 2) $this->ajaxReturn(array('r'=> false,'html'=>'活动标题写的太少了！'));
+			if(mb_strlen ( $data['content'], 'utf8' ) > 50000) $this->ajaxReturn(array('r'=> false,'html'=>'活动详情写的太多了！'));
+			if(mb_strlen ( $data['content'], 'utf8' ) < 10) $this->ajaxReturn(array('r'=> false,'html'=>'活动详情写的太少了！'));
+			
+			
+			
+			
 			$id = 1;
 			$jsonData = array();
 			if($id>0){

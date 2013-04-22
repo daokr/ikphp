@@ -175,7 +175,7 @@ __EXTENDS_JS__
 <div class="row">
   <label class="field" for="type">活动分类</label>
   <div class="item">
-    <select name="type" class="basic-input" id="type" data-suburl="<?php echo U('event/ajax_subcate');?>">
+    <select name="cate" class="basic-input" id="type" data-suburl="<?php echo U('event/ajax_subcate');?>">
       <option value="0">请选择</option>
       <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><option value="<?php echo ($item[cateid]); ?>"><?php echo ($item[catename]); ?></option><?php endforeach; endif; ?>
     </select>
@@ -245,7 +245,7 @@ __EXTENDS_JS__
           <label for="week_thu">四<input type="checkbox" name="week_thu" id="week_thu" /></label>
           <label for="week_fri">五<input type="checkbox" name="week_fri" id="week_fri" /></label>
           <label for="week_sat">六<input type="checkbox" name="week_sat" id="week_sat" /></label>
-          <label for="week_sun">日 <input type="checkbox" name="week_sun" id="week_sun" /></label>
+          <label for="week_sun">日<input type="checkbox" name="week_sun" id="week_sun" /></label>
         </div>
       </div>
       <div class="con_item">
@@ -328,7 +328,7 @@ __EXTENDS_JS__
                 <img src="http://maps.google.cn/maps/api/staticmap?size=388x106&amp;zoom=6&amp;center=北京,CN&amp;sensor=false&amp;language=zh-CN" width="388" height="106">
                 <span class="map-card-nomark">在地图上标注活动地点</span>
               </a>
-            <div class="map-card-modify" style=display:none>
+            <div class="map-card-modify" style="display:none">
               已标注地点 <a href="javascript:void(0);" data-type="new_mark" class="no-visited lnk-modify-addr">修改</a>
             </div>
           </div>
@@ -367,7 +367,7 @@ __EXTENDS_JS__
 <div class="row">
   <label class="field" for="desc">活动详情</label>
   <div class="item desc">
-    <textarea class="basic-input" id="desc" name="desc" rows="10" cols="54" max_length="4000" ></textarea>
+    <textarea class="basic-input" id="desc" name="content" rows="10" cols="54" max_length="4000" ></textarea>
   </div>
 </div>
 
@@ -384,31 +384,22 @@ __EXTENDS_JS__
     <label>                                                                  
       <input name="fee" type="radio" class="fee-value" value="1"  />收费
     </label> 
+    <input type="hidden" value="" id="fee_detail" name="fee_detail">
   </div>
   <div id="active_fee" class="item inner-back hide">
     <div class="con_item">
       <span>名称 </span><span class="pl">（如：预售票等）</span> <span style="margin-left:15px;">费用（元）</span>
     </div>
-    <div id="fee_item_list"></div>
-    <a href="javascript:;" id="addFeeHook">添加费用</a>
+    <div class="con_item fee_item">
+      <input type="text" class="basic-input fee-name" maxlength="15" placeholder="选填"/> <input type="text" class="basic-input fee-num" maxlength="6"/>
+    </div>
+    <a href="#" id="addFeeHook">添加费用</a>
+  </div>
+  <div id="tickets_field" class="item inner-back hide">
+    在接下来的"发售电子票"环节里，设置详细的票务信息。
   </div>
 </div>
 
-
-    <hr class="hrline" />
-    <div class="row">
-        <label for="priv" class="field">参加权限</label>
-        <div class="item floatbug">
-            <label for="allow_others">
-                <input id="allow_others" name="priv" type="checkbox"  />只有被邀请的成员才能参加
-            </label>
-        </div>
-        <div class="item">
-            <label for="need_apply">
-                <input id="need_apply" name="need_apply" type="checkbox" />参加者需要提前填写报名表
-            </label>
-        </div>
-    </div>
     <div class="row">
         <label for="label" class="field">活动标签</label>
         <div class="item">
