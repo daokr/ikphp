@@ -18,79 +18,95 @@ class eventAction extends frontendAction {
 		$this->area_mod = D ( 'area' );
 		$this->user_mod = D ( 'user' );
 		$this->cate_mod = D ( 'event_cate' );
+		$this->mod = D('event');
 	}
 		
 	public  function index(){
 		$this->display();
 	}
+	public function lists(){
+		
+	}
 	//创建
 	public  function create(){
-		$loc = $this->_get('loc','trim');
+		$loc = $this->_get('loc','trim'); 
 		//获取分类
 		$arrCate = $this->cate_mod->getAllCate();
 		
 		$currtCity = $this->area_mod->getOneAreaBypy($loc); //当前所在城市
 		$arrCity = $this->area_mod->getHotCity();
-	
+
 		if(IS_POST){
 			//接收数据
 			$data['userid'] = $this->userid;
 			$data['title'] = $this->_post('title','trim,t');
 			$data['cateid'] = $this->_post('cateid','intval');
-			$data['subcateid'] = $this->_post('subcateid','intval');
+			$data['subcateid'] = $this->_post('subcateid','intval','0');
 			$data['content'] = $this->_post('content','trim');
+			$data['coordinate'] = $this->_post('coordinate','trim'); //坐标
+			
 			//地址
 			$data['loc_id'] = $this->_post('loc_id','intval');
 			$data['city'] = $this->_post('city','trim');
 			$data['district_id'] = $this->_post('district_id','intval');
-			$data['region_id'] = $this->_post('region_id','intval');
+			$data['region_id'] = $this->_post('region_id','intval','0');
 			$data['street_address'] = $this->_post('street_address','trim');
 			
 			
-			$data['begin_date'] = $this->_post('begin_date','trim');
-			$data['begin_time'] = $this->_post('begin_time','trim');
-			$data['end_date']   = $this->_post('end_date','trim');
-			$data['end_time']   = $this->_post('end_time','trim');
+			$data['begin_date'] = $this->_post('begin_date','trim,sstrtotime','');
+			$data['begin_time'] = $this->_post('begin_time','trim','');
+			$data['end_date']   = $this->_post('end_date','trim,sstrtotime','');
+			$data['end_time']   = $this->_post('end_time','trim','');
 			
-			$data['repeat_type'] = $this->_post('repeat_type','trim');
-			$data['repeat_time'] = $this->_post('repeat_time','trim');
+			$data['repeat_type'] = $this->_post('repeat_type','trim','');
+			$data['repeat_time'] = $this->_post('repeat_time','trim','');
 			
-			$data['more_begin_day'] = $this->_post('more_begin_day','trim');
-			$data['more_end_day'] = $this->_post('more_end_day','trim');
-			$data['one_begin_time'] = $this->_post('one_begin_time','trim');
-			$data['one_end_time'] = $this->_post('one_end_time','trim');
+			$data['more_begin_day'] = $this->_post('more_begin_day','trim','');
+			$data['more_end_day'] = $this->_post('more_end_day','trim','');
+			$data['one_begin_time'] = $this->_post('one_begin_time','trim','');
+			$data['one_end_time'] = $this->_post('one_end_time','trim','');
 			
-			$data['week_begin_day'] = $this->_post('week_begin_day','trim');
-			$data['week_end_day'] = $this->_post('week_end_day','trim');
-			$data['week_begin_time'] = $this->_post('week_begin_time','trim');
-			$data['week_end_time'] = $this->_post('week_end_time','trim');	
+			$data['week_begin_day'] = $this->_post('week_begin_day','trim','');
+			$data['week_end_day'] = $this->_post('week_end_day','trim','');
+			$data['week_begin_time'] = $this->_post('week_begin_time','trim','');
+			$data['week_end_time'] = $this->_post('week_end_time','trim','');	
 
-			$data['week_mon'] = $this->_post('week_mon','trim'); //on 代表选中
-			$data['week_tue'] = $this->_post('week_tue','trim');
-			$data['week_wed'] = $this->_post('week_wed','trim');
-			$data['week_thu'] = $this->_post('week_thu','trim');
-			$data['week_fri'] = $this->_post('week_fri','trim');
-			$data['week_sat'] = $this->_post('week_sat','trim');
-			$data['week_sun'] = $this->_post('week_sun','trim');
+			$data['week_mon'] = $this->_post('week_mon','trim',''); //on 代表选中
+			$data['week_tue'] = $this->_post('week_tue','trim','');
+			$data['week_wed'] = $this->_post('week_wed','trim','');
+			$data['week_thu'] = $this->_post('week_thu','trim','');
+			$data['week_fri'] = $this->_post('week_fri','trim','');
+			$data['week_sat'] = $this->_post('week_sat','trim','');
+			$data['week_sun'] = $this->_post('week_sun','trim','');
 			
 			//费用
 			$data['fee'] = $this->_post('fee','intval'); // 0 免费 1收费
-			$data['fee_detail'] = $this->_post('fee_detail','trim');
+			$data['fee_detail'] = $this->_post('fee_detail','trim','');
+			
+			//审核 添加时间
+			$data['isaudit'] = 1; // 0已审核  1审核中
+			$data['addtime'] = time();
 			
 			//检测
 			if(mb_strlen ( $data['title'], 'utf8' ) < 2) $this->ajaxReturn(array('r'=> false,'html'=>'活动标题写的太少了！'));
 			if(mb_strlen ( $data['content'], 'utf8' ) > 50000) $this->ajaxReturn(array('r'=> false,'html'=>'活动详情写的太多了！'));
 			if(mb_strlen ( $data['content'], 'utf8' ) < 10) $this->ajaxReturn(array('r'=> false,'html'=>'活动详情写的太少了！'));
 			
-			
-			
-			
-			$id = 1;
+			//开始创建
+			if(!false == $this->mod->create($data)){
+				
+				$id = $this->mod->add(); 
+			}
 			$jsonData = array();
 			if($id>0){
 				$jsonData = array(
 					'r'=> true,
 					'jumpurl' => U('event/upload_poster',array('id'=>$id)),	
+				);
+			}else{
+				$jsonData = array(
+						'r'=> false,
+						'html' => '活动创建失败！请重新创建。',
 				);
 			}
 			$this->ajaxReturn($jsonData);
@@ -144,10 +160,19 @@ class eventAction extends frontendAction {
 			$this->display();
 		}
 	}
+	//审核
 	public function preview(){
 		$eventid = $this->_get('id');
 		$this->assign('eventid',$eventid);
 		$this->_config_seo (array('title'=>'成功创建活动','subtitle'=>'同城活动'));
+		$this->display();
+	}
+	//显示
+	public function show(){
+		$id = $this->_get('id','intval');
+		$strEvent = $this->mod->getOneEvent($id);
+		$this->assign('strEvent',$strEvent);
+		$this->_config_seo (array('title'=>$strEvent['title'],'subtitle'=>'同城活动'));
 		$this->display();
 	}
 	//ajax获取子分类
@@ -171,7 +196,7 @@ class eventAction extends frontendAction {
 				//子类
 				$arrCate = $this->cate_mod->getAllsubCate ( $oneid );
 				if ($arrCate) {
-					$subcatehtml .=  '<select id="subtype" class="basic-input" name="subcate">';
+					$subcatehtml .=  '<select id="subtype" class="basic-input" name="subcateid">';
 					$subcatehtml .=  '<option value="0">请选择</option>';
 					foreach ( $arrCate as $item ) {
 						$subcatehtml .=  '<option value="' . $item ['cateid'] . '">' . $item ['catename'] . '</option>';
@@ -184,6 +209,11 @@ class eventAction extends frontendAction {
 				$this->ajaxReturn($jsonData,'JSON');
 				break;
 		}
+	}
+	//ajax 获取map
+	public function get_address(){
+		
+		$this->ajaxReturn(0);
 	}
 
 	

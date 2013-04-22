@@ -262,6 +262,23 @@ function get_cookie(name) {
     }
     return null;
 }
+//转移==> core/tmpl.js
+(function(){
+    var cache = {};
+    $.tmpl = function(str, data){
+        var fn = cache[str] = cache[str] ||
+        new Function("obj", "var p=[];with(obj){p.push('" +
+         str.replace(/[\r\t\n]/g, " ")
+         .replace(/'(?=[^%]*%})/g,"\t")
+         .split("'").join("\\'")
+         .split("\t").join("'")
+         .replace(/{%=(.+?)%}/g, "',$1,'")
+         .split("{%").join("');")
+         .split("%}").join("p.push('")
+         + "');}return p.join('');");
+        return fn(data);
+    }
+})();
 
 function pop_win (htm, hide_close) {
     if (!window.__pop_win) {

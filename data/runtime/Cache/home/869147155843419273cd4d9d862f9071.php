@@ -43,7 +43,7 @@ __EXTENDS_JS__
   IK.add('validate', {path: '__STATIC__/public/js/lib/validate.js', type:'js'});
   
   
-  window._pinicon_ = 'http://img3.douban.com/pics/loc/pin.png';
+  window._pinicon_ = '__STATIC__/public/images/pin.png';
 
 
   IK.add('imap', {path: '__STATIC__/public/js/ui/imap.js', type: 'js', requires: ['jquery.ui', 'dialog']});
@@ -175,7 +175,7 @@ __EXTENDS_JS__
 <div class="row">
   <label class="field" for="type">活动分类</label>
   <div class="item">
-    <select name="cate" class="basic-input" id="type" data-suburl="<?php echo U('event/ajax_subcate');?>">
+    <select name="cateid" class="basic-input" id="type" data-suburl="<?php echo U('event/ajax_subcate');?>">
       <option value="0">请选择</option>
       <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><option value="<?php echo ($item[cateid]); ?>"><?php echo ($item[catename]); ?></option><?php endforeach; endif; ?>
     </select>

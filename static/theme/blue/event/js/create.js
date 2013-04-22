@@ -616,8 +616,8 @@ IK("validate", "editable-select", function() {
 	function x() {
 		var z = false;
 		if($("#eform input[name=fee]:checked").val() == "1") {
-			$.each($("#eform .fee-num"), function(A, B) {
-				if(!/\d+/.test($(B).val())) {
+			$.each($("#eform .fee-num"), function(A, B) { 
+				if(!/^[0-9]*$/.test($(B).val())) { 
 					z = true
 				}
 			})
@@ -755,15 +755,15 @@ IK("validate", "editable-select", function() {
 		},
 		type : {
 			elems : "#type",
-			isNull : function(z) {
+			isNull : function(z) { 
 				return z.val() == 0
 			}
 		},
 		subtype : {
 			elems : "#subtype",
 			isNull : function(B) {
-				var A = $("#type").val();
-				var z = "#subtype_" + A;
+				var A = $("#type").val(); 
+				var z = "#subtype";
 				if($(z).length) {
 					return B.val() == 0
 				} else {

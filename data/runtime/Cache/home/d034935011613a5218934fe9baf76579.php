@@ -125,11 +125,8 @@ __EXTENDS_JS__
 </header>
 <div class="midder">
     <div class="mc">
-    	<h1><?php echo ($seo["title"]); ?></h1>
         <div class="cleft">
     
-	  
-
 <div class="eventwrap" itemscope="" itemtype="http://data-vocabulary.org/Event">
     <div class="poster">
       <a href="http://img3.douban.com/pview/event_poster/raw/public/1b1f226b77acac9.jpg">
@@ -143,67 +140,54 @@ __EXTENDS_JS__
     </div>
     <div id="event-info">
         <div class="event-info">
-            <h1 itemprop="summary">活动待审核中...加或更改你的小站图标
+            <h1 itemprop="summary">
+            <?php echo ($strEvent[title]); if($strEvent[isaudit] == 1): ?><font class="red">[审核中]</font><?php endif; ?>
+            <span class="start">即将开始</span>
             </h1>
             <div class="event-detail">
-                <span class="pl">时间:&nbsp;&nbsp;</span>
-  
-  <ul class="calendar-strs ">
-      
-      <li class="calendar-str-item ">04月20日 周六 08:00-22:30</li>
-  </ul>
-  <script type="text/javascript">
-    window._show_hidden_siblings = function(elem) {
-      var prev = elem;
-      while (true) {
-        var prev = prev.previousSibling;
-        if (!prev) break;
-        if (prev.nodeValue) continue;
-        if (prev.className) {
-          prev.className = prev.className.replace('hide', '');
-        }
-      }
-      elem.parentNode.removeChild(elem);
-    };
-  </script>
-
+                <span class="pl">时间：&nbsp;&nbsp;</span>
+                <ul class="calendar-strs ">
+                  <li class="calendar-str-item "><?php echo date('m月d日',$strEvent[begin_date]); ?> <?php echo ($strEvent[begin_week_day]); ?> <?php echo ($strEvent[begin_time]); ?>-<?php echo ($strEvent[end_time]); ?></li>
+                </ul>
                 <time itemprop="startDate" datetime="2013-04-20T08:00:00"></time>
                 <time itemprop="endDate" datetime="2013-04-20T22:30:00"></time>
             </div>
             <div class="event-detail" itemprop="location" itemscope="" itemtype="http://data-vocabulary.org/Organization">
-                <span class="pl">地点:&nbsp;</span>
-    <span itemprop="address" itemscope="" itemtype="http://data-vocabulary.org/Address" class="micro-address">
-         <span itemprop="region" class="micro-address">上海&nbsp;</span>
-         <span itemprop="locality" class="micro-address">徐汇区&nbsp;</span>
-         <span itemprop="street-address" class="micro-address">加或更改你的小站图标</span>
-    </span>
-    <span itemprop="geo" itemscope="" itemtype="http://data-vocabulary.org/Geo" class="micro-address">
-        <meta itemprop="latitude" content="0.0">
-        <meta itemprop="longitude" content="0.0">
-    </span>
+                <span class="pl">地点：&nbsp;</span>
+                <span itemprop="address" itemscope="" itemtype="http://data-vocabulary.org/Address" class="micro-address">
+                     <span itemprop="region" class="micro-address"><?php echo ($strEvent[city]); ?>&nbsp;</span>
+                     <span itemprop="locality" class="micro-address"><?php echo ($strEvent[district]); ?>&nbsp;</span>
+                     <span itemprop="street-address" class="micro-address"><?php echo ($strEvent[street_address]); ?></span>
+                </span>
+                <span itemprop="geo" itemscope="" itemtype="http://data-vocabulary.org/Geo" class="micro-address">
+                    <meta itemprop="latitude" content="<?php echo ($strEvent[latitude]); ?>">
+                    <meta itemprop="longitude" content="<?php echo ($strEvent[longitude]); ?>">
+                </span>
 
             </div>
             <div class="event-detail">
-                  <span class="pl">费用:&nbsp;&nbsp;</span>免费
+                  <span class="pl">费用：&nbsp;&nbsp;</span><?php echo ($strEvent[fee_detail]); ?>
             </div>
             <div class="event-detail">
-                <span class="pl">类型:&nbsp;&nbsp;</span><a href="http://shanghai.douban.com/events/future-music" itemprop="eventType">音乐-音乐会</a>
+                <span class="pl">类型：&nbsp;&nbsp;</span><a href="<?php echo U('event/lists',array('type'=>'future_'.$strEvent[cate][enname]));?>" itemprop="eventType"><?php echo ($strEvent[cate][catename]); ?>-<?php echo ($strEvent[subcate][catename]); ?></a>
             </div>
             <div class="event-detail" itemscope="" itemtype="http://data-vocabulary.org/Organization">
                 
-                <span class="pl">发起人:</span>
-                <a href="http://www.douban.com/location/people/charm_888/" itemprop="name">小麦狼</a>
+                <span class="pl">发起人：</span>
+                <a href="<?php echo U('people/index',array('doname'=>$strEvent[user][doname]));?>" itemprop="name"><?php echo ($strEvent[user][username]); ?></a>
             </div>
             <div class="interest-attend pl">
-                <span class="num">0 </span><span>人感兴趣 &nbsp; </span><span class="num">1 </span><span>人参加</span>
+                <span class="num"><?php echo ($strEvent[count_userwish]); ?> </span><span>人感兴趣 &nbsp; </span>
+                <span class="num"><?php echo ($strEvent[count_userjion]); ?> </span><span>人参加</span>
             </div>
         </div>
         <div id="event-act">
-            <p>
+        	<?php if($strEvent[isaudit] == 1): ?><p>
               <span class="ui-msg ui-warn">
-                活动已创建，等待审核中... 审核通过后会有豆邮通知
+                活动已创建，等待审核中... 审核通过后会有站内信通知
               </span>
-            </p>
+            </p><?php endif; ?>
+            
         </div>
         
 
@@ -218,7 +202,7 @@ __EXTENDS_JS__
       <h2>活动详情</h2>
         
         <div class="wr">
-            加或更改你的小站图标 
+            <?php echo ($strEvent[content]); ?> 
         </div>
     </div>
 
@@ -395,16 +379,9 @@ __EXTENDS_JS__
         <div class="cright">
 
 
-
-  <div id="dale_event_page_top_right">
-  <iframe style="overflow: hidden; margin: 0px 0px 20px;" id="dale_event_page_top_right_frame" frameborder="0" height="250" scrolling="no" width="300"></iframe>
-  </div>
   
 
-  <script type="text/javascript">
-    Do.add('getaddr', { type: 'js', path: 'http://img3.douban.com/js/packed_getaddr7214326851.js', depends: ['google.map'] });
-    Do.ready(function() { Do('getaddr'); });
-  </script>
+
 
 
 <div class="mod">
@@ -419,9 +396,86 @@ __EXTENDS_JS__
 </div>
   
 
-<div class="mod">
-        <h2>活动地图 <span class="pl">( <a href="http://www.douban.com/event/18636528/full_map">查看大图</a> )</span></h2>
-</div>
+
+    <div class="mod">
+        <h2>活动地图 <span class="pl">( <a href="http://www.douban.com/event/18549999/full_map">查看大图</a> )</span></h2>
+        
+        <div id="event-map" style="background:url(http://ditu.google.cn/maps/api/staticmap?language=zh-CN&amp;size=308x200&amp;zoom=13&amp;markers=40.108257,117.119263&amp;sensor=false) no-repeat">
+          <a href="http://www.douban.com/event/18549999/full_map">
+            <img src="http://ditu.google.cn/maps/api/staticmap?language=zh-CN&amp;size=308x200&amp;zoom=13&amp;markers=40.108257,117.119263&amp;sensor=false" width="308" height="200" alt="Google 地图" />
+          </a>
+        </div>
+        <script id="db-templ-map-comment" type="text/template">
+            <div class="map-confirm">
+                <h2>{%=address%}</h2>
+                <p class="pos-comment">
+                    {% if (comment) { %}
+                        {%=comment%}
+                        <br>
+                    {% } %}
+                    {%=drive%}
+                </p>
+            </div>
+        </script>
+        <p class="bus-direction">乘车路线：东直门将设有迷笛大巴车直达现场！（攻略详情随后公布）</p>
+    </div>
+
+
+
+<script type="text/javascript">
+var get_address_url = "<?php echo U('event/get_address');?>"; 
+var post_address_url = "<?php echo U('event/post_address');?>"; 
+IK.add('google.map', { type: 'js', path: 'http://maps.google.com/maps/api/js?language=zh-CN&sensor=false&callback=init_map' });
+IK.add('dui.map', { type: 'js', path: "__STATIC__/theme/<?php echo C('ik_site_theme');?>/<?php echo ($module_name); ?>/js/duimap.js", depends: ['google.map'] });
+function init_map() {
+	IK("dui.map",
+	function() {
+		var c = window._event_map_;
+		c.callback = function(d, e) {
+			if (d === "small") {
+				a(e)
+			}
+		};
+		var b = new dui.Map(c);
+		function a(f) {
+			var e = $.tmpl($("#db-templ-map-comment").html(), {
+				address: c.address,
+				comment: c.comment,
+				drive: c.drive
+			}),
+			d = new google.maps.InfoWindow({
+				content: e
+			});
+			google.maps.event.addListener(f.marker, "mouseover",
+			function() {
+				d.open(f.map, f.marker)
+			})
+		}
+	})
+}
+IK.ready(function() {
+	IK("google.map")
+});
+
+IK.add('getaddr', { type: 'js', path: "__STATIC__/theme/<?php echo C('ik_site_theme');?>/<?php echo ($module_name); ?>/js/getaddr.js", 
+depends: ['google.map'] });
+IK.ready(function() { IK('getaddr'); });
+</script>
+
+<script type="text/javascript">
+  window._event_map_ = {
+    containerId: 'event-map',
+    lat: '<?php echo ($strEvent[latitude]); ?>',
+    lng: '<?php echo ($strEvent[longitude]); ?>',
+    type: 'small',
+    markerIcon:'',
+    address: '<?php echo ($strEvent[street_address]); ?>',
+    comment: '',
+    drive: '<a href="http://ditu.google.cn/maps?hl=zh-CN&ie=UTF8&dirflg=r&f=d&daddr=<?php echo ($strEvent[street_address]); ?>&date=2013/04/29&time=<?php echo ($strEvent[begin_time]); ?>" target="_blank">驾车/公交路线</a>'
+  };
+</script>
+
+
 
 <div class="mod">
     <h2>活动组织者
@@ -463,56 +517,6 @@ __EXTENDS_JS__
     </ul>
 </div>
 
-
-
-  
-
-  
-  <!-- douban app begin -->
-  
-
-
-
-
-
-<div class="mobile-app-entrance block5 app-location">
-
-    <a class="entrance-link first-link" href="http://www.douban.com/mobile/location">
-        <span class="app-icon icon-location"></span>
-        <span class="main-title">豆瓣活动客户端</span>
-        <span class="sub-title">发现精彩活动，探索城市生活</span>
-    </a>
-</div>
-
-  <!-- douban app end -->
-  
-
-
-
-
-
-<script type="text/javascript">
-    (function (global) {
-        var newNode = global.document.createElement('script'),
-            existingNode = global.document.getElementsByTagName('script')[0],
-            adSource = 'http://erebor.douban.com/',
-            userId = '38672004',
-            browserId = 'B883Ui8I4x4',
-            ipAddress = '27.189.10.184',
-            criteria = '3:/event/18697995/',
-            preview = '',
-            debug = false,
-            adSlots = ['dale_event_page_top_right'];
-
-        global.DoubanAdRequest = {src: adSource, uid: userId, bid: browserId, ip: ipAddress, crtr: criteria, prv: preview, debug: debug};
-        global.DoubanAdSlots = (global.DoubanAdSlots || []).concat(adSlots);
-
-        newNode.setAttribute('type', 'text/javascript');
-        newNode.setAttribute('src', 'http://img3.douban.com/js/packed_ad1227872440.js');
-        newNode.setAttribute('async', true);
-        existingNode.parentNode.insertBefore(newNode, existingNode);
-    })(this);
-</script>
 
 
 

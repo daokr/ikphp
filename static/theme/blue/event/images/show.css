@@ -1068,3 +1068,38 @@ table.olt thead th {
     display: block;
     font-style: normal;
 }
+#event_map, #event-map {
+	width:308px;
+	height:200px;
+	margin-bottom:30px;
+	overflow:hidden
+}
+#event_map a:hover, #event-map a:hover {
+	background:0
+}
+#event-map .map-confirm a:hover {
+	background:#039
+}
+.map-confirm h2 {
+	color:#000;
+	font-weight:bold;
+	width:200px;
+	margin-bottom:0;
+	line-height: 1.2;
+}
+.map-confirm p {
+	line-height:18px;
+	margin:6px 0 0;
+	padding:0
+}
+.map-confirm p.evt-address {
+	margin:0;
+	width:214px;
+	word-wrap:break-word
+}
+.map-confirm textarea {
+	width:206px;
+	height:50px;
+	margin-bottom:-5px;
+	font-size:12px
+}
