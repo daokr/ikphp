@@ -44,6 +44,7 @@ class eventAction extends frontendAction {
 			$data['subcateid'] = $this->_post('subcateid','intval','0');
 			$data['content'] = $this->_post('content','trim');
 			$data['coordinate'] = $this->_post('coordinate','trim'); //坐标
+			$data['direction'] = $this->_post('direction','trim',''); //乘车路线
 			
 			//地址
 			$data['loc_id'] = $this->_post('loc_id','intval');
@@ -121,6 +122,11 @@ class eventAction extends frontendAction {
 	//第二步 上传海报
 	public function upload_poster(){
 		$eventid = $this->_get('id','intval');
+		$strEvent = $this->mod->getOneEvent($eventid);
+		//判断是否是创建者
+		if($strEvent['userid'] != $this->userid){
+			$this->error('你没有权限访问这个页面');
+		}
 		if(IS_POST){
 			if (! empty ( $_FILES ['picfile'] )) {
 				//保存文件夹
@@ -141,17 +147,21 @@ class eventAction extends frontendAction {
 			$imgpos = $this->_post('imgpos','trim');
 			$filepath = $this->_post('file','trim');
 			if($imgpos){
-				$imgpos = explode('_', $imgpos);
+				$imgpos = explode('_', $imgpos); 
 				$_IKIMAGECONFIG = array(
-						'thumbcutmode' => 0, // 裁剪模式  0是默认模式     1左或上剪切模式    2中间剪切模式    3右或下剪切模式
-						'thumbcutstartx' => $imgpos[0], //x 坐标
-						'thumbcutstarty' => $imgpos[1], //y 坐标
-						'thumboption' => 4, //8 宽度最佳缩放  4 综合最佳缩放 16 高度最佳缩放
+						'thumbcutmode' => 4, // 裁剪模式  0是默认模式     1左或上剪切模式    2中间剪切模式    3右或下剪切模式
+						'thumbcutstartx' => 0, //x 坐标
+						'thumbcutstarty' => 100, //y 坐标
+						'thumboption' => 8, //8 宽度最佳缩放  4 综合最佳缩放 16 高度最佳缩放
 				);
-				$dsfile = makethumb($filepath, array($imgpos[2],$imgpos[3]), '',  $_IKIMAGECONFIG);
+				//$dsfile = makethumb($filepath, array(200,300), '',  $_IKIMAGECONFIG);
+				//$img = C('ik_attach_path') . 'event/temp/' . $img;
+				$dsfile = Image::thumb(C('ik_attach_path').$filepath, C('ik_attach_path').'event/1.jpg','',104,139,true,false, array('x'=>31, 'y'=>50)); 
+				echo $dsfile;die;
 				//提交成功
 				if($dsfile){
-					$this->ajaxReturn(array('r'=>true,'url'=>U('event/preview',array('id'=>$eventid))));
+					echo $dsfile;die;
+					//$this->ajaxReturn(array('r'=>true,'url'=>U('event/preview',array('id'=>$eventid))));
 				}
 			}
 		}else{
@@ -163,6 +173,11 @@ class eventAction extends frontendAction {
 	//审核
 	public function preview(){
 		$eventid = $this->_get('id');
+		$strEvent = $this->mod->getOneEvent($eventid);
+		//判断是否是创建者
+		if($strEvent['userid'] != $this->userid){
+			$this->error('你没有权限访问这个页面');
+		}
 		$this->assign('eventid',$eventid);
 		$this->_config_seo (array('title'=>'成功创建活动','subtitle'=>'同城活动'));
 		$this->display();
@@ -171,6 +186,7 @@ class eventAction extends frontendAction {
 	public function show(){
 		$id = $this->_get('id','intval');
 		$strEvent = $this->mod->getOneEvent($id);
+		if(!$strEvent){ $this->error('呃...你想访问的页面不存在');}
 		$this->assign('strEvent',$strEvent);
 		$this->_config_seo (array('title'=>$strEvent['title'],'subtitle'=>'同城活动'));
 		$this->display();

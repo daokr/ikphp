@@ -7,6 +7,7 @@ class eventModel extends Model {
 	//获取一个活动
 	public function getOneEvent($id){
 		$result = $this->where(array('eventid'=>$id))->find();
+		if(empty($result['eventid'])) return false; //存在性判断
 		//获取街道
 		$strdistrict = D('area')->getOneArea($result['district_id']);
 		if($result['region_id']>0){
@@ -20,13 +21,18 @@ class eventModel extends Model {
 		$result['longitude'] = $coordinate[1];
 		//费用
 		if($result['fee']==0){
-			$result['fee'] = '免费';
+			$result['fee_detail'] = '免费';
 		}elseif ($result['fee']==1){
 			$fee = explode('||', $result['fee_detail']);
 			$result['fee_detail'] = '';
 			foreach ($fee as $item){
 				$value = explode('==', $item); 
-				$result['fee_detail'] .= $value[1].'元('.$value[0].')';
+				if($value[0]!=''){
+					$value[0] = '('.$value[0].')';
+				}else{
+					$value[0] ='';
+				}
+				$result['fee_detail'] .= $value[1].'元'.$value[0];
 			}
 		}
 		//类型

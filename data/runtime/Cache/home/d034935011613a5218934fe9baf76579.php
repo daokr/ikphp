@@ -174,7 +174,7 @@ __EXTENDS_JS__
             <div class="event-detail" itemscope="" itemtype="http://data-vocabulary.org/Organization">
                 
                 <span class="pl">发起人：</span>
-                <a href="<?php echo U('people/index',array('doname'=>$strEvent[user][doname]));?>" itemprop="name"><?php echo ($strEvent[user][username]); ?></a>
+                <a href="<?php echo U('people/index',array('id'=>$strEvent[user][doname]));?>" itemprop="name"><?php echo ($strEvent[user][username]); ?></a>
             </div>
             <div class="interest-attend pl">
                 <span class="num"><?php echo ($strEvent[count_userwish]); ?> </span><span>人感兴趣 &nbsp; </span>
@@ -206,25 +206,25 @@ __EXTENDS_JS__
         </div>
     </div>
 
-	<div class="mod">
+<div class="mod">
     <h2>活动相关小站</h2>
     <ul class="link-site-container">
     
         <li class="link-subject">
             <div class="photo">
-                <a title="果壳网的小站" href="http://site.douban.com/guokr/"><img width="64" title="果壳网的小站" alt="" src="http://img3.douban.com/pview/event_poster/large/public/edf7b12feb39945.jpg"></a>
+                <a title="爱客小站" href="#"><img width="64" title="爱客小站" alt="" src="http://img3.douban.com/pview/event_poster/large/public/edf7b12feb39945.jpg"></a>
             </div>
             <div class="detail">
-                <h3><a href="http://site.douban.com/guokr/">果壳网的小站</a> <span class="cate">推广</span></h3>
+                <h3><a href="#">爱客小站</a> <span class="cate">推广</span></h3>
             </div>
         </li>
     </ul>
-	</div>
+</div>
     
 <div class="mod">
       <h2>我来问主办方 &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
         <span class="pl">
-          (<a href="qa/all">全部0个</a>
+          (<a href="#">全部0个</a>
           )
         </span>
       </h2>
@@ -234,20 +234,24 @@ __EXTENDS_JS__
     
 
 <div class="mod">
-    <h2>这个活动论坛</h2><div class="indent">
-    <table class="olt"><tbody><tr><td width="54%"></td><td width="22%"></td><td width="12%"></td><td wdith="12%"></td></tr>
-    
-        <tr><td><a title="活动具体内容？" href="http://www.douban.com/event/18636528/discussion/52825640/">活动具体内容？</a></td><td class="pl">来自<a href="http://www.douban.com/people/Lizyjs/">Lizyjs</a></td><td class="pl">6 回应</td><td class="pl">2013-04-19</td></tr>
-        
-        <tr><td><a title="白领专场&amp;告别单身主题派对" href="http://www.douban.com/event/18636528/discussion/52869366/">白领专场&amp;告别单身主题派对</a></td><td class="pl">来自<a href="http://www.douban.com/people/66356766/">睡虫</a></td><td class="pl"></td><td class="pl">2013-04-18</td></tr>
-        
-        <tr><td><a title="每次看见主页君的邀请都有悲从中来的感觉。" href="http://www.douban.com/event/18636528/discussion/52824873/">每次看见主页君的邀请都有悲从中来的感觉。</a></td><td class="pl">来自<a href="http://www.douban.com/people/12822970/">十日日食</a></td><td class="pl">13 回应</td><td class="pl">2013-04-17</td></tr>
-        
-        <tr><td><a title="难道不是应该很多妹子都感兴趣吗？" href="http://www.douban.com/event/18636528/discussion/52821831/">难道不是应该很多妹子都感兴趣吗？</a></td><td class="pl">来自<a href="http://www.douban.com/people/54751336/">猫杀</a></td><td class="pl">7 回应</td><td class="pl">2013-04-17</td></tr>
-        
-    </tbody></table>
-    <p align="right" class="pl">&gt; <a rel="nofollow" href="http://www.douban.com/event/18636528/discussion/create">在这个活动论坛发言</a></p>
-        </div>
+    <h2>这个活动论坛</h2>
+    <div class="indent">
+    <table class="olt">
+        <tr>
+        <td width="54%"></td>
+        <td width="22%"></td>
+        <td width="12%"></td>
+        <td wdith="12%"></td>
+        </tr>
+        <tr>
+        <td><a title="活动具体内容？" href="#">活动具体内容？</a></td>
+        <td class="pl">来自<a href="#">Lizyjs</a></td>
+        <td class="pl">6 回应</td>
+        <td class="pl">2013-04-19</td>
+        </tr>
+     </table>
+    <p align="right" class="pl">&gt; <a rel="nofollow" href="#">在这个活动论坛发言</a></p>
+    </div>
 </div>
 
 
@@ -255,26 +259,22 @@ __EXTENDS_JS__
 
 <div class="mod">
   <h2 class="related_h2">喜欢这个活动的人也喜欢</h2>
- <ul class="events-list events-list-2col">
+  <ul class="events-list events-list-2col">
 
       <li class="list-entry">
       <div class="pic">
-        <a tabindex="-1" href="http://www.douban.com/event/18541268/">
-          <img alt=""  src="http://img3.douban.com/pview/event_poster/small/public/ffc343b85f73f27.jpg" width="70">
+        <a tabindex="-1" href="#">
+          <img alt=""  src="http://img3.douban.com/pview/event_poster/median/public/e835b34b08d2565.jpg" width="70">
         </a>
       </div>
       <div class="info">
         <div class="title">
-          <a href="http://www.douban.com/event/18541268/" title="噪音冲撞 Vol 3 - After Argument、DICE、Mr.Graceless">
+          <a href="#" title="噪音冲撞 Vol 3 - After Argument、DICE、Mr.Graceless">
             噪音冲撞 Vol 3 - After Argument、DICE、Mr.Graceless
-            
           </a>
         </div>
         <div class="datetime">
-          
-      
-      <span class="month">4月</span><span class="day">20日 周六</span>&nbsp;<span class="time">20:30 - 22:30</span>
-
+      		<span class="month">4月</span><span class="day">20日 周六</span>&nbsp;<span class="time">20:30 - 22:30</span>
         </div>
         <address title="北京 朝阳区 麻雀瓦舍">
           麻雀瓦舍
@@ -284,89 +284,8 @@ __EXTENDS_JS__
         </div>
       </div>
       </li>
-      <li class="list-entry">
-      <div class="pic">
-        <a tabindex="-1" href="http://www.douban.com/event/18454183/">
-          <img alt="" src="http://img3.douban.com/pview/event_poster/small/public/ffc343b85f73f27.jpg" width="70">
-        </a>
-      </div>
-      <div class="info">
-        <div class="title">
-          <a href="http://www.douban.com/event/18454183/" title="清歈暮春——李建傧江湖弹唱会">
-            清歈暮春——李建傧江湖弹唱会
-            
-          </a>
-        </div>
-        <div class="datetime">
-          
-      
-      <span class="month">4月</span><span class="day">19日 周五</span>&nbsp;<span class="time">21:00 - 23:30</span>
 
-        </div>
-        <address title="北京 东城区 交道口南大街东棉花胡同7号">
-          交道口南大街东棉花胡同7号
-        </address>
-        <div>
-          158人关注
-        </div>
-      </div>
-      </li>
-      <li class="list-entry">
-      <div class="pic">
-        <a tabindex="-1" href="http://www.douban.com/event/18453882/">
-          <img alt="" src="http://img3.douban.com/pview/event_poster/small/public/ffc343b85f73f27.jpg" width="70">
-        </a>
-      </div>
-      <div class="info">
-        <div class="title">
-          <a href="http://www.douban.com/event/18453882/" title="碎蛋之夜--Punk'n'Core Night">
-            碎蛋之夜--Punk'n'Core Night
-            
-          </a>
-        </div>
-        <div class="datetime">
-          
-      
-      <span class="month">4月</span><span class="day">21日 周日</span>&nbsp;<span class="time">21:00 - 23:30</span>
-
-        </div>
-        <address title="北京 东城区 安定门 SCHOOL学校酒吧">
-          SCHOOL学校酒吧
-        </address>
-        <div>
-          139人关注
-        </div>
-      </div>
-      </li>
-      <li class="list-entry">
-      <div class="pic">
-        <a tabindex="-1" href="http://www.douban.com/event/18386784/">
-           <img alt="" src="http://img3.douban.com/pview/event_poster/small/public/ffc343b85f73f27.jpg" width="70">
-        </a>
-      </div>
-      <div class="info">
-        <div class="title">
-          <a href="http://www.douban.com/event/18386784/" title="麻油叶独立厂牌《麻油叶？我不能说！》2周年专场大趴">
-            麻油叶独立厂牌《麻油叶？我不能说！》2周年专场大趴
-            
-          </a>
-        </div>
-        <div class="datetime">
-          
-      
-      <span class="month">4月</span><span class="day">19日 周五</span>&nbsp;<span class="time">20:00 - 23:30</span>
-
-        </div>
-        <address title="北京 朝阳区 麻雀瓦舍 双井家乐福对面劲松口腔胡同内50米 红点艺术工厂内">
-          麻雀瓦舍 双井家乐福对面劲松...
-        </address>
-        <div>
-          1186人关注
-        </div>
-      </div>
-      </li>
-        
-     </ul>
+  </ul>
 </div>    
 
 
@@ -387,21 +306,21 @@ __EXTENDS_JS__
 <div class="mod">
     <h2>活动相关标签 &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
     <ul class="aside-event-tags">
-        <li><a href="/event/search?loc=shanghai&amp;search_text=%E9%9F%B3%E4%B9%90%E8%8A%82&amp;p=c">音乐节</a>&nbsp;</li>
+        <li><a href="#">音乐节</a>&nbsp;</li>
             · &nbsp;
-        <li><a href="/event/search?loc=shanghai&amp;search_text=%E8%8D%89%E8%8E%93%E9%9F%B3%E4%B9%90%E8%8A%82&amp;p=c">草莓音乐节</a>&nbsp;</li>
+        <li><a href="#">草莓音乐节</a>&nbsp;</li>
             · &nbsp;
-        <li><a href="/event/search?loc=shanghai&amp;search_text=%E6%91%87%E6%BB%9A&amp;p=c">摇滚</a>&nbsp;</li>
+        <li><a href="#">摇滚</a>&nbsp;</li>
     </ul>
 </div>
   
 
 
     <div class="mod">
-        <h2>活动地图 <span class="pl">( <a href="http://www.douban.com/event/18549999/full_map">查看大图</a> )</span></h2>
+        <h2>活动地图 <span class="pl">( <a href="<?php echo U('event/full_map',array('id'=>$strEvent[eventid]));?>">查看大图</a> )</span></h2>
         
         <div id="event-map" style="background:url(http://ditu.google.cn/maps/api/staticmap?language=zh-CN&amp;size=308x200&amp;zoom=13&amp;markers=40.108257,117.119263&amp;sensor=false) no-repeat">
-          <a href="http://www.douban.com/event/18549999/full_map">
+          <a href="<?php echo U('event/full_map',array('id'=>$strEvent[eventid]));?>">
             <img src="http://ditu.google.cn/maps/api/staticmap?language=zh-CN&amp;size=308x200&amp;zoom=13&amp;markers=40.108257,117.119263&amp;sensor=false" width="308" height="200" alt="Google 地图" />
           </a>
         </div>
@@ -419,8 +338,6 @@ __EXTENDS_JS__
         </script>
         <p class="bus-direction">乘车路线：东直门将设有迷笛大巴车直达现场！（攻略详情随后公布）</p>
     </div>
-
-
 
 <script type="text/javascript">
 var get_address_url = "<?php echo U('event/get_address');?>"; 
@@ -463,6 +380,7 @@ IK.ready(function() { IK('getaddr'); });
 </script>
 
 <script type="text/javascript">
+  var begin_date = "<?php echo date('Y/m/d',$strEvent[begin_date]); ?>"
   window._event_map_ = {
     containerId: 'event-map',
     lat: '<?php echo ($strEvent[latitude]); ?>',
@@ -471,7 +389,7 @@ IK.ready(function() { IK('getaddr'); });
     markerIcon:'',
     address: '<?php echo ($strEvent[street_address]); ?>',
     comment: '',
-    drive: '<a href="http://ditu.google.cn/maps?hl=zh-CN&ie=UTF8&dirflg=r&f=d&daddr=<?php echo ($strEvent[street_address]); ?>&date=2013/04/29&time=<?php echo ($strEvent[begin_time]); ?>" target="_blank">驾车/公交路线</a>'
+    drive: '<a href="http://ditu.google.cn/maps?hl=zh-CN&ie=UTF8&dirflg=r&f=d&daddr=<?php echo ($strEvent[street_address]); ?>&date='+begin_date+'&time=<?php echo ($strEvent[begin_time]); ?>" target="_blank">驾车/公交路线</a>'
   };
 </script>
 
@@ -482,48 +400,41 @@ IK.ready(function() { IK('getaddr'); });
     </h2>
     <ul class="member_photo">
         
-            
-        <li class="">
-            <a href="http://www.douban.com/location/people/charm_888/"><img src="http://img3.douban.com/icon/u38672004-18.jpg" alt="" data-title="小麦狼" data-relation="False" width="35"></a>
+         <li class="">
+            <a href="<?php echo U('people/index',array('id'=>$strEvent[user][doname]));?>"><img src="<?php echo ($strEvent[user][face]); ?>" alt="" data-title="<?php echo ($strEvent[user][username]); ?>" data-relation="False" width="35"></a>
             <div class="member-tip">
-            <a href="http://www.douban.com/location/people/charm_888/" class="pic"><img src="http://img3.douban.com/icon/u38672004-18.jpg" title="小麦狼"></a>
-            <div class="detail"><a href="http://www.douban.com/location/people/charm_888/" title="小麦狼">小麦狼</a></div>
+            <a href="<?php echo U('people/index',array('id'=>$strEvent[user][doname]));?>" class="pic"><img src="<?php echo ($strEvent[user][face]); ?>" title="<?php echo ($strEvent[user][username]); ?>"></a>
+            <div class="detail"><a href="<?php echo U('people/index',array('id'=>$strEvent[user][doname]));?>" title="<?php echo ($strEvent[user][username]); ?>"><?php echo ($strEvent[user][username]); ?></a></div>
                 <div class="pl detail">组织者</div>
-            <div class="relation pl"></div>
-            <span class="arrow inner"></span>
-            <span class="arrow outer"></span>
-            </div>
-        </li>
-    </ul>
-</div>
-
-<div class="mod">
-    <h2>活动成员 <span class="pl">( <a href="http://www.douban.com/event/18697995/participant">1人参加 </a>· <a href="http://www.douban.com/event/18697995/wisher">0人感兴趣</a>
-            )</span></h2>
-    <ul class="member_photo">
-        
-        
-        <li class="">
-            <a href="http://www.douban.com/location/people/charm_888/"><img src="http://img3.douban.com/icon/u38672004-18.jpg" alt="小麦狼" width="35"></a>
-            <div class="member-tip">
-                <a href="http://www.douban.com/location/people/charm_888/" class="pic"><img src="http://img3.douban.com/icon/u38672004-18.jpg" title="小麦狼"></a>
-                <div class="detail"><a href="http://www.douban.com/location/people/charm_888/" title="小麦狼">小麦狼</a></div>
-                <div class="pl detail">要参加</div>
                 <div class="relation pl"></div>
                 <span class="arrow inner"></span>
                 <span class="arrow outer"></span>
             </div>
-        </li>
+        </li> 
+        
     </ul>
 </div>
 
-
-
-
-
-
+<div class="mod">
+    <h2>活动成员 <span class="pl">( <a href="#">1人参加 </a>· <a href="#">0人感兴趣</a>
+            )</span></h2>
+    <ul class="member_photo">
+        
+         <li class="">
+            <a href="<?php echo U('people/index',array('id'=>$strEvent[user][doname]));?>"><img src="<?php echo ($strEvent[user][face]); ?>" alt="" data-title="<?php echo ($strEvent[user][username]); ?>" data-relation="False" width="35"></a>
+            <div class="member-tip">
+            <a href="<?php echo U('people/index',array('id'=>$strEvent[user][doname]));?>" class="pic"><img src="<?php echo ($strEvent[user][face]); ?>" title="<?php echo ($strEvent[user][username]); ?>"></a>
+            <div class="detail"><a href="<?php echo U('people/index',array('id'=>$strEvent[user][doname]));?>" title="<?php echo ($strEvent[user][username]); ?>"><?php echo ($strEvent[user][username]); ?></a></div>
+                <div class="pl detail">组织者</div>
+                <div class="relation pl"></div>
+                <span class="arrow inner"></span>
+                <span class="arrow outer"></span>
+            </div>
+        </li>       
 
         
+    </ul>
+</div>
 
 
         </div><!--//right-->

@@ -934,10 +934,11 @@ CREATE TABLE `ik_event` (
   `title` char(120) NOT NULL DEFAULT '' COMMENT '标题',
   `content` text NOT NULL COMMENT '内容',
   `coordinate` varchar(255) NOT NULL DEFAULT '' COMMENT '地图坐标',
+  `direction` varchar(255) NOT NULL DEFAULT '' COMMENT '乘车路线',  
   
-  `begin_date` varchar(255) NOT NULL DEFAULT '' COMMENT '当天活动开始日期',
+  `begin_date` int(11) NOT NULL DEFAULT '0' COMMENT '当天活动开始日期',
+  `end_date` int(11) NOT NULL DEFAULT '0' COMMENT '当天活动结束日期',
   `begin_time` varchar(255) NOT NULL DEFAULT '' COMMENT '当天活动开始时间',
-  `end_date` varchar(255) NOT NULL DEFAULT '' COMMENT '当天活动结束日期',
   `end_time` varchar(255) NOT NULL DEFAULT '' COMMENT '当天活动结束时间',
   
   `repeat_type` int(11) NOT NULL DEFAULT '0' COMMENT '活动时间类型',
