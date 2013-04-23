@@ -656,8 +656,8 @@ function makethumb($srcfile, $thumbsizearr = array(100, 100), $dstfile='', $arrc
 		$srcfile_file = C('ik_attach_path').$srcfile;
 		$dstfile_file = C('ik_attach_path').$dstfile;
 	} else {
-		$srcfile_file = $srcfile;
-		$dstfile_file = $dstfile;
+		$srcfile_file = C('ik_attach_path').$srcfile;
+		$dstfile_file = C('ik_attach_path').$dstfile;
 	}
 	if (!file_exists($srcfile_file)) {
 		return '';
@@ -755,6 +755,15 @@ function makethumb($srcfile, $thumbsizearr = array(100, 100), $dstfile='', $arrc
 		$srcH = $testH;
 		$srcX += $startx;
 		$srcY += $starty;
+		//小麦修改 截图
+		if($cutmode==4){
+			$srcX = $startx;
+			$srcY = $starty;
+			$fdstW = $dstW;
+			$fdstH = $dstH;
+			$srcW = $_IKIMAGECONFIG['thumbcutW'];
+			$srcH = $_IKIMAGECONFIG['thumbcutH'];
+		}
 	} else {
 		if (!($option & $opnotkeepscale)) {
 			if ($srcW*$dstH > $srcH*$dstW) {

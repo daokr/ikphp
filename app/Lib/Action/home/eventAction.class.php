@@ -127,11 +127,11 @@ class eventAction extends frontendAction {
 		if($strEvent['userid'] != $this->userid){
 			$this->error('你没有权限访问这个页面');
 		}
-		if(IS_POST){
-			if (! empty ( $_FILES ['picfile'] )) {
+		if(IS_POST){ 
+			if (! empty ( $_FILES ['picfile']['name'] )) { 
 				//保存文件夹
 				$data_dir = date ( 'Y/md/H' );
-				//上传头像
+				//上传
 				$result = savelocalfile(
 						$_FILES['picfile'],
 						'event/poster/'.$data_dir,
@@ -139,32 +139,53 @@ class eventAction extends frontendAction {
 						array('jpg','gif','png','jpeg'),
 						md5($eventid)
 						);
+				if($result['file']){
+					//先更新
+					$dataposter = array('orgposter'=>$result['file'],'poster'=>$result['img_200_300']);
+					$this->mod->where(array('eventid'=>$eventid))->setField($dataposter);
+				}
+				$this->assign('imgSrc',C('ik_attach_path').$result['file']);
+				$this->assign('imgpath',$result['file']);
+				$this->assign('eventid',$eventid);
+				$this->_config_seo (array('title'=>'上传或更改海报','subtitle'=>'同城活动'));
+				$this->display();
+			}else{ 
+				//获取截图位置
+				$imgpath = $this->_post('imgpath','trim');
+				$disimg = $this->_post('disimg','trim');
+				$imgpos = $this->_post('imgpos','trim');
+				$imgpos = explode(',', $imgpos); 
+			
+				if($imgpos && $imgpath){
+					
+					$_IKIMAGECONFIG = array(
+							'thumbcutmode' => 4, // 裁剪模式  0是默认模式     1左或上剪切模式    2中间剪切模式    3右或下剪切模式  4专用裁剪
+							'thumbcutstartx' => $imgpos[0], //x 坐标
+							'thumbcutstarty' => $imgpos[1], //y 坐标
+							'thumbcutW' => $imgpos[2], //w 坐标
+							'thumbcutH' => $imgpos[3], //h 坐标
+							'thumboption' => 4, //8 宽度最佳缩放  4 综合最佳缩放 16 高度最佳缩放
+					);
+					if($imgpos[2]>200){
+						$arrthumb = array(200,300);
+					}else{
+						$arrthumb = array($imgpos[2],$imgpos[3]);
+					}
+					$dsfile = makethumb($imgpath, $arrthumb, '',  $_IKIMAGECONFIG);
 
-				$this->ajaxReturn($result,'JSON');
-
-			}
-			//获取截图位置
-			$imgpos = $this->_post('imgpos','trim');
-			$filepath = $this->_post('file','trim');
-			if($imgpos){
-				$imgpos = explode('_', $imgpos); 
-				$_IKIMAGECONFIG = array(
-						'thumbcutmode' => 4, // 裁剪模式  0是默认模式     1左或上剪切模式    2中间剪切模式    3右或下剪切模式
-						'thumbcutstartx' => 0, //x 坐标
-						'thumbcutstarty' => 100, //y 坐标
-						'thumboption' => 8, //8 宽度最佳缩放  4 综合最佳缩放 16 高度最佳缩放
-				);
-				//$dsfile = makethumb($filepath, array(200,300), '',  $_IKIMAGECONFIG);
-				//$img = C('ik_attach_path') . 'event/temp/' . $img;
-				$dsfile = Image::thumb(C('ik_attach_path').$filepath, C('ik_attach_path').'event/1.jpg','',104,139,true,false, array('x'=>31, 'y'=>50)); 
-				echo $dsfile;die;
-				//提交成功
-				if($dsfile){
-					echo $dsfile;die;
-					//$this->ajaxReturn(array('r'=>true,'url'=>U('event/preview',array('id'=>$eventid))));
+					//提交成功
+					if($dsfile){
+						$this->mod->where(array('eventid'=>$eventid))->setField('poster',$dsfile);
+						$this->redirect('event/show',array('id'=>$eventid));
+					}
+				}else{
+					$this->error('请上传图片！');
 				}
 			}
+
 		}else{
+			$this->assign('imgSrc',$strEvent['orgposter']);
+			$this->assign('imgpath','');
 			$this->assign('eventid',$eventid);
 			$this->_config_seo (array('title'=>'上传或更改海报','subtitle'=>'同城活动'));
 			$this->display();

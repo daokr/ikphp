@@ -48,6 +48,14 @@ class eventModel extends Model {
 		$result['content'] = nl2br ( $result ['content']);
 		//星期几
 		$result['begin_week_day'] = getWeekName($result ['begin_date']);
+		//海报图
+		if(empty($result ['poster'])){
+			$result['poster'] = C('ik_attach_path').'event/poster/raw_event_dft.jpg';
+			$result['orgposter'] = C('ik_attach_path').'event/poster/raw_event_dft.jpg';
+		}else{
+			$result['poster'] = C('ik_attach_path').$result ['poster'];
+			$result['orgposter'] = C('ik_attach_path').$result ['orgposter'];
+		}
 
 		return $result;
 	}

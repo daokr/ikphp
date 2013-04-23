@@ -129,12 +129,12 @@ __EXTENDS_JS__
     
 <div class="eventwrap" itemscope="" itemtype="http://data-vocabulary.org/Event">
     <div class="poster">
-      <a href="http://img3.douban.com/pview/event_poster/raw/public/1b1f226b77acac9.jpg">
-        <img id="poster_img" itemprop="image" src="http://img3.douban.com/pview/event_poster/large/public/edf7b12feb39945.jpg" title="点击查看大图" height="260" width="175">
+      <a href="<?php echo ($strEvent[orgposter]); ?>">
+        <img id="poster_img" itemprop="image" src="<?php echo ($strEvent[poster]); ?>" title="点击查看大图" height="260" width="175">
       </a>
       <script type="text/javascript">
         if (window.devicePixelRatio >= 1.5) {
-          document.getElementById('poster_img').src = 'http://img3.douban.com/pview/event_poster/plarge/public/edf7b12feb39945.jpg';
+          document.getElementById('poster_img').src = '<?php echo ($strEvent[orgposter]); ?>';
         }
       </script>
     </div>

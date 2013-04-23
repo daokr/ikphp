@@ -537,29 +537,41 @@ word-spacing-0.43em
 	background:#ddd!important
 }
 /**上传海报**/
-.sp-icon,
-.sp-icon-opt { display: inline-block; *display: inline; zoom: 1; vertical-align: top }
-.sp-icon {  margin-right: 20px; overflow: hidden; margin-top:10px} 
-.sp-icon-opt { width: 295px }
-.sp-icon-opt li {  margin-bottom: 15px; border-bottom: 1px dashed #ddd }
-.sp-icon-opt li h2{ letter-spacing:normal}
-.sp-icon-opt p { color: #666 }
-.sp-icon-opt p.tips { color: #999; margin: -8px 0 8px }
-.sp-icon-opt .last { border: none }
-.sp-icon-opt .error-tips{ color:red}
-.submit-icon { margin-top: 30px }
-.submit-icon .bn-flat-hot { margin-right: 15px }
-.icon-wrapper { float: left; margin-right: 10px; display: block; width: 100px; height: 134px; overflow:hidden }
-#upload-tips { color: #f66 }
-.sp-icon-opt .later-poster {
+.img-container {
+	float:left;
+	margin-right:15px;
+	overflow:hidden
+}
+.img-container img {
+	width:200px
+}
+.upload-info {
+	overflow:hidden
+}
+.upload-info .preview {
+	zoom:1
+}
+.upload-info .preview .info {
+	margin-bottom:15px
+}
+.upload-info .preview .info .preview-box {
+	float:left;
+	overflow:hidden;
+	width:100px;
+	height:150px;
+	border:1px solid #f0f0f0
+}
+.upload-info .preview .info p {
+	margin-left:110px
+}
+.upload-info .later-poster {
 	cursor:pointer;
-	padding:6px 10px;
+	padding:5px 10px;
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 	border-radius:3px;
 	color:#fff;
 	background-color:#ccc;
 	border:1px solid #ccc;
-	outline:0;
-	margin-left:10px;
+	outline:0
 }
