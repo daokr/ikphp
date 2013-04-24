@@ -3274,3 +3274,38 @@ INFO: [ view_end ] --START--
 INFO: Run ShowPageTrace Behavior [ RunTime:0.000191s ]
 INFO: [ view_end ] --END-- [ RunTime:0.000242s ]
 
+[ 2013-04-24T17:24:30+08:00 ] 127.0.0.1 /IKPHP/index.php?m=location&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000977s ]
+INFO: Run load_lang Behavior [ RunTime:0.002262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.026281s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.003115s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 1 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.000553s ]
+SQL: SHOW COLUMNS FROM `ik_area` [ RunTime:0.002852s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.003312s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001846s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001989s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant style - assumed 'style' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\723f7b2f6914e5332c9c4affc501174f.php 第 98 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\723f7b2f6914e5332c9c4affc501174f.php 第 99 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\723f7b2f6914e5332c9c4affc501174f.php 第 99 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\723f7b2f6914e5332c9c4affc501174f.php 第 103 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\723f7b2f6914e5332c9c4affc501174f.php 第 103 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\723f7b2f6914e5332c9c4affc501174f.php 第 103 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\723f7b2f6914e5332c9c4affc501174f.php 第 103 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\723f7b2f6914e5332c9c4affc501174f.php 第 103 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\home\723f7b2f6914e5332c9c4affc501174f.php 第 103 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.138164s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.138271s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001179s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000933s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000819s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001043s ]
+INFO: Run content_replace Behavior [ RunTime:0.011040s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015399s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001348s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001449s ]
+

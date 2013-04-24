@@ -135,14 +135,14 @@ class eventAction extends frontendAction {
 				$result = savelocalfile(
 						$_FILES['picfile'],
 						'event/poster/'.$data_dir,
-						array('width'=>'200','height'=>'300'),
+						array('width'=>'200,70','height'=>'300,90'),
 						array('jpg','gif','png','jpeg'),
 						md5($eventid)
 						);
 				if($result['file']){
 					//先更新
-					$dataposter = array('orgposter'=>$result['file'],'poster'=>$result['img_200_300']);
-					$this->mod->where(array('eventid'=>$eventid))->setField($dataposter);
+					$dataposter = array('orgimg'=>$result['file'],'midimg'=>$result['img_200_300'],'smallimg'=>$result['img_70_90']);
+					$this->mod->where(array('eventid'=>$eventid))->setField('poster',serialize($dataposter));
 				}
 				$this->assign('imgSrc',C('ik_attach_path').$result['file']);
 				$this->assign('imgpath',$result['file']);
@@ -152,10 +152,9 @@ class eventAction extends frontendAction {
 			}else{ 
 				//获取截图位置
 				$imgpath = $this->_post('imgpath','trim');
-				$disimg = $this->_post('disimg','trim');
 				$imgpos = $this->_post('imgpos','trim');
 				$imgpos = explode(',', $imgpos); 
-			
+				$poster = array();
 				if($imgpos && $imgpath){
 					
 					$_IKIMAGECONFIG = array(
@@ -167,15 +166,21 @@ class eventAction extends frontendAction {
 							'thumboption' => 4, //8 宽度最佳缩放  4 综合最佳缩放 16 高度最佳缩放
 					);
 					if($imgpos[2]>200){
-						$arrthumb = array(200,300);
+						$poster = array(
+									'orgimg'=> $imgpath,
+									'midimg'=> makethumb($imgpath, array(200,300), '',  $_IKIMAGECONFIG),
+									'smallimg'=> makethumb($imgpath, array(70,90), '',  $_IKIMAGECONFIG),
+								);
 					}else{
-						$arrthumb = array($imgpos[2],$imgpos[3]);
+						$poster = array(
+								'orgimg'=> $imgpath,
+								'midimg'=> makethumb($imgpath, array($imgpos[2],$imgpos[3]), '',  $_IKIMAGECONFIG),
+								'smallimg'=> makethumb($imgpath, array(70,90), '',  $_IKIMAGECONFIG),
+						);
 					}
-					$dsfile = makethumb($imgpath, $arrthumb, '',  $_IKIMAGECONFIG);
-
 					//提交成功
-					if($dsfile){
-						$this->mod->where(array('eventid'=>$eventid))->setField('poster',$dsfile);
+					if($poster){
+						$this->mod->where(array('eventid'=>$eventid))->setField('poster',serialize($poster));
 						$this->redirect('event/show',array('id'=>$eventid));
 					}
 				}else{

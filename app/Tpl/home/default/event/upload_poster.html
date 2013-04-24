@@ -28,17 +28,19 @@ IK("image",function(){var c,g,b;function d(i,l){var j=100/l.width,h=150/l.height
 
 <form method="post" name="upload-poster" enctype="multipart/form-data">
     <div class="img-container">
+    	<if condition="$imgSrc">
         <img id="bigimg"/>
         <input id="imgSrc" type="hidden" value="{$imgSrc}" />
         <input type="hidden" value="{$imgpath}" name="imgpath"/>
     </div>
     <div class="upload-info">
-        <div class="upload hide" id="uploadPhotoCon">
+        <div class="upload" id="uploadPhotoCon">
             <h2>从电脑中选择你喜欢的照片:</h2>
             <p class="pl">你可以上传JPG、JPEG、GIF、PNG或BMP文件。</p>
             <input type="file" name="picfile" id="picfile" />
             <p>
             <input class="loc-btn" name="icon_submit" type="submit" id="icon_submit" value="上传照片"/>
+            <input type="submit" class="later-poster" value="以后再说" id="skip_upload_poster" name="skip_upload_poster">
             </p>
         </div>
         <a href="#" id="reuploadPhotoHook">重新选择上传图片</a>
