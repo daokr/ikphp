@@ -24,16 +24,7 @@
 <![endif]-->
 <script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
-<script type="text/javascript">
-var SITEATTACH = "<?php echo C('ik_attach_path');?>";
-var eventshowUrl = "<?php echo U('event/show',array('id'=>$eventid));?>";
-
-IK.add('image', {path: '__STATIC__/public/js/lib/imgsel.js', type:'js'});
-IK("image",function(){var c,g,b;function d(i,l){var j=100/l.width,h=150/l.height,k="";$("#preimg").css({width:Math.round(j*c)+"px",height:Math.round(h*g)+"px",marginLeft:"-"+Math.round(j*l.x1)+"px",marginTop:"-"+Math.round(h*l.y1)+"px"});if($("#imgpos").length){k=Math.round(l.x1/b)+","+Math.round(l.y1/b)+","+Math.round(l.width/b)+","+Math.round(l.height/b);$("#imgpos").val(k)}}if($("#imgSrc").length){var a=new Image(),f,e;a.src=$("#imgSrc").val();$(a).bind("load",function(){if(a.width>a.height){c=Math.min(a.width,300);g=a.height*c/a.width,b=c/a.width;f=(g-10)*2/3;e=g-10}else{g=Math.min(a.height,300);c=a.width*g/a.height;b=g/a.height;f=c-10;e=(c-10)*3/2;if(c*3/2>g){e=(g-10);f=e*2/3}}$("#bigimg").attr("src",a.src).css("width",c+"px");$("#bigimg").imgAreaSelect({x1:0,x2:f,y1:0,y2:e,aspectRatio:"2:3",onSelectChange:d,onSelectBegin:d,noNewSelect:"true"})})}$("#reuploadPhotoHook").click(function(h){h.preventDefault();$("#uploadPhotoCon").removeClass("hide");$(this).remove()});$("#icon_submit").click(function(h){if(!$("#picfile").val()){h.preventDefault();alert("请选择上传文件")}})});
-IK.ready(function(){$('#skip_upload_poster').click(function(){
-	window.location.href = eventshowUrl;
-})});
-</script>
+<link rel="stylesheet" type="text/css" href="__STATIC__/theme/<?php echo C('ik_site_theme');?>/<?php echo ($module_name); ?>/images/show.css">
 </head>
 
 <body>
@@ -134,63 +125,74 @@ IK.ready(function(){$('#skip_upload_poster').click(function(){
 </header>
 <div class="midder">
     <div class="mc">
-    	<h1><?php echo ($seo["title"]); ?></h1>
         <div class="cleft">
-            <div class="nav-step">
-              <span class="pl">1. 填写活动信息</span>
-              <span class="pl">&gt;</span>
-              <span>2. 上传活动海报</span>
-              <span class="pl">&gt;</span>
-              <span class="pl">3. 提交活动</span>
-            </div>
 
 
-<form method="post" name="upload-poster" enctype="multipart/form-data">
-    <div class="img-container">
-    	<?php if($imgpath): ?><img id="bigimg"/>
-        <input id="imgSrc" type="hidden" value="<?php echo ($imgSrc); ?>" />
-        <input type="hidden" value="<?php echo ($imgpath); ?>" name="imgpath"/>
-        <?php else: ?>
-        <img  src="<?php echo ($imgSrc); ?>"/><?php endif; ?>
-    </div>
-    <div class="upload-info">
-    	<?php if(empty($imgpath)): ?><div class="upload" id="uploadPhotoCon">
-        <?php else: ?>
-         <div class="upload hide" id="uploadPhotoCon"><?php endif; ?>
-            <h2>从电脑中选择你喜欢的照片:</h2>
-            <p class="pl">你可以上传JPG、JPEG、GIF、PNG或BMP文件。</p>
-            <input type="file" name="picfile" id="picfile" />
-            <p>
-            <input class="loc-btn" name="icon_submit" type="submit" id="icon_submit" value="上传照片"/>
-            <?php if(empty($imgpath)): ?><input type="button" class="later-poster" value="以后再说" id="skip_upload_poster" name="skip_upload_poster"><?php endif; ?>
-            </p>
+<div class="mod event-mod event-mod-1col" id="db-events-list">
+  <div class="hd"></div>
+  <ul class="events-list events-list-pic100 events-list-psmall">
+  <?php if(is_array($list)): foreach($list as $key=>$item): ?><li itemtype="http://data-vocabulary.org/Event" itemscope="" class="list-entry">
+      <div class="pic">
+        <a href="<?php echo U('event/show',array('id'=>$item[eventid]));?>">
+          <img width="110" itemprop="photo" src="<?php echo ($item[midimg]); ?>" data-lazy="">
+        </a>
+      </div>
+      <div class="info">
+        <div class="title">
+          <a itemprop="url" title="<?php echo ($item[title]); ?>" href="<?php echo U('event/show',array('id'=>$item[eventid]));?>">
+            <span itemprop="summary"><?php echo ($item[title]); ?></span>
+          </a>
         </div>
-        <?php if($imgpath): ?><a href="#" id="reuploadPhotoHook">重新选择上传图片</a>
-        <div class="preview">
-            <h2>这是你创建的活动的海报</h2>
-            <div class="info clearfix">
-                <div class="preview-box">
-                    <img src="<?php echo ($imgSrc); ?>" id="preimg"/>
-                </div>
-                <p class="pl">随意拖拽或调整大图中的虚线区域，预览小图即为裁切后的效果。</p>
-            </div>
-
-            <input type="hidden" id="imgpos" name="imgpos" />
-            <input type="submit" name="choose_submit" id="choose_submit" value="保存活动海报" class="loc-btn"/>
-        </div><?php endif; ?>
-    </div>
-</form>
-
-  
+        
+          <p class="event-cate-tag">
+            <a href="http://www.douban.com/event/search?loc=beijing&amp;search_text=%E9%9F%B3%E4%B9%90%E4%BC%9A&amp;p=today">音乐会</a>&nbsp;
+            <a href="http://www.douban.com/event/search?loc=beijing&amp;search_text=%E9%9F%B3%E4%B9%90%E8%8A%82&amp;p=today">音乐节</a>&nbsp;
+          </p>
+        <ul>
+          <li class="event-time">
+            <span>时间：</span>
             
+            <?php echo date('m月d日',$item[begin_date]); ?> <?php echo ($item[begin_week_day]); ?> <?php echo ($item[begin_time]); ?>-<?php echo ($item[end_time]); ?>
+            
+            <time datetime="2013-04-06T08:00:00" itemprop="startDate"></time>
+            <time datetime="2013-04-29T23:30:00" itemprop="endDate"></time>
+          </li>
+          <li title="北京 平谷区 北京">
+            <span>地点：</span><?php echo ($item[district]); ?>&nbsp;<?php echo ($item[street_address]); ?>
+             <meta content="北京 平谷区 北京" itemprop="location" itemscope="">
+               
+               <span itemtype="http://data-vocabulary.org/&#8203;Geo" itemscope="" itemprop="geo">
+                  <meta content="40.140701" itemprop="latitude">
+                  <meta content="117.121384" itemprop="longitude">
+               </span>
+          </li>
+          <li class="fee">
+            
+              <span>费用：</span>
+              <strong>免费</strong>
+          </li>
+          <li>
+            <span>发起：</span>
+            <a href="http://www.douban.com/location/people/64320592/" target="db-event-owner">我在飞</a>
+          </li>
+        </ul>
+        <p class="counts">
+            <span>24人参加</span> <span class="pipe"></span> <span>30人感兴趣</span>
+        </p>
+      </div>
+      </li><?php endforeach; endif; ?>
+  </ul>
+    <div class="clear"></div>
+    <div class="page"><?php echo ($pageUrl); ?></div>
+  
+</div> 
+
+
+
         </div><!--//left-->
     
         <div class="cright">
 
-            <h2>让你的活动更吸引人！</h2>
-            <p>用一张适合的图片代表你的活动，即使你没有专业的设计师。</p>
-            <p>随意拖拽或调整大图中的虚线区域，预览小图即为裁切后的效果。</p>
-            <p>高宽比为3:2的图片会得到最完整的显示。</p>
 
         </div><!--//right-->
     

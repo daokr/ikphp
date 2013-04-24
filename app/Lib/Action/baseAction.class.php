@@ -72,5 +72,18 @@ class baseAction extends Action
             return array('error'=>1, 'info'=>$upload->getErrorMsg());
         }
     }
+    public function _empty() {
+    	$this->_404();
+    }
+    
+    protected function _404($url = '') {
+        if ($url) {
+            redirect($url);
+        } else {
+            send_http_status(404);
+            $this->error('呃...你想访问的页面不存在');
+            exit;
+        }
+    }
  
 }

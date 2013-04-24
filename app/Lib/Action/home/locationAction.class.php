@@ -8,9 +8,20 @@ class locationAction extends frontendAction {
 		parent::_initialize ();
 		$this->area_mod = D ( 'area' );
 		$this->user_mod = D ( 'user' );
+		$this->event_mod = D( 'event' );
+		$this->cate_mod = D( 'event_cate' );
 	}
 	public function index() {
-		// 处理html编码
+		//获取热门活动 16 个
+		$hotEvent = $this->event_mod->getHotEvent(16);
+		//获取大分类
+		$arrCates = $this->cate_mod->getAllCate();
+		foreach ($arrCates as $key=>$item){
+			$arrCateList[$key]['parentCate'] = $item; 
+			$arrCateList[$key]['childCate'] = $this->cate_mod->getAllsubCate($item['cateid']);
+		}
+		$this->assign('arrCateList',$arrCateList);
+		$this->assign('hotEvent',$hotEvent);
 		$this->_config_seo (array('title'=>'爱客同城','subtitle'=>'北京'));
 		$this->display();
 	}

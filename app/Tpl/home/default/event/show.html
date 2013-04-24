@@ -13,12 +13,12 @@
     
 <div class="eventwrap" itemscope="" itemtype="http://data-vocabulary.org/Event">
     <div class="poster">
-      <a href="{$strEvent[orgposter]}">
-        <img id="poster_img" itemprop="image" src="{$strEvent[poster]}" title="点击查看大图" height="260" width="175">
+      <a href="{$strEvent[orgimg]}" target="_blank" title="点击查看大图" >
+        <img id="poster_img" itemprop="image" src="{$strEvent[midimg]}" title="点击查看大图" height="260" width="175">
       </a>
       <script type="text/javascript">
         if (window.devicePixelRatio >= 1.5) {
-          document.getElementById('poster_img').src = '{$strEvent[orgposter]}';
+          document.getElementById('poster_img').src = '{$strEvent[orgimg]}';
         }
       </script>
     </div>
@@ -222,7 +222,9 @@
                 </p>
             </div>
         </script>
-        <p class="bus-direction">乘车路线：东直门将设有迷笛大巴车直达现场！（攻略详情随后公布）</p>
+        <if condition = "$strEvent[direction]">
+        	<p class="bus-direction">乘车路线：{$strEvent[direction]}</p>
+        </if>
     </div>
 
 <script type="text/javascript">

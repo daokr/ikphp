@@ -23,140 +23,18 @@
   </div>
   <div class="bd ui-slide-screen">
     <ul class="ui-slide-contents gallery" id="ui-ul">  
-
+		<foreach name="hotEvent" item="item">
         <li>
           <div class="pic">
-            <a tabindex="-1"  href="http://www.douban.com/event/18561598/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/0937eedbb872a1f.jpg" height="165" width="120"></a>
+            <a tabindex="-1"  href="{:U('event/show',array('id'=>$item[eventid]))}">
+            <img alt="{$item[title]}" src="{$item[midimg]}" height="165" width="120">
+            </a>
           </div>
           <div class="title">
-              <a href="http://www.douban.com/event/18561598/" title="《哥本哈根》" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">《哥本哈根》</a>
+              <a href="{:U('event/show',array('id'=>$item[eventid]))}" title="{$item[title]}">{$item[title]}</a>
           </div>
         </li>
-        <li>
-          <div class="pic">
-            <a tabindex="-1" onclick="moreurl(this, {from:'loc-index-guess-beijing'})" href="http://www.douban.com/event/18628091/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/d9e30dd63e5c0b5.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18628091/" title="【单向街·沙龙】第495期 朱天衣 史航：朱天衣的猫狗山居岁月" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">【单向街·沙龙】第495期 朱天...</a>
-          </div>
-        </li>
-        <li>
-          <div class="pic">
-            <a tabindex="-1" onclick="moreurl(this, {from:'loc-index-guess-beijing'})" href="http://www.douban.com/event/18626827/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/081f680633d3d81.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18626827/" title="非非演出季第五季 • 地丁花剧社《我的劳动、尊严与梦想》" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">非非演出季第五季 • 地丁花...</a>
-          </div>
-        </li>
-        <li>
-          <div class="pic">
-            <a tabindex="-1" onclick="moreurl(this, {from:'loc-index-guess-beijing'})" href="http://www.douban.com/event/18304407/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/b86ce47d9325919.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18304407/" title="艺术北京2013艺术博览会" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">艺术北京2013艺术博览会</a>
-          </div>
-        </li>
-        
-        <li>
-          <div class="pic">
-            <a tabindex="-1" onclick="moreurl(this, {from:'loc-index-guess-beijing'})" href="http://www.douban.com/event/18304407/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/b86ce47d9325919.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18304407/" title="艺术北京2013艺术博览会" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">艺术北京2013艺术博览会</a>
-          </div>
-        </li> 
-                <li>
-          <div class="pic">
-            <a tabindex="-1" onclick="moreurl(this, {from:'loc-index-guess-beijing'})" href="http://www.douban.com/event/18304407/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/b86ce47d9325919.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18304407/" title="艺术北京2013艺术博览会" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">艺术北京2013艺术博览会</a>
-          </div>
-        </li> 
-                <li>
-          <div class="pic">
-            <a tabindex="-1" onclick="moreurl(this, {from:'loc-index-guess-beijing'})" href="http://www.douban.com/event/18304407/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/b86ce47d9325919.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18304407/" title="艺术北京2013艺术博览会" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">艺术北京2013艺术博览会</a>
-          </div>
-        </li> 
-                <li>
-          <div class="pic">
-            <a tabindex="-1" onclick="moreurl(this, {from:'loc-index-guess-beijing'})" href="http://www.douban.com/event/18304407/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/b86ce47d9325919.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18304407/" title="艺术北京2013艺术博览会" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">艺术北京2013艺术博览会</a>
-          </div>
-        </li> 
-        
-            
-         <li>
-          <div class="pic">
-            <a tabindex="-1" onclick="moreurl(this, {from:'loc-index-guess-beijing'})" href="http://www.douban.com/event/18628091/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/d9e30dd63e5c0b5.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18628091/" title="【单向街·沙龙】第495期 朱天衣 史航：朱天衣的猫狗山居岁月" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">【单向街·沙龙】第495期 朱天...</a>
-          </div>
-        </li>
-                <li>
-          <div class="pic">
-            <a tabindex="-1" onclick="moreurl(this, {from:'loc-index-guess-beijing'})" href="http://www.douban.com/event/18628091/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/d9e30dd63e5c0b5.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18628091/" title="【单向街·沙龙】第495期 朱天衣 史航：朱天衣的猫狗山居岁月" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">【单向街·沙龙】第495期 朱天...</a>
-          </div>
-        </li>
-                <li>
-          <div class="pic">
-            <a tabindex="-1" onclick="moreurl(this, {from:'loc-index-guess-beijing'})" href="http://www.douban.com/event/18628091/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/d9e30dd63e5c0b5.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18628091/" title="【单向街·沙龙】第495期 朱天衣 史航：朱天衣的猫狗山居岁月" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">【单向街·沙龙】第495期 朱天...</a>
-          </div>
-        </li>
-                <li>
-          <div class="pic">
-            <a tabindex="-1" onclick="moreurl(this, {from:'loc-index-guess-beijing'})" href="http://www.douban.com/event/18628091/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/d9e30dd63e5c0b5.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18628091/" title="【单向街·沙龙】第495期 朱天衣 史航：朱天衣的猫狗山居岁月" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">【单向街·沙龙】第495期 朱天...</a>
-          </div>
-        </li>       
-        
-      
-              <li>
-          <div class="pic">
-            <a tabindex="-1"  href="http://www.douban.com/event/18561598/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/0937eedbb872a1f.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18561598/" title="《哥本哈根》" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">《哥本哈根》</a>
-          </div>
-        </li>
-                <li>
-          <div class="pic">
-            <a tabindex="-1"  href="http://www.douban.com/event/18561598/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/0937eedbb872a1f.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18561598/" title="《哥本哈根》" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">《哥本哈根》</a>
-          </div>
-        </li>
-                <li>
-          <div class="pic">
-            <a tabindex="-1"  href="http://www.douban.com/event/18561598/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/0937eedbb872a1f.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18561598/" title="《哥本哈根》" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">《哥本哈根》</a>
-          </div>
-        </li>
-                <li>
-          <div class="pic">
-            <a tabindex="-1"  href="http://www.douban.com/event/18561598/"><img alt="" src="http://img3.douban.com/pview/event_poster/large/public/0937eedbb872a1f.jpg" height="165" width="120"></a>
-          </div>
-          <div class="title">
-              <a href="http://www.douban.com/event/18561598/" title="《哥本哈根》" onclick="moreurl(this, {from:'loc-index-guess-beijing'})">《哥本哈根》</a>
-          </div>
-        </li>   
+        </foreach> 
      
     </ul>
   </div>
@@ -165,139 +43,22 @@
 <!--cate-->
 <div class="mod cats-board inline-list">
   <ul>
-      
+      <foreach name="arrCateList" item="item" key="key">
+      <if condition="$item[childCate]">
       <li class="entry">
         <h5>
-          <a href="events/week-music">音乐»</a>
+          <a href="{:U('event/lists',array('type'=>'week-'.$item[parentCate][enname]))}">{$item[parentCate][catename]}&gt;&gt;</a>
         </h5>
         <ul>
-            
-            <li>
-            <a href="events/week-1001">小型现场</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1002">音乐会</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1003">演唱会</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1004">音乐节</a>
-            </li>
+            <foreach name="item[childCate]" item="citem" key="ckey">
+                <li>
+                <a href="{:U('event/lists',array('type'=>'week-'.$citem[cateid]))}">{$citem[catename]}</a>
+                </li>
+            </foreach>
         </ul>
       </li>
-      
-      <li class="entry">
-        <h5>
-          <a href="events/week-drama">戏剧»</a>
-        </h5>
-        <ul>
-            
-            <li>
-            <a href="events/week-1101">话剧</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1102">音乐剧</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1103">舞剧</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1104">歌剧</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1105">戏曲</a>
-            </li>
-        </ul>
-      </li>
-      
-      <li class="entry">
-        <h5>
-          <a href="events/week-party">聚会»</a>
-        </h5>
-        <ul>
-            
-            <li>
-            <a href="events/week-1401">生活</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1402">集市</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1403">摄影</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1404">外语</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1405">桌游</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1407">交友</a>
-            </li>
-                    </ul>
-      </li>
-      
-      <li class="entry">
-        <h5>
-          <a href="events/week-film">电影»</a>
-        </h5>
-        <ul>
-            
-            <li>
-            <a href="events/week-1801">主题放映</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1802">影展</a>
-            </li>
-            
-            <li>
-            <a href="events/week-1803">影院活动</a>
-            </li>
-        </ul>
-      </li>
-    <li class="entry">
-      <h5>
-        <a href="events/week-all">
-        其他»
-        </a>
-      </h5>
-        <ul>
-          
-          <li>
-            <a href="events/week-salon">讲座</a>
-          </li>
-          
-          <li>
-            <a href="events/week-exhibition">展览</a>
-          </li>
-          
-          <li>
-            <a href="events/week-sports">运动</a>
-          </li>
-          
-          <li>
-            <a href="events/week-travel">旅行</a>
-          </li>
-          
-          <li>
-            <a href="events/week-commonweal">公益</a>
-          </li>
-        </ul>
-    </li>
+      </if>
+      </foreach>
   </ul>
 </div>
 

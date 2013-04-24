@@ -24,13 +24,10 @@ class eventAction extends frontendAction {
 	public  function index(){
 		$this->display();
 	}
-	public function lists(){
-		
-	}
 	//创建
 	public  function create(){
 		$loc = $this->_get('loc','trim'); 
-		//获取分类
+		//获取大分类
 		$arrCate = $this->cate_mod->getAllCate();
 		
 		$currtCity = $this->area_mod->getOneAreaBypy($loc); //当前所在城市
@@ -189,7 +186,7 @@ class eventAction extends frontendAction {
 			}
 
 		}else{
-			$this->assign('imgSrc',$strEvent['orgposter']);
+			$this->assign('imgSrc',$strEvent['orgimg']);
 			$this->assign('imgpath','');
 			$this->assign('eventid',$eventid);
 			$this->_config_seo (array('title'=>'上传或更改海报','subtitle'=>'同城活动'));
@@ -256,6 +253,47 @@ class eventAction extends frontendAction {
 	public function get_address(){
 		
 		$this->ajaxReturn(0);
+	}
+	//列表页
+	public function lists(){
+		/**查询显示 格式模式
+		 * future-all 将来全部
+		 * today-all 今天
+		 * tomorrow-all 明天
+		 * weekend-all  周末
+		 * week-all 最近一周
+		 * **/
+		$type = $this->_get('type');
+		$time = $this->_get('time','week');
+		
+		switch ($time) {
+			case 'week' :
+				//查询
+				//$map = array('isaudit'=>0);//通过审核
+				$map['isaudit'] = 1;
+				$map['end_date'] = array('elt',sstrtotime(date("Y-m-d",strtotime("+1 week"))));	
+				break;
+			case 'week' :
+				//查询
+				//$map = array('isaudit'=>0);//通过审核
+				$map['isaudit'] = 1;
+				$map['end_date'] = array('elt',sstrtotime(date("Y-m-d",strtotime("+1 week"))));
+				break;				
+		}
+		//显示列表
+		$pagesize = 10;
+		$count = $this->mod->field('eventid')->where($map)->order('addtime DESC')->count();
+		$pager = $this->_pager($count, $pagesize);
+		$arrLists =  $this->mod->field('eventid')->where($map)->order('addtime DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
+		if(!empty($arrLists)){
+			foreach($arrLists as $key=>$item){
+				$arrList[] = $this->mod->getOneEvent($item['eventid']);
+			}
+		}
+		$this->assign('pageUrl', $pager->fshow());
+		$this->assign('list', $arrList);
+		$this->_config_seo (array('title'=>'最近一周的同城活动','subtitle'=>'北京'));
+		$this->display();
 	}
 
 	

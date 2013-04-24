@@ -4,10 +4,13 @@
 <include file="public:head" />
 <script type="text/javascript">
 var SITEATTACH = "{:C('ik_attach_path')}";
-var settingUrl = "{:U('event/upload_poster',array('id'=>$eventid))}";
+var eventshowUrl = "{:U('event/show',array('id'=>$eventid))}";
 
 IK.add('image', {path: '__STATIC__/public/js/lib/imgsel.js', type:'js'});
 IK("image",function(){var c,g,b;function d(i,l){var j=100/l.width,h=150/l.height,k="";$("#preimg").css({width:Math.round(j*c)+"px",height:Math.round(h*g)+"px",marginLeft:"-"+Math.round(j*l.x1)+"px",marginTop:"-"+Math.round(h*l.y1)+"px"});if($("#imgpos").length){k=Math.round(l.x1/b)+","+Math.round(l.y1/b)+","+Math.round(l.width/b)+","+Math.round(l.height/b);$("#imgpos").val(k)}}if($("#imgSrc").length){var a=new Image(),f,e;a.src=$("#imgSrc").val();$(a).bind("load",function(){if(a.width>a.height){c=Math.min(a.width,300);g=a.height*c/a.width,b=c/a.width;f=(g-10)*2/3;e=g-10}else{g=Math.min(a.height,300);c=a.width*g/a.height;b=g/a.height;f=c-10;e=(c-10)*3/2;if(c*3/2>g){e=(g-10);f=e*2/3}}$("#bigimg").attr("src",a.src).css("width",c+"px");$("#bigimg").imgAreaSelect({x1:0,x2:f,y1:0,y2:e,aspectRatio:"2:3",onSelectChange:d,onSelectBegin:d,noNewSelect:"true"})})}$("#reuploadPhotoHook").click(function(h){h.preventDefault();$("#uploadPhotoCon").removeClass("hide");$(this).remove()});$("#icon_submit").click(function(h){if(!$("#picfile").val()){h.preventDefault();alert("请选择上传文件")}})});
+IK.ready(function(){$('#skip_upload_poster').click(function(){
+	window.location.href = eventshowUrl;
+})});
 </script>
 </head>
 
@@ -18,9 +21,9 @@ IK("image",function(){var c,g,b;function d(i,l){var j=100/l.width,h=150/l.height
     	<h1>{$seo.title}</h1>
         <div class="cleft">
             <div class="nav-step">
-              <span>1. 填写活动信息</span>
+              <span class="pl">1. 填写活动信息</span>
               <span class="pl">&gt;</span>
-              <span class="pl">2. 上传活动海报</span>
+              <span>2. 上传活动海报</span>
               <span class="pl">&gt;</span>
               <span class="pl">3. 提交活动</span>
             </div>
@@ -28,21 +31,31 @@ IK("image",function(){var c,g,b;function d(i,l){var j=100/l.width,h=150/l.height
 
 <form method="post" name="upload-poster" enctype="multipart/form-data">
     <div class="img-container">
-    	<if condition="$imgSrc">
+    	<if condition="$imgpath">
         <img id="bigimg"/>
         <input id="imgSrc" type="hidden" value="{$imgSrc}" />
         <input type="hidden" value="{$imgpath}" name="imgpath"/>
+        <else/>
+        <img  src="{$imgSrc}"/>
+        </if>
     </div>
     <div class="upload-info">
+    	<if condition="empty($imgpath)">
         <div class="upload" id="uploadPhotoCon">
+        <else/>
+         <div class="upload hide" id="uploadPhotoCon">
+        </if>
             <h2>从电脑中选择你喜欢的照片:</h2>
             <p class="pl">你可以上传JPG、JPEG、GIF、PNG或BMP文件。</p>
             <input type="file" name="picfile" id="picfile" />
             <p>
             <input class="loc-btn" name="icon_submit" type="submit" id="icon_submit" value="上传照片"/>
-            <input type="submit" class="later-poster" value="以后再说" id="skip_upload_poster" name="skip_upload_poster">
+            <if condition="empty($imgpath)">
+            <input type="button" class="later-poster" value="以后再说" id="skip_upload_poster" name="skip_upload_poster">
+            </if>
             </p>
         </div>
+        <if condition="$imgpath">
         <a href="#" id="reuploadPhotoHook">重新选择上传图片</a>
         <div class="preview">
             <h2>这是你创建的活动的海报</h2>
@@ -56,6 +69,7 @@ IK("image",function(){var c,g,b;function d(i,l){var j=100/l.width,h=150/l.height
             <input type="hidden" id="imgpos" name="imgpos" />
             <input type="submit" name="choose_submit" id="choose_submit" value="保存活动海报" class="loc-btn"/>
         </div>
+         </if>
     </div>
 </form>
 

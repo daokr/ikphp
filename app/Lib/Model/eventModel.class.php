@@ -50,13 +50,24 @@ class eventModel extends Model {
 		$result['begin_week_day'] = getWeekName($result ['begin_date']);
 		//海报图
 		if(empty($result ['poster'])){
-			$result['poster'] = C('ik_attach_path').'event/poster/raw_event_dft.jpg';
-			$result['orgposter'] = C('ik_attach_path').'event/poster/raw_event_dft.jpg';
+			$result['orgimg'] = $result['midimg'] = $result['smallimg'] = C('ik_attach_path').'event/poster/raw_event_dft.jpg';
 		}else{
-			$result['poster'] = C('ik_attach_path').$result ['poster'];
-			$result['orgposter'] = C('ik_attach_path').$result ['orgposter'];
+			$poster_img = unserialize($result ['poster']); 
+			$result['orgimg'] = C('ik_attach_path').$poster_img ['orgimg'];
+			$result['midimg'] = C('ik_attach_path').$poster_img ['midimg'];
+			$result['smallimg'] = C('ik_attach_path').$poster_img ['smallimg'];
 		}
 
+		return $result;
+	}
+	//获取热门活动
+	public function getHotEvent($limit, $where='',$order=''){
+		$results = $this->field('eventid')->where($where)->order($order)->limit($limit)->select();
+		if(is_array($results)){
+			foreach($results as $key=>$item){
+				$result[] = $this->getOneEvent($item['eventid']);
+			}
+		}		
 		return $result;
 	}
 }
