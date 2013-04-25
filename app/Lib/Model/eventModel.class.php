@@ -50,12 +50,12 @@ class eventModel extends Model {
 		$result['begin_week_day'] = getWeekName($result ['begin_date']);
 		//海报图
 		if(empty($result ['poster'])){
-			$result['orgimg'] = $result['midimg'] = $result['smallimg'] = C('ik_attach_path').'event/poster/raw_event_dft.jpg';
+			$result['orgimg'] = $result['midimg'] = $result['smallimg'] = attach('event/poster/raw_event_dft.jpg');
 		}else{
 			$poster_img = unserialize($result ['poster']); 
-			$result['orgimg'] = C('ik_attach_path').$poster_img ['orgimg'];
-			$result['midimg'] = C('ik_attach_path').$poster_img ['midimg'];
-			$result['smallimg'] = C('ik_attach_path').$poster_img ['smallimg'];
+			$result['orgimg'] = attach($poster_img ['orgimg']);
+			$result['midimg'] = attach($poster_img ['midimg']);
+			$result['smallimg'] = attach($poster_img ['smallimg']);
 		}
 
 		return $result;

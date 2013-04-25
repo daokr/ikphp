@@ -170,127 +170,42 @@ __EXTENDS_JS__
   </ul>
 </div>
 
-<div class="mod"><img border="0" width="640" height="112" src="http://img3.douban.com/view/dale-online/dale_ad/public/fca5e918185cd26.jpg"></div>
+<div class="mod"><img border="0" width="640" height="112" src="__STATIC__/public/images/ad_590x112.jpg"></div>
 
 <div class="mod event-mod">
       <h2>
         <span class="pl fr">
-          <a href="events/week-music">更多</a>
+          <a href="#">更多</a>
         </span>
         音乐
       </h2>
       <div class="bd">
 
      <ul class="events-list events-list-2col">
-
-      <li class="list-entry">
+     
+<?php if(is_array($hotEvent)): foreach($hotEvent as $key=>$item): ?><li class="list-entry">
       <div class="pic">
-        <a tabindex="-1" href="http://www.douban.com/event/18541268/">
-          <img alt="" data-lazy="http://img3.douban.com/pview/event_poster/small/public/545eb9399d7867e.jpg" src="http://img3.douban.com/pics/blank.gif" width="70">
+        <a tabindex="-1" href="<?php echo U('event/show',array('id'=>$item[eventid]));?>">
+          <img alt="<?php echo ($item[title]); ?>" data-lazy="<?php echo ($item[smallimg]); ?>" src="__STATIC__/public/images/blank.gif" width="70">
         </a>
       </div>
       <div class="info">
         <div class="title">
-          <a href="http://www.douban.com/event/18541268/" title="噪音冲撞 Vol 3 - After Argument、DICE、Mr.Graceless">
-            噪音冲撞 Vol 3 - After Argument、DICE、Mr.Graceless
-            
+          <a href="<?php echo U('event/show',array('id'=>$item[eventid]));?>" title="<?php echo ($item[title]); ?>">
+          <?php echo ($item[title]); ?>
           </a>
         </div>
         <div class="datetime">
-          
-      
-      <span class="month">4月</span><span class="day">20日 周六</span>&nbsp;<span class="time">20:30 - 22:30</span>
-
+        	<span class="month"><?php echo date('m月',$item[begin_date]); ?></span>
+            <span class="day"><?php echo date('d日',$item[begin_date]); ?> <?php echo ($item[begin_week_day]); ?></span>&nbsp;
+            <span class="time"><?php echo ($item[begin_time]); ?> - <?php echo ($item[end_time]); ?></span>
         </div>
-        <address title="北京 朝阳区 麻雀瓦舍">
-          麻雀瓦舍
+        <address title="<?php echo ($item[city]); ?> <?php echo ($item[district]); ?> <?php echo ($item[street_address]); ?>">
+          <?php echo ($item[street_address]); ?>
         </address>
-        <div>
-          282人关注
-        </div>
+        <div>0人关注</div>
       </div>
-      </li>
-      <li class="list-entry">
-      <div class="pic">
-        <a tabindex="-1" href="http://www.douban.com/event/18454183/">
-          <img alt="" data-lazy="http://img3.douban.com/pview/event_poster/small/public/ffc343b85f73f27.jpg" src="http://img3.douban.com/pics/blank.gif" width="70">
-        </a>
-      </div>
-      <div class="info">
-        <div class="title">
-          <a href="http://www.douban.com/event/18454183/" title="清歈暮春——李建傧江湖弹唱会">
-            清歈暮春——李建傧江湖弹唱会
-            
-          </a>
-        </div>
-        <div class="datetime">
-          
-      
-      <span class="month">4月</span><span class="day">19日 周五</span>&nbsp;<span class="time">21:00 - 23:30</span>
-
-        </div>
-        <address title="北京 东城区 交道口南大街东棉花胡同7号">
-          交道口南大街东棉花胡同7号
-        </address>
-        <div>
-          158人关注
-        </div>
-      </div>
-      </li>
-      <li class="list-entry">
-      <div class="pic">
-        <a tabindex="-1" href="http://www.douban.com/event/18453882/">
-          <img alt="" data-lazy="http://img3.douban.com/pview/event_poster/small/public/c2cdb2f06d716a4.jpg" src="http://img3.douban.com/pics/blank.gif" width="70">
-        </a>
-      </div>
-      <div class="info">
-        <div class="title">
-          <a href="http://www.douban.com/event/18453882/" title="碎蛋之夜--Punk'n'Core Night">
-            碎蛋之夜--Punk'n'Core Night
-            
-          </a>
-        </div>
-        <div class="datetime">
-          
-      
-      <span class="month">4月</span><span class="day">21日 周日</span>&nbsp;<span class="time">21:00 - 23:30</span>
-
-        </div>
-        <address title="北京 东城区 安定门 SCHOOL学校酒吧">
-          SCHOOL学校酒吧
-        </address>
-        <div>
-          139人关注
-        </div>
-      </div>
-      </li>
-      <li class="list-entry">
-      <div class="pic">
-        <a tabindex="-1" href="http://www.douban.com/event/18386784/">
-          <img alt="" data-lazy="http://img3.douban.com/pview/event_poster/small/public/07fb7d135eb3e09.jpg" src="http://img3.douban.com/pics/blank.gif" width="70">
-        </a>
-      </div>
-      <div class="info">
-        <div class="title">
-          <a href="http://www.douban.com/event/18386784/" title="麻油叶独立厂牌《麻油叶？我不能说！》2周年专场大趴">
-            麻油叶独立厂牌《麻油叶？我不能说！》2周年专场大趴
-            
-          </a>
-        </div>
-        <div class="datetime">
-          
-      
-      <span class="month">4月</span><span class="day">19日 周五</span>&nbsp;<span class="time">20:00 - 23:30</span>
-
-        </div>
-        <address title="北京 朝阳区 麻雀瓦舍 双井家乐福对面劲松口腔胡同内50米 红点艺术工厂内">
-          麻雀瓦舍 双井家乐福对面劲松...
-        </address>
-        <div>
-          1186人关注
-        </div>
-      </div>
-      </li>
+      </li><?php endforeach; endif; ?>      
         
      </ul>
 
@@ -306,7 +221,7 @@ __EXTENDS_JS__
         
         </div><!--//left-->
         <div class="cright">
-			<img border="0" width="300" height="250" src="http://img3.douban.com/view/dale-online/dale_ad/public/b062ce01109cfd8.jpg">  
+			<img border="0" width="300" height="250" src="__STATIC__/public/images/ad_300x250.jpg">  
 <div class="mod">  
 <a href="<?php echo U('event/create',array('loc'=>'beijing'));?>" rel="nofollow" class="bn-big-action">
   ＋发起同城活动     
@@ -317,7 +232,7 @@ __EXTENDS_JS__
   <h2>
     官方预售
     <span class="pl fr">
-      <a href="http://beijing.douban.com/events/selling" title="北京的全部售票活动">
+      <a href="#" title="北京的全部售票活动">
         更多》
       </a>
     </span>
@@ -325,10 +240,10 @@ __EXTENDS_JS__
     <ul class="simple-list-1col">
         
         <li class="list-entry">
-        <a  href="http://www.douban.com/event/18266199/?icn=index-shopitem" class="ll"><img width="48" src="http://img3.douban.com/pview/event_poster/small/public/b6ec09a34774b2f.jpg" alt="情歌之巅&mdash;&mdash;胡里奥Julio lglesias中国巡回演唱会北京站"></a>
+        <a  href="#" class="ll"><img width="48" src="__STATIC__/public/images/defimg.gif" alt="情歌之巅&mdash;&mdash;胡里奥Julio lglesias中国巡回演唱会北京站"></a>
         <div class="info">
           <p class="event-title">
-              <a onclick="moreurl(this, {from:'loc-event-ticket-108288-0-title'})" href="http://www.douban.com/event/18266199/?icn=index-shopitem">
+              <a onclick="moreurl(this, {from:'loc-event-ticket-108288-0-title'})" href="#">
               情歌之巅&mdash;&mdash;胡里奥Julio lglesias中国巡回演唱会北京站
             </a>
           </p>
@@ -339,52 +254,7 @@ __EXTENDS_JS__
           </p>
         </div>
         </li>
-        <li class="list-entry">
-        <a onclick="moreurl(this, {from:'loc-event-ticket-108288-0-img'})" href="http://www.douban.com/event/18549999/?icn=index-shopitem" class="ll"><img width="48" src="http://img3.douban.com/pview/event_poster/small/public/e835b34b08d2565.jpg" alt="中国乐谷·2013北京迷笛音乐节"></a>
-        <div class="info">
-          <p class="event-title">
-              <a onclick="moreurl(this, {from:'loc-event-ticket-108288-0-title'})" href="http://www.douban.com/event/18549999/?icn=index-shopitem">
-              中国乐谷·2013北京迷笛音乐节
-            </a>
-          </p>
-          <p class="tip">
-            04月29日 ~ 05月01日 每天14:00-22:30<br>
-            
-            <span class="on-selling-events-price">¥ 100</span>
-          </p>
-        </div>
-        </li>
-        <li class="list-entry">
-        <a onclick="moreurl(this, {from:'loc-event-ticket-108288-0-img'})" href="http://www.douban.com/event/18438811/?icn=index-shopitem" class="ll"><img width="48" src="http://img3.douban.com/pview/event_poster/small/public/4caf7c37294a06d.jpg" alt="2013北京草莓音乐节"></a>
-        <div class="info">
-          <p class="event-title">
-              <a onclick="moreurl(this, {from:'loc-event-ticket-108288-0-title'})" href="http://www.douban.com/event/18438811/?icn=index-shopitem">
-              2013北京草莓音乐节
-            </a>
-          </p>
-          <p class="tip">
-            04月29日 ~ 05月01日 每天10:30-21:30<br>
-            
-            <span class="on-selling-events-price">¥ 120</span>
-          </p>
-        </div>
-        </li>
-        <li class="list-entry">
-        <a onclick="moreurl(this, {from:'loc-event-ticket-108288-0-img'})" href="http://www.douban.com/event/18376188/?icn=index-shopitem" class="ll"><img width="48" src="http://img3.douban.com/pview/event_poster/small/public/3c3592b371e91c8.jpg" alt="孟京辉监制 詹瑞文作品《桃色办公室》7月@蜂巢剧场"></a>
-        <div class="info">
-          <p class="event-title">
-              <a onclick="moreurl(this, {from:'loc-event-ticket-108288-0-title'})" href="http://www.douban.com/event/18376188/?icn=index-shopitem">
-              孟京辉监制 詹瑞文作品《桃色办公室》7月@蜂巢剧场
-            </a>
-          </p>
-          <p class="tip">
-            07月02日 ~ 07月21日 每周二至周日 19:30-21:30<br>
-            
-            <span class="on-selling-events-price">¥ 100</span>
-          </p>
-
-        </div>
-        </li>
+        
     </ul>
 </div>            
   
@@ -393,63 +263,31 @@ __EXTENDS_JS__
 <div class="mod event-mod">
     <h2>
       <span class="pl fr">
-        <a href="http://beijing.douban.com/hosts/active">更多》</a>
+        <a href="#">更多》</a>
       </span>
       北京活跃的主办方
     </h2>
     
 <ul class="simple-list-1col">
     <li class="list-entry">
-    <a href="http://site.douban.com/fcchbj/" class="ll" target="db-host"><img width="48" height="48" src="__STATIC__/public/images/defimg.gif" alt="北京中山公园音乐堂"></a>
+    <a href="#" class="ll" target="db-host"><img width="48" height="48" src="__STATIC__/public/images/defimg.gif" alt="北京中山公园音乐堂"></a>
     <div class="info">
-      <p class="title"><a href="http://site.douban.com/fcchbj/" target="db-host">北京中山公园音乐堂</a></p>
+      <p class="title"><a href="#" target="db-host">北京中山公园音乐堂</a></p>
       <p class="tip">
       
-      有<a href="http://site.douban.com/fcchbj/widget/events/1482647/" target="db-host">18个活动</a>正在进行
+      有<a href="#" target="db-host">18个活动</a>正在进行
       </p>
       <ul>
           <li>
-          <a title="威尔第歌剧的光辉&mdash;女高音歌唱家李国玲和她的朋友们" href="http://www.douban.com/event/18660729/" class="gloomy">[音乐] 威尔第歌剧的光辉&mdash;女高音歌唱家...</a>
+          <a title="威尔第歌剧的光辉&mdash;女高音歌唱家李国玲和她的朋友们" href="#" class="gloomy">[音乐] 威尔第歌剧的光辉&mdash;女高音歌唱家...</a>
           </li>
           <li>
-          <a title="浪漫竖琴之夜-俄罗斯竖琴家艾米丽亚·莫斯克维金娜独奏音乐会" href="http://www.douban.com/event/18660580/" class="gloomy">[音乐] 浪漫竖琴之夜-俄罗斯竖琴家艾米丽...</a>
+          <a title="浪漫竖琴之夜-俄罗斯竖琴家艾米丽亚·莫斯克维金娜独奏音乐会" href="#" class="gloomy">[音乐] 浪漫竖琴之夜-俄罗斯竖琴家艾米丽...</a>
           </li>
       </ul>
     </div>
     </li>
-    <li class="list-entry">
-    <a href="http://site.douban.com/dongparty/" class="ll" target="db-host"><img width="48" height="48" src="http://img3.douban.com/view/site/small/public/243c2f84958ab23.jpg" alt="东派民谣音乐节"></a>
-    <div class="info">
-      <p class="title"><a href="http://site.douban.com/dongparty/" target="db-host">东派民谣音乐节</a></p>
-      <p class="tip">
-      
-      有<a href="http://site.douban.com/dongparty/widget/events/1466427/" target="db-host">1个活动</a>正在进行
-      </p>
-      <ul>
-          <li>
-          <a title="MINI东派民谣音乐节" href="http://www.douban.com/event/18601447/" class="gloomy">[音乐] MINI东派民谣音乐节</a>
-          </li>
-      </ul>
-    </div>
-    </li>
-    <li class="list-entry">
-    <a href="http://site.douban.com/ucca/" class="ll" target="db-host"><img width="48" height="48" src="http://img3.douban.com/view/site/small/public/17e5cc70a4dce0f.jpg" alt="尤伦斯当代艺术中心"></a>
-    <div class="info">
-      <p class="title"><a href="http://site.douban.com/ucca/" target="db-host">尤伦斯当代艺术中心</a></p>
-      <p class="tip">
-      
-      有<a href="http://site.douban.com/ucca/widget/events/7190046/" target="db-host">37个活动</a>正在进行
-      </p>
-      <ul>
-          <li>
-          <a title="【讲座与论坛】"杜尚与/或/在中国"现代艺术史讲堂系列" href="http://www.douban.com/event/18674161/" class="gloomy">[讲座] 【讲座与论坛】"杜尚与/或/在中...</a>
-          </li>
-          <li>
-          <a title=""一样的艺术 不一样的角度"特殊儿童艺术作品展开幕仪式暨主题论坛" href="http://www.douban.com/event/18674106/" class="gloomy">[其他] "一样的艺术 不一样的角度"特殊...</a>
-          </li>
-      </ul>
-    </div>
-    </li>
+    
 </ul>
 
   </div>
@@ -459,7 +297,7 @@ __EXTENDS_JS__
   <h2>更多发现</h2>
   <ul class="inline-list linkgrid">
   	<li>
-    <a class="no-hover no-visited" href="groups/">
+    <a class="no-hover no-visited" href="#">
       <strong>
       同城活动小组
       </strong>
@@ -469,7 +307,7 @@ __EXTENDS_JS__
     </a>
   	</li>
   	<li>
-    <a  class="no-hover no-visited" href="series" style="border-left:none">
+    <a  class="no-hover no-visited" href="#" style="border-left:none">
       <strong>
       主办方系列活动
       </strong>
@@ -483,13 +321,13 @@ __EXTENDS_JS__
 
 <div class="mod">
 <p style="font-size:14px;" class="pl">
-<a href="http://www.douban.com/location/beijing/events/feed/weekly" class="lnk-rss" target="_blank">RSS</a>
+<a href="#" class="lnk-rss" target="_blank">RSS</a>
 &nbsp;
 &nbsp;
-&gt; <a href="http://site.douban.com/apply/host/">申请主办方</a>
+&gt; <a href="#">申请主办方</a>
 &nbsp;
 &nbsp;
-&gt; <a href="http://help.douban.com/help/ask">我要提建议</a>
+&gt; <a href="#">我要提建议</a>
 </p>
 </div>
   

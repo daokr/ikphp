@@ -145,8 +145,8 @@ __EXTENDS_JS__
         </div>
         
           <p class="event-cate-tag">
-            <a href="http://www.douban.com/event/search?loc=beijing&amp;search_text=%E9%9F%B3%E4%B9%90%E4%BC%9A&amp;p=today">音乐会</a>&nbsp;
-            <a href="http://www.douban.com/event/search?loc=beijing&amp;search_text=%E9%9F%B3%E4%B9%90%E8%8A%82&amp;p=today">音乐节</a>&nbsp;
+            <a href="#">音乐会</a>&nbsp;
+            <a href="#">音乐节</a>&nbsp;
           </p>
         <ul>
           <li class="event-time">
@@ -167,13 +167,12 @@ __EXTENDS_JS__
                </span>
           </li>
           <li class="fee">
-            
               <span>费用：</span>
-              <strong>免费</strong>
+              <strong><?php echo ($item[fee_detail]); ?></strong>
           </li>
           <li>
             <span>发起：</span>
-            <a href="http://www.douban.com/location/people/64320592/" target="db-event-owner">我在飞</a>
+            <a href="<?php echo U('people/index',array('id'=>$item[user][doname]));?>" target="db-event-owner"><?php echo ($item[user][username]); ?></a>
           </li>
         </ul>
         <p class="counts">

@@ -187,7 +187,12 @@ class eventAction extends frontendAction {
 
 		}else{
 			$this->assign('imgSrc',$strEvent['orgimg']);
-			$this->assign('imgpath','');
+			if($strEvent['poster']){
+				$poster_img = unserialize($strEvent ['poster']);
+				$this->assign('imgpath',$poster_img ['orgimg']);
+			}else{
+				$this->assign('imgpath','');
+			}
 			$this->assign('eventid',$eventid);
 			$this->_config_seo (array('title'=>'上传或更改海报','subtitle'=>'同城活动'));
 			$this->display();
