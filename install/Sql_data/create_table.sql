@@ -889,7 +889,7 @@ CREATE TABLE `ik_event_cate` (
   `referid` int(11) NOT NULL DEFAULT '0' COMMENT '父ID',
   PRIMARY KEY (`cateid`),
   KEY `cateid` (`referid`)
-) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='活动分类';
+) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COMMENT='活动分类';
 
 -- ----------------------------
 -- Records of ik_event_cate
@@ -923,6 +923,12 @@ INSERT INTO `ik_event_cate` VALUES ('26', '夜店', '', '', '4');
 INSERT INTO `ik_event_cate` VALUES ('27', '主题放映', '', '', '5');
 INSERT INTO `ik_event_cate` VALUES ('28', '影展', '', '', '5');
 INSERT INTO `ik_event_cate` VALUES ('29', '影院活动', '', '', '5');
+INSERT INTO `ik_event_cate` VALUES ('30', '恋爱', '', '', '7');
+INSERT INTO `ik_event_cate` VALUES ('31', '旅行', '', '', '7');
+INSERT INTO `ik_event_cate` VALUES ('32', '爬山', '', '', '7');
+INSERT INTO `ik_event_cate` VALUES ('33', '健康', '', '', '7');
+INSERT INTO `ik_event_cate` VALUES ('34', '交友', '', '', '7');
+INSERT INTO `ik_event_cate` VALUES ('35', '聚会', '', '', '7');
 -- --------------------------------------------------------
 --
 -- 表的结构 `ik_event`

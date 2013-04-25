@@ -2,7 +2,6 @@
 <html>
 <head>
 <include file="public:head" />
-<link rel="stylesheet" type="text/css" href="__STATIC__/theme/{:C('ik_site_theme')}/{$module_name}/images/show.css">
 </head>
 
 <body>
@@ -10,11 +9,32 @@
 <div class="midder">
     <div class="mc">
         <div class="cleft">
+		<h1>北京最近一周同城活动</h1>
 
-
-<div class="mod event-mod event-mod-1col" id="db-events-list">
-  <div class="hd"></div>
-  <ul class="events-list events-list-pic100 events-list-psmall">
+<div class="mod event-mod" id="db-events-list">
+  <div class="hd">
+        <div class="events-nav">
+            <div class="events-nav-item">
+                <label class="events-nav-title">类型：</label>
+                <ul>
+                <foreach name="parentCate" item="item">
+                	<li><a href="{:U('event/lists',array('type'=>'week-'.$item[enname]))}">{$item[catename]}</a></li>
+                </foreach>
+                </ul>
+            </div>
+            <div class="events-nav-item">
+                <label class="events-nav-title">时间：</label>
+                <ul>
+                <foreach name="timelist" item="item">
+                	<li><a href="{$item[url]}">{$item[name]}</a></li>
+                </foreach>
+                </ul>
+            </div>            
+        </div>
+  </div>
+      
+      
+  <ul class="events-list">
   <foreach name="list" item="item">
       <li itemtype="http://data-vocabulary.org/Event" itemscope="" class="list-entry">
       <div class="pic">
@@ -77,7 +97,11 @@
         </div><!--//left-->
     
         <div class="cright">
-
+            <div class="mod">  
+            <a href="{:U('event/create',array('loc'=>'beijing'))}" rel="nofollow" class="bn-big-action">
+              ＋发起同城活动     
+            </a>     
+            </div>
 
         </div><!--//right-->
     

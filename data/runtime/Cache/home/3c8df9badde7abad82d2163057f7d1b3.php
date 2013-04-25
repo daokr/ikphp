@@ -24,7 +24,6 @@
 <![endif]-->
 <script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
-<link rel="stylesheet" type="text/css" href="__STATIC__/theme/<?php echo C('ik_site_theme');?>/<?php echo ($module_name); ?>/images/show.css">
 </head>
 
 <body>
@@ -126,11 +125,28 @@ __EXTENDS_JS__
 <div class="midder">
     <div class="mc">
         <div class="cleft">
+		<h1>北京最近一周同城活动</h1>
 
-
-<div class="mod event-mod event-mod-1col" id="db-events-list">
-  <div class="hd"></div>
-  <ul class="events-list events-list-pic100 events-list-psmall">
+<div class="mod event-mod" id="db-events-list">
+  <div class="hd">
+        <div class="events-nav">
+            <div class="events-nav-item">
+                <label class="events-nav-title">类型：</label>
+                <ul>
+                <?php if(is_array($parentCate)): foreach($parentCate as $key=>$item): ?><li><a href="<?php echo U('event/lists',array('type'=>'week-'.$item[enname]));?>"><?php echo ($item[catename]); ?></a></li><?php endforeach; endif; ?>
+                </ul>
+            </div>
+            <div class="events-nav-item">
+                <label class="events-nav-title">时间：</label>
+                <ul>
+                <?php if(is_array($timelist)): foreach($timelist as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
+                </ul>
+            </div>            
+        </div>
+  </div>
+      
+      
+  <ul class="events-list">
   <?php if(is_array($list)): foreach($list as $key=>$item): ?><li itemtype="http://data-vocabulary.org/Event" itemscope="" class="list-entry">
       <div class="pic">
         <a href="<?php echo U('event/show',array('id'=>$item[eventid]));?>">
@@ -191,7 +207,11 @@ __EXTENDS_JS__
         </div><!--//left-->
     
         <div class="cright">
-
+            <div class="mod">  
+            <a href="<?php echo U('event/create',array('loc'=>'beijing'));?>" rel="nofollow" class="bn-big-action">
+              ＋发起同城活动     
+            </a>     
+            </div>
 
         </div><!--//right-->
     

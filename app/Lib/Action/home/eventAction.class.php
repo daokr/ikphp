@@ -141,7 +141,7 @@ class eventAction extends frontendAction {
 					$dataposter = array('orgimg'=>$result['file'],'midimg'=>$result['img_200_300'],'smallimg'=>$result['img_70_90']);
 					$this->mod->where(array('eventid'=>$eventid))->setField('poster',serialize($dataposter));
 				}
-				$this->assign('imgSrc',C('ik_attach_path').$result['file']);
+				$this->assign('imgSrc',attach($result['file']));
 				$this->assign('imgpath',$result['file']);
 				$this->assign('eventid',$eventid);
 				$this->_config_seo (array('title'=>'上传或更改海报','subtitle'=>'同城活动'));
@@ -270,20 +270,19 @@ class eventAction extends frontendAction {
 		 * **/
 		$type = $this->_get('type');
 		$time = $this->_get('time','week');
-		
+		//模式判断下
+		if(C('URL_MODEL')==0){
+			$param =  explode('-', $type);
+			$time = $param[0];
+			$type = $param[1];		
+		}
 		switch ($time) {
 			case 'week' :
 				//查询
 				//$map = array('isaudit'=>0);//通过审核
 				$map['isaudit'] = 1;
 				$map['end_date'] = array('elt',sstrtotime(date("Y-m-d",strtotime("+1 week"))));	
-				break;
-			case 'week' :
-				//查询
-				//$map = array('isaudit'=>0);//通过审核
-				$map['isaudit'] = 1;
-				$map['end_date'] = array('elt',sstrtotime(date("Y-m-d",strtotime("+1 week"))));
-				break;				
+				break;			
 		}
 		//显示列表
 		$pagesize = 10;
@@ -295,8 +294,20 @@ class eventAction extends frontendAction {
 				$arrList[] = $this->mod->getOneEvent($item['eventid']);
 			}
 		}
+		//获取全部一级分类
+		$parentCate = $this->cate_mod->getAllCate();
+		//获取时间列表
+		$timelist = array(
+				'future'=>array('url'=>U('event/lists',array('type'=>'future-'.$type)),'name'=>'全部'),
+				'today'=>array('url'=>U('event/lists',array('type'=>'today-'.$type)),'name'=>'今天'),
+				'tomorrow'=>array('url'=>U('event/lists',array('type'=>'tomorrow-'.$type)),'name'=>'明天'),
+				'weekend'=>array('url'=>U('event/lists',array('type'=>'weekend-'.$type)),'name'=>'周末'),
+				'week'=>array('url'=>U('event/lists',array('type'=>'week-'.$type)),'name'=>'最近一周'),
+		);
 		$this->assign('pageUrl', $pager->fshow());
 		$this->assign('list', $arrList);
+		$this->assign('parentCate', $parentCate);
+		$this->assign('timelist', $timelist);
 		$this->_config_seo (array('title'=>'最近一周的同城活动','subtitle'=>'北京'));
 		$this->display();
 	}

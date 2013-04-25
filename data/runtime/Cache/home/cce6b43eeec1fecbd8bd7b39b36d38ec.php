@@ -28,16 +28,26 @@ __EXTENDS_JS__
 <script>
 
 $(document).ready(function(){
-	$.getJSON("http://www.douban.com/j/location/city_district?loc_id=118244&ck=ZeuH&callback=?", 
+/*	$.getJSON("http://www.douban.com/j/location/city_district?loc_id=118244&ck=ZeuH&callback=?", 
 	function(data){
 		$('#IKPHP_Notice').html(data);
-	}); 
+	}); */
+	var input = $('#mydiv').find('input');
+	var my = $('#mydiv').data('charm',input);
+	//alert(input.serialize())
+	$.post('index.php?m=index&a=test&'+input.serialize(),{},function(res){
+			alert(res)
+		})
 });
 </script>
 </head>
 
 <body>
-
+<div id="mydiv">
+	<input name="user" value="30">
+    <input name="sex" value="男">
+    <a href="#">连接</a>
+</div>
 <div id="IKPHP_Notice"></div>
 </body>
 </html>

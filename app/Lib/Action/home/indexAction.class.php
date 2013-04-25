@@ -63,9 +63,15 @@ class indexAction extends frontendAction {
 			
 		}
 		echo $ss; */
-		$test = $this->geturlfile('http://news.163.com/13/0418/17/8SOSFS5V0001124J.html',1,'gb2312');
-		dump($test);
-		//$this->display();
+		//$test = $this->geturlfile('http://news.163.com/13/0418/17/8SOSFS5V0001124J.html',1,'gb2312');
+		//dump($test);
+		if(IS_POST){
+
+			$this->ajaxReturn($_GET['sex']); 
+		}else{
+			$this->display();
+		}
+		
 	
 	}
 	function geturlfile($url, $encode = 1, $thevalue) {
