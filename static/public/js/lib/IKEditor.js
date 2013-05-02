@@ -166,14 +166,14 @@ var formNote = $('#form_tipic'),
 	control_panel = $('.control-panel', formNote),
 	videos = formNote.children('.videos'),
 	nid = '{$topic_id}';
-function addVideo()
+function addVideo(ajaxurl, data)
 {
 
 	pop_win([
 	'<div class="rectitle"><span class="m">添加视频</span></div>',
 	'<div class="panel">',
 	'<div class="frm-addvideo">',
-	'<div class="item tips" id="videotips"></div>',
+	'<div class="item tips" id="videotips" style="background-color:#fff"></div>',
 	'<div class="item" style="text-align:left">',
 	'目前爱客网支持抓取视频网站的有：土豆网、优酷网、酷6网、56网、的视频，其他网站视频会陆续推出。',
 	'</div>',
@@ -182,10 +182,10 @@ function addVideo()
 	'</div>',
 	'<div class="item" style="text-align:left;color:red" id="videerror"></div>',	
 	'</div></div>',
-	'<div class="bn-layout"><input type="button" value="确定" class="confirmbtn" onclick="addRemoteVideo();">',
+	'<div class="bn-layout"><input type="button" value="确定" class="confirmbtn" onclick="addRemoteVideo(\''+ajaxurl+'\');">',
 	'<input type="button" value="取消" class="cancellinkbtn" onclick="pop_win.close();" ></div>'].join('') );
 }
-function addRemoteVideo(frm, o){
+function addRemoteVideo(ajaxurl, data){
 			var frm =  $('.frm-addvideo'), o = pop_win;
 			var vurl = $.trim(frm.find('input[name=url]').val());
 			//var ck = get_cookie('ck');
@@ -193,9 +193,8 @@ function addRemoteVideo(frm, o){
 				$('.pop_win').find('.confirmbtn').attr('disabled','disabled');
 	 			$.ajax({
                     type: 'post',
-                    url: "{SITE_URL}{ikUrl('group','add',array('ik'=>'add_video'))}",
+                    url: ajaxurl,
                     data: {
-						topic_id: nid,
                         url: encodeURIComponent(vurl)  //编码传送
                     },
                     beforeSend: function() {
@@ -204,11 +203,11 @@ function addRemoteVideo(frm, o){
                     success: function(data) { 
                         if (data.r) {
                             // displayError
-                            $('#videotips').css('color','red').html(data.html);
+                            $('#videotips').css({'color':'red','background-color':'#F8F8F8'}).html(data.html);
                             return;
                         }
 						buildVideoDetail(data);
-						$('#videotips').html('');
+						$('#videotips').html('').css('background-color','#fff');
                         $('#editor_full').insert_caret('[视频' + data.seqid + ']');
                         o.close();
 						
@@ -222,7 +221,7 @@ function addRemoteVideo(frm, o){
 function buildVideoDetail(data){
         var html = '<div class="thumblst">';
 
-        html += '<div class="details"><p>视频标题（30字以内）</p> <textarea maxlength="30" name="video_' + data.seqid + '_title">'+ data.title + '</textarea><input type="hidden" name="video_' + data.seqid + '" value="' + data.seqid + '" ><br/><br/>视频网址：<br/>'+ '<a name="rm_p_' + data.seqid + '"   class="minisubmit rr j a_remove_pic"  onclick="javascript:removeVideo(this, \''+ data.seqid +'\');return false;">删除</a><p>'+ data.url +'</p>';
+        html += '<div class="details"><p>视频标题（30字以内）</p> <textarea maxlength="30" name="video_' + data.seqid + '_title">'+ data.title + '</textarea><input type="hidden" name="videoseqid[]" value="' + data.seqid + '" ><br/><br/>视频网址：<br/>'+ '<a name="rm_p_' + data.seqid + '"   class="minisubmit rr j a_remove_pic" ajaxurl="'+data.ajaxurl+'" videoid="'+data.id+'"  onclick="javascript:removeVideo(this, \''+ data.seqid +'\');return false;">删除</a><p>'+ data.url +'</p>';
         
         html += '</div><div class="thumb"><div class="pl">[视频' + data.seqid + ']</div> <img src="' + data.imgurl + '"/> </div><div class="clear"></div> </div>';
 		
@@ -231,10 +230,11 @@ function buildVideoDetail(data){
 //删除视频
 function removeVideo(obj, seq_id){
 	var ck = get_cookie('ck');
-    var data = "seq_id=" + seq_id + "&ck="+ck;
+	var url = $(obj).attr('ajaxurl'), videoid = $(obj).attr('videoid');
+    var data = "videoid=" + videoid + "&ck="+ck;
     $.ajax({
         type:       "post",
-        url:        "{SITE_URL}{ikUrl('group','add',array('ik'=>'remove_video', 'topic_id'=>{$topic_id}))}",
+        url:        url,
         dataType:   "json",
         data:       data,
         success:    function(data, status){

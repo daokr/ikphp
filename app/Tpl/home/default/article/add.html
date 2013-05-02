@@ -63,7 +63,8 @@ $(function(){
 		addLink();
 	})
 	$('#addVideo').bind('click',function(){
-		addVideo();	
+		var ajaxurl = "{:U('videos/add',array('type'=>'article','typeid'=>$strArticle[aid]))}";
+		addVideo(ajaxurl);
 	})
 });
 </script>

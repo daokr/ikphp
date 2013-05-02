@@ -32,6 +32,8 @@ class articleModel extends Model {
 			$this->where($where)->delete();
 			// 删除照片
 			D('images')->delAllImage('article',$id);
+			// 删除照片
+			D('videos')->delAllVideo('article',$id);
 		}
 	}
 	// 获取一篇文章的信息

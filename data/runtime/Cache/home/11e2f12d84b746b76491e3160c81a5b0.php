@@ -191,7 +191,12 @@ __EXTENDS_JS__
                     <dd>
                         <header class="title"><a href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>" title="<?php echo ($time[title]); ?>"><?php echo ($item[title]); ?></a></header>
                          <a href="<?php echo U('people/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <summary><?php echo getTime($item[addtime],time()) ?> 阅读 <?php echo ($item[count_view]); ?> 评论 <?php echo ($item[count_comment]); ?></summary>
-                        <p><a href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>" title="<?php echo ($time[title]); ?>"><img src="<?php echo ($item[img][simg]); ?>" class="fr"></a><?php echo ($item[content]); ?></p>
+                        <p>
+                        <?php if($item[video]): ?><a href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>" title="<?php echo ($time[title]); ?>"><img src="<?php echo ($item[video][imgurl]); ?>" class="fr"></a>
+                        <?php else: ?>
+                        <a href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>" title="<?php echo ($time[title]); ?>"><img src="<?php echo ($item[img][simg]); ?>" class="fr"></a><?php endif; ?>
+                        <?php echo ($item[content]); ?>
+                        </p>
                     </dd>
                 </dl><?php endforeach; endif; ?>
             </div>
@@ -246,10 +251,10 @@ __EXTENDS_JS__
             · <a href="<?php echo U('help/privacy');?>">隐私申明</a>
         </span>
         <div class="cl"></div>
-        <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  <a href="http://www.miibeian.gov.cn/">京ICP备13018602号</a> <br />
+        <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备13018602号</a> <br />
         <span style="font-size:0.83em;">{__RUNTIME__}</span>
         
-        <!--<script src="http://s21.cnzz.com/stat.php?id=2973516&web_id=2973516" language="JavaScript"></script>-->
+        <script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script>
         </p>   
     </div>
 </div>

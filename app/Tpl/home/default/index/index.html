@@ -80,7 +80,14 @@
                     <dd>
                         <header class="title"><a href="{:U('group/topic',array('id'=>$item[topicid]))}" title="{$time[title]}">{$item[title]}</a></header>
                          <a href="{:U('people/index',array('id'=>$item[user][doname]))}">{$item[user][username]}</a> <summary><php>echo getTime($item[addtime],time())</php> 阅读 {$item[count_view]} 评论 {$item[count_comment]}</summary>
-                        <p><a href="{:U('group/topic',array('id'=>$item[topicid]))}" title="{$time[title]}"><img src="{$item[img][simg]}" class="fr"></a>{$item[content]}</p>
+                        <p>
+                        <if condition="$item[video]">
+                        <a href="{:U('group/topic',array('id'=>$item[topicid]))}" title="{$time[title]}"><img src="{$item[video][imgurl]}" class="fr"></a>
+                        <else/>
+                        <a href="{:U('group/topic',array('id'=>$item[topicid]))}" title="{$time[title]}"><img src="{$item[img][simg]}" class="fr"></a>
+                        </if>
+                        {$item[content]}
+                        </p>
                     </dd>
                 </dl>
                 </foreach>

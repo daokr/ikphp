@@ -897,9 +897,12 @@ class groupAction extends frontendAction {
 			//浏览该topic_id下的照片
 			$type = 'topic';
 			$arrPhotos = D('images')->getImagesByTypeid($type, $topicid);
+			//浏览改topic_id下的视频
+			$arrVideos = D('videos')->getVideosByTypeid($type, $topicid);
 			
 			$this->assign ( 'action', U('group/updatetopic') );
 			$this->assign ( 'arrPhotos', $arrPhotos );
+			$this->assign ( 'arrVideos', $arrVideos );
 			$this->assign ( 'isGroupUser', $isGroupUser );
 			$this->assign ( 'strTopic', $strTopic );
 			$this->assign ( 'strGroup', $strGroup );

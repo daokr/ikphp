@@ -110,11 +110,23 @@ class articleAction extends frontendAction {
 									$dataimg = array('title'=>$imgtitle, 'align'=> $layout,'typeid'=>$id);
 									$where = array('type'=>'article','typeid'=>'0','seqid'=>$seqid);
 									D('images')->updateImage($dataimg,$where);
+
 									// 更新 isphoto
 									$this->item_mod->where(array('itemid'=>$itemid))->save(array('isphoto'=>1));
 								}
 							}
 							/////////////执行更新图片信息结束//////////////////
+							//执行更新视频信息
+							$arrVideoseqid = $this->_post ( 'videoseqid');
+							if(is_array($arrVideoseqid)){
+								foreach($arrVideoseqid as $key=>$item){
+									$seqid = $arrVideoseqid[$key];
+									$title = $this->_post ( 'video_'.$seqid.'_title','trim','');
+									$datavideo = array('title'=>$title, 'typeid'=>$id);
+									$where = array('type'=>'article','typeid'=>'0','seqid'=>$seqid);
+									D('videos')->updateVideo($datavideo,$where);
+								}
+							}
 							
 						}
 					}
@@ -150,6 +162,17 @@ class articleAction extends frontendAction {
 					}
 				}
 				/////////////执行更新图片信息结束//////////////////
+				//执行更新视频信息
+				$arrVideoseqid = $this->_post ( 'videoseqid' );
+				if(is_array($arrVideoseqid)){
+					foreach($arrVideoseqid as $key=>$item){
+						$seqid = $arrVideoseqid[$key];
+						$title = $this->_post ( 'video_'.$seqid.'_title','trim','');
+						$datavideo = array('title'=>$title, 'typeid'=>$id);
+						$where = array('type'=>'article','typeid'=>'0','seqid'=>$seqid);
+						D('videos')->updateVideo($datavideo,$where);
+					}
+				}
 				
 			}
 			
@@ -191,10 +214,13 @@ class articleAction extends frontendAction {
 		//浏览该照片
 		$type = 'article';
 		$arrPhotos = D('images')->getImagesByTypeid($type, $id);
+		//浏览改topic_id下的视频
+		$arrVideos = D('videos')->getVideosByTypeid($type, $id);
 		
 		$this->assign ( 'arrCate', $arrCate );
 		$this->assign ( 'strArticle', $strArticle );
 		$this->assign ( 'arrPhotos', $arrPhotos );
+		$this->assign ( 'arrVideos', $arrVideos );
 		$this->_config_seo ( array (
 				'title' => '编辑“'.$strArticle['title'].'”',
 				'subtitle' => '阅读'

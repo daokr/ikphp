@@ -45,12 +45,12 @@
     <div class="thumblst">
     <div class="details">
     <p>视频标题（30字以内）</p>
-    <textarea name="video_{$item[seqid]}_title" maxlength="30">人在囧途</textarea>
-    <input type="hidden" value="{$item[seqid]}" name="video_{$item[seqid]}">
+    <textarea name="video_{$item[seqid]}_title" maxlength="30">{$item[title]}</textarea>
+    <input type="hidden" value="{$item[seqid]}" name="videoseqid[]">
     <br>
     <br>
     视频网址：<br>
-    <a onclick="javascript:removeVideo(this, '{$item[seqid]}');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="{:U('images/delete')}">删除</a>
+    <a onclick="javascript:removeVideo(this, '{$item[seqid]}');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="{:U('videos/delete')}" videoid="{$item[videoid]}">删除</a>
     <p>{$item[url]}</p>
     </div>
     <div class="thumb">

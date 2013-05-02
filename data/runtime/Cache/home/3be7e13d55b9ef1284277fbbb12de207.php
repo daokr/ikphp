@@ -204,12 +204,12 @@ __EXTENDS_JS__
    <?php if(is_array($arrVideos)): foreach($arrVideos as $key=>$item): ?><div class="thumblst">
     <div class="details">
     <p>视频标题（30字以内）</p>
-    <textarea name="video_<?php echo ($item[seqid]); ?>_title" maxlength="30">人在囧途</textarea>
+    <textarea name="video_<?php echo ($item[seqid]); ?>_title" maxlength="30"><?php echo ($item[title]); ?></textarea>
     <input type="hidden" value="<?php echo ($item[seqid]); ?>" name="video_<?php echo ($item[seqid]); ?>">
     <br>
     <br>
     视频网址：<br>
-    <a onclick="javascript:removeVideo(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="<?php echo U('images/delete');?>">删除</a>
+    <a onclick="javascript:removeVideo(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="<?php echo U('videos/delete');?>" videoid="<?php echo ($item[videoid]); ?>">删除</a>
     <p><?php echo ($item[url]); ?></p>
     </div>
     <div class="thumb">
@@ -234,7 +234,8 @@ $(function(){
 		addLink();
 	})
 	$('#addVideo').bind('click',function(){
-		addVideo();	
+		var ajaxurl = "<?php echo U('videos/add',array('type'=>'article','typeid'=>$strArticle[aid]));?>";
+		addVideo(ajaxurl);
 	})
 });
 </script>
@@ -259,10 +260,10 @@ $(function(){
             · <a href="<?php echo U('help/privacy');?>">隐私申明</a>
         </span>
         <div class="cl"></div>
-        <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  <?php echo C('site_icp');?> <span style="color:green">ThinkPHP 版本 <?php echo (THINK_VERSION); ?></span><br />
+        <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备13018602号</a> <br />
         <span style="font-size:0.83em;">{__RUNTIME__}</span>
         
-        <!--<script src="http://s21.cnzz.com/stat.php?id=2973516&web_id=2973516" language="JavaScript"></script>-->
+        <script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script>
         </p>   
     </div>
 </div>

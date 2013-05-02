@@ -55,7 +55,8 @@ $(function(){
 		addLink();
 	})
 	$('#addVideo').bind('click',function(){
-		addVideo();	
+		var ajaxurl = "{:U('videos/add',array('type'=>'topic','typeid'=>$topic_id))}";
+		addVideo(ajaxurl);
 	})
 });
 </script>

@@ -45,6 +45,7 @@ class group_topicsModel extends Model {
 				$result[$key]['user'] = D('user')->getOneUser($item['userid']);
 				$result[$key]['content'] = getsubstrutf8(ikhtml_text('topic',$item['topicid'],$item['content']),0,300);
 				$result[$key]['img'] = ikhtml_img('topic',$item['topicid'],$item['content']);
+				$result[$key]['video'] = ikhtml_video('topic',$item['topicid'],$item['content']);
 			}
 		}
 		return $result;
@@ -164,7 +165,7 @@ class group_topicsModel extends Model {
 			//删除图片
 			D('images')->delAllImage('topic',$topicid);
 			//删除视频
-			//D('videos')->delAllVideos('topic',$topicid);
+			D('videos')->delAllVideo('topic',$topicid);
 			return true;
 		}else{
 			return false;
