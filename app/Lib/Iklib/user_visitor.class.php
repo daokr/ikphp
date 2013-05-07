@@ -9,7 +9,7 @@ class user_visitor {
     public $info = null;
 
     public function __construct() {
-        if (session('?user_info')) {
+        if (session('user_info')) {
             //已经登陆
             $this->info = session('user_info');
             $this->is_login = true;
