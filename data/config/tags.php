@@ -36,4 +36,5 @@ return array(
         'alter_score', // 积分
     ),
 
+
 );

@@ -170,7 +170,19 @@ __EXTENDS_JS__
   </ul>
 </div>
 
-<div class="mod"><img border="0" width="640" height="112" src="__STATIC__/public/images/ad_590x112.jpg"></div>
+<div class="mod">
+<script type="text/javascript">
+     document.write('<a style="display:none!important" id="tanx-a-mm_11053146_4018392_13072168"></a>');
+     tanx_s = document.createElement("script");
+     tanx_s.type = "text/javascript";
+     tanx_s.charset = "gbk";
+     tanx_s.id = "tanx-s-mm_11053146_4018392_13072168";
+     tanx_s.async = true;
+     tanx_s.src = "http://p.tanx.com/ex?i=mm_11053146_4018392_13072168";
+     tanx_h = document.getElementsByTagName("head")[0];
+     if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
+</div>
 
 <div class="mod event-mod">
       <h2>
@@ -221,7 +233,20 @@ __EXTENDS_JS__
         
         </div><!--//left-->
         <div class="cright">
-			<img border="0" width="300" height="250" src="__STATIC__/public/images/ad_300x250.jpg">  
+<div class="mod">  			
+<script type="text/javascript">
+     document.write('<a style="display:none!important" id="tanx-a-mm_11053146_4018392_13062841"></a>');
+     tanx_s = document.createElement("script");
+     tanx_s.type = "text/javascript";
+     tanx_s.charset = "gbk";
+     tanx_s.id = "tanx-s-mm_11053146_4018392_13062841";
+     tanx_s.async = true;
+     tanx_s.src = "http://p.tanx.com/ex?i=mm_11053146_4018392_13062841";
+     tanx_h = document.getElementsByTagName("head")[0];
+     if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
+</div>
+
 <div class="mod">  
 <a href="<?php echo U('event/create',array('loc'=>'beijing'));?>" rel="nofollow" class="bn-big-action">
   ＋发起同城活动     

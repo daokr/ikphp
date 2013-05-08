@@ -12,7 +12,9 @@ class alter_scoreBehavior extends Behavior {
      * 改变用户积分
      * 配置操作行为必须和标签名称一致
      */
-    private function _alter_score($_data) {}
+    private function _alter_score($_data) {
+    	
+    }
 
     /**
      * 检查次数限制

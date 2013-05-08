@@ -13,11 +13,12 @@ class articleModel extends Model {
 			//array_merge() 函数把两个或多个数组合并为一个数组
 			$result = array_merge($articleItem, $strArticle);
 			$result['user'] = D('user')->getOneUser($articleItem['userid']);
-			$result ['content'] = nl2br ( ikhtml('article',$id,$result['content'],1));
 			//获取 主图
 			if($articleItem['isphoto']){
-				$result ['photo'] = D('images')->getImageByseqid('article', $articleItem['itemid'], 1);
+				$result ['photo'] = ikhtml_img('article', $articleItem['itemid'], $result ['content']);
 			}
+			$result ['content'] = nl2br ( ikhtml('article',$id,$result['content'],1));
+
 			return $result;
 		}
 		return false;

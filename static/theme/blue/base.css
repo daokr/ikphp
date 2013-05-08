@@ -62,10 +62,10 @@ a:visited {
 a:hover {
 	color:#fff;
 	text-decoration:none;
-	transition: all 0.3s ease-in 0s;
+	/*transition: all 0.3s ease-in 0s;
 	-moz-transition:all 0.3s ease-in 0s;
     -o-transition: all 0.3s ease-in 0s;
-	-webkit-transition: all 0.3s ease-in 0s;
+	-webkit-transition: all 0.3s ease-in 0s;*/
 	background:#37a
 }
 a:active {
@@ -79,11 +79,11 @@ a img {
 }
 
 a:hover img{
-	 -moz-transition:all 0.6s ease-out 0s; 
+	 /*-moz-transition:all 0.6s ease-out 0s; 
      -o-transition: all 0.6s ease-out 0s; 
 	 -webkit-transition: all 0.6s ease-out 0s; 
 	 transition: all 0.6s ease-out 0s; 
-	border-radius:20px;
+	border-radius:3px;*/
 	/*opacity:.7;filter:alpha(opacity=70)*/
 }
 
@@ -193,13 +193,13 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 /*结构*/
  
 /*头部*/
-.top_nav {clear:both;width:100%;color:#d4d4d4; height:28px; line-height:28px;background-color:#545652;}
+.top_nav {clear:both;width:100%;color:#D5D5D5; height:30px; line-height:30px;background-color:#545652;}
 .top_nav .top_bd{ width:100%; margin:0;}
 .top_nav .top_info{ float:right; margin-right:15px}
 .top_nav .top_items{ float:left; margin-left:15px}
 .top_nav .top_items li{ float:left; margin-right:10px}
 .top_nav a{ margin:0px 5px;}
-.top_nav a:active, .top_nav a:hover, .top_nav a:link, .top_nav a:visited {color:#d5d5d5}
+.top_nav a:active, .top_nav a:hover, .top_nav a:link, .top_nav a:visited {color:#D5D5D5}
 .top_nav a:active, .top_nav a:hover {color:#fff;background-color:transparent}
 
 /**导航样式**/

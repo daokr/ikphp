@@ -326,7 +326,7 @@ class groupAction extends frontendAction {
 		$this->assign ( 'action', U('group/publish') );
 		$this->assign ( 'strGroup', $group );
 		$this->assign ( 'isGroupUser', $isGroupUser );
-		$this->_config_seo (array('title'=>$strGroup['groupname'].'发布帖子','subtitle'=>'小组'));
+		$this->_config_seo (array('title'=>$group['groupname'].'发布帖子','subtitle'=>'小组'));
 		$this->display ();
 	}
 	// 执行发布
@@ -697,7 +697,8 @@ class groupAction extends frontendAction {
 				);
 				$this->group_topics_mod->where(array('topicid'=>$topicid))->save($data);
 				//积分记录
-				//发送系统消息(通知楼主有人回复他的帖子啦)
+				//发送系统消息(通知楼主有人回复他的帖子啦) 钩子
+				
 				//feed开始
 				$this->redirect ( 'group/topic', array (
 						'id' => $topicid,

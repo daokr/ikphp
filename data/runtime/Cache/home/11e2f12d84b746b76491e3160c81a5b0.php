@@ -183,7 +183,9 @@ __EXTENDS_JS__
             </div><?php endforeach; endif; ?>
             </div>
             <div class="clear"></div>
-        
+ <a href="http://count.chanet.com.cn/click.cgi?a=479944&d=343339&u=&e=" target="_blank"><IMG SRC="http://file.chanet.com.cn/image.cgi?a=479944&d=343339&u=&e=" width="640" height="90" border="0"></a>
+ <br>
+       
             <h2>最热话题<span class="pl">&nbsp;(<a href="<?php echo U('group/explore_topic');?>">更多</a>) </span></h2>
             <div class="topic-list">
                 <?php if(is_array($arrHotTopic)): foreach($arrHotTopic as $key=>$item): ?><dl>
@@ -229,6 +231,18 @@ __EXTENDS_JS__
 			<div class="line23">
 			<?php if(is_array($arrNewArticle)): foreach($arrNewArticle as $key=>$item): ?><a href="<?php echo U('article/show',array('id'=>$item[itemid]));?>"><?php echo ($item[title]); ?></a><br><?php endforeach; endif; ?>
 			</div>
+            
+<script type="text/javascript">
+     document.write('<a style="display:none!important" id="tanx-a-mm_11053146_4018392_13072174"></a>');
+     tanx_s = document.createElement("script");
+     tanx_s.type = "text/javascript";
+     tanx_s.charset = "gbk";
+     tanx_s.id = "tanx-s-mm_11053146_4018392_13072174";
+     tanx_s.async = true;
+     tanx_s.src = "http://p.tanx.com/ex?i=mm_11053146_4018392_13072174";
+     tanx_h = document.getElementsByTagName("head")[0];
+     if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
         
         
             <div class="clear"></div>
