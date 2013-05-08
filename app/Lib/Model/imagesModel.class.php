@@ -31,9 +31,9 @@ class imagesModel extends Model {
 		$result = $this->where($where)->find();
 		$ext =  explode ( '.', $result['name']);
 		//图片大小
-		$result['simg'] =  attach($result['path'].$ext[0].'_'.C('ik_simg.width').'_'.C('ik_simg.height').'.'.$ext[1]);
-		$result['mimg'] =  attach($result['path'].$ext[0].'_'.C('ik_mimg.width').'_'.C('ik_mimg.height').'.'.$ext[1]);
-		$result['bimg'] =  attach($result['path'].$ext[0].'_'.C('ik_bimg.width').'_'.C('ik_bimg.height').'.'.$ext[1]);
+		$result['simg'] =  attach($result['path'].$ext[0].'_'.C('ik_simg.width').'_'.C('ik_simg.height').'.jpg');
+		$result['mimg'] =  attach($result['path'].$ext[0].'_'.C('ik_mimg.width').'_'.C('ik_mimg.height').'.jpg');
+		$result['bimg'] =  attach($result['path'].$ext[0].'_'.C('ik_bimg.width').'_'.C('ik_bimg.height').'.jpg');
 		$result['img']  =  attach($result['path'].$ext[0].'.'.$ext[1]);
 		return $result;		
 	}
@@ -43,9 +43,9 @@ class imagesModel extends Model {
 		$result = $this->where($where)->find();
 		$ext =  explode ( '.', $result['name']);
 		//图片大小
-		$result['simg'] =  attach($result['path'].$ext[0].'_'.C('ik_simg.width').'_'.C('ik_simg.height').'.'.$ext[1]);
-		$result['mimg'] =  attach($result['path'].$ext[0].'_'.C('ik_mimg.width').'_'.C('ik_mimg.height').'.'.$ext[1]);
-		$result['bimg'] =  attach($result['path'].$ext[0].'_'.C('ik_bimg.width').'_'.C('ik_bimg.height').'.'.$ext[1]);
+		$result['simg'] =  attach($result['path'].$ext[0].'_'.C('ik_simg.width').'_'.C('ik_simg.height').'.jpg');
+		$result['mimg'] =  attach($result['path'].$ext[0].'_'.C('ik_mimg.width').'_'.C('ik_mimg.height').'.jpg');
+		$result['bimg'] =  attach($result['path'].$ext[0].'_'.C('ik_bimg.width').'_'.C('ik_bimg.height').'.jpg');
 		$result['img']  =  attach($result['path'].$ext[0].'.'.$ext[1]);
 		return $result;
 	}

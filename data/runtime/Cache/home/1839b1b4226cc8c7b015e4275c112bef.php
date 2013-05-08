@@ -122,123 +122,63 @@ __EXTENDS_JS__
 <!--APP NAV-->
 
 </header>
-
+<!--main-->
 <div class="midder">
-<div class="mc">
-<h1 class="group_tit">
-<?php echo ($seo["title"]); ?>
-</h1>
-
-<form method="POST" action="<?php echo ($action); ?>" onsubmit="return newTopicFrom(this)"  enctype="multipart/form-data" id="form_tipic">
-<table width="100%" cellpadding="0" cellspacing="0" class="table_1">
-
-	<tr>
-    	<th>标题：</th>
-		<td><input style="width:400px;" type="text" value="<?php echo ($strTopic[title]); ?>" maxlength="100" size="50" name="title" gtbfieldid="2" class="txt"   placeholder="请填写标题"></td>
-    </tr>	
-    <tr><th>&nbsp;</th>
-        <td align="left" style="padding:0px 10px">
-        <a href="javascript:;" id="addImg">添加图片</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="javascript:;" id="addVideo">添加视频</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="javascript:;" id="addLink">添加链接</a>
-        </td>
-    </tr>
-    <tr>
-        <th>内容：</th><td><textarea style="width:99.5%;height:300px;" id="editor_full" cols="55" rows="20" name="content" class="txt"   placeholder="请填写内容"><?php echo ($strTopic[content]); ?></textarea></td>
-    </tr>
-    <tr>
-        <th>评论：</th>
-        <td><input type="radio" checked="select" name="iscomment" value="0" />允许 <input type="radio" name="iscomment" value="1" />不允许</td>
-    </tr>	
-    <tr>
-    	<th>&nbsp;</th><td>
-        <input type="hidden" name="groupid" value="<?php echo ($strGroup[groupid]); ?>" />
-        <input type="hidden" name="topic_id" value="<?php echo ($topic_id); ?>" id="topic_id" />
-        <input class="submit" type="submit" value="好啦，发布"> <a href="<?php echo U('group/show',array('id'=>$strGroup[groupid]));?>">返回</a>
-        </td>
-    </tr>
-</table>
-<div id="thumblst" class="item item-thumb-list">
-    <?php if(is_array($arrPhotos)): foreach($arrPhotos as $key=>$item): ?><div class="thumblst">
-      <div class="details">
-        <p>图片描述（30字以内）</p>
-        <textarea name="photodesc[]" maxlength="30"><?php echo ($item[title]); ?></textarea>
-        <input type="hidden" name="seqid[]" value="<?php echo ($item[seqid]); ?>" >
-        <br>
-        <br>
-        图片位置<br>
-        <a onclick="javascript:removePhoto(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_<?php echo ($item[seqid]); ?>" ajaxurl="<?php echo U('images/delete');?>" imgid="<?php echo ($item[id]); ?>">删除</a>
-        <label>
-         <?php if($item[align] == 'L'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>"  checked  value="L" >
-         <?php else: ?>
-         <input type="radio" name="layout_<?php echo ($item[seqid]); ?>"   value="L" ><?php endif; ?>
-          <span class="alignleft">居左</span></label>
-        <label>
-          <?php if($item[align] == 'C'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>" checked value="C" >
-          <?php else: ?>
-          <input type="radio" name="layout_<?php echo ($item[seqid]); ?>" value="C" ><?php endif; ?>
-          <span class="aligncenter">居中</span></label>
-        <label>
-          <?php if($item[align] == 'R'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>" checked value="R" >
-          <?php else: ?>
-          <input type="radio" name="layout_<?php echo ($item[seqid]); ?>" value="R" ><?php endif; ?>
-          <span class="alignright">居右</span></label>
-      </div>
-      <div class="thumb">
-        <div class="pl">[图片<?php echo ($item[seqid]); ?>]</div>
-        <img src="<?php echo ($item[simg]); ?>">
-      </div>
-      	<div class="clear"></div>
-    </div><?php endforeach; endif; ?>
-
+	<div class="mc">
+    	<h1>我的发件箱</h1>
+    	<div class="cleft">
+        	<div class="tabnav">
+<ul>
+    <?php if($ik == 'outbox'): ?><li class="select"><a href="<?php echo U('message/ikmail',array(d=>outbox));?>">发件箱</a></li>
+    <?php else: ?>
+    	<li><a href="<?php echo U('message/ikmail',array(d=>outbox));?>">发件箱</a></li><?php endif; ?>
+    <?php if($ik == 'inbox' OR $ik == 'spam' OR $ik == 'unread'): ?><li class="select"><a href="<?php echo U('message/ikmail',array(d=>inbox));?>">收件箱</a></li>
+    <?php else: ?>
+    	<li><a href="<?php echo U('message/ikmail',array(d=>inbox));?>">收件箱</a></li><?php endif; ?>    
+</ul>
 </div>
-<div id="videosbar"  class="item item-thumb-list">
-   <?php if(is_array($arrVideos)): foreach($arrVideos as $key=>$item): ?><div class="thumblst">
-    <div class="details">
-    <p>视频标题（30字以内）</p>
-    <textarea name="video_<?php echo ($item[seqid]); ?>_title" maxlength="30"><?php echo ($item[title]); ?></textarea>
-    <input type="hidden" value="<?php echo ($item[seqid]); ?>" name="videoseqid[]">
-    <br>
-    <br>
-    视频网址：<br>
-    <a onclick="javascript:removeVideo(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="<?php echo U('videos/delete');?>" videoid="<?php echo ($item[videoid]); ?>">删除</a>
-    <p><?php echo ($item[url]); ?></p>
+
+
+            <div class="clear"></div>
+		 <form  method="post" onSubmit="return isConfirmed" action="<?php echo U('message/doing',array('d'=>'all'));?>">
+         <table class="olt">
+              <tbody>
+                <tr>
+                  <td class="pl" style="width:112px;"><span class="doumail_from">送往</span></td>
+                  <td width="20"></td>
+                  <td class="pl">话题</td>
+                  <td class="pl" style="width:110px;">时间</td>
+                  <td class="pl" style="width:40px;" align="center">选择</td>
+                  <td class="pl" style="width:120px;visibility:hidden;border-bottom:none" align="center">mail_options</td>
+                </tr>
+                <?php if(is_array($arrMessage)): foreach($arrMessage as $key=>$item): ?><tr>
+                  <td><span class="doumail_from"><?php echo ($item[touser][username]); ?></span></td>
+                  <td class="m" align="center">&gt;</td>
+                  <td><a href="<?php echo U('message/show',array('messageid'=>$item[messageid]));?>"><?php echo ($item[title]); ?></a></td>
+                  <td><?php echo ($item[addtime]); ?></td>
+                  <td align="center"><input name="messageid[]" value="<?php echo ($item[messageid]); ?>" type="checkbox"></td>
+                  <td style="display: none;" class="mail_options">
+                  <a onClick="return confirm('真的要删除消息吗？')" class="post_link" href="<?php echo U('message/doing',array('d'=>'del','type'=>'outbox','messageid'=>$item[messageid]));?>">删除</a>
+                  </td>
+                </tr><?php endforeach; endif; ?>
+                <tr>
+                  <td colspan="4" align="right">
+                    <input name="type" value="outbox" type="hidden">
+                    <input name="mc_submit" value="删除" data-confirm="真的要删除短消息吗?" type="submit">
+
+                  </td>
+                  <td align="center"><input name="checkAll" value="checkAll" onclick="ToggleCheck(this);" type="checkbox"></td>
+                </tr>
+              </tbody>
+            </table> 
+         </form>   
+        </div>
+        <div class="cright">
+			<p class="pl2">&gt; <a href="<?php echo U('message/ikmail',array('d'=>'choose'));?>">给我关注的人写信</a></p>
+<p class="pl2">&gt; <a href="<?php echo U('user/follow',array('userid'=>$userid));?>">去我关注的人列表</a></p>     
+        </div>
     </div>
-    <div class="thumb">
-    <div class="pl">[视频<?php echo ($item[seqid]); ?>]</div>
-    <img src="<?php echo ($item[imgurl]); ?>"> </div>
-    <div class="clear"></div>
-    </div><?php endforeach; endif; ?>
 </div>
-<!--加载编辑器-->
-<script type="text/javascript" src="__STATIC__/public/js/lib/ajaxfileupload.js"></script>
-<script type="text/javascript" src="__STATIC__/public/js/lib/IKEditor.js"></script>
-
-<script language="javascript">
-$(function(){
-	$('#addImg').bind('click',function(){
-		var ajaxurl = "<?php echo U('images/add');?>";
-		var typeid = '<?php echo ($topic_id); ?>';
-		var data = "{'type':'topic','typeid':'"+typeid+"'}";		
-		addPhoto(ajaxurl, data);
-	});
-	$('#addLink').bind('click',function(){	
-		addLink();
-	})
-	$('#addVideo').bind('click',function(){
-		var ajaxurl = "<?php echo U('videos/add',array('type'=>'topic','typeid'=>$topic_id));?>";
-		addVideo(ajaxurl);
-	})
-});
-</script>
-</form>
-
-
-
-</div>
-</div>
-
-
 
 <!--footer-->
 <footer>

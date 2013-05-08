@@ -37,6 +37,7 @@ class groupAction extends frontendAction {
 		}
 		$this->_mod = D ( 'group' );
 		$this->user_mod = D ( 'user' );
+		$this->message_mod = D ( 'message' );
 		$this->group_users_mod = D ( 'group_users' );
 		$this->group_topics_mod = D ( 'group_topics' );
 		$this->group_topics_collects = D ( 'group_topics_collects' );
@@ -502,7 +503,7 @@ class groupAction extends frontendAction {
 			//查询条件 是否显示
 			$map = array('topicid'=>$strTopic ['topicid']);
 			//显示列表
-			$pagesize = 3;
+			$pagesize = 20;
 			$count = $this->group_topics_comments->where($map)->order('addtime '.$sc)->count('topicid');
 			$pager = $this->_pager($count, $pagesize);
 			$arrComment =  $this->group_topics_comments->where($map)->order('addtime '.$sc)->limit($pager->firstRow.','.$pager->listRows)->select();
@@ -698,7 +699,15 @@ class groupAction extends frontendAction {
 				$this->group_topics_mod->where(array('topicid'=>$topicid))->save($data);
 				//积分记录
 				//发送系统消息(通知楼主有人回复他的帖子啦) 钩子
+				$strTopic = $this->group_topics_mod->getOneTopic($topicid);
+				if($strTopic['userid'] != $this->userid){	
+					$msg_userid = '0';
+					$msg_touserid = $strTopic['userid'];
+					$msg_title = '你的帖子：《'.$strTopic['title'].'》新增一条评论，快去看看给个回复吧';
+					$msg_content = '你的帖子：《'.$strTopic['title'].'》新增一条评论，快去看看给个回复吧^_^ <br /><a href="'.C('ik_site_url').'group/topic/'.$topicid.'">'.C('ik_site_url').'group/topic/'.$topicid.'</a>';
+					$this->message_mod->sendMessage($msg_userid,$msg_touserid,$msg_title,$msg_content);
 				
+				}				
 				//feed开始
 				$this->redirect ( 'group/topic', array (
 						'id' => $topicid,
@@ -741,7 +750,26 @@ class groupAction extends frontendAction {
 					'count_comment'	=> $count_comment,
 			);
 			$this->group_topics_mod->where(array('topicid'=>$topicid))->save($data);
-			//发消息
+
+			//发送系统消息(通知楼主有人回复他的帖子啦) 钩子
+			$strTopic = $this->group_topics_mod->getOneTopic($topicid);
+			$strComment = $this->group_topics_comments->where(array('commentid'=>$referid))->find();
+			if($topicid && $strTopic['userid'] != $this->userid){
+				$msg_userid = '0';
+				$msg_touserid = $strTopic['userid'];
+				$msg_title = '你的帖子：《'.$strTopic['title'].'》新增一条评论，快去看看给个回复吧';
+				$msg_content = '你的帖子：《'.$strTopic['title'].'》新增一条评论，快去看看给个回复吧^_^ <br /><a href="'.C('ik_site_url').'group/topic/'.$topicid.'">'.C('ik_site_url').'group/topic/'.$topicid.'</a>';
+				$this->message_mod->sendMessage($msg_userid,$msg_touserid,$msg_title,$msg_content);
+			}
+			if($referid && $strComment['userid'] != $this->userid){
+				$topicurl = C('ik_site_url').'group/topic/'.$topicid;
+				$msg_userid = '0';
+				$msg_touserid = $strComment['userid'];
+				$msg_title = '有人评论了你在帖子：《'.$strTopic['title'].'》中的回复，快去看看给个回复吧';
+				$msg_content = '有人评论了你在帖子：《'.$strTopic['title'].'》中的回复，快去看看给个回复吧^_^ <br /><a href="'.$topicurl.'">'.$topicurl.'</a>';
+				$this->message_mod->sendMessage($msg_userid,$msg_touserid,$msg_title,$msg_content);
+			}
+			
 			echo 0;
 		}
 		
