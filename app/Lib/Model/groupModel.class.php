@@ -31,7 +31,12 @@ class groupModel extends Model {
 					'groupid' => $groupid 
 			);
 			$result = $this->where ( $where )->find ();
-			$result['icon_48'] = attach($result['groupicon']);
+			
+			if (!is_file(C('ik_attach_path') . $result['groupicon'])) {
+				$result['icon_48'] = __ROOT__ . "/static/public/images/group.jpg";
+			}else{
+				$result['icon_48'] = attach($result['groupicon']);
+			}
 			return $result;
 		
 		}

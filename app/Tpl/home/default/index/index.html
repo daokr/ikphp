@@ -71,7 +71,9 @@
             </foreach>
             </div>
             <div class="clear"></div>
- <a href="http://count.chanet.com.cn/click.cgi?a=479944&d=343339&u=&e=" target="_blank"><IMG SRC="http://file.chanet.com.cn/image.cgi?a=479944&d=343339&u=&e=" width="640" height="90" border="0"></a>
+            
+<a href="http://count.chanet.com.cn/click.cgi?a=479944&d=91271&u=&e=" target="_blank"><IMG SRC="http://file.chanet.com.cn/image.cgi?a=479944&d=91271&u=&e=" width="640" height="150"  border="0"></a>
+
  <br>
        
             <h2>最热话题<span class="pl">&nbsp;(<a href="{:U('group/explore_topic')}">更多</a>) </span></h2>
@@ -107,6 +109,9 @@
                     <a href="{:U('people/index',array('id'=>$item[doname]))}">
                     <img alt="{$item[username]}" class="m_sub_img" src="{$item[face]}" width="48" />
                     </a>
+                    <if condition="$item[isonline] eq 1">
+                    	<div class="border-arrow" title="在线用户"></div>
+                    </if>
                 </dt>
                 <dd>
                     <a href="{:U('people/index',array('id'=>$item[doname]))}">{$item[username]}</a>

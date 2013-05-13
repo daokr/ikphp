@@ -55,7 +55,7 @@ class default_passport
     /**
      * 检测用户邮箱唯一
      */
-    public function check_email() {
+    public function check_email($email) {
     	if ($this->_user_mod->where(array('email'=>$email))->count('userid')) {
     		return false;
     	}
@@ -65,7 +65,7 @@ class default_passport
     /**
      * 检测用户名唯一
      */
-    public function check_username() {
+    public function check_username($username) { 
     	if ($this->_user_mod->where(array('username'=>$username))->count('userid')) {
     		return false;
     	}

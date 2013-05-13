@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<div class="midder">
+	<div class="mc">
+		<div id="search_menubar">
+        	<include file="s_bar" />
+        </div>
+ 		<div class="s_top">获得约 {$total} 条结果</div>
+
+<foreach name="arrGroup" item="item">
+    <div class="result">
+    <div class="pic">
+    <a title="{$item[groupname]}" href="{:U('group/show',array('id'=>$item[groupid]))}" class="nbg"><img alt="{$item[groupname]}" src="{$item[icon_48]}" width="48" /></a>
+    </div>
+    <div class="content">
+    <h3><span>[小组] </span>&nbsp;<a  href="{:U('group/show',array('id'=>$item[groupid]))}">{$item[groupname]}</a></h3>
+    <div class="info">创建于 <php> echo date('Y-m-d',$item[addtime])</php> &nbsp; {$item[count_user]} 成员</div>
+    <p>{$item[groupdesc]}</p>
+    </div>
+    </div>
+</foreach>  
+<foreach name="arrTopic" item="item">
+    <div class="result">
+    <div class="pic">
+    <a title="{$item[user][username]}" href="{:U('people/index',array('id'=>$item[user][doname]))}" class="nbg"><img alt="{$item[user][username]}" src="{$item[user][face]}" width="48" /></a>
+    </div>
+    <div class="content">
+    <h3><span>[话题] </span>&nbsp;<a  href="{:U('group/topic',array('id'=>$item[topicid]))}">{$item[title]}</a></h3>
+    <div class="info">小组：<a href="{:U('group/show',array('id'=>$item[group][groupid]))}">{$item[group][groupname]}</a> 发表于 <php> echo date('Y-m-d',$item[addtime]);</php> &nbsp; <a href="{:U('group/topic',array('id'=>$item[topicid]))}#comment">{$item[count_comment]} 回复</a></div>
+    <p>{$item[content]}</p>
+    </div>
+    </div>
+</foreach> 
+<foreach name="arrUser" item="item">
+    <div class="result">
+    <div class="pic">
+    <a title="{$item[username]}" href="{:U('people/index',array('id'=>$item[doname]))}" class="nbg"><img alt="{$item[username]}" src="{$item[face]}" width="48" /></a>
+    </div>
+    <div class="content">
+    <h3><span>[用户] </span>&nbsp;<a  href="{:U('people/index',array('id'=>$item[doname]))}">{$item[username]}</a></h3>
+    <div class="info"><php> echo date('Y-m-d',$item[addtime]);</php> 加入&nbsp; <a href="{:U('user/followed',array('userid'=>$item[userid]))}">{$item[count_followed]} 人关注</a></div>
+    <p>{$item[signed]}</p>
+    </div>
+    </div>
+</foreach> 
+      
+		<div class="page">{$pageUrl}</div>		
+	</div>
+</div>
+<include file="public:footer" />
+</body>
+</html>

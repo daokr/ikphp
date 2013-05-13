@@ -1,3 +1,5 @@
+/*flinks*/
+.flinks{ display:block}
 /*index*/
 .inserch {
 	border: 1px solid #C3C3C3;
@@ -416,12 +418,27 @@ input,button,textarea,select,optgroup,option {
     margin: 0;
     overflow: hidden;
     text-align: center;
+	position:relative;
 }
 .obu dd {
     height: 55px;
     margin: 0;
     overflow: hidden;
     text-align: center;
+}
+.obu .border-arrow{
+    border-bottom: 15px dashed transparent;
+    border-left: 15px dashed transparent;
+    border-top: 15px solid #87c636 !important;
+	top:0px;
+	right:14px;
+}
+.obu .border-arrow:hover{ border-top:15px solid #9ff82d !important;}
+.obu .border-arrow{
+    height: 0;
+    line-height: 0;
+    position: absolute;
+    width: 0;
 }
 /*****相册******/
 .joykumodel{}

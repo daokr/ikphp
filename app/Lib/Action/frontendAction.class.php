@@ -31,6 +31,7 @@ class frontendAction extends baseAction {
     	$count_new_msg = $count_msg_unread>0 ? $count_msg_unread : 0;
     	$this->assign('count_new_msg', $count_new_msg);
     	$this->assign('visitor', $this->visitor->info);
+    	$this->assign('count_online_user', $this->visitor->getOnlineUserCount());
     }
     /**
      * 连接用户中心
@@ -95,12 +96,20 @@ class frontendAction extends baseAction {
 					break;
 					
 				case "article" :
-					// 发表评论
+					// 文章
 				    $arrChannel = D('article_channel')->getAllChannel(array('isnav'=>'0'));
 				    foreach($arrChannel as $item){
 				    	$arrNav[$item['nameid']] = array('name'=>$item['name'], 'url'=>U('article/channel',array('nameid'=>$item['nameid'])));
 				    }
 					break;
+				case "site" :
+					// 小站
+					$arrNav['index'] = array('name'=>'小站首页', 'url'=>U('site/index'));
+					if($this->visitor->info['userid']){
+						$arrNav['mysite'] = array('name'=>'我的小站', 'url'=>U('site/mysite'));
+					}
+					$arrNav['explore'] = array('name'=>'发现小站', 'url'=>U('site/explore'));
+					break;										
 				default:
 					$arrNav['index'] = array('name'=>'首页', 'url'=>C('ik_site_url'));
 					$arrNav['group'] = array('name'=>'小组', 'url'=>U('group/index'));

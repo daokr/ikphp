@@ -29,7 +29,7 @@ class indexAction extends frontendAction {
 			$arrRecommendGroup [$key] ['groupdesc'] = getsubstrutf8 ( t ( $item ['groupdesc'] ), 0, 35 );
 		}
 		//统计用户数
-		$count_user = $this->user_mod->count('*');
+		$count_user = $this->user_mod->count('*'); 
 		
 		$this->assign ( 'ret_url', $ret_url );
 		$this->assign ( 'count_user', $count_user );

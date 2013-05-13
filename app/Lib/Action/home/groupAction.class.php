@@ -614,8 +614,8 @@ class groupAction extends frontendAction {
 			$this->_config_seo (array('title'=>$tag.'相关的小组','subtitle'=>'小组'));
 		}else{
 			//查询
-			$map = array('isopen'=>0); //开放公开
-			$map = array('isaudit'=>0);//通过审核
+			$map['isopen'] = 0; //开放公开
+			$map['isaudit'] = 0;//通过审核
 			//显示列表
 			$pagesize = 20;
 			$count = $this->_mod->where($map)->order('isrecommend DESC')->count('groupid');

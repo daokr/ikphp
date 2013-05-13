@@ -328,6 +328,8 @@ class userAction extends userbaseAction {
 			$passport = $this->_user_server ();
 			// 注册
 			$uid = $passport->register ( $username, $password, $email );
+			//修复bug 禁用js用户可以登录
+			!$uid && $this->error($passport->get_error());
 			// 注册完成钩子 改变积分
 			$tag_arg = array (
 					'uid' => $uid,

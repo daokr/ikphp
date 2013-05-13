@@ -1,33 +1,27 @@
 // JavaScript Document
 function searchForm(obj)
 {
-	var keyword = $(obj).find('input[name=kw]'), defval = keyword.attr('placeholder');
-	if( keyword.val() =='' || keyword.val()==defval)
+	var keyword = $(obj).find('input[name=q]'); 
+	if( keyword.val() =='')
 	{
 		return false;
 	}
 	return true;
 }
 $(function(){
-	$('#search_bar input[name=kw]').bind('click',function(){
-		var defval = $(this).attr('placeholder');
-		
-		if($(this).val() == defval)
-		{
-		  
-		  $(this).val('');$(this).css({"color":"#333"});
-		  
-		}else if($(this).val()!=''){
-			
-		  $(this).css({"color":"#555"});	
-		  
+	$('#search_bar input[name=q]').bind('click',function(){
+		if($(this).val()!=''){
+			$(this).css({"color":"#000"});	
+		}
+	});	
+	$('#search_bar input[name=q]').bind('change',function(){
+		if($(this).val()!=''){
+			$(this).css({"color":"#000"});	
 		}
 	});
-	$('#search_bar input[name=kw]').bind('blur',function(){
-		var defval = $(this).attr('placeholder');
-		if($(this).val() == '')
-		{
-		  $(this).val(defval);$(this).css({"color":"#d4d4d4"});	
+	$('#search_bar input[name=q]').bind('blur',function(){
+		if($(this).val()!=''){
+			$(this).css({"color":"#000"});	
 		}
 	});
 })

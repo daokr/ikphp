@@ -102,17 +102,15 @@ __EXTENDS_JS__
 			    <ul id="nav_bar">
                     <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
 			    </ul>
-		   <form onsubmit="return searchForm(this);" method="get" action="http://www.ik.com/index.php">
-		   <input type="hidden" value="search" name="app"><input type="hidden" value="q" name="ac">
-		    <div id="search_bar">
-		        <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="小组、话题、日志、成员、小站" class="key" name="kw"></div>
-		        <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
-		    </div>
+		   <form onsubmit="return searchForm(this);" method="GET" action="<?php echo U('search/index');?>">
+                <input type="hidden" value="all" name="type">
+                <div id="search_bar">
+                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="小组、话题、日志、成员、小站" class="key" name="kw"></div>
+                    <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
+                </div>
 		    </form>
 		</div>
-        
-        
-		
+
         <div class="cl"></div>
 
 	</div>
@@ -245,7 +243,7 @@ $(function(){
 <div id="footer">
 	<div class="f_content">
         <span class="fl gray-link" id="icp">
-            &copy; 2012－2015 IKPHP.COM, all rights reserved
+            &copy; 2012－2015 IKPHP.COM, all rights reserved <span><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备13018602号</a></span>
         </span>
         
         <span class="fr">
@@ -255,10 +253,11 @@ $(function(){
             · <a href="<?php echo U('help/privacy');?>">隐私申明</a>
         </span>
         <div class="cl"></div>
-        <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备13018602号</a> <br />
-        <span style="font-size:0.83em;">{__RUNTIME__}</span>
-        
+        <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  目前有 <?php echo ($count_online_user); ?> 人在线<br />
+        <span style="font-size:0.83em;">{__RUNTIME__}          </span>
+
         <script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script>
+       
         </p>   
     </div>
 </div>

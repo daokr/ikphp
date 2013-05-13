@@ -22,7 +22,7 @@ class backendAction extends baseAction
         		'ikphp_email' => IKPHP_EMAIL,
        		
         );
-        $this->assign('ikphp', $ik_soft_info);
+        $this->assign('ikphp', $ik_soft_info); 
     }
     protected function title($title){
     	$this->assign('title', $title);

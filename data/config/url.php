@@ -7,6 +7,8 @@ return array (
   array (
     '/^people\/(\w+)$/' => 'people/index?id=:1',
     '/^group\/topic\/(\d+)$/' => 'group/topic?id=:1',
+  	'/^group\/topic\/(\d+)\/sc\/(\w+)$/' => 'group/topic?id=:1&sc=:2',  		
+  	'/^group\/topic\/(\d+)\/sc\/(\w+)\/p\/(\d+)$/' => 'group/topic?id=:1&sc=:2&p=:3',
     '/^group\/topic\/(\d+)\/p\/(\d+)$/' => 'group/topic?id=:1&p=:2',
     '/^group\/(\d+)$/' => 'group/show?id=:1',
     '/^article\/(\d+)$/' => 'article/show?id=:1',

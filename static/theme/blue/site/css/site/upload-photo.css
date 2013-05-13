@@ -1,0 +1,73 @@
+:focus { outline: 0 }
+
+code { display: block; background:#edffb8 none repeat scroll 0%; border-color:#b2da3a; border-style:solid; border-width: 1px 0; font-size: 1em; margin: 1em 0pt; overflow: auto; padding: 0.3em 0.4em; white-space: pre }
+
+/* IE6 FIX */
+html fieldset { position: relative; margin-top: 1em }
+html legend { position: absolute; top: -0.5em; left: .5em }
+
+fieldset.flash { margin: 0; padding: 0; border-width: 1px 0 0; border-style: solid; border-color: #d0d0d0 }
+legend { font: 700 14px Arial, Helvetica, sans-serif; padding: 0 5px; margin: 0 10px; color: #73b304 }
+/*label { width: 150px; text-align: right; display: block; margin-right: 5px }*/
+
+.progressWrapper { position: relative; height: 25px; overflow: hidden; border-bottom: 1px solid #e8e8e8 }
+.progressContainer { background-color: #fff; overflow: hidden }
+
+/* Message */
+.message { margin: 1em 0; padding: 10px 20px; border: solid 1px #fd9; background-color: #ffc; overflow: hidden }
+
+/* Error */
+.red { color: red }
+
+/* Current */
+.green { color: #333 }
+
+/* Complete */
+.blue { color: #999 }
+
+.progressName { display: inline; position: absolute; top: 4px; top: 3px\9; left: 12px; z-index: 999; overflow: hidden }
+.progressSize { position: absolute; top: 4px; right: 100px; z-index: 999; overflow: hidden }
+
+.progressBarBack,
+.progressBarInProgress,
+.progressBarComplete,
+.progressBarError { position: absolute; top: 0; z-index: 99; font-size: 0; width: 0%; height: 25px; background-color: #eafae6 }
+
+.progressBarInProgress { border-right: 2px solid #36824b;
+    transition: width 0.8s ease-in-out;
+    -webkit-transition: width 0.8s ease-in-out;
+    -moz-transition: width 0.8s ease-in-out;
+    -o-transition: width 0.8s ease-in-out
+}
+.progressBarComplete { color: #999; visibility: hidden }
+.progressBarError { color: red; visibility: hidden }
+
+.progressBarBack { width: 100%; background-color: white }
+.progressBarStatus { display: inline; position: absolute; top: 4px; right: 30px; z-index: 999 }
+a.progressCancel { position: absolute; z-index: 999; display: inline-block; *display: inline; zoom: 1; right: 35px; top: 7px; top: 8px\9; *top: 7px; width: 12px; height: 12px; line-height: 99em; overflow: hidden; background: url(/pics/icon-recycle.png) no-repeat }
+a.progressCancel:hover { opacity: 0.6; filter: alpha(opacity=60) }
+
+#divStatus { margin-bottom: 5px }
+#tips { float: left; display: inline; width: 186px; margin: 20px 20px 30px 0; color: #777 }
+#upload_file { float: left; display: inline; margin-top: 20px; width: 370px }
+#btnSubmit { margin: 0 0 0 155px }
+.opt-btns { padding-top: 30px }
+.upload-list .hd { color: #777; position: relative; height: 20px }
+.upload-list .hd span { position: absolute }
+.upload-list .name { left: 12px }
+.upload-list .size { right: 111px }
+.upload-list .delete { right: 24px }
+
+#upload-status { padding: 0 10px; color: #777 }
+#upload-status .num {}
+#upload-status .total-size { float: right }
+#photos-upload { margin-top: 15px }
+#has-error { padding-top: 30px }
+.upload-tips { margin: 15px 0 }
+.upload-tips b { font-weight: normal; background: #fef8b2 }
+
+.btn-green { border: none; cursor: pointer; color: #fff; font-size: 14px; width: 115px; height: 29px; background: url(/pics/upload-btns-bg.png) no-repeat }
+.btn-green:hover { background-position: 0 -29px }
+.btn-green:active { background-position: 0 -58px }
+
+#upload-btn { height: 29px; overflow: hidden }

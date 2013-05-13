@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<div class="midder">
+	<div class="mc">
+		<div id="search_menubar">
+        	<include file="s_bar" />
+        </div>
+ 		<div class="s_top">获得约 {$total} 条结果</div>
+
+<foreach name="arrTopic" item="item">
+    <div class="result">
+    <div class="pic">
+    <a title="{$item[user][username]}" href="{:U('people/index',array('id'=>$item[user][doname]))}" class="nbg"><img alt="{$item[user][username]}" src="{$item[user][face]}" width="48" /></a>
+    </div>
+    <div class="content">
+    <h3><span>[话题] </span>&nbsp;<a  href="{:U('group/topic',array('id'=>$item[topicid]))}">{$item[title]}</a></h3>
+    <div class="info">小组：<a href="{:U('group/show',array('id'=>$item[group][groupid]))}">{$item[group][groupname]}</a> 发表于 <php> echo date('Y-m-d',$item[addtime]);</php> &nbsp; <a href="{:U('group/topic',array('id'=>$item[topicid]))}#comment">{$item[count_comment]} 回复</a></div>
+    <p>{$item[content]}</p>
+    </div>
+    </div>
+</foreach>       
+    
+ 
+      
+		<div class="page">{$pageUrl}</div>		
+	</div>
+</div>
+<include file="public:footer" />
+</body>
+</html>

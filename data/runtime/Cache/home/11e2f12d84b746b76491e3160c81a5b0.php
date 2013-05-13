@@ -79,6 +79,9 @@ __EXTENDS_JS__
              <a href="<?php echo U('location/index');?>">同城</a>
              </li> 
              <li>
+             <a href="<?php echo U('site/index');?>">小站</a>
+             </li>              
+             <li>
              <a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a>
              </li>                                                      
 
@@ -103,17 +106,15 @@ __EXTENDS_JS__
 			    <ul id="nav_bar">
                     <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
 			    </ul>
-		   <form onsubmit="return searchForm(this);" method="get" action="http://www.ik.com/index.php">
-		   <input type="hidden" value="search" name="app"><input type="hidden" value="q" name="ac">
-		    <div id="search_bar">
-		        <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="小组、话题、日志、成员、小站" class="key" name="kw"></div>
-		        <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
-		    </div>
+		   <form onsubmit="return searchForm(this);" method="GET" action="<?php echo U('search/index');?>">
+                <input type="hidden" value="all" name="type">
+                <div id="search_bar">
+                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
+                    <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
+                </div>
 		    </form>
 		</div>
-        
-        
-		
+
         <div class="cl"></div>
 
 	</div>
@@ -183,7 +184,9 @@ __EXTENDS_JS__
             </div><?php endforeach; endif; ?>
             </div>
             <div class="clear"></div>
- <a href="http://count.chanet.com.cn/click.cgi?a=479944&d=343339&u=&e=" target="_blank"><IMG SRC="http://file.chanet.com.cn/image.cgi?a=479944&d=343339&u=&e=" width="640" height="90" border="0"></a>
+            
+<a href="http://count.chanet.com.cn/click.cgi?a=479944&d=91271&u=&e=" target="_blank"><IMG SRC="http://file.chanet.com.cn/image.cgi?a=479944&d=91271&u=&e=" width="640" height="150"  border="0"></a>
+
  <br>
        
             <h2>最热话题<span class="pl">&nbsp;(<a href="<?php echo U('group/explore_topic');?>">更多</a>) </span></h2>
@@ -214,6 +217,7 @@ __EXTENDS_JS__
                     <a href="<?php echo U('people/index',array('id'=>$item[doname]));?>">
                     <img alt="<?php echo ($item[username]); ?>" class="m_sub_img" src="<?php echo ($item[face]); ?>" width="48" />
                     </a>
+                    <?php if($item[isonline] == 1): ?><div class="border-arrow" title="在线用户"></div><?php endif; ?>
                 </dt>
                 <dd>
                     <a href="<?php echo U('people/index',array('id'=>$item[doname]));?>"><?php echo ($item[username]); ?></a>
@@ -255,7 +259,7 @@ __EXTENDS_JS__
 <div id="footer">
 	<div class="f_content">
         <span class="fl gray-link" id="icp">
-            &copy; 2012－2015 IKPHP.COM, all rights reserved
+            &copy; 2012－2015 IKPHP.COM, all rights reserved <span><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备13018602号</a></span>
         </span>
         
         <span class="fr">
@@ -265,10 +269,11 @@ __EXTENDS_JS__
             · <a href="<?php echo U('help/privacy');?>">隐私申明</a>
         </span>
         <div class="cl"></div>
-        <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备13018602号</a> <br />
-        <span style="font-size:0.83em;">{__RUNTIME__}</span>
-        
+        <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  目前有 <?php echo ($count_online_user); ?> 人在线<br />
+        <span style="font-size:0.83em;">{__RUNTIME__}          </span>
+
         <script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script>
+       
         </p>   
     </div>
 </div>

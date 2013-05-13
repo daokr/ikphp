@@ -70,6 +70,10 @@ class userModel extends Model
 				'areaname' => '火星',
 			);
 		}
+		//在线状态
+		$time = time() - 15 * 60;
+		$isonline = D('user_online')->where(array('userid'=>$userid,'ctime'=>array('gt',$time)))->count();
+		$strUser['isonline'] = $isonline > 0 ? 1 : 0 ;
 
 		//签名
 		$pattern='/(http:\/\/|https:\/\/|ftp:\/\/)([\w:\/\.\?=&-_]+)/is';

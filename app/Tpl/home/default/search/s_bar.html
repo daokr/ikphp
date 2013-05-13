@@ -1,0 +1,19 @@
+<div class="s_menu">
+    <foreach item="item" name="menu">
+        <if condition="$type eq $key">
+        <a class="s_select" href="{$item[url]}">{$item[text]}</a>
+        <else/>
+        <a href="{$item[url]}">{$item[text]}</a>
+        </if>
+    </foreach>
+</div>
+
+<div class="mod-search">
+  <form method="get" action="{:U('search/index',array('type'=>$type))}">
+    <fieldset>
+      <legend>搜索：</legend>
+      <div class="inp"><input name="q" value="{$kw}" maxlength="60" size="22" ></div>
+      <div class="inp-btn"><input type="submit" value="搜索"></div>
+    </fieldset>
+  </form>
+</div>

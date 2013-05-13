@@ -59,6 +59,14 @@ class helpAction extends frontendAction {
 					header('Location: http://www.ikphp.com/down/IKPHP_V1.5.1.zip');
 				}
 			}
+			if($from == 2)
+			{
+				$data = array('userip'=>get_client_ip(),'downfrom'=>'admin5下载','downtime'=>time());
+				if(!false == $this->down_mod->create($data)){
+					$this->down_mod->add();
+					header('Location: http://down.admin5.com/php/102536.html');
+				}
+			}
 		}
 	}	
 	

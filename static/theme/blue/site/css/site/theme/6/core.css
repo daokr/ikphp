@@ -1,0 +1,41 @@
+/* system theme only */
+.sp-logo a:link,
+.sp-logo a:visited,
+.sp-logo a:active,
+.sp-logo a:hover { color: #333 }
+.mod h2 { color: #295e4c }
+
+/* site backgound */
+.bg { background: #f1f1ec url(../../../../pics/site/theme/6/bg.png) no-repeat }
+
+/* top banner */
+.sp-nav { background-color: #afc7bf }
+
+/* tab */
+.nav-items li { background: #f0f0d6 }
+.nav-items li a:link,
+.nav-items li a:visited { color: #798984 }
+.nav-items li.on { border-color: #f0f0d6 }
+
+/* global link */
+.content-nav a,
+.mod a,
+.type-nav a,
+.top-nav a:link,
+.top-nav a:visited,
+.top-nav a:hover,
+.top-nav a:active,
+#footer a { color: #239546 }
+.content-nav a:hover,
+.mod a:hover, 
+.type-nav .on a,
+.type-nav a:hover,
+.top-nav .top-nav-info a:hover,
+#footer a:hover { color: #fff; background-color: #239546 }
+
+/* for colorPicker */
+#theme-bg { background-color: #f1f1ec }
+#theme-banner { background-color: #afc7bf }
+#theme-tag-bg { background-color: #f0f0d6 }
+#theme-tag-link { background-color: #798984 }
+#theme-link { background-color: #239546 }

@@ -687,7 +687,7 @@ function makethumb($srcfile, $thumbsizearr = array(100, 100), $dstfile='', $arrc
 				'thumbcutmode' => 2, // 裁剪模式  0是默认模式     1左或上剪切模式    2中间剪切模式    3右或下剪切模式
 				'thumbcutstartx' => 0, //x 坐标
 				'thumbcutstarty' => 0, //y 坐标
-				'thumboption' => 4, //8 宽度最佳缩放  4 综合最佳缩放 16 高度最佳缩放
+				'thumboption' => 8, //8 宽度最佳缩放  4 综合最佳缩放 16 高度最佳缩放
 		);
 		
 	}else{
