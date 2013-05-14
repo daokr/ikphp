@@ -101,6 +101,9 @@ class frontendAction extends baseAction {
 				    foreach($arrChannel as $item){
 				    	$arrNav[$item['nameid']] = array('name'=>$item['name'], 'url'=>U('article/channel',array('nameid'=>$item['nameid'])));
 				    }
+				    if($this->visitor->info['userid']){
+				    	$arrNav['my_article'] = array('name'=>'我的文章', 'url'=>U('article/my_article'));
+				    }
 					break;
 				case "site" :
 					// 小站

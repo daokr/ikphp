@@ -182,7 +182,7 @@ cursor:pointer; display:block; float:left}
 	background: none repeat scroll 0 0 #FBFBFB;
 }
 .midder table tr.oddover td{ background-color:#fdf4ef}
-
+.midder .tdedit{ background: url("images/tdedit.gif") no-repeat scroll right 1px transparent; padding-right: 14px;}
 /*分页*/
 .page {
 	margin: 0;

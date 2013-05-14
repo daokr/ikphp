@@ -24,7 +24,6 @@
 <![endif]-->
 <script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
-<link rel="stylesheet" type="text/css" href="__STATIC__/theme/<?php echo C('ik_site_theme');?>/user/images/validate.css" />
 </head>
 
 <body>
@@ -124,42 +123,65 @@ __EXTENDS_JS__
 <!--APP NAV-->
 
 </header>
-<!--main-->
+
 <div class="midder">
 <div class="mc">
-<h1 class="user_tit">用户登录</h1>
+    <div class="cleft">
+        <div class="art-body">
+            <h1 class="title"><?php echo ($strArticle[title]); ?></h1>
+            <div class="art-info">
+            作者：<a href="<?php echo U('people/index',array('id'=>$strArticle[user][doname]));?>"><?php echo ($strArticle[newsauthor]); ?></a>&nbsp;&nbsp;<?php echo date('Y-m-d H:i',$strArticle[addtime]) ?>&nbsp;&nbsp;<a href="#comments"><?php echo ($strArticle[count_comment]); ?>条回复</a>&nbsp;&nbsp;浏览<?php echo ($strArticle[count_view]); ?>次&nbsp;&nbsp;<a href="#formMini">我要回复</a> 
+            </div>
+        
+            <div class="art-text">
+                <?php echo ($strArticle[content]); ?>
+            </div>
+            <div class="control-btns">
+            <?php if($visitor[userid] == $strArticle[userid]): ?><a href="<?php echo U('article/edit',array('id'=>$strArticle['aid']));?>">编辑</a>&nbsp; &gt;&nbsp; <a href="<?php echo U('article/delete',array('id'=>$strArticle['aid']));?>" onclick="return confirm('确定删除?')">删除</a><?php endif; ?>
+            <br/>
+            本文由<a href="<?php echo U('people/index',array('id'=>$strArticle[user][doname]));?>"><?php echo ($strArticle[user][username]); ?></a>授权（爱客网）发表，文章著作权为原作者所有
+            </div>
+            
+      	  <div class="clear"></div>
+          <div class="art-titles"> 
+             <span class="fl"><?php if(!empty($upArticle)): ?>上一篇：<a href="<?php echo U('article/show',array('id'=>$upArticle['aid']));?>"><?php echo ($upArticle['title']); ?></a><?php endif; ?></span>
+             <span class="fr"><?php if(!empty($downArticle)): ?>下一篇：<a href="<?php echo U('article/show',array('id'=>$downArticle['aid']));?>"><?php echo ($downArticle['title']); ?></a><?php endif; ?></span>
+          </div>
+      </div>
+    
+    
+    
+    </div>
 
-<div class="user_left">
-<form method="POST" action="<?php echo U('user/login');?>" id="signupform">
-<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="Tabletext">
-<tr><td class="label">Email：</td><td class="field"><input class="uinput" type="email" name="email" autofocus/></td></tr>
-<tr><td class="label">密码：</td><td class="field"><input class="uinput" type="password" name="password" /></td></tr>
 
-<tr>
-<td>&nbsp;</td>
-<td class="field">
-<input type="hidden" name="ret_url" value="<?php echo ($ret_url); ?>" />
-<input type="hidden" name="cktime" value="2592000">
-<input class="submit" type="submit" value="登录" style="margin-top:8px"/> 
-&nbsp;&nbsp;<a href="<?php echo U('user/register');?>">还没有帐号？</a> | <a href="<?php echo U('user/forgetpwd');?>">忘记密码</a>
-</td>
-</tr>
-</table>
-</form>
-	
-<div class="item item-3rd">
-<label>第三方登录：</label>
-<a href="<?php echo U('oauth/index', array('mod'=>'qq'));?>" target="_top"><img title="QQ" src="__STATIC__/public/images/connect_qq.png"></a>
-<a href="<?php echo U('oauth/index', array('mod'=>'sina'));?>" target="_top"><img title="新浪微博" src="__STATIC__/public/images/connect_sina_weibo.png"></a>
-</div>
+    <div class="cright">
+    
+        <div class="mod" id="g-user-profile">
+
+    <div class="usercard">
+      <div class="pic">
+            <a href="<?php echo U('people/index',array('id'=>$strUser[doname]));?>"><img alt="<?php echo ($strUser[username]); ?>" src="<?php echo ($strUser[face]); ?>"></a>
+      </div>
+      <div class="info">
+           <div class="name">
+               <a href="<?php echo U('people/index',array('id'=>$strUser[doname]));?>"><?php echo ($strUser[username]); ?></a>
+           </div>
+                <?php if($strUser[area] != ''): echo ($strUser[area][areaname]); else: ?>火星<?php endif; ?>                        
+                <br>
+       </div>
+    </div>
+               
   
-
+             
+</div> 
+         
+<div class="mod">
+    <?php if($visitor): ?><div class="create-group">
+    <a href="<?php echo U('article/add');?>"><i>+</i>去投稿</a>
+    </div><?php endif; ?>
 </div>
-
-
-<div class="aside"></div>
-
-<div class="cl"></div>
+        
+    </div>
 
 </div>
 </div>

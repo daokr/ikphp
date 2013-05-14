@@ -33,9 +33,25 @@ class articleModel extends Model {
 			$this->where($where)->delete();
 			// 删除照片
 			D('images')->delAllImage('article',$id);
-			// 删除照片
+			// 删除视频
 			D('videos')->delAllVideo('article',$id);
 		}
+	}
+	// 删除多篇文章
+	public function delArticle($id){
+		$where['aid'] = array('exp',' IN ('.$id.') ');
+		$map['itemid'] = array('exp',' IN ('.$id.') ');
+		$data['typeid'] = array('exp',' IN ('.$id.') ');
+		$data['type'] = 'article';
+		//先删除信息表
+		D('article_item')->where($map)->delete(); 
+		//删除内容
+		$this->where($where)->delete(); 
+		// 删除照片
+		D('images')->where($data)->delete();
+		// 删除视频
+		D('videos')->where($data)->delete();
+		return true;
 	}
 	// 获取一篇文章的信息
 	public function getOneArticleItem($itemid){

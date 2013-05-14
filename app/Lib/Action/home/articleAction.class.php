@@ -33,7 +33,7 @@ class articleAction extends frontendAction {
 		//查询条件 是否审核
 		$map = array('isaudit'=>'0');
 		//显示列表
-		$pagesize = 10;
+		$pagesize = 20;
 		$count = $this->item_mod->where($map)->order('addtime desc')->count('itemid');
 		$pager = $this->_pager($count, $pagesize);
 		$arrItemid =  $this->item_mod->field('itemid')->where($map)->order('addtime desc')->limit($pager->firstRow.','.$pager->listRows)->select();
@@ -333,5 +333,19 @@ class articleAction extends frontendAction {
 				'subtitle' => '阅读' 
 		) );
 		$this->display ();
-	}	
+	}
+	//我的文章
+	public function my_article	(){
+		$userid = $this->userid;
+		if($userid>0 && $strUser = $this->user_mod->getOneUser($userid)){
+			
+			$this->_config_seo ( array (
+					'title' => '我的文章',
+					'subtitle' => '阅读'
+			) );
+			$this->display();
+		}else{
+			$this->error('你无权访问该页面！',U('user/login'));
+		}
+	}
 }

@@ -27,6 +27,12 @@ class articleAction extends backendAction {
 			case "isaudit" :
 				$this->article_isaudit($nameid);
 				break;
+			case "istop" :
+				$this->article_istop($nameid);
+				break;
+			case "isdigest" :
+				$this->article_isdigest($nameid);
+				break;
 			case "list" :
 				$this->article_list($nameid);
 				break;
@@ -67,11 +73,12 @@ class articleAction extends backendAction {
 		$this->assign('pageUrl', $pager->fshow());
 		$this->assign ( 'arrArticle', $arrArticle );
 		$this->assign ( 'count_isaudit', $count_isaudit );
-		
+		$this->assign ( 'isaudit', $isaudit );
 		
 		
 		$this->display('article_list');
 	}
+	//单个审核
 	public function article_isaudit($nameid){
 		$itemid = $this->_get('itemid','intval');
 		$isaudit = $this->_get('isaudit','intval','0');
@@ -82,6 +89,67 @@ class articleAction extends backendAction {
 			$this->redirect ( 'article/index',array('ik'=>'list','nameid'=>$nameid,'isaudit'=>$isaudit));
 		}else{
 			$this->error('文章不存在或已被删除！');
+		}
+	}
+	//单个置顶
+	public function article_istop($nameid){
+		$itemid = $this->_get('itemid','intval');
+		$istop = $this->_get('istop','intval','0');
+		$strItem = $this->mod->getOneArticleItem($itemid);
+		if($strItem){
+			$this->item_mod->where(array('itemid'=>$itemid))->setField(array('istop'=>$istop));
+			$this->redirect ( 'article/index',array('ik'=>'list','nameid'=>$nameid,'isaudit'=>$strItem['isaudit']));
+		}else{
+			$this->error('文章不存在或已被删除！');
+		}
+	}	
+	//单个头条精华
+	public function article_isdigest($nameid){
+		$itemid = $this->_get('itemid','intval');
+		$isdigest = $this->_get('isdigest','intval','0'); 
+		$strItem = $this->mod->getOneArticleItem($itemid);
+		if($strItem){
+			$this->item_mod->where(array('itemid'=>$itemid))->setField(array('isdigest'=>$isdigest));
+			$this->redirect ( 'article/index',array('ik'=>'list','nameid'=>$nameid,'isaudit'=>$strItem['isaudit']));
+		}else{
+			$this->error('文章不存在或已被删除！');
+		}
+	}	
+	//ajax 设置 头条 置顶 审核 等操作
+	public function ajax_setting(){
+		$ik = $this->_get ( 'ik', 'trim');
+		switch ($ik) {
+			case "order" :
+					if($this->mod->delArticle($itemid)){
+						$arrJson = array('r'=>0, 'html'=> '操作成功');
+					}else{
+						$arrJson = array('r'=>1, 'html'=> '操作失败！');
+					}
+					echo json_encode($arrJson);
+				break;
+			case "istop" :
+				
+				break;
+		}
+	}
+	//ajax删除数据
+	public function ajax_delete(){
+		$itemid = $this->_post('itemid');
+		$ik = $this->_get ( 'ik', 'trim');
+		if(!empty($itemid)){
+				
+			switch ($ik) {
+				case "article" :
+					//删除
+					if($this->mod->delArticle($itemid)){
+						$arrJson = array('r'=>0, 'html'=> '删除成功');
+					}else{
+						$arrJson = array('r'=>1, 'html'=> '删除失败！');
+					}
+					echo json_encode($arrJson);
+					break;
+			}
+	
 		}
 	}
 	public function channel() {

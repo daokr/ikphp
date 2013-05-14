@@ -67,6 +67,14 @@ class helpAction extends frontendAction {
 					header('Location: http://down.admin5.com/php/102536.html');
 				}
 			}
+			if($from == 3)
+			{
+				$data = array('userip'=>get_client_ip(),'downfrom'=>'中国站长下载','downtime'=>time());
+				if(!false == $this->down_mod->create($data)){
+					$this->down_mod->add();
+					header('Location: http://down.cnzz.cn/info/89353.aspx');
+				}
+			}			
 		}
 	}	
 	

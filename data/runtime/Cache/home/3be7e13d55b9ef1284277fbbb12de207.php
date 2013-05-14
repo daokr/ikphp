@@ -24,7 +24,6 @@
 <![endif]-->
 <script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
-<link rel="stylesheet" type="text/css" href="__STATIC__/theme/<?php echo C('ik_site_theme');?>/user/images/validate.css" />
 </head>
 
 <body>
@@ -124,46 +123,129 @@ __EXTENDS_JS__
 <!--APP NAV-->
 
 </header>
-<!--main-->
 <div class="midder">
-<div class="mc">
-<h1 class="user_tit">用户登录</h1>
+    <div class="mc">
+        <h1>
+        <?php echo ($seo["title"]); ?>
+        </h1>    
+<form method="POST" action="<?php echo U('article/publish');?>"  onsubmit="return checkForm(this);"  enctype="multipart/form-data" id="form_tipic">
+<table width="100%" cellpadding="0" cellspacing="0" class="table_1">
 
-<div class="user_left">
-<form method="POST" action="<?php echo U('user/login');?>" id="signupform">
-<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="Tabletext">
-<tr><td class="label">Email：</td><td class="field"><input class="uinput" type="email" name="email" autofocus/></td></tr>
-<tr><td class="label">密码：</td><td class="field"><input class="uinput" type="password" name="password" /></td></tr>
-
-<tr>
-<td>&nbsp;</td>
-<td class="field">
-<input type="hidden" name="ret_url" value="<?php echo ($ret_url); ?>" />
-<input type="hidden" name="cktime" value="2592000">
-<input class="submit" type="submit" value="登录" style="margin-top:8px"/> 
-&nbsp;&nbsp;<a href="<?php echo U('user/register');?>">还没有帐号？</a> | <a href="<?php echo U('user/forgetpwd');?>">忘记密码</a>
-</td>
-</tr>
+	<tr>
+    	<th>标题：</th>
+		<td><input style="width:400px;" type="text" value="<?php echo ($strArticle[title]); ?>" maxlength="100" size="50" name="title" tabindex="1" class="txt" placeholder="请填写标题"></td>
+    </tr>	
+    <tr>
+        <th>发表到：</th>
+        <td>
+            <select name="cateid" class="txt" id="cate_select" style="float:left;" tabindex="2" >
+                <option  value="0">默认分类</option>
+                <?php echo ($arrCate); ?>
+            </select>            
+        </td>
+    </tr>
+    <tr><th>&nbsp;</th>
+        <td align="left" style="padding:0px 10px">
+        <a href="javascript:;" id="addImg">添加图片</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:;" id="addVideo">添加视频</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:;" id="addLink">添加链接</a>
+        </td>
+    </tr>
+    <tr>
+        <th>内容：</th>
+        <td style="padding-bottom:0px">
+        <input type="hidden" name="id" value="<?php echo ($strArticle[aid]); ?>"/>
+        <textarea tabindex="3"  style="width:99.5%;height:300px;" maxlength="10000" id="editor_full" cols="55" rows="20" name="content" class="txt"   placeholder="请填写内容"><?php echo ($strArticle[content]); ?></textarea>
+        <div class="ik_toolbar" id="ik_toolbar"><span class="textnum" id="textnum"><em>0</em> / <em>10000</em> 受欢迎的字数 </span></div>
+        </td>
+    </tr> 
+    <tr>
+    	<th>&nbsp;</th>
+        <td style="padding-top:0px">
+        <input class="submit" type="submit" value="好啦，发表" tabindex="4" > <a href="<?php echo U('article/index');?>">返回</a>
+        </td>
+    </tr>
 </table>
+
+<div id="thumblst" class="item item-thumb-list">
+    <?php if(is_array($arrPhotos)): foreach($arrPhotos as $key=>$item): ?><div class="thumblst">
+      <div class="details">
+        <p>图片描述（30字以内）</p>
+        <textarea name="photodesc[]" maxlength="30"><?php echo ($item[title]); ?></textarea>
+        <input type="hidden" name="seqid[]" value="<?php echo ($item[seqid]); ?>" >
+        <br>
+        <br>
+        图片位置<br>
+        <a onclick="javascript:removePhoto(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_<?php echo ($item[seqid]); ?>" ajaxurl="<?php echo U('images/delete');?>" imgid="<?php echo ($item[id]); ?>">删除</a>
+        <label>
+         <?php if($item[align] == 'L'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>"  checked  value="L" >
+         <?php else: ?>
+         <input type="radio" name="layout_<?php echo ($item[seqid]); ?>"   value="L" ><?php endif; ?>
+          <span class="alignleft">居左</span></label>
+        <label>
+          <?php if($item[align] == 'C'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>" checked value="C" >
+          <?php else: ?>
+          <input type="radio" name="layout_<?php echo ($item[seqid]); ?>" value="C" ><?php endif; ?>
+          <span class="aligncenter">居中</span></label>
+        <label>
+          <?php if($item[align] == 'R'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>" checked value="R" >
+          <?php else: ?>
+          <input type="radio" name="layout_<?php echo ($item[seqid]); ?>" value="R" ><?php endif; ?>
+          <span class="alignright">居右</span></label>
+      </div>
+      <div class="thumb">
+        <div class="pl">[图片<?php echo ($item[seqid]); ?>]</div>
+        <img src="<?php echo ($item[simg]); ?>">
+      </div>
+      	<div class="clear"></div>
+    </div><?php endforeach; endif; ?>
+
+</div>
+<div id="videosbar"  class="item item-thumb-list">
+   <?php if(is_array($arrVideos)): foreach($arrVideos as $key=>$item): ?><div class="thumblst">
+    <div class="details">
+    <p>视频标题（30字以内）</p>
+    <textarea name="video_<?php echo ($item[seqid]); ?>_title" maxlength="30"><?php echo ($item[title]); ?></textarea>
+    <input type="hidden" value="<?php echo ($item[seqid]); ?>" name="videoseqid[]">
+    <br>
+    <br>
+    视频网址：<br>
+    <a onclick="javascript:removeVideo(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="<?php echo U('videos/delete');?>" videoid="<?php echo ($item[videoid]); ?>">删除</a>
+    <p><?php echo ($item[url]); ?></p>
+    </div>
+    <div class="thumb">
+    <div class="pl">[视频<?php echo ($item[seqid]); ?>]</div>
+    <img src="<?php echo ($item[imgurl]); ?>"> </div>
+    <div class="clear"></div>
+    </div><?php endforeach; endif; ?>
+</div>
+<!--加载编辑器-->
+<script type="text/javascript" src="__STATIC__/public/js/lib/ajaxfileupload.js"></script>
+<script type="text/javascript" src="__STATIC__/public/js/lib/IKEditor.js"></script>
+
+<script language="javascript">
+$(function(){
+	$('#addImg').bind('click',function(){
+		var ajaxurl = "<?php echo U('images/add');?>";
+		var typeid = '<?php echo ($strArticle[aid]); ?>';
+		var data = "{'type':'article','typeid':'"+typeid+"'}";		
+		addPhoto(ajaxurl, data);
+	});
+	$('#addLink').bind('click',function(){	
+		addLink();
+	})
+	$('#addVideo').bind('click',function(){
+		var ajaxurl = "<?php echo U('videos/add',array('type'=>'article','typeid'=>$strArticle[aid]));?>";
+		addVideo(ajaxurl);
+	})
+});
+</script>
+
 </form>
-	
-<div class="item item-3rd">
-<label>第三方登录：</label>
-<a href="<?php echo U('oauth/index', array('mod'=>'qq'));?>" target="_top"><img title="QQ" src="__STATIC__/public/images/connect_qq.png"></a>
-<a href="<?php echo U('oauth/index', array('mod'=>'sina'));?>" target="_top"><img title="新浪微博" src="__STATIC__/public/images/connect_sina_weibo.png"></a>
+
+    
+    </div>
 </div>
-  
-
-</div>
-
-
-<div class="aside"></div>
-
-<div class="cl"></div>
-
-</div>
-</div>
-
 <!--footer-->
 <footer>
 <div id="footer">

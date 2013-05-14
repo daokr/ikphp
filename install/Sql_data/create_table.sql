@@ -732,6 +732,7 @@ CREATE TABLE `ik_article_item` (
   `count_comment` int(11) NOT NULL DEFAULT '0' COMMENT '回复统计',
   `count_view` int(11) NOT NULL DEFAULT '0' COMMENT '展示数',
   `photoid` int(11) NOT NULL DEFAULT '0' COMMENT '文章主图id',
+  `orderid` int(11) NOT NULL DEFAULT '0' COMMENT '排序id',  
   `isphoto` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否有图片',
   `isvideo` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否有视频',  
   `istop` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否置顶',
