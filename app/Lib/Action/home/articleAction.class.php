@@ -33,10 +33,10 @@ class articleAction extends frontendAction {
 		//查询条件 是否审核
 		$map = array('isaudit'=>'0');
 		//显示列表
-		$pagesize = 20;
-		$count = $this->item_mod->where($map)->order('addtime desc')->count('itemid');
+		$pagesize = 30;
+		$count = $this->item_mod->where($map)->order('orderid desc')->count('itemid');
 		$pager = $this->_pager($count, $pagesize);
-		$arrItemid =  $this->item_mod->field('itemid')->where($map)->order('addtime desc')->limit($pager->firstRow.','.$pager->listRows)->select();
+		$arrItemid =  $this->item_mod->field('itemid')->where($map)->order('orderid desc')->limit($pager->firstRow.','.$pager->listRows)->select();
 		foreach($arrItemid as $key=>$item){
 			$arrArticle [] = $this->mod->getOneArticle($item['itemid']); 
 		}
@@ -280,10 +280,10 @@ class articleAction extends frontendAction {
 		$map['cateid'] = $cateid;
 		$map['isaudit'] = 0;
 		//显示列表
-		$pagesize = 10;
-		$count = $this->item_mod->where($map)->order('addtime desc')->count('itemid');
+		$pagesize = 30;
+		$count = $this->item_mod->where($map)->order('orderid desc')->count('itemid');
 		$pager = $this->_pager($count, $pagesize);
-		$arrItemid =  $this->item_mod->field('itemid')->where($map)->order('addtime desc')->limit($pager->firstRow.','.$pager->listRows)->select();
+		$arrItemid =  $this->item_mod->field('itemid')->where($map)->order('orderid desc')->limit($pager->firstRow.','.$pager->listRows)->select();
 		foreach($arrItemid as $key=>$item){
 			$arrArticle [] = $this->mod->getOneArticle($item['itemid']);
 		}
@@ -316,10 +316,10 @@ class articleAction extends frontendAction {
 		$map['cateid'] = array('exp',' IN ('.$strCates.') ');
 		$map['isaudit'] = 0;
 		//显示列表
-		$pagesize = 10;
-		$count = $this->item_mod->where($map)->order('addtime desc')->count('itemid');
+		$pagesize = 30;
+		$count = $this->item_mod->where($map)->order('orderid desc')->count('itemid');
 		$pager = $this->_pager($count, $pagesize);
-		$arrItemid =  $this->item_mod->field('itemid')->where($map)->order('addtime desc')->limit($pager->firstRow.','.$pager->listRows)->select();
+		$arrItemid =  $this->item_mod->field('itemid')->where($map)->order('orderid desc')->limit($pager->firstRow.','.$pager->listRows)->select();
 		foreach($arrItemid as $key=>$item){
 			$arrArticle [] = $this->mod->getOneArticle($item['itemid']); 
 		}

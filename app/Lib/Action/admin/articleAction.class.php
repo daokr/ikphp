@@ -117,10 +117,14 @@ class articleAction extends backendAction {
 	}	
 	//ajax 设置 头条 置顶 审核 等操作
 	public function ajax_setting(){
+		$itemid = $this->_get('id');//信息id 
 		$ik = $this->_get ( 'ik', 'trim');
+		$field = $this->_post('field');
+		$fieldval = $this->_post('fieldval');
 		switch ($ik) {
 			case "order" :
-					if($this->mod->delArticle($itemid)){
+					$result = $this->item_mod->where(array('itemid'=>$itemid))->setField($field,$fieldval);
+					if($result){
 						$arrJson = array('r'=>0, 'html'=> '操作成功');
 					}else{
 						$arrJson = array('r'=>1, 'html'=> '操作失败！');
