@@ -78,6 +78,9 @@ __EXTENDS_JS__
              <a href="<?php echo U('location/index');?>">同城</a>
              </li> 
              <li>
+             <a href="<?php echo U('site/index');?>">小站</a>
+             </li>              
+             <li>
              <a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a>
              </li>                                                      
 
@@ -105,7 +108,7 @@ __EXTENDS_JS__
 		   <form onsubmit="return searchForm(this);" method="GET" action="<?php echo U('search/index');?>">
                 <input type="hidden" value="all" name="type">
                 <div id="search_bar">
-                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="小组、话题、日志、成员、小站" class="key" name="kw"></div>
+                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
                     <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
                 </div>
 		    </form>
@@ -125,8 +128,21 @@ __EXTENDS_JS__
 
     <div class="mc">
     
-   	    <h1><?php echo ($seo["title"]); ?></h1>
-       
+        <div id="group-info">
+            <h1 class="group_tit"><?php echo ($seo["title"]); ?></h1>
+            <div class="group-misc">
+                    <a href="javascript:;" class="button-join" rel="nofollow" onClick="$('#select-bar').show()">
+                        <span>+我要发言</span>
+                    </a>
+                    <div id="select-bar" style="display:none" onmouseleave="$('#select-bar').hide()">
+                    	<h3>选择小组：</h3>
+                        <ul>
+                        	<?php if(is_array($myGroups)): foreach($myGroups as $key=>$item): ?><li><a href="<?php echo U('group/add',array('id'=>$item[groupid]));?>"><?php echo ($item[groupname]); ?></a></li><?php endforeach; endif; ?>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+            
         <div class="cleft w700">
 
 

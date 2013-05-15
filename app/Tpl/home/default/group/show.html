@@ -13,32 +13,34 @@
 <div id="group-info">
 	<img align="left" alt="{$strGroup[groupname]}" src="{$strGroup[icon_48]}" class="pil mr10 groupicon"/>
     <h1 class="group_tit">{$strGroup[groupname]}<if condition="$strGroup[isaudit] eq 1"><font class="red">[审核中]</font></if></h1>
-    <if condition="$strGroup[joinway] eq 0">
+
     <div class="group-misc">
-            <a rel="nofollow" class="button-join" href="{:U('group/join',array('id'=>$strGroup['groupid']))}">
-                <span>加入小组</span>
-            </a>
-    </div>
-    <else/>
-    <div class="group-misc"><span>本小组禁止加入</span></div>
+    <if condition="$isGroupUser && ($strGroup[userid]!=$visitor[userid])">
+    
+    <span class="fleft mr5 color-gray">我是这个小组的{$strGroup['role_user']} <a class="j a_confirm_link" href="{:U('group/quit',array('id'=>$strGroup['groupid']))}" style="margin-left: 6px;">&gt;退出小组</a></span>
+    
+    <elseif condition="$isGroupUser && ($strGroup[userid]==$visitor[userid])" />
+    
+    <span class="fleft mr5 color-gray">我是这个小组的{$strGroup['role_leader']}</span>
     </if>
+    <if condition="$strGroup[joinway] eq 0 && !$isGroupUser">
+                <a rel="nofollow" class="button-join" href="{:U('group/join',array('id'=>$strGroup['groupid']))}">
+                    <span>加入小组</span>
+                </a>
+    </if>
+	<if condition ="$strGroup[joinway] neq 0">
+    	<span>本小组禁止加入</span>
+    </if>
+	</div>
+    
 </div>
 
 <div class="cleft">
 <div class="infobox">
 
 <div class="bd">
-<p>创建于<php>echo date('Y-m-d',$strGroup[addtime])</php>&nbsp; &nbsp; {$strGroup[role_leader]}：<a href="{:U('people/index',array('id'=>$strLeader[doname]))}">{$strLeader[username]}</a></p>
-<php>echo nl2br($strGroup[groupdesc]);</php>
-<div class="clearfix" style="margin-top: 10px;">
-
-<if condition="$isGroupUser && ($strGroup[userid]!=$visitor[userid])">
-<span class="fleft mr5 color-gray">我是这个小组的{$strGroup['role_user']} <a class="j a_confirm_link" href="{:U('group/quit',array('id'=>$strGroup['groupid']))}" style="margin-left: 6px;">&gt;退出小组</a></span>
-<elseif condition="$isGroupUser && ($strGroup[userid]==$visitor[userid])" />
-<span class="fleft mr5 color-gray">我是这个小组的{$strGroup['role_leader']}</span>
-</if>
-
-</div>
+    <p>创建于<php>echo date('Y-m-d',$strGroup[addtime])</php>&nbsp; &nbsp; {$strGroup[role_leader]}：<a href="{:U('people/index',array('id'=>$strLeader[doname]))}">{$strLeader[username]}</a></p>
+    <php>echo nl2br($strGroup[groupdesc]);</php>
 </div>
 
 </div>
