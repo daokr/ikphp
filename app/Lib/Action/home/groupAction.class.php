@@ -272,9 +272,9 @@ class groupAction extends frontendAction {
 		// 是否加入
 		$isGroupUser = $this->_mod->isGroupUser ( $this->userid, $id );
 		// 获取最新加入会员
-		$arrGroupUser = $this->_mod->getNewGroupUser ( $id, 8 );
-		// 获取最近小组话题 20 条
-		$arrTopics = $this->group_topics_mod->newTopic($id, 20);
+		$arrGroupUser = $this->_mod->getNewGroupUser ( $id, 12 );
+		// 获取最近小组话题 40 条
+		$arrTopics = $this->group_topics_mod->newTopic($id, 40);
 		if( is_array($arrTopics)){
 			foreach($arrTopics as $key=>$item){
 				$arrTopic[] = $item;
@@ -607,7 +607,7 @@ class groupAction extends frontendAction {
 			$groupid = implode(',',$groupid);
 			$where['groupid'] = array('exp',' IN ('.$groupid.') ');
 			//显示列表
-			$pagesize = 20;
+			$pagesize = 40;
 			$count = $this->_mod->where($where)->order('isrecommend DESC')->count('groupid');
 			$pager = $this->_pager($count, $pagesize);
 			$arrGroups =  $this->_mod->where($where)->order('isrecommend DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
@@ -617,7 +617,7 @@ class groupAction extends frontendAction {
 			$map['isopen'] = 0; //开放公开
 			$map['isaudit'] = 0;//通过审核
 			//显示列表
-			$pagesize = 20;
+			$pagesize = 40;
 			$count = $this->_mod->where($map)->order('isrecommend DESC')->count('groupid');
 			$pager = $this->_pager($count, $pagesize);
 			$arrGroups =  $this->_mod->where($map)->order('isrecommend DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
@@ -641,16 +641,37 @@ class groupAction extends frontendAction {
 	}
 	// 发现话题
 	public function explore_topic(){
-		//查询是否显示
-		$map['ishow']  = '0';
-		$map['isaudit']  = '0';
-		$map['groupid'] =  array('gt',0);
-		//显示列表
-		$pagesize = 20;
-		$count = $this->group_topics_mod->where($map)->order('addtime DESC')->count('topicid');
-		$pager = $this->_pager($count, $pagesize);
-		$arrTopics =  $this->group_topics_mod->where($map)->order('addtime DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
+		$tag = $this->_get('tag', 'trim,urldecode','');
+		if(!empty($tag)){
+			$strTag = D('tag')->getOneTagByName($tag);
+			//查询
+			$map = array('tagid'=>$strTag['tagid']);
+			$arrID = D('tag_topic_index')->field('topicid')->where($map)->order('topicid DESC')->select();
+			foreach ($arrID as $item){
+				$topicid[] = $item['topicid'];
+			}
+			$topicid = implode(',',$topicid);
+			$where['topicid'] = array('exp',' IN ('.$topicid.') ');
+			//显示列表
+			$pagesize = 40;
+			$count = $this->group_topics_mod->where($where)->order('addtime DESC')->count('topicid');
+			$pager = $this->_pager($count, $pagesize);
+			$arrTopics =  $this->group_topics_mod->where($where)->order('addtime DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
 			
+			$this->_config_seo (array('title'=>$tag.'相关的话题','subtitle'=>'小组'));
+		}else{
+			//查询是否显示
+			$map['ishow']  = '0';
+			$map['isaudit']  = '0';
+			$map['groupid'] =  array('gt',0);
+			//显示列表
+			$pagesize = 20;
+			$count = $this->group_topics_mod->where($map)->order('addtime DESC')->count('topicid');
+			$pager = $this->_pager($count, $pagesize);
+			$arrTopics =  $this->group_topics_mod->where($map)->order('addtime DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
+			$this->_config_seo (array('title'=>'发现话题','subtitle'=>'小组'));
+		}
+
 		foreach($arrTopics as $key=>$item){
 			$list[] = $item;
 			$list[$key]['group'] = $this->_mod->getOneGroup($item['groupid']);
@@ -658,7 +679,6 @@ class groupAction extends frontendAction {
 			
 		$this->assign('pageUrl', $pager->fshow());
 		$this->assign('list', $list);
-		$this->_config_seo (array('title'=>'发现话题','subtitle'=>'小组'));
 		$this->display ();		
 	}
 	// 添加评论
@@ -1122,7 +1142,7 @@ class groupAction extends frontendAction {
 		//查询条件 是否显示
 		$map = array('groupid'=>$groupid);
 		//显示列表
-		$pagesize = 10;
+		$pagesize = 40;
 		$count = $this->group_users_mod->where($map)->count('*');
 		$pager = $this->_pager($count, $pagesize);
 		$groupUser =  $this->group_users_mod->where($map)->order('userid desc')->limit($pager->firstRow.','.$pager->listRows)->select();

@@ -78,6 +78,9 @@ __EXTENDS_JS__
              <a href="<?php echo U('location/index');?>">同城</a>
              </li> 
              <li>
+             <a href="<?php echo U('site/index');?>">小站</a>
+             </li>              
+             <li>
              <a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a>
              </li>                                                      
 
@@ -105,7 +108,7 @@ __EXTENDS_JS__
 		   <form onsubmit="return searchForm(this);" method="GET" action="<?php echo U('search/index');?>">
                 <input type="hidden" value="all" name="type">
                 <div id="search_bar">
-                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="小组、话题、日志、成员、小站" class="key" name="kw"></div>
+                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
                     <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
                 </div>
 		    </form>
@@ -170,7 +173,7 @@ __EXTENDS_JS__
       <div class="clear"></div>
 
       <div class="tags"> 
-        <?php if(is_array($strTopic[tags])): $i = 0; $__LIST__ = $strTopic[tags];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?><a rel="tag" title="<?php echo ($item[tagname]); ?>" class="post-tag" href="<?php echo U('group/topic_tag',array(tagname=>$item[tagname]));?>"><?php echo ($item[tagname]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?> 
+        <?php if(is_array($strTopic[tags])): $i = 0; $__LIST__ = $strTopic[tags];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?><a rel="tag" title="<?php echo ($item[tagname]); ?>" class="post-tag" href="<?php echo U('group/explore_topic',array('tag'=>$item[tagname]));?>"><?php echo ($item[tagname]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?> 
         <?php if($isGroupUser): ?><a rel="tag" href="javascript:void(0);" onclick="showTagFrom()">+标签</a>
         <p id="tagFrom" style="display:none">
           <input class="tagtxt" type="text" name="tags" id="tags" />

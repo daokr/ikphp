@@ -78,6 +78,9 @@ __EXTENDS_JS__
              <a href="<?php echo U('location/index');?>">同城</a>
              </li> 
              <li>
+             <a href="<?php echo U('site/index');?>">小站</a>
+             </li>              
+             <li>
              <a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a>
              </li>                                                      
 
@@ -105,7 +108,7 @@ __EXTENDS_JS__
 		   <form onsubmit="return searchForm(this);" method="GET" action="<?php echo U('search/index');?>">
                 <input type="hidden" value="all" name="type">
                 <div id="search_bar">
-                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="小组、话题、日志、成员、小站" class="key" name="kw"></div>
+                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
                     <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
                 </div>
 		    </form>
@@ -124,25 +127,29 @@ __EXTENDS_JS__
 <div class="midder">
 
 <div class="mc">
-<h1 class="group_tit"><?php echo ($strGroup[groupname]); if($strGroup[isaudit] == 1): ?><font class="red">[审核中]</font><?php endif; ?></h1>
+<div id="group-info">
+	<img align="left" alt="<?php echo ($strGroup[groupname]); ?>" src="<?php echo ($strGroup[icon_48]); ?>" class="pil mr10 groupicon"/>
+    <h1 class="group_tit"><?php echo ($strGroup[groupname]); if($strGroup[isaudit] == 1): ?><font class="red">[审核中]</font><?php endif; ?></h1>
+    <?php if($strGroup[joinway] == 0): ?><div class="group-misc">
+            <a rel="nofollow" class="button-join" href="<?php echo U('group/join',array('id'=>$strGroup['groupid']));?>">
+                <span>加入小组</span>
+            </a>
+    </div>
+    <?php else: ?>
+    <div class="group-misc"><span>本小组禁止加入</span></div><?php endif; ?>
+</div>
+
 <div class="cleft">
 <div class="infobox">
 
 <div class="bd">
-<img align="left" alt="<?php echo ($strGroup[groupname]); ?>" src="<?php echo ($strGroup[icon_48]); ?>" class="pil mr5 groupicon" valign="top" />
-<div>创建于<?php echo date('Y-m-d',$strGroup[addtime]) ?>&nbsp; &nbsp; <?php echo ($strGroup[role_leader]); ?>：<a href="<?php echo U('people/index',array('id'=>$strLeader[doname]));?>"><?php echo ($strLeader[username]); ?></a><br></div>
+<p>创建于<?php echo date('Y-m-d',$strGroup[addtime]) ?>&nbsp; &nbsp; <?php echo ($strGroup[role_leader]); ?>：<a href="<?php echo U('people/index',array('id'=>$strLeader[doname]));?>"><?php echo ($strLeader[username]); ?></a></p>
 <?php echo nl2br($strGroup[groupdesc]); ?>
 <div class="clearfix" style="margin-top: 10px;">
 
 <?php if($isGroupUser && ($strGroup[userid]!=$visitor[userid])): ?><span class="fleft mr5 color-gray">我是这个小组的<?php echo ($strGroup['role_user']); ?> <a class="j a_confirm_link" href="<?php echo U('group/quit',array('id'=>$strGroup['groupid']));?>" style="margin-left: 6px;">&gt;退出小组</a></span>
 <?php elseif($isGroupUser && ($strGroup[userid]==$visitor[userid])): ?>
-<span class="fleft mr5 color-gray">我是这个小组的<?php echo ($strGroup['role_leader']); ?></span>
-
-<?php elseif($strGroup[joinway] == 0): ?>
-<span class="fright"><a class="button-join" href="<?php echo U('group/join',array('id'=>$strGroup['groupid']));?>">申请加入小组</a></span>
-<?php else: ?>
-<span class="fright">本小组禁止加入</span><?php endif; ?>
-
+<span class="fleft mr5 color-gray">我是这个小组的<?php echo ($strGroup['role_leader']); ?></span><?php endif; ?>
 
 </div>
 </div>
@@ -154,7 +161,7 @@ __EXTENDS_JS__
 <div class="box_content">
 
     <h2 style="margin-top:10px">
-                <a class="rr bn-post" href="<?php echo U('group/add',array('id'=>$strGroup[groupid]));?>"><span>发布帖子</span></a>
+                <a class="rr bn-post" href="<?php echo U('group/add',array('id'=>$strGroup[groupid]));?>"><span>+发言</span></a>
         最近小组话题  · · · · · ·
     </h2>
 
@@ -170,7 +177,7 @@ __EXTENDS_JS__
                             <td align="right" nowrap="nowrap">最后回应</td>
                         </tr>
             <?php if(!empty($arrTopic)): if(is_array($arrTopic)): foreach($arrTopic as $key=>$item): ?><tr class="pl">
-                                <td>
+                                <td class="td-title">
                                 <a title="<?php echo ($item[title]); ?>" href="<?php echo U('group/topic',array('id'=>$item[topicid]));?>">
                                 <?php echo getsubstrutf8(t($item['title']),0,25); ?>
                                 </a>

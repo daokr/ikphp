@@ -150,13 +150,13 @@ white-space:nowrap;}
     display: block;
 }
 .infobox .bd {
-    background: #FFF6ED;
-	border:#FAEFE3 solid 1px;
+    background: #FFF4E8;
     padding: 8px 9px;
     word-wrap: break-word;
-	border-radius:3px;
+	padding: 10px 10px;
+	border-radius:5px;
 }
-
+.infobox .bd p{ margin:0px 0px 10px 0px}
 .groupicon {
     padding-right: 10px;
 }
@@ -203,6 +203,9 @@ a.a_rec_btn:link, a.a_rec_btn:visited, a.a_rec_btn:hover, a.a_rec_btn:active {
 
 .mr5 {
     margin-right: 5px;
+}
+.mr10 {
+    margin-right: 10px;
 }
 
 .color_gray, .color-gray {
@@ -567,7 +570,7 @@ address, caption, cite, code, dfn, em, th, var, optgroup {
     text-align: right;
 }
 
-/**/
+/*列表*/
 .olt {
     margin-bottom: 3px;
     padding: 0;
@@ -577,7 +580,7 @@ table.olt thead th {
     background: none repeat scroll 0 0 #EEEEEE;
     text-align: left;
 }
-
+table .td-title{ font-size:13px;}
 
 /**/
 .wrap h3 {
@@ -850,9 +853,43 @@ a.mini-share:hover {
 .tabs li .current span {
 
 }
+#group-info {
+    height: 48px;
+    line-height: 48px;
+    margin-bottom: 20px;
+}
+
+#group-info h1 {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+	margin-right:10px;
+}
+#group-info .group-misc {
+	display:inline-block;
+*display:inline;
+*zoom:1;
+	position:relative
+}
 .group_tit{ }
 .joingroup{ background-color:#F0F0F0; padding:2px 0px; line-height:20px; border-radius:0px 0px 3px 3px;display:block; clear:both; text-align:center;}
 .joined{ background-color:#F0F0F0; padding:2px 0px; line-height:20px; border-radius:0px 0px 3px 3px; display:block; clear:both; text-align:center; color:#999}
+
+
+.bn-post span{ color:#CA6445; font-size:13px; background-color:#FAE9DA; border:1px solid #F8DCC3}
+a.bn-post:hover{ background-color:#fff1e3; }
+a.bn-post:hover span{ background-color:#fff1e3; color:#ca6445; border:1px solid #ffe6cd}
+
+.button-join:active,.button-join:link, .button-join:visited {
+    background: none repeat scroll 0 0 #6EBFC3;
+    color: #FFFFFF;
+	border-radius: 3px 3px 3px 3px;
+    display: inline-block;
+    line-height: 1.2;
+    padding: 6px 10px;
+}
+.button-join:hover{ background-color:#6ed4d9;}
 
 .info_tit{ color: #494949;
     display: block;
@@ -866,7 +903,7 @@ a.mini-share:hover {
 /**我的小组**/
 .olt td {
     border-bottom: 1px dashed #DDDDDD;
-	padding: 6px 3px;
+	padding: 7px 3px;
 	word-wrap: break-word;
 }
 .olt .td-subject{ font-size:13px;}
@@ -993,10 +1030,6 @@ word-spacing:-0.43em; }
 .newtopic{}
 .newtopic ul{}
 .newtopic ul li{border-top: 1px dashed #CCCCCC;padding: 5px 0;}
-
-a.button-join{ background-color:#ffeee0; border:#dec8b7 solid 1px; border-radius:3px;  padding:2px 10px; color:#524942;}
-a.button-join:hover{ background-color:#ffeee0;}
-
 /**发布帖子**/
 .item-thumb-list{ padding-left:110px}
 .thumblst { width:580px;min-width:580px;}

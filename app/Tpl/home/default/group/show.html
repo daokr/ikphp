@@ -10,13 +10,25 @@
 <div class="midder">
 
 <div class="mc">
-<h1 class="group_tit">{$strGroup[groupname]}<if condition="$strGroup[isaudit] eq 1"><font class="red">[审核中]</font></if></h1>
+<div id="group-info">
+	<img align="left" alt="{$strGroup[groupname]}" src="{$strGroup[icon_48]}" class="pil mr10 groupicon"/>
+    <h1 class="group_tit">{$strGroup[groupname]}<if condition="$strGroup[isaudit] eq 1"><font class="red">[审核中]</font></if></h1>
+    <if condition="$strGroup[joinway] eq 0">
+    <div class="group-misc">
+            <a rel="nofollow" class="button-join" href="{:U('group/join',array('id'=>$strGroup['groupid']))}">
+                <span>加入小组</span>
+            </a>
+    </div>
+    <else/>
+    <div class="group-misc"><span>本小组禁止加入</span></div>
+    </if>
+</div>
+
 <div class="cleft">
 <div class="infobox">
 
 <div class="bd">
-<img align="left" alt="{$strGroup[groupname]}" src="{$strGroup[icon_48]}" class="pil mr5 groupicon" valign="top" />
-<div>创建于<php>echo date('Y-m-d',$strGroup[addtime])</php>&nbsp; &nbsp; {$strGroup[role_leader]}：<a href="{:U('people/index',array('id'=>$strLeader[doname]))}">{$strLeader[username]}</a><br></div>
+<p>创建于<php>echo date('Y-m-d',$strGroup[addtime])</php>&nbsp; &nbsp; {$strGroup[role_leader]}：<a href="{:U('people/index',array('id'=>$strLeader[doname]))}">{$strLeader[username]}</a></p>
 <php>echo nl2br($strGroup[groupdesc]);</php>
 <div class="clearfix" style="margin-top: 10px;">
 
@@ -24,13 +36,7 @@
 <span class="fleft mr5 color-gray">我是这个小组的{$strGroup['role_user']} <a class="j a_confirm_link" href="{:U('group/quit',array('id'=>$strGroup['groupid']))}" style="margin-left: 6px;">&gt;退出小组</a></span>
 <elseif condition="$isGroupUser && ($strGroup[userid]==$visitor[userid])" />
 <span class="fleft mr5 color-gray">我是这个小组的{$strGroup['role_leader']}</span>
-
-<elseif condition="$strGroup[joinway] eq 0" />
-<span class="fright"><a class="button-join" href="{:U('group/join',array('id'=>$strGroup['groupid']))}">申请加入小组</a></span>
-<else />
-<span class="fright">本小组禁止加入</span>
 </if>
-
 
 </div>
 </div>
@@ -42,7 +48,7 @@
 <div class="box_content">
 
     <h2 style="margin-top:10px">
-                <a class="rr bn-post" href="{:U('group/add',array('id'=>$strGroup[groupid]))}"><span>发布帖子</span></a>
+                <a class="rr bn-post" href="{:U('group/add',array('id'=>$strGroup[groupid]))}"><span>+发言</span></a>
         最近小组话题  · · · · · ·
     </h2>
 
@@ -60,7 +66,7 @@
             <if condition="!empty($arrTopic)">
             <foreach name="arrTopic" item="item">
                             <tr class="pl">
-                                <td>
+                                <td class="td-title">
                                 <a title="{$item[title]}" href="{:U('group/topic',array('id'=>$item[topicid]))}">
                                 <php>echo getsubstrutf8(t($item['title']),0,25);</php>
                                 </a>

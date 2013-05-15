@@ -25,7 +25,7 @@
 <div class="obss">
     <foreach name="arrAdmin" item="item">
         <dl class="obu">
-            <dt><a class="nbg" href="{:U('people/index',array('id'=>$item[doname]))}"><img alt="{$item[username]}" class="imgg" src="{$item[face]}"></a>
+            <dt><a class="nbg" href="{:U('people/index',array('id'=>$item[doname]))}"><img alt="{$item[username]}" class="m_sub_img" src="{$item[face]}"></a>
                 <if condition="$visitor[userid] eq $strLeader[userid]">
                 <span title="取消管理员" class="gact"><a title="取消{$item[username]}的管理员" class="j a_confirm_link" href="{:U('group/group_user_set',array('d'=>'isadmin','userid'=>$item[userid],'groupid'=>$strGroup[groupid],'isadmin'=>'0'))}" rel="nofollow">^</a></span>
                 </if>
@@ -37,15 +37,12 @@
 </div>
 
 <h2>{$strGroup[role_user]} &nbsp; ·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;</h2>
-
-<div class="page">{$pageUrl}</div>
-
 <div class="obss">
 
 <foreach name="arrGroupUser" item="item">
     <dl class="obu">
         <dt>
-        <a class="nbg" href="{:U('people/index',array('id'=>$item[doname]))}"><img alt="{$item[username]}" class="imgg" src="{$item[face]}"></a>
+        <a class="nbg" href="{:U('people/index',array('id'=>$item[doname]))}"><img alt="{$item[username]}" class="m_sub_img" src="{$item[face]}"></a>
         <if condition="$visitor[userid] eq $strLeader[userid]">
             <if condition="$item[isadmin] neq 1">
             <span title="提升为管理员" class="gact"><a title="把{$item[username]}提升为管理员" class="j a_confirm_link" href="{:U('group/group_user_set',array('d'=>'isadmin','userid'=>$item[userid],'groupid'=>$strGroup[groupid],'isadmin'=>'1'))}" rel="nofollow">^</a></span>

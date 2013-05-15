@@ -67,7 +67,7 @@
 
       <div class="tags"> 
         <volist name="strTopic[tags]" id="item"> 
-        <a rel="tag" title="{$item[tagname]}" class="post-tag" href="{:U('group/topic_tag',array(tagname=>$item[tagname]))}">{$item[tagname]}</a> 
+        <a rel="tag" title="{$item[tagname]}" class="post-tag" href="{:U('group/explore_topic',array('tag'=>$item[tagname]))}">{$item[tagname]}</a> 
         </volist> 
         <if condition="$isGroupUser"> 
         <a rel="tag" href="javascript:void(0);" onclick="showTagFrom()">+标签</a>
