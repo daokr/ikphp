@@ -23,10 +23,6 @@ class userAction extends userbaseAction {
 			$this->userid = $this->visitor->info ['userid'];
 		}
 	}
-	public function index() {
-		$this->display ();
-	}
-	
 	public function setbase() {
 		
 		if (IS_POST) {

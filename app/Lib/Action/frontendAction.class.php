@@ -94,7 +94,17 @@ class frontendAction extends baseAction {
 					$arrNav['explore_topic'] = array('name'=>'发现话题', 'url'=>U('group/explore_topic'));
 					$arrNav['nearby'] = array('name'=>'北京话题', 'url'=>U('group/nearby'));
 					break;
-					
+
+				case "mall" :
+					// 小组导航
+					if($this->visitor->info['userid']){
+						$arrNav['index'] = array('name'=>'我的淘客', 'url'=>U('mall/index'));
+					}
+					$arrNav['explore'] = array('name'=>'发现宝贝', 'url'=>U('mall/explore_goods'));
+					$arrNav['album'] = array('name'=>'发现专辑', 'url'=>U('mall/explore_album'));
+					$arrNav['share'] = array('name'=>'我要分享', 'url'=>U('mall/share'));
+					break;	
+									
 				case "article" :
 					// 文章
 				    $arrChannel = D('article_channel')->getAllChannel(array('isnav'=>'0'));
@@ -130,7 +140,9 @@ class frontendAction extends baseAction {
 				case "group" :
 					$arrLogo = array('name'=>'小组', 'url'=>U('group/index'), 'style'=>'site_logo nav_logo');
 					break;
-						
+				case "mall" :
+					$arrLogo = array('name'=>'商城', 'url'=>U('mall/index'), 'style'=>'site_logo nav_logo');
+					break;						
 				case "article" :
 					$arrLogo = array('name'=>'阅读', 'url'=>U('article/index'), 'style'=>'site_logo nav_logo');
 					break;

@@ -68,8 +68,8 @@
       <div class="tags"> 
         <volist name="strTopic[tags]" id="item"> 
         <a rel="tag" title="{$item[tagname]}" class="post-tag" href="{:U('group/explore_topic',array('tag'=>$item[tagname]))}">{$item[tagname]}</a> 
-        </volist> 
-        <if condition="$isGroupUser"> 
+        </volist>
+        <if condition="($user[userid] eq $strGroup[userid]) OR ($strGroupUser[isadmin] eq 1) OR ($user[isadmin] eq 1)"> 
         <a rel="tag" href="javascript:void(0);" onclick="showTagFrom()">+标签</a>
         <p id="tagFrom" style="display:none">
           <input class="tagtxt" type="text" name="tags" id="tags" />
@@ -82,17 +82,18 @@
       
       <div class="clear"></div>
       <div> 
-     	 <if condition="!empty($upTopic)">上一篇：<a href="{:U('group/topic',array('id'=>$upTopic['topicid']))}">{$upTopic['title']}</a></if>
+     	 <if condition="!empty($upTopic)">上一篇：<a href="{:U('group/topic',array('id'=>$upTopic['topicid']))}">{$upTopic['title']}</a></if>&nbsp;&nbsp;&nbsp;&nbsp;
          <if condition="!empty($downTopic)">下一篇：<a href="{:U('group/topic',array('id'=>$downTopic['topicid']))}">{$downTopic['title']}</a></if>
       </div>
       
       
       <div class="orderbar"> 
         <if condition="($page eq 1) && ($strTopic[count_comment] gt 3)">
+        	<a href="{:U('group/topic',array('id'=>$strTopic[topicid],'sc'=>$sc,'isauthor'=>$author[isauthor]))}">{$author[text]}</a>&nbsp;&nbsp;
         <if condition="$sc eq 'asc'">
-        <a href="{:U('group/topic',array('id'=>$strTopic[topicid],'sc'=>'desc'))}">倒序阅读</a> 
+        	<a href="{:U('group/topic',array('id'=>$strTopic[topicid],'sc'=>'desc','isauthor'=>$isauthor))}">倒序阅读</a> 
         <else />
-        <a href="{:U('group/topic',array('id'=>$strTopic[topicid],'sc'=>'asc'))}">正序阅读</a> 
+        	<a href="{:U('group/topic',array('id'=>$strTopic[topicid],'sc'=>'asc','isauthor'=>$isauthor))}">正序阅读</a> 
         </if>
         </if>
       </div>

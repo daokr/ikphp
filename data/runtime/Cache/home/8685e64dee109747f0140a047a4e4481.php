@@ -64,6 +64,9 @@
              <a href="<?php echo U('location/index');?>">同城</a>
              </li> 
              <li>
+             <a href="<?php echo U('site/index');?>">小站</a>
+             </li>              
+             <li>
              <a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a>
              </li>                                                      
 
@@ -91,7 +94,7 @@
 		   <form onsubmit="return searchForm(this);" method="GET" action="<?php echo U('search/index');?>">
                 <input type="hidden" value="all" name="type">
                 <div id="search_bar">
-                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="小组、话题、日志、成员、小站" class="key" name="kw"></div>
+                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
                     <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
                 </div>
 		    </form>

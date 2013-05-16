@@ -24,9 +24,6 @@
 <![endif]-->
 <script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
-<link rel="stylesheet" type="text/css" href="__STATIC__/theme/<?php echo C('ik_site_theme');?>/user/images/validate.css" />
-<script src="__STATIC__/public/js/validate/jquery.validateid.js"></script>
-
 </head>
 
 <body>
@@ -126,166 +123,29 @@ __EXTENDS_JS__
 <!--APP NAV-->
 
 </header>
-
-
-<script type="text/javascript">
-$(document).ready(function() {
-	
-	var validator = $("#signupform").validate({
-		onkeyup: false,
-		rules:{
-			<?php if(C('ik_isinvite') == 1): ?>invitecode:{
-				required:true,
-				remote:"<?php echo U('check',array('t'=>'isinvite'));?>"
-			},<?php endif; ?>
-			email: {
-				required: true,
-				email: true,
-				remote: "<?php echo U('check',array('t'=>'email'));?>"
-			},
-			password: {
-				required: true,
-				minlength: 5
-			},
-			repassword: {
-				required: true,
-				minlength: 5,
-				equalTo: "#password"
-			},
-			username:{
-				required: true,
-				minlength: 2,
-				maxlength: 12,
-				remote:"<?php echo U('check',array('t'=>'username'));?>"
-			}
-		},
-		messages: {
-		<?php if(C('ik_isinvite') == 1): ?>invitecode:{
-				required:"请输入邀请码",
-				remote:jQuery.format("邀请码无效，请寻找新的邀请码！")
-			},<?php endif; ?>
-			email: {
-					required: "请输入Email地址",
-					email: "请输入一个正确的Email地址",
-					remote:jQuery.format("Email已经存在，请更换其他Email")
-			},
-			password: {
-				required: "请输入密码",
-				minlength: jQuery.format("至少输入6个字符")
-			},
-			repassword: {
-				required: "请重复输入密码",
-				minlength: jQuery.format("两次输入密码不一致"),
-				equalTo: "两次输入密码不一致"
-			},
-			username:{
-				required:"请输入用户名",
-				minlength: jQuery.format("至少输入2个字符"),
-				maxlength: jQuery.format("最多输入12个字符"),
-				remote:jQuery.format("用户名已经存在，请更换其他用户名")
-			}
-		},
-
-		// the errorPlacement has to take the table layout into account
-		errorPlacement: function(error, element) {
-			if ( element.is(":radio") )
-				error.appendTo( element.parent().next().next() );
-			else if ( element.is(":checkbox") )
-				error.appendTo ( element.next() );
-			else
-				error.appendTo( element.parent().next() );
-		},
-
-		success: function(label) {
-			// set &nbsp; as text for IE
-			label.html("&nbsp;").addClass("checked");
-		}
-	});
-
-});
-</script>
-
-<script language="javascript">
-function newgdcode(obj) {
-obj.src = $(obj).attr('url') + '&nowtime=' + new Date().getTime();
-//后面传递一个随机参数，否则在IE7和火狐下，不刷新图片
-}
-</script>
-
-
 <!--main-->
 <div class="midder">
 <div class="mc">
-<h1 class="user_tit"><?php echo L('user_regist_tit');?></h1>
 
-<?php if(C('ik_isinvite') == 2): ?><p>系统升级中，暂时关闭用户注册！<a href="<?php echo C('ik_site_url');?>">[返回首页]</a></p>
+<h1 class="set_tit">用户信息管理</h1>
+<div class="tabnav">
+<ul>
+<?php if(is_array($user_menu_list)): $i = 0; $__LIST__ = $user_menu_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i; if($user_menu_curr == $key): ?><li class="select"><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li>
 <?php else: ?>
-
-<div class="user_left">
-<form  id="signupform" method="POST" action="<?php echo U('user/register');?>">
-
-<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="Tabletext">
-<?php if(C('ik_isinvite') == 1): ?><tr>
-<td class="label"><label id="invitecode" for="invitecode">
-<font color="red">邀请码：</font></label></td>
-<td class="field" width="300"><input class="uinput" id="invitecode" name="invitecode" type="text" value="" placeholder="请输入邀请码"/></td>
-<td class="status"></td>
-</tr><?php endif; ?>
-
-
-<tr>
-<td class="label"><label id="email" for="email">Email：</label></td>
-<td class="field" width="300"><input class="uinput" id="email" name="email" type="email" value="" placeholder="请输入Email" autofocus/></td>
-<td class="status"></td>
-</tr>
-<tr>
-<td class="label"><label>密码：</label></td>
-<td class="field"><input class="uinput" type="password" id="password" name="password"  /></td>
-<td class="status"></td>
-</tr>
-<tr>
-<td class="label"><label>重复密码：</label></td>
-<td class="field"><input class="uinput" type="password" id="repassword" name="repassword"  /></td>
-<td class="status"></td>
-</tr>
-
-<tr>
-<td class="label"><label>用户名：</label></td>
-<td class="field"><input class="uinput" type="text" id="username" name="username" /></td>
-<td class="status"></td>
-</tr>
-
-<tr><td class="label">验证码：</td><td class="field">
-<input name="authcode"  class="uinput" style="width:50px; float:left"/>
-<img src="<?php echo U('captcha/'.time());?>" url="<?php echo U('captcha/'.time());?>" onclick="javascript:newgdcode(this);" alt="点击刷新验证码" style="cursor:pointer; margin-left:5px; float:left;" align="absmiddle"/></td>
-<td class="status"></td></tr>
-
-<tr>
-<td class="label"></td>
-<td class="field">
-<input type="hidden" name="fuserid" value="<?php echo ($fuserid); ?>" />
-<input class="submit" type="submit" value="注册" style="margin-top:8px"/> 
-</td>
-<td class="status"></td>
-</tr>
-
-<tr>
-<td class="label"><br /></td>
-<td class="field"><br /></td> 
-<td class="status"></td>
-</tr>
-
-</table>
-</form><?php endif; ?>
+<li><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+</ul>
 </div>
-
-<div class="aside">
-            
-	<p class="pl2">&gt; 已经拥有12ik网帐号? <a href="<?php echo U('user/login');?>" rel="nofollow">直接登录</a></p>
-
-</div>
-<div class="cl"></div>
-
+    <?php if($info["face"] == ''): ?><div style="font-size:14px; line-height:30px">请上传头像后才可以正常使用浏览网站^_^</div><?php endif; ?>
+    <div class="face_form">
+    <form method="POST" action="<?php echo U('user/setface');?>" enctype="multipart/form-data" >
+        <img alt="<?php echo ($info["username"]); ?>" valign="middle" src="<?php echo avatar($info['userid'], 48);?>" class="pil" />
+        <div class="file_info">
+            <p>从你的电脑上选择图像文件：(仅支持jpg，jpeg，gif，png格式的图片)  大小不超过 <?php echo C('ik_attr_allow_size');?> KB</p>
+            <p><input type="file" name="picfile" style="height:25px; "/>&nbsp;&nbsp;<input class="submit" type="submit" value="上传照片" /></p>
+        </div>    
+    </form>
+    </div>
+    
 </div>
 </div>
 <!--footer-->

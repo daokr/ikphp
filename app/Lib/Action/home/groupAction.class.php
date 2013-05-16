@@ -500,11 +500,18 @@ class groupAction extends frontendAction {
 			//获取评论
 			$page = $this->_get('p','intval',1);
 			$sc = $this->_get('sc','trim','asc');
+			$isauthor = $this->_get('isauthor','trim','0');
 
 			//查询条件 是否显示
-			$map = array('topicid'=>$strTopic ['topicid']);
+			$map['topicid'] = $strTopic ['topicid'];
+			if($isauthor){
+				$map['userid']  = $strTopic ['userid'];
+				$author = array('isauthor'=>0,'text'=>'查看所有回应');
+			}else{
+				$author = array('isauthor'=>1,'text'=>'只看楼主');
+			}
 			//显示列表
-			$pagesize = 20;
+			$pagesize = 5;
 			$count = $this->group_topics_comments->where($map)->order('addtime '.$sc)->count('topicid');
 			$pager = $this->_pager($count, $pagesize);
 			$arrComment =  $this->group_topics_comments->where($map)->order('addtime '.$sc)->limit($pager->firstRow.','.$pager->listRows)->select();
@@ -514,14 +521,16 @@ class groupAction extends frontendAction {
 				$arrTopicComment[$key]['content'] = h($item['content']);
 				$recomment = $this->group_topics_mod->recomment($item['referid']);
 				$arrTopicComment[$key]['recomment'] = $recomment;
-			}	
-			
+			}
+
 			$this->assign('pageUrl', $pager->fshow());
 			$this->assign('arrTopicComment', $arrTopicComment);
 						
 			$this->assign ( 'user', $user );
 			$this->assign ( 'page', $page );
 			$this->assign ( 'sc', $sc );
+			$this->assign ( 'author', $author );
+			$this->assign ( 'isauthor', $isauthor );
 			$this->assign ( 'upTopic', $upTopic );
 			$this->assign ( 'downTopic', $downTopic );
 			$this->assign ( 'strTopic', $strTopic );

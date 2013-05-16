@@ -728,7 +728,7 @@ a.lnk-flat:active {
 	display:inline-block;
 *display:inline;
 	zoom:1;
-	width:42px;
+	width:45px;
 	height:24px;
 	overflow:hidden;
 	margin:0;
@@ -738,17 +738,20 @@ a.lnk-flat:active {
 	background:transparent url(nav.png) no-repeat 100% 100%
 }
 .hd-wrap .top-nav-items li .lnk-home {
-	background-position:0 0
+	background-position:-5px 0
 }
 .hd-wrap .top-nav-items li .lnk-group {
-	background-position:-68px 0
+	background-position:-73px 0
 }
 .hd-wrap .top-nav-items li .lnk-article {
-	background-position:-135px 0
+	background-position:-140px 0
 }
 .hd-wrap .top-nav-items li .lnk-location {
-	background-position:-204px 0
+	background-position:-205px 0
 }
 .hd-wrap .top-nav-items li .lnk-site {
-	background-position:-272px 0
+	background-position:-277px 0
+}
+.hd-wrap .top-nav-items li .lnk-mall {
+	background-position:-343px 0
 }

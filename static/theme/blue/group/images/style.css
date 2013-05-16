@@ -1039,7 +1039,7 @@ word-spacing:-0.43em; }
     padding: 6px 10px;
 }
 .post-btn:hover{ background-color:#6ed4d9;}
-#select-bar{ background-color:#f5f5f5; border-radius:3px; width:350px; height:auto; position:absolute; left:0px; top:40px; z-index:10; padding:8px;}
+#select-bar{ background-color:#fcfcfc; border-radius:3px; width:350px; height:auto; position:absolute; left:0px; top:40px; z-index:10; padding:8px;}
 #select-bar h3{ font-size:14px; color:#000;}
 #select-bar ul{ line-height:24px}
 #select-bar li{ display:inline; margin:0px 5px; word-spacing:normal; white-space:nowrap}

@@ -24,7 +24,6 @@
 <![endif]-->
 <script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
-<link rel="stylesheet" type="text/css" href="__STATIC__/theme/<?php echo C('ik_site_theme');?>/user/images/validate.css" />
 </head>
 
 <body>
@@ -98,7 +97,7 @@ __EXTENDS_JS__
         </div>
 		<div class="appnav">
 			    <ul id="nav_bar">
-                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_share"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
 			    </ul>
 		   <form onsubmit="return searchForm(this);" method="GET" action="<?php echo U('search/index');?>">
                 <input type="hidden" value="all" name="type">
@@ -118,46 +117,11 @@ __EXTENDS_JS__
 <!--APP NAV-->
 
 </header>
-<!--main-->
 <div class="midder">
-<div class="mc">
-<h1 class="user_tit">用户登录</h1>
-
-<div class="user_left">
-<form method="POST" action="<?php echo U('user/login');?>" id="signupform">
-<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="Tabletext">
-<tr><td class="label">Email：</td><td class="field"><input class="uinput" type="email" name="email" autofocus/></td></tr>
-<tr><td class="label">密码：</td><td class="field"><input class="uinput" type="password" name="password" /></td></tr>
-
-<tr>
-<td>&nbsp;</td>
-<td class="field">
-<input type="hidden" name="ret_url" value="<?php echo ($ret_url); ?>" />
-<input type="hidden" name="cktime" value="2592000">
-<input class="submit" type="submit" value="登录" style="margin-top:8px"/> 
-&nbsp;&nbsp;<a href="<?php echo U('user/register');?>">还没有帐号？</a> | <a href="<?php echo U('user/forgetpwd');?>">忘记密码</a>
-</td>
-</tr>
-</table>
-</form>
-	
-<div class="item item-3rd">
-<label>第三方登录：</label>
-<a href="<?php echo U('oauth/index', array('mod'=>'qq'));?>" target="_top"><img title="QQ" src="__STATIC__/public/images/connect_qq.png"></a>
-<a href="<?php echo U('oauth/index', array('mod'=>'sina'));?>" target="_top"><img title="新浪微博" src="__STATIC__/public/images/connect_sina_weibo.png"></a>
+	<div class="mc">
+    
+    </div>
 </div>
-  
-
-</div>
-
-
-<div class="aside"></div>
-
-<div class="cl"></div>
-
-</div>
-</div>
-
 <!--footer-->
 <footer>
 <div id="footer">

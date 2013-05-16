@@ -36,11 +36,12 @@ __EXTENDS_JS__
                 </div>
                 <div class="top-nav-items">
                 <ul>
-                <li> <a href="http://www.ikphp.com" class="lnk-home" target="_blank">爱客首页</a></li>
-                <li> <a href="<?php echo U('group/index');?>" class="lnk-group" target="_blank">爱客小组</a></li>
-                <li> <a href="<?php echo U('article/index');?>" class="lnk-article" target="_blank">爱客阅读</a></li>
-                <li> <a href="<?php echo U('location/index');?>" class="lnk-location" target="_blank">爱客同城</a></li>
-                <li> <a href="<?php echo U('site/index');?>" class="lnk-site" target="_blank">爱客小站</a></li>
+                <li><a href="http://www.ikphp.com" class="lnk-home" target="_blank">爱客首页</a></li>
+                <li><a href="<?php echo U('group/index');?>" class="lnk-group" target="_blank">爱客小组</a></li>
+                <li><a href="<?php echo U('article/index');?>" class="lnk-article" target="_blank">爱客阅读</a></li>
+                <li><a href="<?php echo U('location/index');?>" class="lnk-location" target="_blank">爱客同城</a></li>
+                <li><a href="<?php echo U('site/index');?>" class="lnk-site" target="_blank">爱客小站</a></li>
+                <li><a href="<?php echo U('mall/index');?>" class="lnk-mall" target="_blank">爱客商城</a></li>
                 </ul>
                 </div>
             </div>
@@ -71,18 +72,11 @@ __EXTENDS_JS__
              <a href="<?php echo U('group/index');?>">小组</a>
              </li>
              
-             <li>
-             <a href="<?php echo U('article/index');?>">阅读</a>
-             </li>   
-             <li>
-             <a href="<?php echo U('location/index');?>">同城</a>
-             </li> 
-             <li>
-             <a href="<?php echo U('site/index');?>">小站</a>
-             </li>              
-             <li>
-             <a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a>
-             </li>                                                      
+             <li><a href="<?php echo U('article/index');?>">阅读</a></li>  
+             <li><a href="<?php echo U('location/index');?>">同城</a></li>
+             <li><a href="<?php echo U('mall/index');?>">淘客</a></li>  
+             <li><a href="<?php echo U('site/index');?>">小站</a></li>             
+             <li><a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a></li>                                                      
 
         </ul>
     </div>
@@ -103,7 +97,7 @@ __EXTENDS_JS__
         </div>
 		<div class="appnav">
 			    <ul id="nav_bar">
-                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>_btn"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
 			    </ul>
 		   <form onsubmit="return searchForm(this);" method="GET" action="<?php echo U('search/index');?>">
                 <input type="hidden" value="all" name="type">
@@ -173,8 +167,8 @@ __EXTENDS_JS__
       <div class="clear"></div>
 
       <div class="tags"> 
-        <?php if(is_array($strTopic[tags])): $i = 0; $__LIST__ = $strTopic[tags];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?><a rel="tag" title="<?php echo ($item[tagname]); ?>" class="post-tag" href="<?php echo U('group/explore_topic',array('tag'=>$item[tagname]));?>"><?php echo ($item[tagname]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?> 
-        <?php if($isGroupUser): ?><a rel="tag" href="javascript:void(0);" onclick="showTagFrom()">+标签</a>
+        <?php if(is_array($strTopic[tags])): $i = 0; $__LIST__ = $strTopic[tags];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?><a rel="tag" title="<?php echo ($item[tagname]); ?>" class="post-tag" href="<?php echo U('group/explore_topic',array('tag'=>$item[tagname]));?>"><?php echo ($item[tagname]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+        <?php if(($user[userid] == $strGroup[userid]) OR ($strGroupUser[isadmin] == 1) OR ($user[isadmin] == 1)): ?><a rel="tag" href="javascript:void(0);" onclick="showTagFrom()">+标签</a>
         <p id="tagFrom" style="display:none">
           <input class="tagtxt" type="text" name="tags" id="tags" />
           <button type="submit" class="subab" onclick="savaTag(<?php echo ($strTopic[topicid]); ?>)">添加</button>
@@ -185,15 +179,16 @@ __EXTENDS_JS__
       
       <div class="clear"></div>
       <div> 
-     	 <?php if(!empty($upTopic)): ?>上一篇：<a href="<?php echo U('group/topic',array('id'=>$upTopic['topicid']));?>"><?php echo ($upTopic['title']); ?></a><?php endif; ?>
+     	 <?php if(!empty($upTopic)): ?>上一篇：<a href="<?php echo U('group/topic',array('id'=>$upTopic['topicid']));?>"><?php echo ($upTopic['title']); ?></a><?php endif; ?>&nbsp;&nbsp;&nbsp;&nbsp;
          <?php if(!empty($downTopic)): ?>下一篇：<a href="<?php echo U('group/topic',array('id'=>$downTopic['topicid']));?>"><?php echo ($downTopic['title']); ?></a><?php endif; ?>
       </div>
       
       
       <div class="orderbar"> 
-        <?php if(($page == 1) && ($strTopic[count_comment] > 3)): if($sc == 'asc'): ?><a href="<?php echo U('group/topic',array('id'=>$strTopic[topicid],'sc'=>'desc'));?>">倒序阅读</a> 
+        <?php if(($page == 1) && ($strTopic[count_comment] > 3)): ?><a href="<?php echo U('group/topic',array('id'=>$strTopic[topicid],'sc'=>$sc,'isauthor'=>$author[isauthor]));?>"><?php echo ($author[text]); ?></a>&nbsp;&nbsp;
+        <?php if($sc == 'asc'): ?><a href="<?php echo U('group/topic',array('id'=>$strTopic[topicid],'sc'=>'desc','isauthor'=>$isauthor));?>">倒序阅读</a> 
         <?php else: ?>
-        <a href="<?php echo U('group/topic',array('id'=>$strTopic[topicid],'sc'=>'asc'));?>">正序阅读</a><?php endif; endif; ?>
+        	<a href="<?php echo U('group/topic',array('id'=>$strTopic[topicid],'sc'=>'asc','isauthor'=>$isauthor));?>">正序阅读</a><?php endif; endif; ?>
       </div>
       
       <!--comment评论-->

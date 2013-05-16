@@ -36,11 +36,12 @@ __EXTENDS_JS__
                 </div>
                 <div class="top-nav-items">
                 <ul>
-                <li> <a href="http://www.ikphp.com" class="lnk-home" target="_blank">爱客首页</a></li>
-                <li> <a href="<?php echo U('group/index');?>" class="lnk-group" target="_blank">爱客小组</a></li>
-                <li> <a href="<?php echo U('article/index');?>" class="lnk-article" target="_blank">爱客阅读</a></li>
-                <li> <a href="<?php echo U('location/index');?>" class="lnk-location" target="_blank">爱客同城</a></li>
-                <li> <a href="<?php echo U('site/index');?>" class="lnk-site" target="_blank">爱客小站</a></li>
+                <li><a href="http://www.ikphp.com" class="lnk-home" target="_blank">爱客首页</a></li>
+                <li><a href="<?php echo U('group/index');?>" class="lnk-group" target="_blank">爱客小组</a></li>
+                <li><a href="<?php echo U('article/index');?>" class="lnk-article" target="_blank">爱客阅读</a></li>
+                <li><a href="<?php echo U('location/index');?>" class="lnk-location" target="_blank">爱客同城</a></li>
+                <li><a href="<?php echo U('site/index');?>" class="lnk-site" target="_blank">爱客小站</a></li>
+                <li><a href="<?php echo U('mall/index');?>" class="lnk-mall" target="_blank">爱客商城</a></li>
                 </ul>
                 </div>
             </div>
@@ -71,18 +72,11 @@ __EXTENDS_JS__
              <a href="<?php echo U('group/index');?>">小组</a>
              </li>
              
-             <li>
-             <a href="<?php echo U('article/index');?>">阅读</a>
-             </li>   
-             <li>
-             <a href="<?php echo U('location/index');?>">同城</a>
-             </li> 
-             <li>
-             <a href="<?php echo U('site/index');?>">小站</a>
-             </li>              
-             <li>
-             <a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a>
-             </li>                                                      
+             <li><a href="<?php echo U('article/index');?>">阅读</a></li>  
+             <li><a href="<?php echo U('location/index');?>">同城</a></li>
+             <li><a href="<?php echo U('mall/index');?>">淘客</a></li>  
+             <li><a href="<?php echo U('site/index');?>">小站</a></li>             
+             <li><a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a></li>                                                      
 
         </ul>
     </div>
@@ -103,7 +97,7 @@ __EXTENDS_JS__
         </div>
 		<div class="appnav">
 			    <ul id="nav_bar">
-                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
 			    </ul>
 		   <form onsubmit="return searchForm(this);" method="GET" action="<?php echo U('search/index');?>">
                 <input type="hidden" value="all" name="type">
@@ -137,7 +131,9 @@ __EXTENDS_JS__
                     <div id="select-bar" style="display:none" onmouseleave="$('#select-bar').hide()">
                     	<h3>选择小组：</h3>
                         <ul>
-                        	<?php if(is_array($myGroups)): foreach($myGroups as $key=>$item): ?><li><a href="<?php echo U('group/add',array('id'=>$item[groupid]));?>"><?php echo ($item[groupname]); ?></a></li><?php endforeach; endif; ?>
+                        	<?php if($myGroups): if(is_array($myGroups)): foreach($myGroups as $key=>$item): ?><li><a href="<?php echo U('group/add',array('id'=>$item[groupid]));?>"><?php echo ($item[groupname]); ?></a></li><?php endforeach; endif; ?>
+                             <?php else: ?>
+                            <li>你还没有加入任何小组， <a href="<?php echo U('group/create');?>">+申请创建小组</a>&nbsp;&nbsp;&nbsp;<a href="<?php echo U('group/explore');?>">发现小组&gt;&gt;</a></li><?php endif; ?>
                         </ul>
                     </div>
             </div>

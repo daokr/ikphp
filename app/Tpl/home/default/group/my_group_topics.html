@@ -20,9 +20,13 @@
                     <div id="select-bar" style="display:none" onmouseleave="$('#select-bar').hide()">
                     	<h3>选择小组：</h3>
                         <ul>
+                        	<if condition="$myGroups">
                         	<foreach name="myGroups" item="item">
                         		<li><a href="{:U('group/add',array('id'=>$item[groupid]))}">{$item[groupname]}</a></li>
                             </foreach>
+                             <else/>
+                            <li>你还没有加入任何小组， <a href="{:U('group/create')}">+申请创建小组</a>&nbsp;&nbsp;&nbsp;<a href="{:U('group/explore')}">发现小组&gt;&gt;</a></li>
+                            </if>
                         </ul>
                     </div>
             </div>

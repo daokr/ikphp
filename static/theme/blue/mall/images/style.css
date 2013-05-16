@@ -1,0 +1,82 @@
+/* CSS Document */
+#header {background-color:#f8f8f8;}
+#header .site_nav .nav_logo{ background:url(logo.png) no-repeat 0px 0px;}
+#nav_bar li a{ color:#b20000}
+#nav_bar li a:hover{ background-color:#dd441b; color:#fff;}
+
+.floor {
+    background: none repeat scroll 0 0 #FFFFFF;
+    clear: both;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.floor h2{ font-size:20px; color:#333}
+.floorTop{
+    float: right;
+    height: 36px;
+    line-height: 36px;
+    margin-top: -36px;
+    position: relative;
+    width: 80%;
+}
+.floorTop-nav {
+    float: right;
+    height: 34px;
+    overflow: hidden;
+    text-align: right;
+    width: 520px;
+}
+.floorTop-nav li {
+    display: inline-block;
+    margin-right: -1px;
+}
+.floorTop-nav a {
+    border-right: 1px solid #DFDFDF;
+    color: #929292;
+    padding: 0 10px;
+}
+.floorCon{}
+.plist li{ float:left; display:inline-block; margin:0px 15px 0px 0px}
+
+.focus_bar{ overflow:hidden; margin-bottom:30px}
+.focus_bar .left{float:left;}
+.focus_bar .right{ width:215px; float:right}
+.mod{margin-bottom: 30px;}
+
+/*专辑*/
+.album_list {}
+.album_tag {padding:15px 9px;background:#F7F7F7; margin: 0 41px 10px 0;overflow:hidden;width:191px;height: 290px;}
+.album_tag h3 {color:#777777; font-weight:normal;}
+.album_tag .atags {padding:10px 0 0;overflow:hidden;}
+.album_tag .atags a {height: 26px;line-height: 26px;padding:0 8px;color: #777; float:left;display:inline;margin:0 5px 13px 0;border: 1px solid #E6E6E6;background: white;border-radius:4px;white-space: nowrap;}
+.album_tag .atags a.on {color: #84B041;font-weight: bold;border-color: #C2D5A6;}
+
+/**发现宝贝**/
+.wall_tag {padding:15px 13px; float: left; background:#F7F7F7;margin: 0 18px 20px 0;overflow:hidden;width:200px;}
+.wall_tag h3 {color:#777777; font-weight:normal;}
+.wall_tag .atags {padding:10px 0 0;overflow:hidden;}
+.wall_tag .atags a {height: 26px;line-height: 26px;padding:0 8px;color: #777; float:left;display:inline;margin:0 7px 13px 0;border: 1px solid #E6E6E6;background: white;border-radius:4px;white-space: nowrap;}
+.wall_tag .atags a.on {color: #84B041;font-weight: bold;border-color: #C2D5A6;}
+
+.wall_item {float:left; width:226px;margin:0 16px 20px 0;background-color:#F7F7F7;border-radius:3px; border:1px solid #F7F7F7;overflow:hidden;}
+.wall_item .pic{padding:8px 0; background-color: #FFFFFF;}
+.wall_item .pic li{text-align:center;position:relative;overflow:hidden;}
+.wall_item .pic li img{vertical-align:top;width:210px;}
+.wall_item .pic li .p {background-color:rgba(0, 0, 0, 0.2);border-radius:3px 3px 3px 3px;bottom:8px;right:16px;color:#FFFFFF;display:block;height:16px;line-height:16px;padding:0 2px;position:absolute;}
+.wall_item .favorite {border-bottom:1px solid #EEEEEE;background-color: #FFFFFF;height:23px;padding:0 13px 11px 12px;position:relative;}
+.wall_item .favorite .like {background: url(item_like.png) no-repeat scroll 0 0 transparent;display: block;float:left;height:26px;overflow: hidden;text-indent: -9999em;width: 62px;}
+.wall_item .favorite .like_n a{background: url(item_like.png) no-repeat scroll -64px 0 transparent;color: #878787;display: block;float: left;font-size: 12px;font-weight: bold;height: 26px;line-height: 26px;margin-left: 2px;padding-left: 8px;width: auto;}
+.wall_item .favorite .like_n i {background: url(item_like.png) no-repeat scroll right 0 transparent;display: block;float: left;height: 26px;width: 5px;}
+.wall_item .favorite .creply_n {color: #888888;float: right;line-height:23px;}
+.wall_item .favorite .creply_n a {color: #888888;text-decoration: underline;}
+.wall_item .favorite .creply {color:#888888;float:right;line-height:23px;margin-right:2px;}
+.wall_item .author {padding:7px 13px 5px 12px;}
+.wall_item .author .avt {margin:3px 7px 0 0;}
+.wall_item .author .name {color:#666666;font-weight:bold;}
+.wall_item .intro {padding:0 13px 10px 12px;}
+.wall_item .rep_list {background:none repeat scroll 0 0 #F7F7F7;border-top:1px solid #F0F0F0;padding:7px 13px;}
+.wall_item .rep_list .rep_f {margin:0 0 4px;overflow:hidden;padding-bottom:0;}
+.wall_item .rep_list .avt {height:20px;width:20px;margin-right:3px;}
+.wall_item .rep_list .rep_content {color:#AAAAAA;line-height:20px;max-height:40px;overflow:hidden;width:175px;}
+.wall_item .del_item { background: url(del_icon.png) no-repeat scroll 0 0 transparent; display: none; position: absolute; height: 19px; width: 19px; left: 15px; top: 15px; z-index: 9999;}
+
