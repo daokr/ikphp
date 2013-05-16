@@ -130,11 +130,12 @@ class groupAction extends frontendAction {
 		$strUser = $this->user_mod->getOneUser ( $userid );
 		// 我的小组话题
 		$myGroup = $this->_mod->getGroupUser ( $userid );
-		
+
 		//我加入的所有小组的话题
 		if(is_array($myGroup)){
 			foreach($myGroup as $item){
 				$arrGroup[] = $item['groupid'];
+				$myGroups[] = $this->_mod->getOneGroup($item['groupid']);
 			}
 		}
 		$strGroup = implode(',',$arrGroup);
@@ -148,7 +149,7 @@ class groupAction extends frontendAction {
 			}
 		}
 		
-		
+		$this->assign('myGroups',$myGroups);//我加入和管理的小组
 		$this->assign ( 'strUser', $strUser );
 		$this->assign ( 'arrTopic', $arrTopic );
 		$this->_config_seo (array('title'=>'我的小组话题','subtitle'=>'小组'));
@@ -674,6 +675,7 @@ class groupAction extends frontendAction {
 
 		foreach($arrTopics as $key=>$item){
 			$list[] = $item;
+			$list[$key]['content'] = ikhtml_text('topic',$item['topicid'],$item['content']);
 			$list[$key]['group'] = $this->_mod->getOneGroup($item['groupid']);
 		}
 			

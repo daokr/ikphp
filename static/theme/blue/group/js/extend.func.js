@@ -240,3 +240,25 @@ function checkTag(obj)
 	
 	return true;
 }
+
+//新建小组 tag-items
+function tags(obj)
+{
+	var text = $(obj).text(), input = $('#tag');
+	var vals = $('#tag').val();
+	//设置input
+	if($(obj).hasClass('selected'))
+	{ 
+		$(obj).removeAttr('class');
+		//删除
+		var value = vals.replace(' '+text, '').replace(text, '').replace(/\s+/, ' ');
+		input.val($.trim(value));
+
+	}else{
+		if(vals.split(' ').length < 5)
+		{
+			$(obj).attr('class','selected');
+			input.val(vals ? vals + " " + text : text);
+		}
+	}
+}

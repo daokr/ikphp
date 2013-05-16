@@ -11,8 +11,23 @@
 
     <div class="mc">
     
-   	    <h1>{$seo.title}</h1>
-       
+        <div id="group-info">
+            <h1 class="group_tit">{$seo.title}</h1>
+            <div class="group-misc">
+                    <a href="javascript:;" class="button-join" rel="nofollow" onClick="$('#select-bar').show()">
+                        <span>+我要发言</span>
+                    </a>
+                    <div id="select-bar" style="display:none" onmouseleave="$('#select-bar').hide()">
+                    	<h3>选择小组：</h3>
+                        <ul>
+                        	<foreach name="myGroups" item="item">
+                        		<li><a href="{:U('group/add',array('id'=>$item[groupid]))}">{$item[groupname]}</a></li>
+                            </foreach>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+            
         <div class="cleft w700">
 
 

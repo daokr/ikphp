@@ -988,6 +988,7 @@ a.bn-post:hover span{ background-color:#fff1e3; color:#ca6445; border:1px solid 
 
 .create-group a:link, .create-group a:visited {
 	color:#ca6445;
+	font-size:14px;
 }
 .create-group a:hover, .create-group a:active {
 	background:#ca6445;
@@ -1026,6 +1027,22 @@ word-spacing:-0.43em; }
 
 .group_topics{ border-top:#EDEDED solid 1px}
 
+.group-tit{ line-height:50px;}
+.group-tit .post-btn{ font-size:13px;}
+
+.post-btn:active,.post-btn:link, .post-btn:visited {
+    background: none repeat scroll 0 0 #6EBFC3;
+    color: #FFFFFF;
+	border-radius: 3px 3px 3px 3px;
+    display: inline-block;
+    line-height: 1;
+    padding: 6px 10px;
+}
+.post-btn:hover{ background-color:#6ed4d9;}
+#select-bar{ background-color:#f5f5f5; border-radius:3px; width:350px; height:auto; position:absolute; left:0px; top:40px; z-index:10; padding:8px;}
+#select-bar h3{ font-size:14px; color:#000;}
+#select-bar ul{ line-height:24px}
+#select-bar li{ display:inline; margin:0px 5px; word-spacing:normal; white-space:nowrap}
 /**最新话题**/
 .newtopic{}
 .newtopic ul{}
@@ -1241,3 +1258,19 @@ word-spacing:-0.43em; }
 #g-side-info .ft .member-status{ padding-left: 70px;}
 #g-side-info-member { margin-bottom:15px;border-bottom:1px solid #e3e3e3; }
 #g-side-info-member .bd { padding-bottom:15px;overflow:hidden;zoom:1; }
+
+/**site-tags**/
+.site-tags{
+  width:400px; 
+}
+.site-tags dd{
+	background-color: white;
+    color: #666666;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    margin: 3px 3px 3px 0;
+    padding: 2px 12px;
+}
+.site-tags dd:hover{ background-color:#f2f2f2; border-radius:2px;}
+.site-tags dd.selected, .site-tags dd.selected:hover{ background-color: #F5F5F5;color: #999999;}
