@@ -1,8 +1,35 @@
 /* CSS Document */
+body{}
 #header {background-color:#f8f8f8;}
 #header .site_nav .nav_logo{ background:url(logo.png) no-repeat 0px 0px;}
 #nav_bar li a{ color:#b20000}
 #nav_bar li a:hover{ background-color:#dd441b; color:#fff;}
+
+a {
+	cursor:pointer
+}
+a:link {
+	color:#333;
+	text-decoration:none
+}
+a:visited {
+	color:#494949;
+	text-decoration:none
+}
+a:hover {
+	color:#fff;
+	text-decoration:none;
+	/*transition: all 0.3s ease-in 0s;
+	-moz-transition:all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s;
+	-webkit-transition: all 0.3s ease-in 0s;*/
+	background:#8fc63b
+}
+a:active {
+	color:#fff;
+	text-decoration:none;
+	background:#8fc63b
+}
 
 .floor {
     background: none repeat scroll 0 0 #FFFFFF;
@@ -41,15 +68,94 @@
 .focus_bar{ overflow:hidden; margin-bottom:30px}
 .focus_bar .left{float:left;}
 .focus_bar .right{ width:215px; float:right}
+.focus_bar .create{ background-color:#8fc63b;  color:#fff; font-size:16px; padding:5px 0px; width:140px; display:inline-block; text-align:center}
+.focus_bar .create:hover{ background-color:#9edc40; }
+
+.focus_bar .post{ background-color:#c4663c;  color:#fff; font-size:16px; padding:5px 0px; width:140px; display:inline-block; text-align:center}
+.marl{ margin-left:20px}
+.focus_bar .post:hover{ background-color:#dd7648; }
+
+.hotuser{ overflow:hidden; margin-top:10px}
+.hotuser li{ margin:0px; float:left; display:inline-block; margin:1px}
+
 .mod{margin-bottom: 30px;}
 
+
+/*弹窗*/
+.rectitle {
+    background: none repeat scroll 0 0 #f3f3f3;
+    border-top-right-radius: 6px;
+}
+.pop_win .bn-layout input{ padding:3px 10px;}
+
+
 /*专辑*/
-.album_list {}
-.album_tag {padding:15px 9px;background:#F7F7F7; margin: 0 41px 10px 0;overflow:hidden;width:191px;height: 290px;}
+.album_list { margin-left:-33px}
+.album_tag {padding:15px 9px;background:#F7F7F7; margin: 0 36px 10px 0;overflow:hidden;width:191px;height: 290px; display:inline}
 .album_tag h3 {color:#777777; font-weight:normal;}
 .album_tag .atags {padding:10px 0 0;overflow:hidden;}
 .album_tag .atags a {height: 26px;line-height: 26px;padding:0 8px;color: #777; float:left;display:inline;margin:0 5px 13px 0;border: 1px solid #E6E6E6;background: white;border-radius:4px;white-space: nowrap;}
 .album_tag .atags a.on {color: #84B041;font-weight: bold;border-color: #C2D5A6;}
+
+.album_item {width: 220px;background: #f7f7f7;margin: 0 0px 30px 33px; display: inline;float: left;position: relative;}
+.album_item .album_author{padding:10px;background:#f7f7f7;height:37px;overflow:hidden;}
+.album_item .album_author img{height:32px;width:32px;vertical-align:top;margin:5px 0 0;}
+.album_item .album_info{margin:0 0 0 38px;height:40px;overflow:hidden;width:150px;}
+.album_item .album_info p{line-height:20px;height:20px;white-space:nowrap;word-wrap:normal;word-break:normal;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden;}
+
+.album_item .album_author a{line-height:20px;font-weight:bold;}
+.album_item .album_author .u_link,.album_item .album_author .u_link a{color:#999;font-weight:normal;}
+.album_item .album_author .album_title{font-size:14px;color:#777;}
+.album_item .album_author .album_title:hover,.album_item .album_author .u_link a:hover{color:#8fc63b;text-decoration:underline;background-color:transparent; }
+
+.album_item ul {overflow: hidden; zoom: 1; width: 220px;}
+.album_item .edit {display:block;width: 207px;height: 40px;position: absolute;top: 1px;left: 1px;background-color: rgba(0, 0, 0, 0.5);
+filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7F000000,endcolorstr=#7F000000);}
+
+.album_item li {height: 54px;width: 54px;margin: 1px 0 0 1px;float: left;display: inline; overflow: hidden;}
+.album_item .big {height: 220px;width: 220px;margin: 0;}
+.album_item .left {margin:1px 0px 0px 0px}
+.album_item .small img{}
+.album_item li.small a img{opacity:0.6;filter:alpha(opacity=60); }
+.album_item li a:hover{ background-color:transparent}
+.album_item li a:hover img{ opacity:1;filter:alpha(opacity=100);}
+
+.album_item .edit {width: 207px;height: 40px;position: absolute;top: 1px;left: 1px;background-color: rgba(0, 0, 0, 0.5);
+filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7F000000,endcolorstr=#7F000000); display: none;}
+.album_item .edit .add {background:url(user_icon.png) 0 -400px no-repeat;height:23px;width:80px;float:left;display:inline;margin: 8px 45px 0 9px;text-align:center;line-height:23px;color:#333333;}
+.album_item .edit a {color: white;line-height: 40px;margin: 0 3px;}
+
+.album_item h4 {padding: 6px 10px 0;margin: 0 0 4px 0;color:#666;font-size: 14px;line-height: 20px;height: 20px;overflow: hidden;}
+.album_item h4 a {color:#666;}
+.album_item .num {padding: 0 10px;color: #999;line-height: 18px;height: 18px;overflow: hidden;float: none;}
+.album_item .num a {color: #999;}
+.album_item .num a:hover {text-decoration:underline;color: #87B32E;}
+.album_item .add_album {width:80px;display:block;margin:107px auto 0;text-align:center;}
+
+
+/**用户浮动层**/
+.user_card {position:absolute;width:300px;z-index:1000;display:none;}
+.card_loading {margin:8px;background:url(loading.gif) no-repeat 8px 4px;padding-left:30px;}
+.card_info {background-color: #FFFFFF;border-color: #CCCCCC;border-image: none;border-radius: 5px 5px 0 0;border-style: solid solid none;border-width: 1px;min-height: 101px;}
+.card_info p {line-height: 180%;}
+.card_info p .uname{ font-size:14px}
+.card_info p a span {color: #87BD34; }
+.card_info p a:hover span{color:#fff; text-decoration: underline;}
+.card_info p img {margin: 0 2px 0 10px;vertical-align: -10%;}
+.card_info p a {color: #87BD34;}
+.card_info p a:hover{ color:#fff}
+.card_info a.uava:hover, .card_info a.uava:hover img{ background-color:transparent}
+.card_info .avatar {border-radius:3px;float: left;height: 60px;margin: 8px 13px 0 8px;width: 60px;}
+.card_info .info {padding-top: 8px;position: relative; color:#000}
+.card_info .intro {clear: both;line-height: 24px;overflow: hidden;padding: 0 10px;
+text-overflow: ellipsis;white-space: nowrap;width: 270px;word-break: normal;word-wrap: normal; color: #999999;}
+.card_toolbar {background-color: #F8F8F8;border-radius: 0 0 5px 5px;border: 1px #CCCCCC solid;
+border-top: none;color: #111111;height: 34px;line-height: 33px;overflow: hidden;padding-left: 10px;}
+.card_toolbar .follow { margin: 8px 10px 0 0;   background-color:#8bc039; border-radius:3px; padding:2px 8px; color:#fff;}
+.card_toolbar a.follow:hover{ background-color:#96d03e}
+.card_toolbar .sendmsg{  margin: 8px 10px 0 0;background-color:#dbdbdb; border-radius:3px; padding:2px 8px; color:#333;}
+.card_toolbar a.sendmsg:hover{ background-color:#e4e4e4}
+.card_arrow {background: url(card_arrow.png) no-repeat scroll 0 0 transparent;height: 9px;margin-left: 20px;margin-top: -1px;width: 11px;}
 
 /**发现宝贝**/
 .wall_tag {padding:15px 13px; float: left; background:#F7F7F7;margin: 0 18px 20px 0;overflow:hidden;width:200px;}

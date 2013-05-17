@@ -24,6 +24,7 @@
 <![endif]-->
 <script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
+<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
 </head>
 
 <body>
@@ -97,7 +98,7 @@ __EXTENDS_JS__
         </div>
 		<div class="appnav">
 			    <ul id="nav_bar">
-                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
 			    </ul>
 		   <form onsubmit="return searchForm(this);" method="GET" action="<?php echo U('search/index');?>">
                 <input type="hidden" value="all" name="type">
@@ -121,40 +122,580 @@ __EXTENDS_JS__
 	<div class="mc">
     	
         <div class="focus_bar">
-        	<div class="left">
+        	<div class="cleft">
             	<ul>
-                	<li><a href="#"><img src="http://static.guang.com/img/event/zhutiset08/zhuti-banner.jpg"></a></li>
+                	<li><a href="#"><img src="http://static.guang.com/img/event/zhutiset08/zhuti-banner.jpg" width="640" height="200"></a></li>
                 </ul>
             </div>
-            <div class="right">
-            	<a href="#">+创建新专辑</a>
+            <div class="cright">
+            	<a href="#" class="create">+创建新专辑</a>
+                <a href="#" class="post marl">+发布心得</a>
+                <div class="hotuser">
+                	<ul>
+                    	<li><img src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg" width="60" height="60"></li>
+                        <li><img src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg" width="60" height="60"></li>
+                        <li><img src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg" width="60" height="60"></li>
+                        <li><img src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg" width="60" height="60"></li>
+                    </ul>
+                </div>
             </div>
         </div>
         
         <div class="mod">
-       	 <h1>发现专辑 </h1>
+       	 <h1>居家</h1>
         <div class="album_wrap clearfix">
             <ul class="album_list clearfix">
-                <li class="album_tag fl">
-                    <h3>全部分类：</h3>
-                    <div class="atags clearfix">
-                    	<a href="<?php echo U('mall/album');?>" title="" class="on">全部</a>
-                        <a href="<?php echo U('mall/album',array('cid'=>1));?>" title="">甜美</a>
-                        <a href="<?php echo U('mall/album',array('cid'=>1));?>" title="">街拍</a>
-                        <a href="<?php echo U('mall/album',array('cid'=>1));?>" title="">欧美</a>
-                        <a href="<?php echo U('mall/album',array('cid'=>1));?>" title="">美女</a>
-                        <a href="<?php echo U('mall/album',array('cid'=>1));?>" title="">个性</a>
+
+
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
                     </div>
-                </li>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>
+
+
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>
+            
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>
+            
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>                        
+            
+	  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>
+
+
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>
+            
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>
+            
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>                        
+                        
+                            
             </ul>
         </div>         
         </div>
         
-    	
+<div class="mod">
+       	 <h1>美妆</h1>
+        <div class="album_wrap clearfix">
+            <ul class="album_list clearfix">
+
+
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>
+
+
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>
+            
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>
+            
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>                        
+            
+	  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>
+
+
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>
+            
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>
+            
+		  <li class="album_item">
+                    <div class="album_author">
+                        <a target="_blank" href="#">
+                        <img src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172" class="fl" data-uid="<?php echo ($album["uid"]); ?>" alt="<?php echo ($album["uname"]); ?>">
+                        </a>
+                        <div class="album_info">
+                            <p><a title="" href="" class="album_title" target="_blank">夏日阳光专辑</a></p>
+                            <p class="u_link"><a href="#"  target="_blank">每个菇凉都是高跟控。</a></p>
+                        </div>
+                    </div>
+                    <ul class="album_bd">
+                        
+                        <li class="big">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s6.img.guang.com/p/2345821_1_4378231_470X470.jpg" width="220" height="220"/></a>
+                        </li>
+                        <li class="left small">
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg"/></a>
+                        </li>
+                        <li class="small">    
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg"/></a>
+                        </li>
+                        <li class="small">  
+                            <a href="#" target="_blank"><img class="" data-uri="" src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg"/></a>
+                        </li>
+    
+                 </ul>
+            </li>                        
+                        
+                            
+            </ul>
+        </div>         
+        </div>    	
      
         
     </div>
 </div>
+
+<div class="user_card">
+	<div class="card_bd">
+            <div class="card_info">
+                <a href="#" target="_blank" class="fl uava">
+                	<img class="avatar" src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368784172">
+                </a>
+                <div class="info fl">
+                    <p><a href="#" class="uname" target="_blank">小麦</a></p>
+                    <p>北京 朝阳</p>
+                    <p>
+                        宝贝 <a target="_blank" href="#"><span>12</span></a>
+                        专辑 <a target="_blank" class="ml10" href="#"><span>60</span></a> 
+                        粉丝 <a target="_blank" class="ml10" href="#"><span>300</span></a>
+                     </p>
+                </div>
+                <div class="intro">
+                   <p>这个家伙太懒，什么都木留下~</p>
+                   <!--<p>简约字母棒球衣 不同于以往的短袖 长款 带点小透哦 真的很休闲哦！而且超百搭！</p>-->
+                </div>
+            </div>
+            <div class="card_toolbar">
+                    <a href="javascript:;" class="follow">+关注</a> <a target="_blank" class="sendmsg" href="#">发私信</a>
+            </div>
+     </div>
+     <div class="card_arrow"></div>
+</div>
+
+
+  
 <!--footer-->
 <footer>
 <div id="footer">
