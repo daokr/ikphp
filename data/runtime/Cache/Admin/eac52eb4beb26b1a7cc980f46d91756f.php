@@ -96,6 +96,7 @@ function refresh() {
 <li><a style="outline:none;" hidefocus="true" data-id="group" href="javascript:;">小组管理</a></li>
 <li><a style="outline:none;" hidefocus="true" data-id="article" href="javascript:;">文章管理</a></li>
 <li><a style="outline:none;" hidefocus="true" data-id="location" href="javascript:;">同城活动</a></li>
+<li><a style="outline:none;" hidefocus="true" data-id="mall" href="javascript:;">淘客管理</a></li>
 <li><a style="outline:none;" hidefocus="true" data-id="oauth" href="javascript:;">第三方应用</a></li>
     </ul>                   
 </div>

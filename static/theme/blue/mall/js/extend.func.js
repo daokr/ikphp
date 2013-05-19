@@ -1,3 +1,7 @@
+function tips(c){ $.dialog({content: '<font style="font-size:14px;">'+c+'</font>',fixed: true, width:300, time:1500});}
+function succ(c){ $.dialog({icon: 'succeed',content: '<font  style="font-size:14px;">'+c+'</font>' , time:2000});}
+function error(c){$.dialog({icon: 'error',content: '<font  style="font-size:14px;">'+c+'</font>' , time:2000});}
+
 $(function(){
 	$('.a_share').bind('click',function(){
 	var templ_link ='<form class="frm-addlink">'+
@@ -27,3 +31,19 @@ $(function(){
 		return false;;
 	})
 })
+
+//新建小组
+function createCheck(that)
+{
+	var name = $(that).find('input[name=title]').val();
+	var desc = $(that).find('textarea[name=content]').val();
+	var arrimport = $(that).find('select[name=cateid]').val();
+	
+	
+	if(name == ''){tips('专辑名称必须填写'); return false;}
+	if(desc == ''){tips('专辑描述必须填写'); return false;}
+	if(arrimport == 0){ tips('请选择一个分类吧！'); return false;}
+	
+	$(that).find('input[type=submit]').val('正在提交^_^').attr('disabled',true);
+
+}

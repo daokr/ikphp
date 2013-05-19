@@ -67,20 +67,41 @@ a:active {
 
 .focus_bar{ overflow:hidden; margin-bottom:30px}
 .focus_bar .left{float:left;}
-.focus_bar .right{ width:215px; float:right}
+.focus_bar .right{ width:300px; float:right}
 .focus_bar .create{ background-color:#8fc63b;  color:#fff; font-size:16px; padding:5px 0px; width:140px; display:inline-block; text-align:center}
 .focus_bar .create:hover{ background-color:#9edc40; }
 
 .focus_bar .post{ background-color:#c4663c;  color:#fff; font-size:16px; padding:5px 0px; width:140px; display:inline-block; text-align:center}
-.marl{ margin-left:20px}
+.marl{ float:right}
 .focus_bar .post:hover{ background-color:#dd7648; }
 
-.hotuser{ overflow:hidden; margin-top:10px}
-.hotuser li{ margin:0px; float:left; display:inline-block; margin:1px}
-
+.hottag{ overflow:hidden; margin-top:10px}
+.hottag h2{ color:#8FC63B;}
+.hottag .link-more{ font-size:12px; padding-left:10px; float:right}
+.hottag .link-more a{ color:#CCC}
+.hottag .bd ul{ border-bottom: 1px solid #EAEAEA;  margin-bottom: 6px; padding-bottom: 6px; display:block}
+.hottag .bd ul li{    display: inline;float: left;margin: 0;padding: 0; width: 60px; color:#c4663c; line-height:24px}
+.hottag .bd ul li a{ padding-left:2px; color:#3377aa}
 .mod{margin-bottom: 30px;}
 
 
+/**我的淘客**/
+#db-usr-profile{ display:block; height:auto; position:relative; background-color:#fffff1; padding:10px 10px; margin-bottom:10px;}
+#db-usr-profile .db-bar{ display:block; margin-bottom:10px; overflow:hidden}
+#db-usr-profile .info p{ font-size:12px; line-height:25px}
+#db-usr-profile .info p a{ margin:0px 10px 0px 0px}
+.nav-list{ display:block; clear:both; height:40px; line-height:40px; background-color:#f7f7f7}
+.nav-list li{ float:left; display:inline-block; margin:0px 10px 0px 0px;}
+.nav-list li a{ font-size:13px; display:block; padding:0px 20px; text-align:center}
+.nav-list li.on a{ color:#fff; background-color:#8fc63b}
+
+#db-usr-profile .follow{ background-color:#c4663c; padding:2px 10px; color:#fff}
+#db-usr-profile .sedmsg{ background-color:#ddddda; padding:2px 10px; color:#fff}
+#db-usr-profile .setting-btn{ position:absolute; right:30px; top:10px; color:#fff; font-size:14px; background-color:#8fc63b; font-size:12px; border-radius:3px; padding:2px 5px}
+
+.mine-content{ padding:10px 0px; overflow:hidden}
+
+.mine-content li{ float:left; display:inline-block; margin:10px}
 /*弹窗*/
 .rectitle {
     background: none repeat scroll 0 0 #f3f3f3;
@@ -185,4 +206,21 @@ border-top: none;color: #111111;height: 34px;line-height: 33px;overflow: hidden;
 .wall_item .rep_list .avt {height:20px;width:20px;margin-right:3px;}
 .wall_item .rep_list .rep_content {color:#AAAAAA;line-height:20px;max-height:40px;overflow:hidden;width:175px;}
 .wall_item .del_item { background: url(del_icon.png) no-repeat scroll 0 0 transparent; display: none; position: absolute; height: 19px; width: 19px; left: 15px; top: 15px; z-index: 9999;}
+
+
+/**site-tags**/
+.site-tags{
+  width:400px; 
+}
+.site-tags dd{
+	background-color: white;
+    color: #666666;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    margin: 3px 3px 3px 0;
+    padding: 2px 12px;
+}
+.site-tags dd:hover{ background-color:#f2f2f2; border-radius:2px;}
+.site-tags dd.selected, .site-tags dd.selected:hover{ background-color: #F5F5F5;color: #999999;}
 

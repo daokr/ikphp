@@ -24,6 +24,7 @@
 <![endif]-->
 <script src="__STATIC__/public/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
+<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
 <link rel="stylesheet" type="text/css" href="__STATIC__/theme/<?php echo C('ik_site_theme');?>/user/images/validate.css" />
 </head>
 

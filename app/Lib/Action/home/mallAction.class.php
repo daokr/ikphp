@@ -20,10 +20,14 @@ class mallAction extends frontendAction {
 	
 		$this->_config_seo (array('title'=>'我要分享','subtitle'=>'淘客'));
 		$this->display();
-	}	
+	}
 	public function index() {
 		
-		$this->_config_seo (array('title'=>'淘商品','subtitle'=>'淘客'));
+		$this->display('mine');
+	}		
+	public function mine() {
+		
+		$this->_config_seo (array('title'=>'小猫女的淘客','subtitle'=>'淘客'));
 		$this->display();
 	}
 	
@@ -45,6 +49,12 @@ class mallAction extends frontendAction {
 	
 		$this->_config_seo (array('title'=>'发现专辑','subtitle'=>'淘客'));
 		$this->display('explore_album');
+	}
+	//创建专辑
+	public function create_album(){
+		
+		$this->_config_seo (array('title'=>'创建新专辑','subtitle'=>'淘客'));
+		$this->display();
 	}	
 	
 }

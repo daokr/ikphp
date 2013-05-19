@@ -120,20 +120,42 @@ __EXTENDS_JS__
 </header>
 <div class="midder">
 	<div class="mc">
-    	<div class="cleft">
-
-
-        
-        </div><!--//left-->
-        <div class="cright">
-
-            <div class="mod">  
-            <a href="<?php echo U('site/create');?>" rel="nofollow" class="bn-big-action">
-              ＋创建小站     
-            </a>     
+    	
+    <div id="db-usr-profile" class="user-profile-nav">
+    	<a href="#" class="setting-btn">DIY装扮空间</a>
+        <div class="db-bar">
+            <div class="pic">
+                <a href="#">
+                  <img width="160" height="160" src="http://pic1.guangjiela.com/i/avatars/thumbs_200/201208/1346226561383250.jpg" alt="小麦狼">
+                </a>
             </div>
-            
-        </div><!--//right-->
+            <div class="info">
+              <h1>小猫女的个人主页</h1>
+              <p>北京 朝阳区</p>
+              <p>标签：摄影 美妆 搭配</p>
+              <p><a href="#"><font color="red">10</font></a>关注 &nbsp;|&nbsp; <a href="#">90</a>粉丝 &nbsp;|&nbsp; <a href="#">100</a>喜欢</p>
+              <p><a href="#" class="follow">+关注</a> <a href="#" class="sedmsg">@发短信</a></p>
+            </div>
+		</div>
+  </div>
+    <ul class="nav-list">
+    
+        <li><a href="/people/charm_888/">我的专辑</a></li>
+        
+        <li><a href="/people/charm_888/reviews">我的动态</a></li>
+        
+        <li class="on"><a href="/people/charm_888/reviews">摄影相册</a></li>
+    
+    </ul>
+    	
+   <div class="mine-content">
+   		<ul>
+        	<li><img src="http://pic1.guangjiela.com/i/avatars/thumbs_200/201208/1346226561383250.jpg" width="200" height="200"/></li>
+            <li><img src="http://img.taobaocdn.com/bao/uploaded/T1aCKxXwXcXXb1upjX.jpg" width="200" height="200"/></li>
+        </ul>
+   </div>
+		        
+        
     </div>
 </div>
 <!--footer-->

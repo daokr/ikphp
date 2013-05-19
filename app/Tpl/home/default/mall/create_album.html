@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<!--main-->
+<div class="midder">
+    <h1>申请创建专辑</h1>
+    <div class="mc">
+
+        <div class="cleft">
+        <form method="POST" action="{:U('mall/create_ablum')}"  enctype="multipart/form-data" onsubmit="return createCheck(this);">
+        <table width="100%" cellpadding="0" cellspacing="0" class="table_1">
+            <tr>
+                <th>专辑名称：</th>
+                <td><input type="text" value="" maxlength="63" size="31" name="title" tabindex="1" class="txt"    placeholder="请填写小组名称"></td>
+            </tr>
+            <tr>
+                <th>专辑描述：</th>
+                <td><textarea style="width:500px;height:200px;" name="content" tabindex="2" id="editor_mini" class="txt"   placeholder="请填写小组介绍"></textarea></td>
+            </tr>
+            <tr>
+                <th>专辑分类：</th>
+                <td>
+                    <select name="cateid" class="txt" id="cate_select" style="float:left;" tabindex="2" >
+                        <option  value="0">默认分类</option>
+                        {$arrCate}
+                    </select> 
+                </td>
+            </tr>                                              
+            <tr>
+                <th>专辑封面：</th>
+                <td><input type="file" name="picfile" class="txt" tabindex="4"><span class="tip">(仅支持jpg，gif，png格式图片)</span></td>
+            </tr>           
+
+            <tr>
+                <th>&nbsp;</th>
+                <td><input class="submit" type="submit" value="创建专辑" tabindex="6"/></td>
+            </tr>
+        </table>
+        </form>
+        </div>
+    
+        <div class="cright"></div>
+
+	</div>
+
+</div>                
+<include file="public:footer" />
+</body>
+</html>

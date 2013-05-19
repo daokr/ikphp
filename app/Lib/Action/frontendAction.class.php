@@ -98,7 +98,7 @@ class frontendAction extends baseAction {
 				case "mall" :
 					// 小组导航
 					if($this->visitor->info['userid']){
-						$arrNav['index'] = array('name'=>'我的淘客', 'url'=>U('mall/index'));
+						$arrNav['index'] = array('name'=>'我的淘客', 'url'=>U('mall/mine'));
 					}
 					$arrNav['explore'] = array('name'=>'发现宝贝', 'url'=>U('mall/explore_goods'));
 					$arrNav['album'] = array('name'=>'发现专辑', 'url'=>U('mall/explore_album'));

@@ -122,21 +122,122 @@ __EXTENDS_JS__
 	<div class="mc">
     	
         <div class="focus_bar">
-        	<div class="cleft">
+        	<div class="left">
             	<ul>
-                	<li><a href="#"><img src="http://static.guang.com/img/event/zhutiset08/zhuti-banner.jpg" width="640" height="200"></a></li>
+                	<li><a href="#"><img src="http://static.guang.com/img/event/zhutiset08/zhuti-banner.jpg" width="650" height="260"></a></li>
                 </ul>
             </div>
-            <div class="cright">
-            	<a href="#" class="create">+创建新专辑</a>
+            <div class="right">
+            	<a href="<?php echo U('mall/create_album');?>" class="create">+创建新专辑</a>
                 <a href="#" class="post marl">+发布心得</a>
-                <div class="hotuser">
-                	<ul>
-                    	<li><img src="http://s9.img.guang.com/p/1934924_1_7523393_80X80.jpg" width="60" height="60"></li>
-                        <li><img src="http://s4.img.guang.com/p/2067614_1_4307113_71X80.jpg" width="60" height="60"></li>
-                        <li><img src="http://s0.img.guang.com/p/2067750_1_3306059_59X80.jpg" width="60" height="60"></li>
-                        <li><img src="http://s2.img.guang.com/p/2034545_1_9987317_79X80.jpg" width="60" height="60"></li>
-                    </ul>
+                <div class="hottag">
+                    <h2 class="">
+                        热门标签
+                          <span class="link-more">
+                             <a href="#">所有热门标签»</a>
+                          </span>
+                    </h2>
+                	<div class="bd">
+                            <ul class="clearfix">
+                                <li>
+                                    [鞋包]
+                                </li>
+                                <li>
+                                    <a href="#">街头</a>
+                                </li>
+                                <li>
+                                    <a href="#">高端</a>
+                                </li>
+                                <li>
+                                    <a href="#">阳光</a>
+                                </li>
+                                <li>
+                                    <a href="#">休闲</a>
+                                </li> 
+                                <li>
+                                    <a href="#">街头</a>
+                                </li>
+                                <li>
+                                    <a href="#">高端</a>
+                                </li>
+                                <li>
+                                    <a href="#">阳光</a>
+                                </li>
+                                <li>
+                                    <a href="#">休闲</a>
+                                </li> 
+                                <li>
+                                    <a href="#">休闲</a>
+                                </li>                                                                                                
+                            </ul> 
+                            <ul class="clearfix">
+                                <li>
+                                    [衣服]
+                                </li>
+                                <li>
+                                    <a href="#">街头</a>
+                                </li>
+                                <li>
+                                    <a href="#">高端</a>
+                                </li>
+                                <li>
+                                    <a href="#">阳光</a>
+                                </li>
+                                <li>
+                                    <a href="#">休闲</a>
+                                </li> 
+                                <li>
+                                    <a href="#">街头</a>
+                                </li>
+                                <li>
+                                    <a href="#">高端</a>
+                                </li>
+                                <li>
+                                    <a href="#">阳光</a>
+                                </li>
+                                <li>
+                                    <a href="#">休闲</a>
+                                </li> 
+                                <li>
+                                    <a href="#">(更多)</a>
+                                </li>                                                                                                
+                            </ul>                        
+
+                            <ul class="clearfix">
+                                <li>
+                                    [鞋包]
+                                </li>
+                                <li>
+                                    <a href="#">街头</a>
+                                </li>
+                                <li>
+                                    <a href="#">高端</a>
+                                </li>
+                                <li>
+                                    <a href="#">阳光</a>
+                                </li>
+                                <li>
+                                    <a href="#">休闲</a>
+                                </li> 
+                                <li>
+                                    <a href="#">街头</a>
+                                </li>
+                                <li>
+                                    <a href="#">高端</a>
+                                </li>
+                                <li>
+                                    <a href="#">阳光</a>
+                                </li>
+                                <li>
+                                    <a href="#">休闲</a>
+                                </li> 
+                                <li>
+                                    <a href="#">(更多)</a>
+                                </li>                                                                                                
+                            </ul>                        
+                                                   
+                    </div>
+                    
                 </div>
             </div>
         </div>
