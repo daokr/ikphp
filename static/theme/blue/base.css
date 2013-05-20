@@ -17,7 +17,7 @@ address, caption, cite, code, dfn, em, i, th, var, optgroup {
     font-style: normal;
     font-weight: normal;
 }
-body{ color:#333; font:12px/1.5  Arial,Helvetica,sans-serif,Microsoft YaHei; direction:ltr; }
+body{ color:#333; font:12px/1.5  Arial,Helvetica,sans-serif,Microsoft YaHei; direction:ltr; background-color:#fff}
 /**节日
 body{
 -moz-transform: rotate(-10deg); 
@@ -193,17 +193,18 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 /*结构*/
  
 /*头部*/
-.top_nav {clear:both;width:100%;color:#D5D5D5; height:30px; line-height:30px;background-color:#545652;}
+.top_nav {clear:both;width:100%;color:#fff; height:42px; line-height:42px;
+/*background-color:#545652;*/ background:url(head_bg1.png) repeat-x 0px 0px; }
 .top_nav .top_bd{ width:100%; margin:0;}
 .top_nav .top_info{ float:right; margin-right:15px}
-.top_nav .top_items{ float:left; margin-left:15px}
+.top_nav .top_items{ float:left; margin-left:15px; font-size:13px}
 .top_nav .top_items li{ float:left; margin-right:10px}
 .top_nav a{ margin:0px 5px;}
 .top_nav a:active, .top_nav a:hover, .top_nav a:link, .top_nav a:visited {color:#D5D5D5}
 .top_nav a:active, .top_nav a:hover {color:#fff;background-color:transparent}
 
 /**导航样式**/
-#header {width:100%; margin:0px auto;margin-bottom:40px; background-color:#EDF4ED; overflow:hidden}
+#header {width:100%; margin:0px auto;margin-bottom:40px; background-color:#F8F8F8; overflow:hidden}
 #header .site_nav { width:980px; margin:0 auto; padding-top:18px; padding-bottom:10px}
 #header .site_nav .site_logo{ float:left; width:165px; height:40px; background:url(logo.png) no-repeat 0px 0px;}
 #header .site_nav .site_logo a{ display: block;height: 100%; line-height: 100em; overflow: hidden;width: 100%;}
