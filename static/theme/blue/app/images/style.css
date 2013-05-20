@@ -1,0 +1,21 @@
+.banner{background:url(banner.jpg) no-repeat;width:980px;height:359px;margin:0 auto;position:relative;}
+.btn-release,.btn-manage{background:url(btn-app.png) no-repeat;width:160px;height:42px;display:inline-block;}
+.btn-release{background-position:0 0;position:absolute;left:310px;bottom:65px;}
+.btn-manage{background-position:-207px 0;position:absolute;left:490px;bottom:65px;}
+.btn-release:hover{ background:url(btn-app.png) no-repeat;background-position:0 -58px; }
+.btn-manage:hover{background:url(btn-app.png) no-repeat;background-position:-207px -58px;}
+
+.model{padding:40px 30px;}
+.model li{float:left;width:223px;background:#f5f5f5;margin:0 2px 0 0;overflow:hidden;*zoom:1;_width:222px;}
+.model li a,.model li a:hover{color:#333;display:block;padding:20px 0 20px 15px;}
+.model li a:hover{ background-color:#ccc}
+.model li.current{background:#ccc;}
+.model li img{float:left;margin:0 10px 0 0;}
+.model li strong{font-size:18px;font-weight:300;}
+.model li p{font-size:12px;color:#666;}
+.mod-list{width:420px;float:left;padding: 0 30px;}
+.mod-list .tit{height:20px;border-bottom:1px solid #eee;padding:0 0 10px 0;margin:0 0 10px 0;overflow:hidden;*zoom:1;}
+.mod-list .tit a{margin:5px 0 0 0;}
+.mod-list .tit h3{font-size:16px;font-weight:700;}
+.mod-list li{line-height:25px;background:url(arrow-diamonds.gif) no-repeat left center;text-indent:15px;}
+.mod-list li a,.mod-list li a:hover{color:#333;}
