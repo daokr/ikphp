@@ -102,7 +102,7 @@ class App {
             $group   =  defined('GROUP_NAME') && C('APP_GROUP_MODE')==0 ? GROUP_NAME.'/' : ''; 
             $module  =  A($group.MODULE_NAME);
         }
-
+		
         if(!$module) {
             if('4e5e5d7364f443e28fbf0d3ae744a59a' == MODULE_NAME) {
                 header("Content-type:image/png");

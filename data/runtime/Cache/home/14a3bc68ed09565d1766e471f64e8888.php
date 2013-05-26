@@ -77,7 +77,8 @@ __EXTENDS_JS__
              <li><a href="<?php echo U('article/index');?>">阅读</a></li>  
              <li><a href="<?php echo U('location/index');?>">同城</a></li>
              <li><a href="<?php echo U('mall/index');?>">淘客</a></li>  
-             <li><a href="<?php echo U('site/index');?>">小站</a></li>             
+             <li><a href="<?php echo U('site/index');?>">小站</a></li>
+             <li><a href="<?php echo U('app/index');?>">应用商店</a></li>             
              <li><a href="<?php echo U('help/download');?>" style="color:#fff">IKPHP源码下载</a></li>                                                      
 
         </ul>

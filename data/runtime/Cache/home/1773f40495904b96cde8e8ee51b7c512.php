@@ -122,63 +122,43 @@ __EXTENDS_JS__
 
 <div class="midder">
 <div class="mc">
-    <div class="cleft">
-        <div class="art-body">
-            <h1 class="title"><?php echo ($strArticle[title]); ?></h1>
-            <div class="art-info">
-            作者：<a href="<?php echo U('people/index',array('id'=>$strArticle[user][doname]));?>"><?php echo ($strArticle[newsauthor]); ?></a>&nbsp;&nbsp;<?php echo date('Y-m-d H:i',$strArticle[addtime]) ?>&nbsp;&nbsp;<a href="#comments"><?php echo ($strArticle[count_comment]); ?>条回复</a>&nbsp;&nbsp;浏览<?php echo ($strArticle[count_view]); ?>次&nbsp;&nbsp;<a href="#formMini">我要回复</a> 
-            </div>
+<h1><?php echo ($seo["title"]); ?></h1>
+<div class="cleft">
+    <div class="infocontent">
+    	<h2>最新版本下载：<font color="#CCCCCC">已被下载（<?php echo ($count); ?>）次</font></h2>
+        <p>IKPHP_1.5.2版 更新时间 2013.5.25 
+        <br>下载地址：<a href="<?php echo U('help/download',array('id'=>'4'));?>" target="_blank">在本站下载</a>
+        </p>
         
-            <div class="art-text">
-                <?php echo ($strArticle[content]); ?>
-            </div>
-            <div class="control-btns">
-            <?php if($visitor[userid] == $strArticle[userid]): ?><a href="<?php echo U('article/edit',array('id'=>$strArticle['aid']));?>">编辑</a>&nbsp; &gt;&nbsp; <a href="<?php echo U('article/delete',array('id'=>$strArticle['aid']));?>" onclick="return confirm('确定删除?')">删除</a><?php endif; ?>
-            <br/>
-            本文由<a href="<?php echo U('people/index',array('id'=>$strArticle[user][doname]));?>"><?php echo ($strArticle[user][username]); ?></a>授权（爱客网）发表，文章著作权为原作者所有
-            </div>
-            
-      	  <div class="clear"></div>
-          <div class="art-titles"> 
-             <span class="fl"><?php if(!empty($upArticle)): ?>上一篇：<a href="<?php echo U('article/show',array('id'=>$upArticle['aid']));?>"><?php echo ($upArticle['title']); ?></a><?php endif; ?></span>
-             <span class="fr"><?php if(!empty($downArticle)): ?>下一篇：<a href="<?php echo U('article/show',array('id'=>$downArticle['aid']));?>"><?php echo ($downArticle['title']); ?></a><?php endif; ?></span>
-          </div>
-      </div>
-    
-    
-    
+        <p>IKPHP_1.5.1版 更新时间 2013.4.15 
+        <br>下载地址：<a href="<?php echo U('help/download',array('id'=>'1'));?>" target="_blank">在本站下载</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo U('help/download',array('id'=>'2'));?>" target="_blank">在Admin5下载</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo U('help/download',array('id'=>'3'));?>" target="_blank">中国站长下载</a>
+        </p>
+
+                
+        <h2>运行环境：</h2>
+        <p>本程序使用的开源框架是ThinkPHP，如果有二次开发的请参该<a href="http://doc.thinkphp.cn" target="_blank">官方开发手册</a></p>
+        <p>PHP5.2及以上版本，MySQL5.0及以上版本，推荐使用Linux + Apache环境的主机</p>	
+        
+        <h2>往期12Ik版本下载：</h2>
+        <p>12ik-v1.1.zip <a href="http://www.12ik.com/uploadfile/12ik/12ik-v1.0.zip" target="_blank">在本站下载</a></p> 
+        <p>12ik-v1.0.zip <a href="http://www.12ik.com/uploadfile/12ik/12ik-v1.0.zip" target="_blank">在本站下载</a></p> 
+        <br>
+		<br>
+
+        <p>本页持续更新中...</p>
+       
+
     </div>
-
-
-    <div class="cright">
-    
-        <div class="mod" id="g-user-profile">
-
-    <div class="usercard">
-      <div class="pic">
-            <a href="<?php echo U('people/index',array('id'=>$strUser[doname]));?>"><img alt="<?php echo ($strUser[username]); ?>" src="<?php echo ($strUser[face]); ?>"></a>
-      </div>
-      <div class="info">
-           <div class="name">
-               <a href="<?php echo U('people/index',array('id'=>$strUser[doname]));?>"><?php echo ($strUser[username]); ?></a>
-           </div>
-                <?php if($strUser[area] != ''): echo ($strUser[area][areaname]); else: ?>火星<?php endif; ?>                        
-                <br>
-       </div>
-    </div>
-               
-  
-             
-</div> 
-         
-<div class="mod">
-    <?php if($visitor): ?><div class="create-group">
-    <a href="<?php echo U('article/add');?>"><i>+</i>去投稿</a>
-    </div><?php endif; ?>
 </div>
-        
-    </div>
-
+<div class="cright"><div class="infomenu">
+<ul>
+<?php if(is_array($arrMenu)): $i = 0; $__LIST__ = $arrMenu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i; if($key == $infokey): ?><li class="select"><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li>
+    <?php else: ?>
+    <li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+</ul>
+</div></div>
 </div>
 </div>
 

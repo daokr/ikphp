@@ -14,7 +14,7 @@ return array(
 	'SHOW_PAGE_TRACE' => false,
 	
 	//'SESSION_PREFIX'=>'ik',
-	'COOKIE_PREFIX'=>'ik_',
+	//'COOKIE_PREFIX'=>'ik_',
 
 	'APP_DEBUG'=>true,
 	'DB_FIELD_CACHE'=>false,
