@@ -1,0 +1,752 @@
+[ 2013-05-23T13:27:55+08:00 ] 127.0.0.1 /ikphp/index.php?g=admin&m=index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001562s ]
+INFO: Run load_lang Behavior [ RunTime:0.003642s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005462s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002186s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002327s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.064662s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.064866s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001579s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001439s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001241s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001290s ]
+INFO: Run content_replace Behavior [ RunTime:0.002625s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008565s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001307s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001402s ]
+
+[ 2013-05-23T13:28:00+08:00 ] 127.0.0.1 /ikphp/index.php?g=admin&m=index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001313s ]
+INFO: Run load_lang Behavior [ RunTime:0.002919s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004449s ]
+SQL: SHOW COLUMNS FROM `ik_admin` [ RunTime:0.022372s ]
+SQL: SELECT * FROM `ik_admin` WHERE ( `email` = 'admin@admin.com' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.001305s ]
+SQL: UPDATE `ik_admin` SET `last_time`=1369286880,`last_ip`='127.0.0.1' WHERE ( `userid` = 1 ) [ RunTime:0.000463s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002415s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002523s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: title D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\93455158fc92285fa549de1f195e0dc9.php 第 7 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.064359s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.064475s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001391s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001277s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001213s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001272s ]
+INFO: Run content_replace Behavior [ RunTime:0.002818s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008336s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001311s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001413s ]
+
+[ 2013-05-23T13:28:02+08:00 ] 127.0.0.1 /ikphp/index.php?g=admin&m=index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000854s ]
+INFO: Run load_lang Behavior [ RunTime:0.002156s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003226s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001468s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001595s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: admin D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\eac52eb4beb26b1a7cc980f46d91756f.php 第 88 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.055154s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.055293s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001420s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001277s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001192s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001270s ]
+INFO: Run content_replace Behavior [ RunTime:0.002611s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008134s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001312s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001409s ]
+
+[ 2013-05-23T13:28:02+08:00 ] 127.0.0.1 /ikphp/index.php?g=admin&m=index&a=main
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000889s ]
+INFO: Run load_lang Behavior [ RunTime:0.002206s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003329s ]
+NOTIC: [8] Use of undefined constant gd_info - assumed 'gd_info' D:\APMServ5.2.6\www\htdocs\IKPHP\app\Lib\Action\admin\indexAction.class.php 第 52 行.
+NOTIC: [2] mysql_get_server_info() [<a href='function.mysql-get-server-info'>function.mysql-get-server-info</a>]: Access denied for user 'ODBC'@'localhost' (using password: NO) D:\APMServ5.2.6\www\htdocs\IKPHP\app\Lib\Action\admin\indexAction.class.php 第 63 行.
+NOTIC: [2] mysql_get_server_info() [<a href='function.mysql-get-server-info'>function.mysql-get-server-info</a>]: A link to the server could not be established D:\APMServ5.2.6\www\htdocs\IKPHP\app\Lib\Action\admin\indexAction.class.php 第 63 行.
+NOTIC: [8] Use of undefined constant HTTP_ACCEPT_LANGUAGE - assumed 'HTTP_ACCEPT_LANGUAGE' D:\APMServ5.2.6\www\htdocs\IKPHP\app\Lib\Action\admin\indexAction.class.php 第 64 行.
+NOTIC: [8] Use of undefined constant DOCUMENT_ROOT - assumed 'DOCUMENT_ROOT' D:\APMServ5.2.6\www\htdocs\IKPHP\app\Lib\Action\admin\indexAction.class.php 第 66 行.
+NOTIC: [8] Use of undefined constant HTTP_ACCEPT_ENCODING - assumed 'HTTP_ACCEPT_ENCODING' D:\APMServ5.2.6\www\htdocs\IKPHP\app\Lib\Action\admin\indexAction.class.php 第 70 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001459s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001563s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: title D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\4d2596d1501116a415c5b5a06782a433.php 第 7 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.040519s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040669s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000863s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000955s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000783s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000839s ]
+INFO: Run content_replace Behavior [ RunTime:0.002511s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006345s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000865s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000962s ]
+
+[ 2013-05-23T13:28:02+08:00 ] 127.0.0.1 /ikphp/index.php?g=admin&m=index&a=left
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000827s ]
+INFO: Run load_lang Behavior [ RunTime:0.002414s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003476s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001441s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001556s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.050258s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.050369s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000944s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001075s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000770s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000833s ]
+INFO: Run content_replace Behavior [ RunTime:0.002153s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006113s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000836s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000922s ]
+
+[ 2013-05-23T13:28:06+08:00 ] 127.0.0.1 /ikphp/index.php?g=admin&m=index&a=left&ik=location
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000380s ]
+INFO: Run load_lang Behavior [ RunTime:0.001520s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002097s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000394s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000497s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.018616s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018737s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000456s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000361s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000282s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000357s ]
+INFO: Run content_replace Behavior [ RunTime:0.001217s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003005s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000374s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000473s ]
+
+[ 2013-05-23T13:28:06+08:00 ] 127.0.0.1 /ikphp/index.php?g=admin&m=area&a=manage
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001357s ]
+INFO: Run load_lang Behavior [ RunTime:0.003392s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005027s ]
+SQL: SHOW COLUMNS FROM `ik_area` [ RunTime:0.008085s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `referid` = 0 )  [ RunTime:0.000805s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002360s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002467s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.046084s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046195s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001612s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001506s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001268s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001311s ]
+INFO: Run content_replace Behavior [ RunTime:0.002635s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008727s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001313s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001409s ]
+
+[ 2013-05-23T13:28:07+08:00 ] 127.0.0.1 /ikphp/index.php?g=admin&m=area&a=manage
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000491s ]
+INFO: Run load_lang Behavior [ RunTime:0.001738s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002512s ]
+SQL: SHOW COLUMNS FROM `ik_area` [ RunTime:0.004120s ]
+SQL: SELECT * FROM `ik_area` WHERE ( `referid` = 0 )  [ RunTime:0.001485s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001223s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001336s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 26 行.
+NOTIC: [8] Use of undefined constant areaname - assumed 'areaname' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 27 行.
+NOTIC: [8] Use of undefined constant zm - assumed 'zm' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 28 行.
+NOTIC: [8] Use of undefined constant pinyin - assumed 'pinyin' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 29 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 30 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 32 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 33 行.
+NOTIC: [8] Use of undefined constant areaid - assumed 'areaid' D:\APMServ5.2.6\www\htdocs\IKPHP\data\runtime\Cache\admin\41fdd72ecdf36747eac70a1cca62bc3a.php 第 34 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.032321s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032508s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000533s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000403s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000277s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000371s ]
+INFO: Run content_replace Behavior [ RunTime:0.001521s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003444s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000398s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000488s ]
+

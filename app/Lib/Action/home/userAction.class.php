@@ -292,8 +292,9 @@ class userAction extends userbaseAction {
 			// 同步登陆
 			$synlogin = $passport->synlogin ( $uid );
 			// 跳转到登陆前页面（执行同步操作）
-			$ret_url = $this->_post ( 'ret_url', 'trim' );
-			header ( "Location: " . $ret_url);
+			$ret_url = $this->_post ( 'ret_url', 'trim' ,'http://www.ikphp.com');
+			$this->redirect($ret_url);
+			//header ( "Location: " . $ret_url);
 		
 		} else {
 			// 来路
