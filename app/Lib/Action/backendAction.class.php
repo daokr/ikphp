@@ -31,6 +31,8 @@ class backendAction extends baseAction
     public function check_login() {
     	if ( (!isset($_SESSION['admin']) || !$_SESSION['admin']) && !in_array(ACTION_NAME, array('login','verify_code')) ) {
     		$this->redirect('index/login');
+    	}else{
+    		$this->assign('admin',$_SESSION['admin']);
     	}
     }
     

@@ -12,7 +12,7 @@
 <body>
 <!--main-->
 <div class="midder">
-<h2><span><a href="#">+添加文章</a></span><?php echo ($title); ?></h2>  
+<h2><span><a href="<?php echo U('article/addarticle',array('nameid'=>$nameid));?>">+添加文章</a></span><?php echo ($title); ?></h2>  
 <div class="tabnav">
 <ul>
 <?php if(is_array($arrChannel)): foreach($arrChannel as $key=>$item): if($item[nameid] == $nameid): ?><li class="select"><a href="<?php echo U('article/index',array('ik'=>'list','nameid'=>$item[nameid],'isaudit'=>'0'));?>"><?php echo ($item[name]); ?></a></li>
