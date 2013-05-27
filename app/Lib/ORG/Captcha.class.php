@@ -35,12 +35,13 @@ class Captcha {
 	}
 
 	public function CreateImage() {
+
 		$ini = microtime(true);
 		$this->ImageAllocate();
-		$text = $this->GetCaptchaText();
+		$text = $this->GetCaptchaText(); 
 		$this->WriteText($text);
-		session_start();
-		$_SESSION[$this->session_var] = strtoupper($text);
+		session('authcode',strtoupper($text));
+		//$_SESSION[$this->session_var] = strtoupper($text);
 		if($this->height>30) {
 			$this->WaveImage();
 		}

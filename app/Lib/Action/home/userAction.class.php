@@ -318,6 +318,7 @@ class userAction extends userbaseAction {
 			if ($password != $repassword) {
 				$this->error ( L ( 'inconsistent_password' ) ); // 确认密码
 			}
+
 			if (session ( 'authcode' ) != strtoupper ( $captcha )) {
 				$this->error ( L ( 'captcha_failed' ) );
 			}
@@ -349,6 +350,7 @@ class userAction extends userbaseAction {
 					'id' => $this->visitor->info ['doname'] 
 			) );
 		} else {
+
 			$this->_config_seo ();
 			$this->display ();
 		}
