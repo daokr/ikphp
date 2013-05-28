@@ -78,6 +78,34 @@ class articleAction extends backendAction {
 		
 		$this->display('article_list');
 	}
+	//添加文章
+	public function addarticle(){
+		$nameid = $this->_get('nameid','trim');
+		$arrCatename = $this->cate_mod->getCateByNameid ( $nameid );
+		if(IS_POST){
+			$userid = $_SESSION['admin']['userid'];
+			if($userid>0){
+				
+				$item ['userid'] = $userid;
+				$item ['cateid'] = $this->_post ( 'cateid', 'intval' );
+				$item ['title'] = $this->_post ( 'title', 'trim' );
+				$item ['addtime'] = time ();
+					
+				$data ['content'] = $this->_post ( 'content' );
+				$data ['postip'] = get_client_ip ();
+				$data ['newsauthor'] = $this->_post('newsauthor','trim','');
+				
+				if (false !== $this->item_mod->create ( $item )) {
+		           
+		        }
+		       
+			}
+		}else{
+			$this->assign('arrCate',$arrCatename);
+			$this->title ( '添加文章' );
+			$this->display();		
+		}
+	}
 	//单个审核
 	public function article_isaudit($nameid){
 		$itemid = $this->_get('itemid','intval');

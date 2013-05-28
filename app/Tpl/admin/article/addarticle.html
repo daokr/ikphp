@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<!--main-->
+<div class="midder">
+<h2>{$title}</h2>
+<form method="POST" action="{:U('article/addarticle')}">
+<table cellpadding="0" cellspacing="0">
+	<tr>
+		<th>标题：</th>
+		<td><input name="title" value="" style="width:300px"/></td>
+	</tr> 
+	<tr>
+		<th>所属分类：</th>
+		<td>
+        <select name="cateid">
+        	<option value="0">选择分类</option>
+            <volist name="arrCate" id="vo">
+            	<option value="{$vo.cateid}">{$vo.catename}</option>
+            </volist>
+        </select>
+        </td>
+	</tr> 
+	<tr>
+		<th>内容：</th>
+		<td><textarea cols="47" rows="12" name="content"></textarea></td>
+	</tr> 
+	<tr>
+		<th>作者：</th>
+		<td><input name="newsauthor" value="" style="width:300px"/></td>
+	</tr>               
+</table>
+<div class="page_btn"><input type="submit" value="提 交" class="submit" /></div>
+
+</form>
+</div>
+</body>
+</html>
