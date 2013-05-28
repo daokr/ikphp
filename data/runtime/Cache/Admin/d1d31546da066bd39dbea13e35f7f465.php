@@ -22,7 +22,7 @@
         &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
         <script type="text/javascript">
             (function(){
-                var secs=5,si=setInterval(function(){
+                var secs=3,si=setInterval(function(){
                     if(--secs){
                         document.getElementById('f3s').innerHTML = secs;
                     }

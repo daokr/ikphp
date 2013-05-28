@@ -149,7 +149,7 @@ __EXTENDS_JS__
             </div>
             <div class="item1">
             <input type="hidden" name="cktime" value="2592000" />
-            <input type="hidden" name="ret_url" value="<?php echo ($ret_url); ?>" />
+            <input type="hidden" name="ret_url" value="" />
             <input type="submit" tabindex="4" class="submit" value="登录" style="margin-left:10px">
             
             </div>
