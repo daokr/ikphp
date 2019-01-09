@@ -5,5 +5,5 @@
 
 祝您使用愉快！
 
-官方网址：http://www.ikphp.com
+官方网址：http://www.daokr.com
 
